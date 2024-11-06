@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexText>
+	<Commands>
+		<Project FileName="Oouput.csv" ByteOrderMark="0">
+			<Version/>
+			<RootName Value="Root"/>
+			<Connections>
+				<Connection>
+					<SplitSingle>
+						<Version/>
+						<Upper Offset="1"/>
+						<Lower/>
+						<Name Value="Split%20once"/> 
+						<Connections>
+							<Connection>
+								<CSV QuoteCharacter='"'>
+									<Version/>
+									<RecordSeparator Value="%0D%0A"/>
+									<FieldSeparator Value=";"/>
+									<RecordName Value="Testata"/>
+									<Fields>
+										<Field Type="string">
+											<Name Value="Identificativo"/>
+											<Version/>
+										</Field>
+										<Field Type="string">
+											<Name Value="Data"/>
+											<Version/>
+										</Field>
+										<Field Type="string">
+											<Name Value="Ora"/>
+											<Version/>
+										</Field>
+										<Field Type="string">
+											<Name Value="Descrizione"/>
+											<Version/>
+										</Field>
+										<Field Type="string">
+											<Name Value="Numero%20Righe"/>
+											<Version/>
+										</Field>
+									</Fields>
+									<Connections>
+										<Connection/>
+									</Connections>
+									<XData>
+										<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50"/>
+										<OpenState Property="1" Preview="1" Connector="1"/>
+										<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+									</XData>
+								</CSV>
+							</Connection>
+							<Connection>
+								<SplitSingle Mode="DynLS" Behavior="LineStartsWith">
+									<Version/>
+									<Separator Value="IVA;FINE"/>
+									<RegexPattern Value=","/>
+									<SeparatorForWriting/>
+									<Name Value="Split%20once%20Inizio%20Iva"/>
+									<Connections>
+										<Connection>
+											<SplitSingle>
+												<Version/>
+												<Upper Offset="1"/>
+												<Lower/>
+												<Name Value="Split%20INIZIO%20e%20DETTAGLI"/>
+												<Connections>
+													<Connection>
+														<CSV QuoteCharacter='"'>
+															<Version/>
+															<RecordSeparator Value="%0D%0A"/>
+															<FieldSeparator Value=";"/>
+															<RecordName Value="IVA-INIZIO"/>
+															<Fields>
+																<Field Type="string">
+																	<Name Value="Identificativo"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Identificativo%20Sottosezione"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Anno"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Filiale"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Registro%20IVA"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Numero"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Causale"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Data%20registrazione"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Data%20documento"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Data%20riferimento"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Numero%20riferimento"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Codice%20anagrafico"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Pagamento"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Banca"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Valuta"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Cambio"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Descrizione"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Sospensione%20IVA"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Note"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Simulazione"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Confermata"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Aprrovata"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Storico"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Imponibile"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Imponibile%20in%20valuta"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="IVA"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="IVA%20in%20valuta"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Pagamento%20bloccato"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Partita%20IVA"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Codice%20fiscale"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Localita"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Riferimento%20esteso"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Pareggiata"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Data%20ricezione"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Partita"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Societa"/>
+																	<Version/>
+																</Field>
+															</Fields>
+															<Connections>
+																<Connection/>
+															</Connections>
+															<XData>
+																<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50" Item5="50" Item6="50" Item7="50" Item8="50" Item9="50" Item10="50" Item11="50" Item12="50" Item13="50" Item14="50" Item15="50" Item16="50" Item17="50" Item18="50" Item19="50" Item20="50" Item21="50" Item22="50" Item23="50" Item24="50" Item25="50" Item26="50" Item27="50" Item28="50" Item29="50" Item30="50" Item31="50" Item32="50" Item33="50" Item34="50" Item35="50"/>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+															</XData>
+														</CSV>
+													</Connection>
+													<Connection>
+														<SplitSingle>
+															<Version/>
+															<Upper Offset="1"/>
+															<Lower/>
+															<Name Value="Split%20DETTAGLI%20e%20IVA"/>
+															<Connections>
+																<Connection>
+																	<CSV QuoteCharacter='"'>
+																		<Version/>
+																		<RecordSeparator Value="%0D%0A"/>
+																		<FieldSeparator Value=";"/>
+																		<RecordName Value="IVA-CR"/>
+																		<Fields>
+																			<Field Type="string">
+																				<Name Value="Identificativo"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Identificativo%20Sottosezione"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Conto%20gruppo"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Conto%20conto"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Conto%20Sottoconto"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Filiale"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Assoggettamento"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Importo%20in%20valuta"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Importo"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Descrizione"/>
+																				<Version/>
+																			</Field>
+																			<Field Type="string">
+																				<Name Value="Giroconto%20accertamento"/>
+																				<Version/>
+																			</Field>
+																		</Fields>
+																		<Connections>
+																			<Connection/>
+																		</Connections>
+																		<XData>
+																			<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50" Item5="50" Item6="50" Item7="50" Item8="50" Item9="50" Item10="50"/>
+																			<OpenState Property="1" Preview="1" Connector="1"/>
+																			<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																		</XData>
+																	</CSV>
+																</Connection>
+																<Connection>
+																	<SplitSingle Mode="DynF">
+																		<Version/>
+																		<Separator Value="%0D%0A"/>
+																		<RegexPattern Value=","/>
+																		<SeparatorForWriting/>
+																		<Name Value="CRCDC-CRCOMP-IVA"/>
+																		<Connections>
+																			<Connection>
+																				<CSV QuoteCharacter='"'>
+																					<Version/>
+																					<RecordSeparator Value="%0D%0A"/>
+																					<FieldSeparator Value=";"/>
+																					<RecordName Value="IVA-CRCDC"/>
+																					<Fields>
+																						<Field Type="string">
+																							<Name Value="Identificativo"/>
+																							<Version/>
+																						</Field>
+																						<Field Type="string">
+																							<Name Value="Identificativo%20Sottosezione"/>
+																							<Version/>
+																						</Field>
+																						<Field Type="string">
+																							<Name Value="CdC"/>
+																							<Version/>
+																						</Field>
+																						<Field Type="string">
+																							<Name Value="Importo%20in%20valuta"/>
+																							<Version/>
+																						</Field>
+																						<Field Type="string">
+																							<Name Value="Voce%20controllo%20gestione"/>
+																							<Version/>
+																						</Field>
+																					</Fields>
+																					<Connections>
+																						<Connection/>
+																					</Connections>
+																					<XData>
+																						<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50"/>
+																						<OpenState Property="1" Preview="1" Connector="1"/>
+																						<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																					</XData>
+																				</CSV>
+																			</Connection>
+																			<Connection>
+																				<SplitSingle Mode="DynLS" Behavior="LineStartsWith">
+																					<Version/>
+																					<Separator Value="IVA;IVA"/>
+																					<RegexPattern Value=","/>
+																					<SeparatorForWriting/>
+																					<Name Value="Split%20once"/>
+																					<Connections>
+																						<Connection>
+																							<CSV QuoteCharacter='"'>
+																								<Version/>
+																								<RecordSeparator Value="%0D%0A"/>
+																								<FieldSeparator Value=";"/>
+																								<RecordName Value="IVA-CRCOMP"/>
+																								<Fields>
+																									<Field Type="string">
+																										<Name Value="Identificativo"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Identificativo%20Sottosezione"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Tipo"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Data%20Inizio"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Data%20Fine"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Mese"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Importo%20in%20valuta"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20gruppo"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20conto"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20Sottoconto"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Originale%20data%20Inizio"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Originale%20data%20Fine"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Originale%20importo%20in%20valuta"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Originale%20importo"/>
+																										<Version/>
+																									</Field>
+																								</Fields>
+																								<Connections>
+																									<Connection/>
+																								</Connections>
+																								<XData>
+																									<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50" Item5="50" Item6="50" Item7="50" Item8="50" Item9="50" Item10="50" Item11="50" Item12="50" Item13="50"/>
+																									<OpenState Property="1" Preview="1" Connector="1"/>
+																									<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																								</XData>
+																							</CSV>
+																						</Connection>
+																						<Connection>
+																							<CSV QuoteCharacter='"'>
+																								<Version/>
+																								<RecordSeparator Value="%0D%0A"/>
+																								<FieldSeparator Value=";"/>
+																								<RecordName Value="IVA-IVA"/>
+																								<Fields>
+																									<Field Type="string">
+																										<Name Value="Identificativo"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Identificativo%20Sottosezione"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20gruppo"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20conto"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Conto%20Sottoconto"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Filiale"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Assoggettamento"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Imponibile%20in%20valuta"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Imponibile"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Iva%20in%20Valuta"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Iva"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Descrizione"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string">
+																										<Name Value="Giroconto%20accertamento"/>
+																										<Version/>
+																									</Field>
+																								</Fields>
+																								<Connections>
+																									<Connection/>
+																								</Connections>
+																								<XData>
+																									<FieldWidths Item="50" Item1="50" Item2="50" Item3="50" Item4="50" Item5="50" Item6="50" Item7="50" Item8="50" Item9="50" Item10="50" Item11="50" Item12="50"/>
+																									<OpenState Property="1" Preview="1" Connector="1"/>
+																									<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																								</XData>
+																							</CSV>
+																						</Connection>
+																					</Connections>
+																					<XData>
+																						<OpenState Property="1" Preview="1" Connector="1"/>
+																						<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																					</XData>
+																				</SplitSingle>
+																			</Connection>
+																		</Connections>
+																		<XData>
+																			<OpenState Property="1" Preview="1" Connector="1"/>
+																			<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+																		</XData>
+																	</SplitSingle>
+																</Connection>
+															</Connections>
+															<XData>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+															</XData>
+														</SplitSingle>
+													</Connection>
+												</Connections>
+												<XData>
+													<OpenState Property="1" Preview="1" Connector="1"/>
+													<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+												</XData>
+											</SplitSingle>
+										</Connection>
+										<Connection>
+											<SplitSingle>
+												<Version/>
+												<Upper Offset="1"/>
+												<Lower/>
+												<Name Value="Split%20once%20FINE"/>
+												<Connections>
+													<Connection>
+														<CSV QuoteCharacter='"'>
+															<Version/>
+															<RecordSeparator Value="%0D%0A"/>
+															<FieldSeparator Value=";"/>
+															<RecordName Value="IVA-FINE"/>
+															<Fields>
+																<Field Type="string">
+																	<Name Value="Identificativo"/>
+																	<Version/>
+																</Field>
+																<Field Type="string">
+																	<Name Value="Identificativo%20Sottosezione"/>
+																	<Version/>
+																</Field>
+															</Fields>
+															<Connections>
+																<Connection/>
+															</Connections>
+															<XData>
+																<FieldWidths Item="50" Item1="50"/>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+															</XData>
+														</CSV>
+													</Connection>
+													<Connection>
+														<CSV QuoteCharacter='"'>
+															<Version/>
+															<RecordSeparator Value="%0D%0A"/>
+															<FieldSeparator Value="%09"/>
+															<RecordName Value="CODA"/>
+															<Fields>
+																<Field Type="string">
+																	<Name Value="Identificativo"/>
+																	<Version/>
+																</Field>
+															</Fields>
+															<Connections>
+																<Connection/>
+															</Connections>
+															<XData>
+																<FieldWidths Item="50"/>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+															</XData>
+														</CSV>
+													</Connection>
+												</Connections>
+												<XData>
+													<OpenState Property="1" Preview="1" Connector="1"/>
+													<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+												</XData>
+											</SplitSingle>
+										</Connection>
+									</Connections>
+									<XData>
+										<OpenState Property="1" Preview="1" Connector="1"/>
+										<Dimension FullWidth="600" FullHeight="227" TextHeight="200"/>
+									</XData>
+								</SplitSingle>
+							</Connection>
+						</Connections>
+						<XData>
+							<OpenState Property="1" Preview="1" Connector="1"/>
+							<Dimension FullWidth="600" FullHeight="400" TextHeight="200"/>
+						</XData>
+					</SplitSingle>
+				</Connection>
+			</Connections>
+			<XData>
+				<OpenState Property="1" Preview="1" Connector="1"/>
+				<Dimension/>
+			</XData>
+		</Project>
+		<Functions/>
+	</Commands>
+</FlexText>

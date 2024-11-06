@@ -1,0 +1,1569 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Cioccolati Italiani/Mappings/CCI_OpenInterface_ORDERS_to_RC_Documenti.mapping" server="itaas42" port="8082" user="NT/pamela.lamazza@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="OI_CCI">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="OI_CCI" vendor="microsoftsqlserver" import_kind="ADO" name="OI_CCI" path="OI_CCI">
+					<LocalViewStorage>
+						<LocalViewElement SQL="SELECT * FROM dbo.LYWFOCRC0F 
+WHERE APLM0F=:CodSource and  NTRA0F = :Transazione">
+							<PathElement Name="OI_CCI" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Dettagli" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="CodSource" type="varchar" size="12" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Transazione" type="numeric" size="16" prec="13">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="SELECT * FROM dbo.TMS_TRIGGER_TABLE with(nolock)
+WHERE TipoTransazione=:TipoTransazione AND CodiceSorgente=:CodSource and StatoAvanzamento=:StatoAvanzamento">
+							<PathElement Name="OI_CCI" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Testate" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="TipoTransazione" type="nvarchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+								<Parameter name="CodSource" type="nvarchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+								<Parameter name="StatoAvanzamento" type="nvarchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="34" lty="709" rbx="100" rby="726"/>
+					<data>
+						<constant value=".XML" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="49"/>
+					</targets>
+					<view ltx="34" lty="310" rbx="97" rby="327"/>
+					<data>
+						<constant value="1.00" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="34" lty="326" rbx="106" rby="343"/>
+					<data>
+						<constant value="13971" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="90" kind="2">
+					<targets>
+						<datapoint pos="0" key="265"/>
+					</targets>
+					<view ltx="34" lty="358" rbx="100" rby="375"/>
+					<data>
+						<constant value="1000" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="75"/>
+					</targets>
+					<view ltx="34" lty="406" rbx="88" rby="423"/>
+					<data>
+						<constant value="20" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="26" kind="2">
+					<targets>
+						<datapoint pos="0" key="76"/>
+					</targets>
+					<view ltx="34" lty="422" rbx="82" rby="439"/>
+					<data>
+						<constant value="4" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="27" kind="2">
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="34" lty="438" rbx="95" rby="455"/>
+					<data>
+						<constant value="STD" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="28" kind="2">
+					<targets>
+						<datapoint pos="0" key="51"/>
+					</targets>
+					<view ltx="34" lty="454" rbx="83" rby="471"/>
+					<data>
+						<constant value="C" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="128"/>
+					</targets>
+					<view ltx="34" lty="486" rbx="84" rby="503"/>
+					<data>
+						<constant value="N" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="37" kind="2">
+					<targets>
+						<datapoint pos="0" key="71"/>
+					</targets>
+					<view ltx="34" lty="502" rbx="82" rby="519"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="38" kind="2">
+					<targets>
+						<datapoint pos="0" key="73"/>
+					</targets>
+					<view ltx="34" lty="518" rbx="82" rby="535"/>
+					<data>
+						<constant value="2" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="48" kind="2">
+					<targets>
+						<datapoint pos="0" key="102"/>
+					</targets>
+					<view ltx="34" lty="534" rbx="180" rby="551"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="53" kind="2">
+					<targets>
+						<datapoint pos="0" key="133"/>
+					</targets>
+					<view ltx="34" lty="550" rbx="118" rby="567"/>
+					<data>
+						<constant value="00:00:00" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="54" kind="2">
+					<targets>
+						<datapoint pos="0" key="134"/>
+					</targets>
+					<view ltx="34" lty="566" rbx="118" rby="583"/>
+					<data>
+						<constant value="23:59:59" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="63" kind="2">
+					<targets>
+						<datapoint pos="0" key="169"/>
+					</targets>
+					<view ltx="34" lty="582" rbx="83" rby="599"/>
+					<data>
+						<constant value="R" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="65" kind="2">
+					<targets>
+						<datapoint pos="0" key="164"/>
+					</targets>
+					<view ltx="34" lty="614" rbx="106" rby="631"/>
+					<data>
+						<constant value="00001" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="66" kind="2">
+					<targets>
+						<datapoint pos="0" key="163"/>
+					</targets>
+					<view ltx="34" lty="630" rbx="130" rby="647"/>
+					<data>
+						<constant value="GENERICO" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="79" kind="2">
+					<targets>
+						<datapoint pos="0" key="211"/>
+					</targets>
+					<view ltx="34" lty="662" rbx="76" rby="679"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="88" kind="2">
+					<targets>
+						<datapoint pos="0" key="264"/>
+					</targets>
+					<view ltx="34" lty="678" rbx="82" rby="695"/>
+					<data>
+						<constant value="P" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="6" kind="5">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="3"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="387" lty="385" rbx="498" rby="455"/>
+				</component>
+				<component name="divide" library="core" uid="89" kind="5">
+					<sources>
+						<datapoint pos="0" key="235"/>
+						<datapoint pos="1" key="236"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="237"/>
+					</targets>
+					<view ltx="1471" lty="226" rbx="1553" rby="280"/>
+				</component>
+				<component name="divide" library="core" uid="93" kind="5">
+					<sources>
+						<datapoint pos="0" key="251"/>
+						<datapoint pos="1" key="252"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="248"/>
+					</targets>
+					<view ltx="1471" lty="309" rbx="1553" rby="363"/>
+				</component>
+				<component name="right-trim" library="lang" uid="60" kind="5">
+					<sources>
+						<datapoint pos="0" key="124"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="117"/>
+					</targets>
+					<view ltx="1471" lty="462" rbx="1550" rby="500"/>
+				</component>
+				<component name="right-trim" library="lang" uid="59" kind="5">
+					<sources>
+						<datapoint pos="0" key="123"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="120"/>
+					</targets>
+					<view ltx="1471" lty="529" rbx="1550" rby="567"/>
+				</component>
+				<component name="right-trim" library="lang" uid="58" kind="5">
+					<sources>
+						<datapoint pos="0" key="126"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="118"/>
+					</targets>
+					<view ltx="1471" lty="599" rbx="1550" rby="637"/>
+				</component>
+				<component name="right-trim" library="lang" uid="55" kind="5">
+					<sources>
+						<datapoint pos="0" key="122"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="121"/>
+					</targets>
+					<view ltx="1471" lty="675" rbx="1550" rby="713"/>
+				</component>
+				<component name="right-trim" library="lang" uid="57" kind="5">
+					<sources>
+						<datapoint pos="0" key="127"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="116"/>
+					</targets>
+					<view ltx="1468" lty="803" rbx="1547" rby="841"/>
+				</component>
+				<component name="concat" library="core" uid="40" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="88"/>
+						<datapoint pos="1" key="81"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="85"/>
+					</targets>
+					<view ltx="1468" lty="869" rbx="1550" rby="925"/>
+				</component>
+				<component name="concat" library="core" uid="39" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="89"/>
+						<datapoint pos="1" key="77"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="83"/>
+					</targets>
+					<view ltx="1468" lty="944" rbx="1550" rby="1000"/>
+				</component>
+				<component name="concat" library="core" uid="42" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="78"/>
+						<datapoint pos="1" key="87"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="1468" lty="1020" rbx="1550" rby="1076"/>
+				</component>
+				<component name="equal" library="core" uid="87" kind="5">
+					<sources>
+						<datapoint pos="0" key="229"/>
+						<datapoint pos="1" key="231"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="230"/>
+					</targets>
+					<view ltx="1707" lty="240" rbx="1763" rby="294"/>
+				</component>
+				<component name="multiply" library="core" uid="86" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="232"/>
+						<datapoint pos="1" key="233"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="234"/>
+					</targets>
+					<view ltx="1707" lty="309" rbx="1789" rby="365"/>
+				</component>
+				<component name="multiply" library="core" uid="85" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="227"/>
+						<datapoint pos="1" key="226"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="228"/>
+					</targets>
+					<view ltx="1707" lty="389" rbx="1789" rby="445"/>
+				</component>
+				<component name="multiply" library="core" uid="94" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="245"/>
+						<datapoint pos="1" key="263"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="246"/>
+					</targets>
+					<view ltx="1707" lty="474" rbx="1789" rby="530"/>
+				</component>
+				<component name="multiply" library="core" uid="92" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="249"/>
+						<datapoint pos="1" key="241"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="259"/>
+					</targets>
+					<view ltx="1707" lty="551" rbx="1789" rby="607"/>
+				</component>
+				<component name="concat" library="core" uid="33" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="59"/>
+						<datapoint pos="1" key="53"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="66"/>
+					</targets>
+					<view ltx="1707" lty="638" rbx="1789" rby="694"/>
+				</component>
+				<component name="concat" library="core" uid="34" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="56"/>
+						<datapoint pos="1" key="58"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="64"/>
+					</targets>
+					<view ltx="1707" lty="724" rbx="1789" rby="780"/>
+				</component>
+				<component name="concat" library="core" uid="35" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="57"/>
+						<datapoint pos="1" key="54"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="60"/>
+					</targets>
+					<view ltx="1707" lty="803" rbx="1789" rby="859"/>
+				</component>
+				<component name="right" library="lang" uid="43" kind="5">
+					<sources>
+						<datapoint pos="0" key="84"/>
+						<datapoint pos="1" key="91"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="106"/>
+					</targets>
+					<view ltx="1707" lty="965" rbx="1796" rby="1019"/>
+				</component>
+				<component name="right" library="lang" uid="44" kind="5">
+					<sources>
+						<datapoint pos="0" key="80"/>
+						<datapoint pos="1" key="82"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="104"/>
+					</targets>
+					<view ltx="1707" lty="1039" rbx="1796" rby="1093"/>
+				</component>
+				<component name="right" library="lang" uid="41" kind="5">
+					<sources>
+						<datapoint pos="0" key="86"/>
+						<datapoint pos="1" key="90"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="103"/>
+					</targets>
+					<view ltx="1707" lty="890" rbx="1796" rby="944"/>
+				</component>
+				<component name="if-else" library="core" uid="97" kind="4">
+					<sources>
+						<datapoint pos="0" key="243"/>
+						<datapoint pos="1" key="247"/>
+						<datapoint pos="2" key="260"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="261"/>
+					</targets>
+					<view ltx="1912" lty="309" rbx="2016" rby="382"/>
+				</component>
+				<component name="first-items" library="core" uid="68" kind="5">
+					<sources>
+						<datapoint pos="0" key="186"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="187"/>
+					</targets>
+					<view ltx="1912" lty="414" rbx="2027" rby="468"/>
+				</component>
+				<component name="first-items" library="core" uid="69" kind="5">
+					<sources>
+						<datapoint pos="0" key="189"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="188"/>
+					</targets>
+					<view ltx="1912" lty="491" rbx="2027" rby="545"/>
+				</component>
+				<component name="first-items" library="core" uid="70" kind="5">
+					<sources>
+						<datapoint pos="0" key="191"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="190"/>
+					</targets>
+					<view ltx="1912" lty="571" rbx="2027" rby="625"/>
+				</component>
+				<component name="first-items" library="core" uid="71" kind="5">
+					<sources>
+						<datapoint pos="0" key="193"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="192"/>
+					</targets>
+					<view ltx="1912" lty="659" rbx="2027" rby="713"/>
+				</component>
+				<component name="first-items" library="core" uid="72" kind="5">
+					<sources>
+						<datapoint pos="0" key="195"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="194"/>
+					</targets>
+					<view ltx="1912" lty="742" rbx="2027" rby="796"/>
+				</component>
+				<component name="first-items" library="core" uid="73" kind="5">
+					<sources>
+						<datapoint pos="0" key="197"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="196"/>
+					</targets>
+					<view ltx="1912" lty="818" rbx="2027" rby="872"/>
+				</component>
+				<component name="right" library="lang" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="67"/>
+						<datapoint pos="1" key="61"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="63"/>
+					</targets>
+					<view ltx="1912" lty="893" rbx="2001" rby="947"/>
+				</component>
+				<component name="right" library="lang" uid="31" kind="5">
+					<sources>
+						<datapoint pos="0" key="65"/>
+						<datapoint pos="1" key="55"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="62"/>
+					</targets>
+					<view ltx="1912" lty="965" rbx="2001" rby="1019"/>
+				</component>
+				<component name="right" library="lang" uid="36" kind="5">
+					<sources>
+						<datapoint pos="0" key="68"/>
+						<datapoint pos="1" key="69"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="130"/>
+					</targets>
+					<view ltx="1912" lty="1039" rbx="2001" rby="1093"/>
+				</component>
+				<component name="right-trim" library="lang" uid="78" kind="5">
+					<sources>
+						<datapoint pos="0" key="205"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="206"/>
+					</targets>
+					<view ltx="2170" lty="288" rbx="2249" rby="326"/>
+				</component>
+				<component name="concat" library="core" uid="52" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="129"/>
+						<datapoint pos="1" key="107"/>
+						<datapoint pos="2" key="114"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="109"/>
+					</targets>
+					<view ltx="2170" lty="447" rbx="2262" rby="520"/>
+				</component>
+				<component name="item-at" library="core" uid="51" kind="5">
+					<sources>
+						<datapoint pos="0" key="110"/>
+						<datapoint pos="1" key="113"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="111"/>
+					</targets>
+					<view ltx="2439" lty="447" rbx="2549" rby="501"/>
+				</component>
+				<component name="parse-dateTime" library="core" uid="47" kind="5">
+					<sources>
+						<datapoint pos="0" key="99"/>
+						<datapoint pos="1" key="100"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="101"/>
+					</targets>
+					<view ltx="2722" lty="112" rbx="2827" rby="166"/>
+				</component>
+				<component name="parse-dateTime" library="core" uid="50" kind="5">
+					<sources>
+						<datapoint pos="0" key="112"/>
+						<datapoint pos="1" key="115"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="131"/>
+					</targets>
+					<view ltx="2722" lty="197" rbx="2827" rby="251"/>
+				</component>
+				<component name="equal" library="core" uid="80" kind="5">
+					<sources>
+						<datapoint pos="0" key="212"/>
+						<datapoint pos="1" key="213"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="214"/>
+					</targets>
+					<view ltx="2722" lty="272" rbx="2778" rby="326"/>
+				</component>
+				<component name="OI_Source" library="core" uid="9" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="34" lty="149" rbx="143" rby="187"/>
+					<data>
+						<input datatype="string" previewvalue="WMS_TO_CCI" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OI_Source"/>
+					</data>
+				</component>
+				<component name="OI_CodTipoTrans" library="core" uid="10" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="34" lty="112" rbx="178" rby="150"/>
+					<data>
+						<input datatype="string" previewvalue="O_TMS_ORDERS" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OI_CodTipoTrans"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="108" kind="2">
+					<targets>
+						<datapoint pos="0" key="290"/>
+					</targets>
+					<view ltx="34" lty="725" rbx="95" rby="742"/>
+					<data>
+						<constant value="FRE" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="45" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="98"/>
+						<datapoint pos="1" key="92"/>
+						<datapoint pos="2" key="94"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="95"/>
+					</targets>
+					<view ltx="2170" lty="355" rbx="2262" rby="428"/>
+				</component>
+				<component name="constant" library="core" uid="100" kind="2">
+					<targets>
+						<datapoint pos="0" key="268"/>
+					</targets>
+					<view ltx="34" lty="598" rbx="79" rby="615"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="119" kind="2">
+					<targets>
+						<datapoint pos="0" key="316"/>
+					</targets>
+					<view ltx="34" lty="757" rbx="127" rby="774"/>
+					<data>
+						<constant value="0.######" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="84" kind="4">
+					<sources>
+						<datapoint pos="0" key="217"/>
+						<datapoint pos="1" key="225"/>
+						<datapoint pos="2" key="216"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="218"/>
+					</targets>
+					<view ltx="1912" lty="196" rbx="2016" rby="269"/>
+				</component>
+				<component name="sum" library="core" uid="83" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="219"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="220"/>
+					</targets>
+					<view ltx="2170" lty="112" rbx="2295" rby="166"/>
+				</component>
+				<component name="constant" library="core" uid="120" kind="2">
+					<targets>
+						<datapoint pos="0" key="317"/>
+					</targets>
+					<view ltx="34" lty="773" rbx="89" rby="790"/>
+					<data>
+						<constant value="0.78" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="77" kind="4">
+					<sources>
+						<datapoint pos="0" key="207"/>
+						<datapoint pos="1" key="208"/>
+						<datapoint pos="2" key="209"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="210"/>
+					</targets>
+					<view ltx="2901" lty="112" rbx="3005" rby="185"/>
+				</component>
+				<component name="divide" library="core" uid="122" kind="5">
+					<sources>
+						<datapoint pos="0" key="318"/>
+						<datapoint pos="1" key="319"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="320"/>
+					</targets>
+					<view ltx="2722" lty="415" rbx="2804" rby="469"/>
+				</component>
+				<component name="constant" library="core" uid="121" kind="2">
+					<targets>
+						<datapoint pos="0" key="321"/>
+					</targets>
+					<view ltx="34" lty="789" rbx="97" rby="806"/>
+					<data>
+						<constant value="0.61" datatype="string"/>
+					</data>
+				</component>
+				<component name="sum" library="core" uid="96" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="262"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="255"/>
+					</targets>
+					<view ltx="2170" lty="197" rbx="2295" rby="251"/>
+				</component>
+				<component name="constant" library="core" uid="125" kind="2">
+					<targets>
+						<datapoint pos="0" key="335"/>
+					</targets>
+					<view ltx="34" lty="805" rbx="94" rby="822"/>
+					<data>
+						<constant value="CDI" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="126" kind="2">
+					<targets>
+						<datapoint pos="0" key="336"/>
+					</targets>
+					<view ltx="34" lty="821" rbx="96" rby="838"/>
+					<data>
+						<constant value="SUP" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="127" kind="2">
+					<targets>
+						<datapoint pos="0" key="338"/>
+					</targets>
+					<view ltx="34" lty="837" rbx="102" rby="854"/>
+					<data>
+						<constant value="ROLL" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="109" kind="2">
+					<targets>
+						<datapoint pos="0" key="289"/>
+					</targets>
+					<view ltx="34" lty="741" rbx="97" rby="758"/>
+					<data>
+						<constant value="SUR" datatype="string"/>
+					</data>
+				</component>
+				<component name="right-trim" library="lang" uid="56" kind="5">
+					<sources>
+						<datapoint pos="0" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="119"/>
+					</targets>
+					<view ltx="1471" lty="742" rbx="1550" rby="780"/>
+				</component>
+				<component name="item-at" library="core" uid="133" kind="5">
+					<sources>
+						<datapoint pos="0" key="348"/>
+						<datapoint pos="1" key="349"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="350"/>
+					</targets>
+					<view ltx="2170" lty="631" rbx="2280" rby="685"/>
+				</component>
+				<component name="right-trim" library="lang" uid="132" kind="5">
+					<sources>
+						<datapoint pos="0" key="347"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="346"/>
+					</targets>
+					<view ltx="2439" lty="690" rbx="2518" rby="728"/>
+				</component>
+				<component name="item-at" library="core" uid="67" kind="5">
+					<sources>
+						<datapoint pos="0" key="180"/>
+						<datapoint pos="1" key="181"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="182"/>
+					</targets>
+					<view ltx="2439" lty="530" rbx="2549" rby="584"/>
+				</component>
+				<component name="if-else" library="core" uid="129" kind="4">
+					<sources>
+						<datapoint pos="0" key="326"/>
+						<datapoint pos="1" key="327"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="325"/>
+					</targets>
+					<view ltx="3071" lty="211" rbx="3175" rby="284"/>
+				</component>
+				<component name="if-else" library="core" uid="110" kind="4">
+					<sources>
+						<datapoint pos="0" key="280"/>
+						<datapoint pos="1" key="281"/>
+						<datapoint pos="2" key="282"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="283"/>
+					</targets>
+					<view ltx="2439" lty="600" rbx="2543" rby="673"/>
+				</component>
+				<component name="item-at" library="core" uid="112" kind="5">
+					<sources>
+						<datapoint pos="0" key="292"/>
+						<datapoint pos="1" key="293"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="294"/>
+					</targets>
+					<view ltx="2722" lty="344" rbx="2832" rby="398"/>
+				</component>
+				<component name="Caratteristica" library="core" uid="135" kind="3">
+					<sources>
+						<datapoint pos="0" key="355"/>
+						<datapoint pos="1" key="356"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="357"/>
+						<datapoint/>
+					</targets>
+					<view ltx="3529" lty="893" rbx="3642" rby="947"/>
+				</component>
+				<component name="if-else" library="core" uid="131" kind="4">
+					<sources>
+						<datapoint pos="0" key="333"/>
+						<datapoint pos="1" key="332"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="334"/>
+					</targets>
+					<view ltx="3071" lty="312" rbx="3175" rby="385"/>
+				</component>
+				<component name="format-number" library="core" uid="95" kind="5">
+					<sources>
+						<datapoint pos="0" key="256"/>
+						<datapoint pos="1" key="250"/>
+						<datapoint pos="2" key="254"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="258"/>
+					</targets>
+					<view ltx="2439" lty="227" rbx="2610" rby="313"/>
+				</component>
+				<component name="sum" library="core" uid="74" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="198"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="199"/>
+					</targets>
+					<view ltx="1471" lty="389" rbx="1596" rby="443"/>
+				</component>
+				<component name="constant" library="core" uid="64" kind="2">
+					<targets>
+						<datapoint pos="0" key="165"/>
+					</targets>
+					<view ltx="34" lty="646" rbx="91" rby="663"/>
+					<data>
+						<constant value="NR" datatype="string"/>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="101" kind="5">
+					<sources>
+						<datapoint pos="0" key="269"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="270"/>
+					</targets>
+					<view ltx="1471" lty="164" rbx="1550" rby="202"/>
+				</component>
+				<component name="item-at" library="core" uid="46" kind="5">
+					<sources>
+						<datapoint pos="0" key="96"/>
+						<datapoint pos="1" key="97"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="93"/>
+					</targets>
+					<view ltx="2439" lty="355" rbx="2549" rby="409"/>
+				</component>
+				<component name="constant" library="core" uid="128" kind="2">
+					<targets>
+						<datapoint pos="0" key="329"/>
+					</targets>
+					<view ltx="34" lty="853" rbx="99" rby="870"/>
+					<data>
+						<constant value="MFR" datatype="string"/>
+					</data>
+				</component>
+				<component name="OutputDir" library="core" uid="3" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="34" lty="223" rbx="144" rby="261"/>
+					<data>
+						<input datatype="string" previewvalue="Esempi" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="91" kind="2">
+					<targets>
+						<datapoint pos="0" key="238"/>
+					</targets>
+					<view ltx="34" lty="294" rbx="106" rby="311"/>
+					<data>
+						<constant value="0.###" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-number" library="core" uid="82" kind="5">
+					<sources>
+						<datapoint pos="0" key="221"/>
+						<datapoint pos="1" key="222"/>
+						<datapoint pos="2" key="223"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="224"/>
+					</targets>
+					<view ltx="2439" lty="112" rbx="2610" rby="198"/>
+				</component>
+				<component name="multiply" library="core" uid="123" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="322"/>
+						<datapoint pos="1" key="323"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="324"/>
+					</targets>
+					<view ltx="2901" lty="240" rbx="2983" rby="296"/>
+				</component>
+				<component name="equal" library="core" uid="130" kind="5">
+					<sources>
+						<datapoint pos="0" key="344"/>
+						<datapoint pos="1" key="345"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="330"/>
+					</targets>
+					<view ltx="2901" lty="321" rbx="2957" rby="375"/>
+				</component>
+				<component name="format-number" library="core" uid="118" kind="5">
+					<sources>
+						<datapoint pos="0" key="315"/>
+						<datapoint pos="1" key="313"/>
+						<datapoint pos="2" key="314"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="312"/>
+					</targets>
+					<view ltx="3071" lty="112" rbx="3242" rby="198"/>
+				</component>
+				<component name="constant" library="core" uid="29" kind="2">
+					<targets>
+						<datapoint pos="0" key="135"/>
+					</targets>
+					<view ltx="34" lty="470" rbx="82" rby="487"/>
+					<data>
+						<constant value="S" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="107" kind="2">
+					<targets>
+						<datapoint pos="0" key="284"/>
+					</targets>
+					<view ltx="34" lty="278" rbx="88" rby="295"/>
+					<data>
+						<constant value="03" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="111" kind="5">
+					<sources>
+						<datapoint pos="0" key="285"/>
+						<datapoint pos="1" key="286"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="287"/>
+					</targets>
+					<view ltx="2170" lty="552" rbx="2226" rby="606"/>
+				</component>
+				<component name="StatoAvanzamento" library="core" uid="106" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="279"/>
+					</targets>
+					<view ltx="34" lty="186" rbx="187" rby="224"/>
+					<data>
+						<input datatype="string" previewvalue="03" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="StatoAvanzamento"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="49" kind="2">
+					<targets>
+						<datapoint pos="0" key="105"/>
+					</targets>
+					<view ltx="34" lty="342" rbx="82" rby="359"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="16" kind="5">
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="34" lty="930" rbx="84" rby="968"/>
+				</component>
+				<component name="db" library="db" uid="12" kind="15">
+					<properties/>
+					<view ltx="34" lty="7" rbx="333" rby="63"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_Dettagli" type="routine" outkey="24"/>
+								<entry name="dbo.SELECT_Testate" type="routine" outkey="25"/>
+							</entry>
+						</root>
+						<database ref="OI_CCI">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="OI_CCI" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Dettagli" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="OI_CCI" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Testate" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="34" lty="390" rbx="81" rby="407"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="dbo.SELECT_Testate" library="db" uid="13" kind="28">
+					<view ltx="387" lty="112" rbx="687" rby="312"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="31"/>
+							<entry name="dbo.SELECT_Testate" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Testate" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="TipoTransazione" type="attribute" inpkey="32"/>
+								<entry name="CodSource" type="attribute" inpkey="33"/>
+								<entry name="StatoAvanzamento" type="attribute" inpkey="34"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Testate" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Testate" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Testate" expanded="1">
+									<entry name="NumeroTransazione" type="attribute" outkey="372"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="7" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="7"/>
+						<datapoint pos="2" key="1"/>
+						<datapoint pos="3" key="2"/>
+						<datapoint pos="4" key="13"/>
+						<datapoint pos="5" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="2246" lty="-64" rbx="2338" rby="60"/>
+				</component>
+				<component name="right-trim" library="lang" uid="102" kind="5">
+					<sources>
+						<datapoint pos="0" key="271"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="272"/>
+					</targets>
+					<view ltx="1707" lty="177" rbx="1786" rby="215"/>
+				</component>
+				<component name="group-by" library="core" uid="23" kind="5">
+					<sources>
+						<datapoint pos="0" key="46"/>
+						<datapoint pos="1" key="47"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="48"/>
+						<datapoint pos="1" key="132"/>
+					</targets>
+					<view ltx="1928" lty="111" rbx="2046" rby="165"/>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="34" lty="374" rbx="180" rby="391"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="2" kind="2">
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="34" lty="694" rbx="195" rby="711"/>
+					<data>
+						<constant value="\RC_Documenti_13971_" datatype="string"/>
+					</data>
+				</component>
+				<component name="dbo.SELECT_Dettagli" library="db" uid="14" kind="28">
+					<view ltx="1025" lty="111" rbx="1302" rby="1098"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="26"/>
+							<entry name="dbo.SELECT_Dettagli" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Dettagli" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="CodSource" type="attribute" inpkey="185"/>
+								<entry name="Transazione" type="attribute" inpkey="27"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Dettagli" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Dettagli" outkey="42" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Dettagli" expanded="1">
+									<entry name="QTPE0F" type="attribute" outkey="266"/>
+									<entry name="QTCO0F" type="attribute" outkey="153"/>
+									<entry name="CDIN0F" type="attribute" outkey="337"/>
+									<entry name="ARVE0F" type="attribute" outkey="288"/>
+									<entry name="PESO0F" type="attribute" outkey="167"/>
+									<entry name="VOLU0F" type="attribute" outkey="168"/>
+									<entry name="AACO0F" type="attribute" outkey="154"/>
+									<entry name="MMCO0F" type="attribute" outkey="155"/>
+									<entry name="GGCO0F" type="attribute" outkey="156"/>
+									<entry name="NDOC0F" type="attribute" outkey="43"/>
+									<entry name="AADO0F" type="attribute" outkey="72"/>
+									<entry name="MMDO0F" type="attribute" outkey="70"/>
+									<entry name="GGDO0F" type="attribute" outkey="74"/>
+									<entry name="TSGA0F" type="attribute" outkey="184"/>
+									<entry name="RGSO0F" type="attribute" outkey="157"/>
+									<entry name="INDI0F" type="attribute" outkey="158"/>
+									<entry name="LOCA0F" type="attribute" outkey="159"/>
+									<entry name="NAZI0F" type="attribute" outkey="160"/>
+									<entry name="PROV0F" type="attribute" outkey="161"/>
+									<entry name="CAPA0F" type="attribute" outkey="162"/>
+									<entry name="VECP0F" type="attribute" outkey="267"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="134" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="3317" lty="813" rbx="3467" rby="1013"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+								<entry name="Caratteristica" outkey="352" expanded="1">
+									<entry name="Codice" inpkey="353"/>
+									<entry name="Note" inpkey="354"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\RC_ImportDocumenti.xsd"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="RitiriConsegne.Documenti"/>
+								<entry name="Documenti"/>
+								<entry name="Documento"/>
+								<entry name="Caratteristiche"/>
+								<entry name="Caratteristica"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="RC_ImportDocumenti" library="xml" uid="11" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="3704" lty="112" rbx="4084" rby="1163"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="23" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="RitiriConsegne.Documenti" inpkey="50" expanded="1">
+										<entry name="Release" inpkey="44"/>
+										<entry name="Documenti" expanded="1">
+											<entry name="Documento" inpkey="45" expanded="1">
+												<entry name="RitiroConsegna" inpkey="136"/>
+												<entry name="Causale" inpkey="183"/>
+												<entry name="ClienteSpedizione" inpkey="137"/>
+												<entry name="TipoConsegna" inpkey="204"/>
+												<entry name="TipoServizio" inpkey="291"/>
+												<entry name="Modalita" inpkey="138"/>
+												<entry name="Transito" inpkey="139"/>
+												<entry name="Magazzino" inpkey="373"/>
+												<entry name="DocumentoCliente" expanded="1">
+													<entry name="Data" inpkey="140"/>
+													<entry name="Numero" inpkey="141"/>
+												</entry>
+												<entry name="MittenteDestinatario" expanded="1">
+													<entry name="RagioneSociale" inpkey="142"/>
+													<entry name="Indirizzo" inpkey="143"/>
+													<entry name="Cap" inpkey="144"/>
+													<entry name="Localita" inpkey="145"/>
+													<entry name="Provincia" inpkey="146"/>
+													<entry name="Nazione" inpkey="147"/>
+												</entry>
+												<entry name="Prevista" expanded="1">
+													<entry name="Data" inpkey="148"/>
+													<entry name="OraInizio" inpkey="149"/>
+													<entry name="OraFine" inpkey="150"/>
+													<entry name="Tassativa" inpkey="151"/>
+												</entry>
+												<entry name="Quantita" expanded="1">
+													<entry name="Imballi" inpkey="152"/>
+													<entry name="PaletteTeoriche" inpkey="308"/>
+													<entry name="Peso" inpkey="173"/>
+													<entry name="Volume" inpkey="174"/>
+												</entry>
+												<entry name="Preavviso" expanded="1">
+													<entry name="Tipo" inpkey="175"/>
+												</entry>
+												<entry name="Articoli" expanded="1">
+													<entry name="Articolo" expanded="1">
+														<entry name="Codice" inpkey="176"/>
+														<entry name="Descrizione" inpkey="177"/>
+														<entry name="UnitaDiMisura" inpkey="178"/>
+														<entry name="Quantita" inpkey="179"/>
+													</entry>
+												</entry>
+												<entry name="Caratteristiche" expanded="1">
+													<entry name="Caratteristica" expanded="1">
+														<entry name="Codice" inpkey="339"/>
+														<entry name="Note" inpkey="340"/>
+													</entry>
+													<entry name="Caratteristica" inpkey="351" expanded="1" clone="1"/>
+													<entry name="Caratteristica" expanded="1" clone="1">
+														<entry name="Codice" inpkey="342"/>
+														<entry name="Note" inpkey="343"/>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\RC_ImportDocumenti.xsd" instanceroot="{}RitiriConsegne.Documenti" outputinstance="\\192.168.0.9\Root$\Root_EDI\PROGETTI_ALTOVA\Progetti\Agora\01.Tracciati\RC_ImportDocumenti.xml"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="136" kind="2">
+					<targets>
+						<datapoint pos="0" key="374"/>
+					</targets>
+					<view ltx="3543" lty="344" rbx="3608" rby="361"/>
+					<data>
+						<constant value="COV" datatype="string"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="372" to="1"/>
+			<edge from="40" to="2"/>
+			<edge from="37" to="3"/>
+			<edge from="4" to="5"/>
+			<edge from="6" to="7"/>
+			<edge from="8" to="9"/>
+			<edge from="20" to="11"/>
+			<edge from="12" to="13"/>
+			<edge from="14" to="23"/>
+			<edge from="24" to="26"/>
+			<edge from="372" to="27"/>
+			<edge from="25" to="31"/>
+			<edge from="17" to="32"/>
+			<edge from="15" to="33"/>
+			<edge from="279" to="34"/>
+			<edge from="49" to="44"/>
+			<edge from="48" to="45"/>
+			<edge from="42" to="46"/>
+			<edge from="272" to="47"/>
+			<edge from="48" to="50"/>
+			<edge from="72" to="53"/>
+			<edge from="74" to="54"/>
+			<edge from="73" to="55"/>
+			<edge from="71" to="56"/>
+			<edge from="71" to="57"/>
+			<edge from="70" to="58"/>
+			<edge from="75" to="59"/>
+			<edge from="76" to="61"/>
+			<edge from="64" to="65"/>
+			<edge from="66" to="67"/>
+			<edge from="60" to="68"/>
+			<edge from="73" to="69"/>
+			<edge from="155" to="77"/>
+			<edge from="71" to="78"/>
+			<edge from="79" to="80"/>
+			<edge from="154" to="81"/>
+			<edge from="73" to="82"/>
+			<edge from="83" to="84"/>
+			<edge from="85" to="86"/>
+			<edge from="156" to="87"/>
+			<edge from="75" to="88"/>
+			<edge from="71" to="89"/>
+			<edge from="76" to="90"/>
+			<edge from="73" to="91"/>
+			<edge from="106" to="92"/>
+			<edge from="104" to="94"/>
+			<edge from="95" to="96"/>
+			<edge from="105" to="97"/>
+			<edge from="103" to="98"/>
+			<edge from="93" to="99"/>
+			<edge from="102" to="100"/>
+			<edge from="62" to="107"/>
+			<edge from="109" to="110"/>
+			<edge from="111" to="112"/>
+			<edge from="105" to="113"/>
+			<edge from="130" to="114"/>
+			<edge from="102" to="115"/>
+			<edge from="159" to="122"/>
+			<edge from="158" to="123"/>
+			<edge from="157" to="124"/>
+			<edge from="161" to="125"/>
+			<edge from="162" to="126"/>
+			<edge from="160" to="127"/>
+			<edge from="63" to="129"/>
+			<edge from="51" to="136"/>
+			<edge from="41" to="137"/>
+			<edge from="135" to="138"/>
+			<edge from="128" to="139"/>
+			<edge from="131" to="140"/>
+			<edge from="132" to="141"/>
+			<edge from="187" to="142"/>
+			<edge from="188" to="143"/>
+			<edge from="190" to="144"/>
+			<edge from="192" to="145"/>
+			<edge from="194" to="146"/>
+			<edge from="196" to="147"/>
+			<edge from="101" to="148"/>
+			<edge from="133" to="149"/>
+			<edge from="134" to="150"/>
+			<edge from="135" to="151"/>
+			<edge from="199" to="152"/>
+			<edge from="224" to="173"/>
+			<edge from="258" to="174"/>
+			<edge from="169" to="175"/>
+			<edge from="164" to="176"/>
+			<edge from="163" to="177"/>
+			<edge from="165" to="178"/>
+			<edge from="199" to="179"/>
+			<edge from="206" to="180"/>
+			<edge from="105" to="181"/>
+			<edge from="210" to="183"/>
+			<edge from="15" to="185"/>
+			<edge from="117" to="186"/>
+			<edge from="120" to="189"/>
+			<edge from="118" to="191"/>
+			<edge from="121" to="193"/>
+			<edge from="119" to="195"/>
+			<edge from="116" to="197"/>
+			<edge from="153" to="198"/>
+			<edge from="52" to="204"/>
+			<edge from="184" to="205"/>
+			<edge from="214" to="207"/>
+			<edge from="52" to="208"/>
+			<edge from="182" to="209"/>
+			<edge from="182" to="212"/>
+			<edge from="211" to="213"/>
+			<edge from="228" to="216"/>
+			<edge from="230" to="217"/>
+			<edge from="218" to="219"/>
+			<edge from="220" to="221"/>
+			<edge from="238" to="222"/>
+			<edge from="268" to="223"/>
+			<edge from="234" to="225"/>
+			<edge from="167" to="226"/>
+			<edge from="153" to="227"/>
+			<edge from="267" to="229"/>
+			<edge from="264" to="231"/>
+			<edge from="237" to="232"/>
+			<edge from="167" to="233"/>
+			<edge from="266" to="235"/>
+			<edge from="265" to="236"/>
+			<edge from="153" to="241"/>
+			<edge from="230" to="243"/>
+			<edge from="237" to="245"/>
+			<edge from="246" to="247"/>
+			<edge from="248" to="249"/>
+			<edge from="238" to="250"/>
+			<edge from="168" to="251"/>
+			<edge from="265" to="252"/>
+			<edge from="268" to="254"/>
+			<edge from="255" to="256"/>
+			<edge from="259" to="260"/>
+			<edge from="261" to="262"/>
+			<edge from="248" to="263"/>
+			<edge from="43" to="269"/>
+			<edge from="270" to="271"/>
+			<edge from="287" to="280"/>
+			<edge from="289" to="281"/>
+			<edge from="290" to="282"/>
+			<edge from="288" to="285"/>
+			<edge from="284" to="286"/>
+			<edge from="294" to="291"/>
+			<edge from="283" to="292"/>
+			<edge from="105" to="293"/>
+			<edge from="312" to="308"/>
+			<edge from="316" to="313"/>
+			<edge from="268" to="314"/>
+			<edge from="324" to="315"/>
+			<edge from="255" to="318"/>
+			<edge from="317" to="319"/>
+			<edge from="320" to="322"/>
+			<edge from="321" to="323"/>
+			<edge from="330" to="326"/>
+			<edge from="329" to="327"/>
+			<edge from="289" to="332"/>
+			<edge from="330" to="333"/>
+			<edge from="335" to="339"/>
+			<edge from="346" to="340"/>
+			<edge from="336" to="342"/>
+			<edge from="338" to="343"/>
+			<edge from="294" to="344"/>
+			<edge from="289" to="345"/>
+			<edge from="350" to="347"/>
+			<edge from="337" to="348"/>
+			<edge from="105" to="349"/>
+			<edge from="357" to="351">
+				<data type="2"/>
+			</edge>
+			<edge from="325" to="353"/>
+			<edge from="334" to="354"/>
+			<edge from="352" to="355">
+				<data type="2"/>
+			</edge>
+			<edge from="330" to="356"/>
+			<edge from="374" to="373"/>
+		</connections>
+	</component>
+</mapping>

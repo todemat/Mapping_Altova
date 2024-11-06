@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="RitiriConsegne.ListeDiCarico.In">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Release" type="xs:string"/>
+				<xs:element name="ListeDiCarico">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ListaDiCarico" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Data" type="xs:string"/>
+										<xs:element name="Descrizione" type="xs:string"/>
+										<xs:element name="Riferimento" type="xs:string"/>
+										<xs:element name="Vettore" type="xs:short"/>
+										<xs:element name="Autista" type="xs:string"/>
+										<xs:element name="TargaRimorchio" type="xs:string"/>
+										<xs:element name="TargaMotrice" type="xs:string"/>
+										<xs:element name="Km" type="xs:byte"/>
+										<xs:element name="TipoVeicolo" type="xs:string"/>
+										<xs:element name="DataOraCarico" type="xs:string"/>
+										<xs:element name="Note" type="xs:string"/>
+										<xs:element name="Documenti">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Documento" minOccurs="1" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Filiale" type="xs:string"/>
+																<xs:element name="Numero" type="xs:int"/>
+																<xs:element name="Anno" type="xs:short"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

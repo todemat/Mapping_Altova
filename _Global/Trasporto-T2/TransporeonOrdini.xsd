@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="tisys">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tour">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="timestamp" type="xs:string"/>
+							<xs:element name="changed" type="xs:byte"/>
+							<xs:element name="number" type="xs:int"/>
+							<xs:element name="external_transport_number">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="transport_group_id">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="attachments">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="tpw_link" type="xs:anyURI"/>
+							<xs:element name="status" type="xs:string"/>
+							<xs:element name="qualifier" type="xs:string"/>
+							<xs:element name="shadow_nto" type="xs:byte"/>
+							<xs:element name="partial_accept" type="xs:byte"/>
+							<xs:element name="company_id" type="xs:int"/>
+							<xs:element name="company_name" type="xs:string"/>
+							<xs:element name="company_address" type="xs:string"/>
+							<xs:element name="company_zip_address" type="xs:string"/>
+							<xs:element name="company_city" type="xs:string"/>
+							<xs:element name="company_region">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="company_country_id" type="xs:string"/>
+							<xs:element name="disponent_firstname" type="xs:string"/>
+							<xs:element name="disponent_lastname" type="xs:string"/>
+							<xs:element name="disponent_phone">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="disponent_id" type="xs:int"/>
+							<xs:element name="carrier_disponent_name" type="xs:string"/>
+							<xs:element name="carrier_disponent_id" type="xs:int"/>
+							<xs:element name="carrier_disponent_email" type="xs:string"/>
+							<xs:element name="vehicle_id">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="vehicle_name">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="start_date" type="xs:date"/>
+							<xs:element name="start_time" type="xs:time"/>
+							<xs:element name="end_date" type="xs:date"/>
+							<xs:element name="end_time" type="xs:time"/>
+							<xs:element name="owner" type="xs:string"/>
+							<xs:element name="start_country_id" type="xs:string"/>
+							<xs:element name="start_zip" type="xs:short"/>
+							<xs:element name="start_city" type="xs:string"/>
+							<xs:element name="start_region">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="end_country_id" type="xs:string"/>
+							<xs:element name="end_zip" type="xs:short"/>
+							<xs:element name="end_city" type="xs:string"/>
+							<xs:element name="end_region">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="price_basic" type="xs:decimal"/>
+							<xs:element name="price_additional1" type="xs:decimal"/>
+							<xs:element name="price_additional2" type="xs:decimal"/>
+							<xs:element name="price_additional3" type="xs:decimal"/>
+							<xs:element name="price_additional1_desc" type="xs:string"/>
+							<xs:element name="price_additional2_desc">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="price_additional3_desc">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="currency_id" type="xs:string"/>
+							<xs:element name="assigned_carrier_id" type="xs:int"/>
+							<xs:element name="assigned_carrier_name" type="xs:string"/>
+							<xs:element name="assigned_creditor_number" type="xs:string"/>
+							<xs:element name="carrier_number">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="weight" type="xs:short"/>
+							<xs:element name="weight_unit" type="xs:string"/>
+							<xs:element name="length" type="xs:byte"/>
+							<xs:element name="length_unit" type="xs:string"/>
+							<xs:element name="volume" type="xs:byte"/>
+							<xs:element name="volume_unit" type="xs:string"/>
+							<xs:element name="route" type="xs:decimal"/>
+							<xs:element name="route_unit" type="xs:string"/>
+							<xs:element name="auction_start_date">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="auction_start_time">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="auction_end_date" type="xs:date"/>
+							<xs:element name="auction_end_time" type="xs:time"/>
+							<xs:element name="auction_comment">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="auction_comment_plain_text">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="plant" type="xs:string"/>
+							<xs:element name="delivery_group_number" type="xs:byte"/>
+							<xs:element name="tkn_weight" type="xs:short"/>
+							<xs:element name="storage_position_count" type="xs:decimal"/>
+							<xs:element name="pin">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="tsm_light_login_link" type="xs:anyURI"/>
+							<xs:element name="comment">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="comment_plain_text">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="internal_comment">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="parameters">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="parameter" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="qualifier" type="xs:string"/>
+													<xs:element name="value" type="xs:string"/>
+													<xs:element name="description">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="required_delivery_item_fields">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="parameters">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="quantities">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="shipments">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="shipment">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="index" type="xs:byte"/>
+													<xs:element name="tour_id" type="xs:int"/>
+													<xs:element name="owner" type="xs:string"/>
+													<xs:element name="number" type="xs:int"/>
+													<xs:element name="customer_name" type="xs:string"/>
+													<xs:element name="customer_number">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="faktura">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="vehicle_id">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="vehicle_name" type="xs:string"/>
+													<xs:element name="weight" type="xs:short"/>
+													<xs:element name="weight_unit" type="xs:string"/>
+													<xs:element name="length" type="xs:byte"/>
+													<xs:element name="length_unit" type="xs:string"/>
+													<xs:element name="volume" type="xs:decimal"/>
+													<xs:element name="volume_unit" type="xs:string"/>
+													<xs:element name="route" type="xs:decimal"/>
+													<xs:element name="route_unit" type="xs:string"/>
+													<xs:element name="dlclass">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="dlnumber">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="storage_position_count" type="xs:decimal"/>
+													<xs:element name="comment" type="xs:string"/>
+													<xs:element name="comment_plain_text" type="xs:string"/>
+													<xs:element name="items">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="item">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="pos_number">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="pos_index" type="xs:byte"/>
+																			<xs:element name="description">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="short_description">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="material_number" type="xs:short"/>
+																			<xs:element name="quantities">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="parameters">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="parameter" maxOccurs="unbounded">
+																							<xs:complexType>
+																								<xs:sequence>
+																									<xs:element name="qualifier" type="xs:string"/>
+																									<xs:element name="value" type="xs:string"/>
+																									<xs:element name="description">
+																										<xs:complexType>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																		<xs:attribute name="id" use="required" type="xs:string"/>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="station" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="shipment_id" type="xs:int"/>
+																<xs:element name="avis">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="company_name" type="xs:string"/>
+																<xs:element name="address" type="xs:string"/>
+																<xs:element name="zip" type="xs:short"/>
+																<xs:element name="city" type="xs:string"/>
+																<xs:element name="region">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="country_id" type="xs:string"/>
+																<xs:element name="loading_name">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="loadingramp" type="xs:string"/>
+																<xs:element name="from_date" type="xs:date"/>
+																<xs:element name="from_time" type="xs:time"/>
+																<xs:element name="until_date" type="xs:date"/>
+																<xs:element name="until_time" type="xs:time"/>
+																<xs:element name="fixed_date_unloading" minOccurs="0" type="xs:date"/>
+																<xs:element name="transportunit_name" type="xs:string"/>
+																<xs:element name="transportunit_count" type="xs:byte"/>
+																<xs:element name="transportunit_pileable" type="xs:boolean"/>
+																<xs:element name="comment">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="comment_plain_text">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+															<xs:attribute name="id" use="required" type="xs:int"/>
+															<xs:attribute name="type" use="required" type="xs:string"/>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="parameters">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="parameter" maxOccurs="unbounded">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="qualifier" type="xs:string"/>
+																			<xs:element name="value" type="xs:string"/>
+																			<xs:element name="description">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+												<xs:attribute name="id" use="required" type="xs:int"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="bookings">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" use="required" type="xs:int"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

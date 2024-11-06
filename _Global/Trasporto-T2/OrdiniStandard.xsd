@@ -1,0 +1,1580 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Designer Edition 9.1.1.3301 (http://www.liquid-technologies.com)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Sga">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrdiniTrasporto" minOccurs="0">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="OrdineTrasporto" minOccurs="0" maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Codice">
+                                            <xs:complexType>
+                                                <xs:attribute name="Anno" type="xs:int" use="optional" />
+                                                <xs:attribute name="Filiale" type="xs:string" use="optional" />
+                                                <xs:attribute name="Numero" type="xs:long" use="optional" />
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ElementoId" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="50" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Azione" minOccurs="1" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="Insert" />
+                                                    <xs:enumeration value="Update" />
+                                                    <xs:enumeration value="Delete" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Raggruppamento" type="RaggruppamentoType" minOccurs="0" maxOccurs="1" nillable="true" />
+                                        <xs:element name="Cliente">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="ClienteFinale" minOccurs="0" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Descrizione" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Disponente" minOccurs="0" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="RiferimentoInterno" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="OrdineRiferimento" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Barcode" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="2000" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="BarcodeCode128" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="2000" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TipoViaggio" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:enumeration value="N" />
+                                                    <xs:enumeration value="I" />
+                                                    <xs:enumeration value="E" />
+                                                    <xs:enumeration value="P" />
+                                                    <xs:enumeration value="C" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TipoServizio" minOccurs="1" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TipoMotriceTrattore" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TipoRimorchioSemirimorchio" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TipoSpecifica" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Priorita" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Classificazione" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="10" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Linea" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Vettore" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="100" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Motrice" minOccurs="0" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:attribute name="Codice" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="20" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Targa" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="10" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Piena" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                            <xs:maxLength value="1" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Rimorchio" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:attribute name="Codice" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="20" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Targa" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="10" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Piena" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Autista" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:attribute name="Sede" type="xs:string" use="optional" />
+                                                <xs:attribute name="Codice" type="xs:string" use="optional" />
+                                                <xs:attribute name="Libero" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="CognomeNome" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="100" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Ordine" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:attribute name="Stato" default="A">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="1" />
+                                                            <xs:pattern value="[F|C|I|A|R|S]" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="TipoTariffa" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="10" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="KmPieno" type="xs:decimal" use="optional" />
+                                                <xs:attribute name="KmVuoto" type="xs:decimal" use="optional" />
+                                                <xs:attribute name="Cumulativa" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="2" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="CumulativaAbbinamento" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="10" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="AssoggettamentoCarico" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="30" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="AssoggettamentoScarico" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="30" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Disposizione" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:attribute name="Stato" default="D">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="1" />
+                                                            <xs:enumeration value="D" />
+                                                            <xs:enumeration value="I" />
+                                                            <xs:enumeration value="C" />
+                                                            <xs:enumeration value="F" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Gestione" default="N">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                            <xs:maxLength value="1" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Definitiva" default="N">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                            <xs:maxLength value="1" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="TipoTariffa" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:list itemType="xs:string" />
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="KmPieno" type="xs:decimal" use="optional" />
+                                                <xs:attribute name="KmVuoto" type="xs:decimal" use="optional" />
+                                                <xs:attribute name="OrdineDiCaricoInviato" default="N">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:length value="1" />
+                                                            <xs:enumeration value="S" />
+                                                            <xs:enumeration value="N" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Apertura" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:attribute name="Data" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="10" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                                <xs:attribute name="Ora" use="optional">
+                                                    <xs:simpleType>
+                                                        <xs:restriction base="xs:string">
+                                                            <xs:maxLength value="5" />
+                                                        </xs:restriction>
+                                                    </xs:simpleType>
+                                                </xs:attribute>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="ContainerTipoMovimentazione" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:list itemType="xs:string" />
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Booking" minOccurs="0" maxOccurs="1">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="20" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="NoteDisponente" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="500" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="NoteInterne" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="2000" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="NoteConfermaCarico" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="2000" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="NoteFatturaAttiva" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="1000" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="NoteFatturaPassiva" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="500" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="FormatoFattura" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TrasfertaFasciaKm" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TrasfertaVoce" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="30" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="TrasfertaImporto" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:decimal">
+                                                    <xs:fractionDigits value="4" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Assegnazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="CarichiScarichi" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CaricoScarico" minOccurs="1" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Ordine" minOccurs="0" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:complexContent>
+                                                                            <xs:extension base="OrdineType" />
+                                                                        </xs:complexContent>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Viaggio" type="ViaggioType" minOccurs="0" maxOccurs="1" />
+                                                                <xs:element name="IdRiga" type="xs:short" minOccurs="0" maxOccurs="1" nillable="true" />
+                                                                <xs:element name="Riferimento" type="xs:string" minOccurs="0" nillable="true" />
+                                                                <xs:element name="Barcode" type="xs:string" minOccurs="0" nillable="true" />
+                                                                <xs:element name="BarcodeCode128" type="xs:string" minOccurs="0" nillable="true" />
+                                                                <xs:element name="Carico" type="CaricoScaricoType" minOccurs="1" maxOccurs="1" />
+                                                                <xs:element name="Scarico" type="CaricoScaricoType" minOccurs="1" maxOccurs="1" />
+                                                                <xs:element name="Mittente" type="MittenteDestinatarioType" minOccurs="0" maxOccurs="1" />
+                                                                <xs:element name="Destinatario" type="MittenteDestinatarioType" minOccurs="0" maxOccurs="1" />
+                                                                <xs:element name="TransitPoint" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                    <xs:complexType>
+                                                                        <xs:attribute name="Passaggio">
+                                                                            <xs:simpleType>
+                                                                                <xs:list itemType="xs:string" />
+                                                                            </xs:simpleType>
+                                                                        </xs:attribute>
+                                                                        <xs:attribute name="Codice" type="xs:string" />
+                                                                        <xs:attribute name="Data" type="xs:string" />
+                                                                        <xs:attribute name="Ora" type="xs:string" />
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Merci" minOccurs="1" maxOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="Merce" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:complexType>
+                                                                                    <xs:all>
+                                                                                        <xs:element name="Codice">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:maxLength value="100" />
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Descrizione">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:maxLength value="100" />
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Riferimento" minOccurs="0" maxOccurs="1">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:maxLength value="50" />
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Categoria" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                        <xs:element name="Contenitore" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Quantita" type="xs:int" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="UnitaMisura1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Valore" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="UnitaMisura2" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Valore" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="UnitaMisura3" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Valore" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="UnitaMisura4" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Valore" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="UnitaMisura5" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="Codice" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="10" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Valore" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Dimensioni" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:attribute name="UnitaMisura" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:maxLength value="3" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Unitarie" use="optional">
+                                                                                                    <xs:simpleType>
+                                                                                                        <xs:restriction base="xs:string">
+                                                                                                            <xs:enumeration value="S" />
+                                                                                                            <xs:enumeration value="N" />
+                                                                                                            <xs:maxLength value="1" />
+                                                                                                        </xs:restriction>
+                                                                                                    </xs:simpleType>
+                                                                                                </xs:attribute>
+                                                                                                <xs:attribute name="Lunghezza" type="xs:decimal" use="optional" />
+                                                                                                <xs:attribute name="Altezza" type="xs:decimal" use="optional" />
+                                                                                                <xs:attribute name="Larghezza" type="xs:decimal" use="optional" />
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="CampiLiberi" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence>
+                                                                                                    <xs:element name="CampoLibero" minOccurs="0" maxOccurs="unbounded">
+                                                                                                        <xs:complexType>
+                                                                                                            <xs:sequence>
+                                                                                                                <xs:element name="Campo" minOccurs="1" maxOccurs="1">
+                                                                                                                    <xs:simpleType>
+                                                                                                                        <xs:restriction base="xs:string">
+                                                                                                                            <xs:maxLength value="10" />
+                                                                                                                        </xs:restriction>
+                                                                                                                    </xs:simpleType>
+                                                                                                                </xs:element>
+                                                                                                                <xs:element name="Valore" minOccurs="1" maxOccurs="1">
+                                                                                                                    <xs:simpleType>
+                                                                                                                        <xs:restriction base="xs:string">
+                                                                                                                            <xs:maxLength value="100" />
+                                                                                                                        </xs:restriction>
+                                                                                                                    </xs:simpleType>
+                                                                                                                </xs:element>
+                                                                                                            </xs:sequence>
+                                                                                                        </xs:complexType>
+                                                                                                    </xs:element>
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Adr" minOccurs="0">
+                                                                                            <xs:complexType>
+                                                                                                <xs:sequence minOccurs="0" maxOccurs="1">
+                                                                                                    <xs:element name="Onu" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                                    <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                                    <xs:element name="ClassePericolo" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                                    <xs:element name="CodiceClassificazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                                    <xs:element name="GruppoImballaggio" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                                                                </xs:sequence>
+                                                                                            </xs:complexType>
+                                                                                        </xs:element>
+                                                                                    </xs:all>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Documenti" type="DocumentoArray" minOccurs="0" maxOccurs="1" nillable="true" />
+                                                                <xs:element name="CampiLiberi" minOccurs="0" maxOccurs="1" nillable="true">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name="CampoLibero" minOccurs="0" maxOccurs="unbounded">
+                                                                                <xs:complexType>
+                                                                                    <xs:sequence>
+                                                                                        <xs:element name="Campo" minOccurs="1" maxOccurs="1">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:maxLength value="10" />
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                        <xs:element name="Valore" minOccurs="1" maxOccurs="1">
+                                                                                            <xs:simpleType>
+                                                                                                <xs:restriction base="xs:string">
+                                                                                                    <xs:maxLength value="100" />
+                                                                                                </xs:restriction>
+                                                                                            </xs:simpleType>
+                                                                                        </xs:element>
+                                                                                    </xs:sequence>
+                                                                                </xs:complexType>
+                                                                            </xs:element>
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                                <xs:element name="Caratteristiche" type="CaratteristicheArray" minOccurs="0" maxOccurs="1" />
+                                                                <xs:element name="Cods" type="CodArray" minOccurs="0" maxOccurs="1" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Tariffa" minOccurs="0" maxOccurs="unbounded" nillable="true">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="AttivoPassivo" minOccurs="1" maxOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="A" />
+                                                                <xs:enumeration value="P" />
+                                                                <xs:maxLength value="1" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="NoloAddebiti" minOccurs="1" maxOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="N" />
+                                                                <xs:enumeration value="A" />
+                                                                <xs:maxLength value="1" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="TipoTariffaNoloOrdine">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="VoceAddebito">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Descrizione" nillable="true">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="UnitaMisura" minOccurs="0" maxOccurs="1">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="5" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Quantita" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="true" />
+                                                    <xs:element name="QuantitaMinimaFatturabile" type="xs:decimal" nillable="true" />
+                                                    <xs:element name="Valuta">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="ImportoAddebitoCalcoloAutomatico">
+                                                        <xs:simpleType>
+                                                            <xs:list itemType="xs:string" />
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="ImportoUnitario" type="xs:decimal" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Container" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="TipoMovimentazione">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="VV" />
+                                                                <xs:enumeration value="VP" />
+                                                                <xs:enumeration value="PV" />
+                                                                <xs:enumeration value="PP" />
+                                                                <xs:enumeration value="ND" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="CompagniaNavigazione">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Porto">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Nave">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="DataChiusuraNave">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="RiferimentoFeeder">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Container1">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="Tipo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="10" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Matricola" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="15" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Sigillo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="15" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="SecondoSigillo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="15" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Booking" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="RiferimentoCliente" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Note" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="300" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="Container2">
+                                                        <xs:complexType>
+                                                            <xs:attribute name="Tipo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="10" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Matricola" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="15" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Sigillo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="SecondoSigillo" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Booking" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="RiferimentoCliente" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="20" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                            <xs:attribute name="Note" use="optional">
+                                                                <xs:simpleType>
+                                                                    <xs:restriction base="xs:string">
+                                                                        <xs:maxLength value="300" />
+                                                                    </xs:restriction>
+                                                                </xs:simpleType>
+                                                            </xs:attribute>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="TransitarioDoganale">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="30" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="OperazioneDoganale">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="30" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="ProvenienzaDestinazione">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="P" />
+                                                                <xs:enumeration value="D" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Dati">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="C" />
+                                                                <xs:enumeration value="I" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="RagioneSociale">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Indirizzo">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Cap">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Localita">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Provincia">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="20" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Nazione">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Sito">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Zona">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="10" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="DestinazioneNote">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="300" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Spedizioniere">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="100" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Dogana">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="20" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="TipoMezzo">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="30" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Fumigazione">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="50" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="MercePericolosa">
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="50" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="CampiLiberi" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CampoLibero" minOccurs="0" maxOccurs="unbounded">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Campo" minOccurs="1" maxOccurs="1">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="xs:string">
+                                                                            <xs:maxLength value="10" />
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                                <xs:element name="Valore" minOccurs="1" maxOccurs="1">
+                                                                    <xs:simpleType>
+                                                                        <xs:restriction base="xs:string">
+                                                                            <xs:maxLength value="100" />
+                                                                        </xs:restriction>
+                                                                    </xs:simpleType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Articoli" minOccurs="0" maxOccurs="1" nillable="true">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Articolo" type="ArticoloType" nillable="true" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Certificazioni" minOccurs="0" maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Certificazione" nillable="true">
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="Codice" type="xs:string" />
+                                                                <xs:element name="Descrizione" type="xs:string" />
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Caratteristiche" type="CaratteristicheArray" minOccurs="0" maxOccurs="1" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                        <xs:attribute name="Versione" type="xs:unsignedByte" use="optional" />
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="RaggruppamentoType">
+        <xs:all>
+            <xs:element name="Data" type="xs:string" />
+            <xs:element name="Id" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="OrdineType">
+        <xs:all>
+            <xs:element name="Anno" type="xs:integer" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Filiale" minOccurs="1" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Numero" type="xs:long" minOccurs="1" maxOccurs="1" />
+            <xs:element name="IdCaricoScarico" type="xs:integer" minOccurs="1" maxOccurs="1" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="ViaggioType">
+        <xs:all>
+            <xs:element name="Societa" type="xs:integer" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Anno" type="xs:integer" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Filiale" minOccurs="1" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Numero" type="xs:long" minOccurs="1" maxOccurs="1" />
+            <xs:element name="IdRigaOperazione" type="xs:integer" minOccurs="1" maxOccurs="1" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="CaricoScaricoType">
+        <xs:all>
+            <xs:element name="CompletiIncompleti" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="C" />
+                        <xs:enumeration value="I" />
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Data" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="TipoOra" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="N" />
+                        <xs:enumeration value="A" />
+                        <xs:enumeration value="D" />
+                        <xs:enumeration value="E" />
+                        <xs:enumeration value="I" />
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Ora" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="DataFine" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="OraAlle" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="5" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Tassativo" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="S" />
+                        <xs:enumeration value="N" />
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Riferimento" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Codice" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="RagioneSociale" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Indirizzo" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Localita" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Sito" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Provincia" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Nazione" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Zona" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Cap" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Sequenza" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="2" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Dogana" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Note" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="NoteMittDest" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Latitudine" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:double" />
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Longitudine" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:double" />
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Verificato" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1" />
+                        <xs:enumeration value="S" />
+                        <xs:enumeration value="N" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="ArticoloType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" />
+            <xs:element name="Descrizione" type="xs:string" />
+            <xs:element name="UnitaMisura1">
+                <xs:complexType>
+                    <xs:attribute name="Codice" type="xs:string" />
+                    <xs:attribute name="Valore" type="xs:decimal" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnitaMisura2">
+                <xs:complexType>
+                    <xs:attribute name="Codice" type="xs:string" />
+                    <xs:attribute name="Valore" type="xs:decimal" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnitaMisura3">
+                <xs:complexType>
+                    <xs:attribute name="Codice" type="xs:string" />
+                    <xs:attribute name="Valore" type="xs:decimal" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnitaMisura4">
+                <xs:complexType>
+                    <xs:attribute name="Codice" type="xs:string" />
+                    <xs:attribute name="Valore" type="xs:decimal" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="UnitaMisura5">
+                <xs:complexType>
+                    <xs:attribute name="Codice" type="xs:string" />
+                    <xs:attribute name="Valore" type="xs:decimal" />
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Lotto" type="xs:string" />
+            <xs:element name="DocumentoTipo" type="xs:string" />
+            <xs:element name="DocumentoNumero" type="xs:string" />
+            <xs:element name="DocumentoData" type="xs:string" />
+            <xs:element name="ContenitoreTipo" type="xs:string" />
+            <xs:element name="ContenitoreQuantita" type="xs:integer" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CaratteristicheType">
+        <xs:all>
+            <xs:element name="Caratteristica" minOccurs="1" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Quantita" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Note" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="1000" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="CaratteristicheArray">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Caratteristica" type="CaratteristicheType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CodType">
+        <xs:all>
+            <xs:element name="Data" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="TipoIncasso" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Valuta" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Importo" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+            <xs:element name="ImportoTolleranza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="CodArray">
+        <xs:sequence minOccurs="1" maxOccurs="unbounded">
+            <xs:element name="Cod" type="CodType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DocumentoType">
+        <xs:all>
+            <xs:element name="Tipo" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Numero" minOccurs="1" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Data" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Note" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Pre_documento" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Valuta_merce" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Importo_merce" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="true" />
+            <xs:element name="Contrassegno_stato" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="AN" />
+                        <xs:enumeration value="VC" />
+                        <xs:enumeration value="VV" />
+                        <xs:enumeration value="IV" />
+                        <xs:enumeration value="IN" />
+                        <xs:enumeration value="NO" />
+                        <xs:maxLength value="2" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Contrassegno_Tipo" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Contrassegno_valuta" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Contrassegno_importo" type="xs:decimal" minOccurs="0" maxOccurs="1" nillable="true" />
+            <xs:element name="Contrassegno_note" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="200" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="CampiLiberi" minOccurs="0" maxOccurs="1" nillable="true">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="CampoLibero" minOccurs="0" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="Campo" minOccurs="1" maxOccurs="1">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="10" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                    <xs:element name="Valore" minOccurs="1" maxOccurs="1">
+                                        <xs:simpleType>
+                                            <xs:restriction base="xs:string">
+                                                <xs:maxLength value="100" />
+                                            </xs:restriction>
+                                        </xs:simpleType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Barcode" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="25" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+    <xs:complexType name="DocumentoArray">
+        <xs:sequence minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="Documento" type="DocumentoType" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MittenteDestinatarioType">
+        <xs:all>
+            <xs:element name="CompletiIncompleti" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="C" />
+                        <xs:enumeration value="I" />
+                        <xs:maxLength value="1" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Codice" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="RagioneSociale" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Indirizzo" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Cap" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Localita" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Provincia" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="20" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Nazione" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Zona" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="10" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Sito" minOccurs="0" maxOccurs="1">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="100" />
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:all>
+    </xs:complexType>
+</xs:schema>

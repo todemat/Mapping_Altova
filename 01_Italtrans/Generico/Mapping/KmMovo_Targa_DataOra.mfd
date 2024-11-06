@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2021r3 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Italtrans/Mappings/KmMovo_Targa_DataOra.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2021r3" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select bv.TIPO_VEICOLO ,tbtv.DESCRIZIONE ,bv.NUMERO_INTERNO, bv.TIPO_SATELLITARE, tbtv.TIPOLOGIA 
+from T2BaseVeicoli bv
+left join T2BaseTipiVeicolo tbtv on bv.societa=tbtv.SOCIETA and bv.TIPO_VEICOLO = tbtv.CODICE 
+where bv.SOCIETA=1 and bv.alienato &lt;&gt; &apos;S&apos; and bv.targa=:NumeroTarga">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_BaseVeicolo_Targa" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="NumeroTarga" type="varchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="select top 1 VEICOLO, KM, DATA_ORA
+from T2MovoRilevazioniPosizioni with (nolock) 
+where SOCIETA=1 and VEICOLO=:Veicolo and data_ora &lt;=:Data_Ora
+order by DATA_ORA desc
+">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_MovoPosizioni_Veicolo_DataOra" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Veicolo" type="varchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Data_Ora" type="datetime" size="16" prec="23" scale="3">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="db" library="db" uid="4" kind="15">
+					<view ltx="70" lty="45" rbx="373" rby="123"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_BaseVeicolo_Targa" type="routine" displayselectionmode="selection"/>
+								<entry name="dbo.SELECT_BaseVeicolo_Targa" type="routine" outkey="105">
+									<condition>
+										<expression>
+											<function name="equal" library="core">
+												<expression>
+													<attribute name="input"/>
+												</expression>
+												<expression>
+													<constant value="false" datatype="boolean"/>
+												</expression>
+											</function>
+										</expression>
+									</condition>
+								</entry>
+								<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" type="routine" outkey="20"/>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_BaseVeicolo_Targa" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_MovoPosizioni_Veicolo_DataOra" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="80" lty="302" rbx="238" rby="319"/>
+					<data>
+						<constant value="KO -&gt; data/ora non inserita" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="80" lty="286" rbx="241" rby="303"/>
+					<data>
+						<constant value="KO -&gt; Targa non inserita" datatype="string"/>
+					</data>
+				</component>
+				<component name="empty" library="lang" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="65"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="66"/>
+					</targets>
+					<view ltx="2189" lty="412" rbx="2265" rby="450"/>
+				</component>
+				<component name="exists" library="core" uid="7" kind="5">
+					<sources>
+						<datapoint pos="0" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1283" lty="388" rbx="1359" rby="426"/>
+				</component>
+				<component name="if-else" library="core" uid="8" kind="4">
+					<sources>
+						<datapoint pos="0" key="13"/>
+						<datapoint pos="1" key="14"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="1423" lty="388" rbx="1527" rby="461"/>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="80" lty="270" rbx="240" rby="287"/>
+					<data>
+						<constant value="KO -&gt; Targa non trovata" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="17" kind="2">
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="80" lty="254" rbx="231" rby="271"/>
+					<data>
+						<constant value="KO -&gt; KM non trovati" datatype="string"/>
+					</data>
+				</component>
+				<component name="empty" library="lang" uid="26" kind="5">
+					<sources>
+						<datapoint pos="0" key="46"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="63"/>
+					</targets>
+					<view ltx="1969" lty="289" rbx="2045" rby="327"/>
+				</component>
+				<component name="not-exists" library="core" uid="28" kind="5">
+					<sources>
+						<datapoint pos="0" key="59"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="60"/>
+					</targets>
+					<view ltx="1968" lty="252" rbx="2045" rby="290"/>
+				</component>
+				<component name="empty" library="lang" uid="25" kind="5">
+					<sources>
+						<datapoint pos="0" key="44"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="47"/>
+					</targets>
+					<view ltx="1969" lty="215" rbx="2045" rby="253"/>
+				</component>
+				<component name="constant" library="core" uid="43" kind="2">
+					<targets>
+						<datapoint pos="0" key="95"/>
+					</targets>
+					<view ltx="80" lty="222" rbx="258" rby="239"/>
+					<data>
+						<constant value="Response_KmMovo_Targa_DataOra.txt" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="44" kind="2">
+					<targets>
+						<datapoint pos="0" key="97"/>
+					</targets>
+					<view ltx="80" lty="190" rbx="127" rby="207"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="45" kind="5">
+					<targets>
+						<datapoint pos="0" key="98"/>
+					</targets>
+					<view ltx="1146" lty="198" rbx="1196" rby="236"/>
+				</component>
+				<component name="constant" library="core" uid="46" kind="2">
+					<targets>
+						<datapoint pos="0" key="94"/>
+					</targets>
+					<view ltx="80" lty="318" rbx="226" rby="335"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="42" kind="5">
+					<sources>
+						<datapoint pos="0" key="92"/>
+						<datapoint pos="1" key="91"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="93"/>
+					</targets>
+					<view ltx="1486" lty="159" rbx="1598" rby="229"/>
+				</component>
+				<component name="concat" library="core" uid="41" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="87"/>
+						<datapoint pos="1" key="84"/>
+						<datapoint pos="2" key="86"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="90"/>
+					</targets>
+					<view ltx="2218" lty="163" rbx="2310" rby="236"/>
+				</component>
+				<component name="value-map" library="core" uid="52" kind="23">
+					<sources>
+						<datapoint pos="0" key="113"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="114"/>
+					</targets>
+					<view ltx="1666" lty="577" rbx="1746" rby="615"/>
+					<data>
+						<valuemap>
+							<valuemapTable>
+								<entry from="MX" to="TRANSICS"/>
+								<entry from="N" to="NOSAT"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="StreamInput" library="core" uid="19" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="70" lty="388" rbx="190" rby="426"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\Italtrans\Esempi\Json_KM.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="StreamInput"/>
+					</data>
+				</component>
+				<component name="KmMovo_Targa_DataOra" library="json" uid="13" kind="31">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="293" lty="388" rbx="565" rby="589"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="32" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="root" expanded="1">
+										<entry name="object" expanded="1">
+											<entry name="KmMovo_Targa_DataOra" type="json-property" expanded="1">
+												<entry name="array" outkey="48" expanded="1">
+													<entry name="item" type="json-item" expanded="1">
+														<entry name="object" outkey="45" expanded="1">
+															<entry name="Targa" type="json-property" expanded="1">
+																<entry name="string" outkey="4"/>
+															</entry>
+															<entry name="DataOra" type="json-property" expanded="1">
+																<entry name="string" outkey="5"/>
+															</entry>
+															<entry name="KM" type="json-property" expanded="1"/>
+															<entry name="DifferenzaMinuti" type="json-property" expanded="1"/>
+															<entry name="TipoVeicolo" type="json-property" expanded="1"/>
+															<entry name="Frigorifero" type="json-property" expanded="1"/>
+															<entry name="TipoSatellitare" type="json-property" expanded="1"/>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<json schema="..\01.Tracciati\KmMovo_Targa_DataOra.schema.json" inputinstance="..\01.Tracciati\KmMovo_Targa_DataOra.json" outputinstance="..\01.Tracciati\KmMovo_Targa_DataOra.json"/>
+					</data>
+				</component>
+				<component name="parse-dateTime" library="core" uid="20" kind="5">
+					<sources>
+						<datapoint pos="0" key="35"/>
+						<datapoint pos="1" key="36"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="1354" lty="518" rbx="1460" rby="572"/>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="34"/>
+					</targets>
+					<view ltx="80" lty="238" rbx="224" rby="255"/>
+					<data>
+						<constant value="[Y,4-4]-[M,2-2]-[D,2-2] [H,2-2]:[m,2-2]:[s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="62" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="80" lty="334" rbx="224" rby="351"/>
+					<data>
+						<constant value="[Y,4-4]-[M,2-2]-[D,2-2] [H,2-2]:[m,2-2]:[s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="minute-from-duration" library="lang" uid="64" kind="5">
+					<sources>
+						<datapoint pos="0" key="124"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="125"/>
+					</targets>
+					<view ltx="2396" lty="629" rbx="2536" rby="667"/>
+				</component>
+				<component name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" library="db" uid="6" kind="28">
+					<view ltx="1690" lty="412" rbx="1979" rby="519"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="23"/>
+							<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Veicolo" type="attribute" inpkey="24"/>
+								<entry name="Data_Ora" type="attribute" inpkey="6"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_MovoPosizioni_Veicolo_DataOra" expanded="1">
+									<entry name="KM" type="attribute" outkey="26"/>
+									<entry name="DATA_ORA" type="attribute" outkey="115"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="16" kind="4">
+					<sources>
+						<datapoint pos="0" key="28"/>
+						<datapoint pos="1" key="29"/>
+						<datapoint pos="2" key="68"/>
+						<datapoint pos="3" key="69"/>
+						<datapoint pos="4" key="53"/>
+						<datapoint pos="5" key="54"/>
+						<datapoint pos="6" key="57"/>
+						<datapoint pos="7" key="58"/>
+						<datapoint pos="8" key="70"/>
+						<datapoint pos="9" key="71"/>
+						<datapoint pos="10" key="30"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view ltx="2429" lty="388" rbx="2536" rby="597"/>
+				</component>
+				<component name="not-exists" library="core" uid="36" kind="5">
+					<sources>
+						<datapoint pos="0" key="72"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="73"/>
+					</targets>
+					<view ltx="2142" lty="534" rbx="2219" rby="572"/>
+				</component>
+				<component name="datetime-diff" library="lang" uid="51" kind="5">
+					<sources>
+						<datapoint pos="0" key="109"/>
+						<datapoint pos="1" key="110"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="118"/>
+					</targets>
+					<view ltx="2119" lty="613" rbx="2219" rby="667"/>
+				</component>
+				<component name="KmMovo_Targa_DataOra" library="json" uid="14" kind="31">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="2858" lty="388" rbx="3196" rby="615"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="74" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="root" expanded="1">
+										<entry name="object" expanded="1">
+											<entry name="KmMovo_Targa_DataOra" type="json-property" expanded="1">
+												<entry name="array" inpkey="38" expanded="1">
+													<entry name="item" type="json-item" expanded="1">
+														<entry name="object" inpkey="49" expanded="1">
+															<entry name="Targa" type="json-property" expanded="1">
+																<entry name="string" inpkey="16"/>
+															</entry>
+															<entry name="DataOra" type="json-property" expanded="1">
+																<entry name="string" inpkey="17"/>
+															</entry>
+															<entry name="KM" type="json-property" expanded="1">
+																<entry name="string" inpkey="18"/>
+															</entry>
+															<entry name="DifferenzaMinuti" type="json-property" expanded="1">
+																<entry name="string" inpkey="117"/>
+															</entry>
+															<entry name="TipoVeicolo" type="json-property" expanded="1">
+																<entry name="string" inpkey="106"/>
+															</entry>
+															<entry name="Frigorifero" type="json-property" expanded="1">
+																<entry name="string" inpkey="107"/>
+															</entry>
+															<entry name="TipoSatellitare" type="json-property" expanded="1">
+																<entry name="string" inpkey="108"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<json schema="..\01.Tracciati\KmMovo_Targa_DataOra.schema.json" inputinstance="..\01.Tracciati\KmMovo_Targa_DataOra.json" outputinstance="..\01.Tracciati\KmMovo_Targa_DataOra.json"/>
+					</data>
+				</component>
+				<component name="dbo.SELECT_BaseVeicolo_Targa" library="db" uid="5" kind="28">
+					<view ltx="830" lty="388" rbx="1183" rby="607"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="11"/>
+							<entry name="dbo.SELECT_BaseVeicolo_Targa" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_BaseVeicolo_Targa" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="NumeroTarga" type="attribute" inpkey="2"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_BaseVeicolo_Targa" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_BaseVeicolo_Targa" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_BaseVeicolo_Targa" expanded="1">
+									<entry name="TIPO_VEICOLO" type="attribute" outkey="126"/>
+									<entry name="NUMERO_INTERNO" type="attribute" outkey="12"/>
+									<entry name="TIPO_SATELLITARE" type="attribute" outkey="111"/>
+									<entry name="TIPOLOGIA" type="attribute" outkey="112"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="65" kind="23">
+					<sources>
+						<datapoint pos="0" key="127"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="128"/>
+					</targets>
+					<view ltx="1746" lty="645" rbx="1826" rby="683"/>
+					<data>
+						<valuemap>
+							<valuemapTable>
+								<entry from="AF" to="S"/>
+								<entry from="AU" to="N"/>
+								<entry from="AV" to="N"/>
+								<entry from="B2" to="S"/>
+								<entry from="BC" to="N"/>
+								<entry from="BG" to="N"/>
+								<entry from="BR" to="S"/>
+								<entry from="CE" to="N"/>
+								<entry from="CI" to="N"/>
+								<entry from="F1" to="S"/>
+								<entry from="F2" to="S"/>
+								<entry from="F3" to="S"/>
+								<entry from="FD" to="S"/>
+								<entry from="FM" to="S"/>
+								<entry from="FP" to="S"/>
+								<entry from="FR" to="S"/>
+								<entry from="FU" to="N"/>
+								<entry from="FV" to="N"/>
+								<entry from="IS" to="S"/>
+								<entry from="M0" to="N"/>
+								<entry from="M3" to="N"/>
+								<entry from="M4" to="S"/>
+								<entry from="MC" to="N"/>
+								<entry from="MD" to="S"/>
+								<entry from="ME" to="N"/>
+								<entry from="MF" to="S"/>
+								<entry from="MO" to="N"/>
+								<entry from="MS" to="S"/>
+								<entry from="MU" to="N"/>
+								<entry from="MV" to="N"/>
+								<entry from="QU" to="N"/>
+								<entry from="R2" to="S"/>
+								<entry from="R4" to="S"/>
+								<entry from="RC" to="N"/>
+								<entry from="RF" to="S"/>
+								<entry from="RI" to="S"/>
+								<entry from="RS" to="S"/>
+								<entry from="SC" to="N"/>
+								<entry from="SF" to="S"/>
+								<entry from="SI" to="N"/>
+								<entry from="SP" to="N"/>
+								<entry from="SR" to="N"/>
+								<entry from="T2" to="S"/>
+								<entry from="TF" to="S"/>
+								<entry from="TP" to="N"/>
+								<entry from="TR" to="N"/>
+								<entry from="VA" to="N"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="4" to="2"/>
+			<edge from="37" to="6"/>
+			<edge from="12" to="9"/>
+			<edge from="105" to="11"/>
+			<edge from="10" to="13"/>
+			<edge from="12" to="14"/>
+			<edge from="4" to="16"/>
+			<edge from="5" to="17"/>
+			<edge from="31" to="18"/>
+			<edge from="20" to="23"/>
+			<edge from="15" to="24"/>
+			<edge from="47" to="28"/>
+			<edge from="42" to="29"/>
+			<edge from="26" to="30"/>
+			<edge from="33" to="32"/>
+			<edge from="5" to="35"/>
+			<edge from="34" to="36"/>
+			<edge from="48" to="38"/>
+			<edge from="4" to="44"/>
+			<edge from="4" to="46"/>
+			<edge from="45" to="49"/>
+			<edge from="63" to="53"/>
+			<edge from="43" to="54"/>
+			<edge from="66" to="57"/>
+			<edge from="27" to="58"/>
+			<edge from="12" to="59"/>
+			<edge from="26" to="65"/>
+			<edge from="60" to="68"/>
+			<edge from="40" to="69"/>
+			<edge from="73" to="70"/>
+			<edge from="27" to="71"/>
+			<edge from="26" to="72"/>
+			<edge from="90" to="74"/>
+			<edge from="97" to="84"/>
+			<edge from="95" to="86"/>
+			<edge from="93" to="87"/>
+			<edge from="94" to="91"/>
+			<edge from="98" to="92"/>
+			<edge from="112" to="106"/>
+			<edge from="128" to="107"/>
+			<edge from="114" to="108"/>
+			<edge from="37" to="109"/>
+			<edge from="115" to="110"/>
+			<edge from="111" to="113"/>
+			<edge from="125" to="117"/>
+			<edge from="118" to="124"/>
+			<edge from="126" to="127"/>
+		</connections>
+	</component>
+</mapping>

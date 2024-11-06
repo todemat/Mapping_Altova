@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2022 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Ferrero/Mappings/FRS_Update_Stato_Testata_OpenInterface.mapping" server="itaas42" port="8082" user="NT/marco.seghezzi@italtransspa.local" toolversion="2022" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="OI_FRS">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="OI_FRS" vendor="microsoftsqlserver" import_kind="ADO" name="OI_FRS" path="OI_FRS">
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="54" lty="188" rbx="155" rby="205"/>
+					<data>
+						<constant value="ALTOVA -&gt; " datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="9" kind="5">
+					<sources>
+						<datapoint pos="0" key="21"/>
+						<datapoint pos="1" key="20"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="306" lty="24" rbx="400" rby="78"/>
+				</component>
+				<component name="concat" library="core" uid="7" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="16"/>
+						<datapoint pos="1" key="14"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="306" lty="133" rbx="388" rby="189"/>
+				</component>
+				<component name="now" library="lang" uid="6" kind="5">
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="54" lty="289" rbx="104" rby="327"/>
+				</component>
+				<component name="constant" library="core" uid="4" kind="2">
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="54" lty="172" rbx="108" rby="189"/>
+					<data>
+						<constant value="08" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="54" lty="204" rbx="102" rby="221"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="NomeFile" library="core" uid="8" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="54" lty="24" rbx="159" rby="62"/>
+					<data>
+						<input datatype="string" previewvalue="ITDY_ZISD_3PL_VIAGGI_IN_20220714101229_2_0010003645-20220713.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="NomeFile"/>
+					</data>
+				</component>
+				<component name="Separatore" library="core" uid="14" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="29"/>
+					</targets>
+					<view ltx="54" lty="61" rbx="167" rby="99"/>
+					<data>
+						<input datatype="string" previewvalue="_" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="Separatore"/>
+					</data>
+				</component>
+				<component name="PosizioneNTRA" library="core" uid="15" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="54" lty="98" rbx="188" rby="136"/>
+					<data>
+						<input datatype="string" previewvalue="7" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="PosizioneNTRA"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="789" lty="24" rbx="1035" rby="616"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.ITF_TRANS_TESTATA" type="table" expanded="1">
+									<tableactions>
+										<action operation="update" deletewithchildren="1" proceedchildren="1">
+											<field name="NUM_TRANS" function="equal"/>
+										</action>
+									</tableactions>
+									<entry name="NUM_TRANS" inpkey="9"/>
+									<entry name="CDS_AVANZAMENTO" inpkey="10"/>
+									<entry name="AVANZAMENTO_SINCRONIZZATO" inpkey="5"/>
+									<entry name="dati_1" inpkey="6"/>
+								</entry>
+								<entry name="dbo.TMS_TRIGGER_TABLE" type="table" expanded="1">
+									<tableactions>
+										<action operation="update" deletewithchildren="1" proceedchildren="1">
+											<field name="NumeroTransazione" function="equal"/>
+										</action>
+									</tableactions>
+									<entry name="NumeroTransazione" inpkey="7"/>
+									<entry name="StatoAvanzamento" inpkey="11"/>
+									<entry name="DataElaborazione" inpkey="12"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="OI_FRS">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="OI_FRS" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="ITF_TRANS_TESTATA" Kind="Table"/>
+									</selection>
+									<selection>
+										<PathElement Name="OI_FRS" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="TMS_TRIGGER_TABLE" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="11" kind="5">
+					<sources>
+						<datapoint pos="0" key="25"/>
+						<datapoint pos="1" key="26"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="485" lty="24" rbx="595" rby="78"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="28" to="5"/>
+			<edge from="17" to="6"/>
+			<edge from="27" to="7"/>
+			<edge from="27" to="9"/>
+			<edge from="18" to="10"/>
+			<edge from="18" to="11"/>
+			<edge from="13" to="12"/>
+			<edge from="13" to="14"/>
+			<edge from="15" to="16"/>
+			<edge from="29" to="20"/>
+			<edge from="23" to="21"/>
+			<edge from="19" to="25"/>
+			<edge from="30" to="26"/>
+		</connections>
+	</component>
+</mapping>

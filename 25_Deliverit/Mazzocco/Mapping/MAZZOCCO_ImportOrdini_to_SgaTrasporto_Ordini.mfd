@@ -1,0 +1,826 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="31">
+	<settings>
+		<deployment path="/Progetti/25_Deliverit/Mazzocco/Mappings/MAZZOCCO_ImportOrdini_to_SgaTrasporto_Ordini.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="OutputDir" library="core" uid="617" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="30" lty="-143" rbx="140" rby="-105"/>
+					<data>
+						<input datatype="string" previewvalue="\\itaint01\e$\Root_Interlocutori_Deliverit\Mazzocco\TEST\TMS\to_SgaTrasporto_Ordini" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="620" kind="2">
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="30" lty="10" rbx="179" rby="27"/>
+					<data>
+						<constant value="\TRAS_ImportOrdini_" datatype="string"/>
+					</data>
+				</component>
+				<component name="CodiceCliente" library="core" uid="618" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="30" lty="-106" rbx="158" rby="-68"/>
+					<data>
+						<input datatype="string" previewvalue="106" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="CodiceCliente"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="623" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="34"/>
+						<datapoint pos="1" key="35"/>
+						<datapoint pos="2" key="36"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="981" lty="80" rbx="1073" rby="153"/>
+				</component>
+				<component name="constant" library="core" uid="621" kind="2">
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="30" lty="26" rbx="77" rby="43"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="625" kind="2">
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="30" lty="58" rbx="92" rby="75"/>
+					<data>
+						<constant value=".xml" datatype="string"/>
+					</data>
+				</component>
+				<component name="year-from-datetime" library="lang" uid="614" kind="5">
+					<sources>
+						<datapoint pos="0" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="1133" lty="-80" rbx="1258" rby="-42"/>
+				</component>
+				<component name="concat" library="core" uid="615" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="8"/>
+						<datapoint pos="2" key="12"/>
+						<datapoint pos="3" key="4"/>
+						<datapoint pos="4" key="1"/>
+						<datapoint pos="5" key="9"/>
+						<datapoint pos="6" key="6"/>
+						<datapoint pos="7" key="13"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="1922" lty="-200" rbx="2014" rby="-42"/>
+				</component>
+				<component name="format-dateTime" library="core" uid="612" kind="5">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="10"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="1133" lty="-189" rbx="1245" rby="-119"/>
+				</component>
+				<component name="constant" library="core" uid="619" kind="2">
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="30" lty="-6" rbx="176" rby="11"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2][f,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="group-by" library="core" uid="624" kind="5">
+					<sources>
+						<datapoint pos="0" key="67"/>
+						<datapoint pos="1" key="68"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="69"/>
+						<datapoint pos="1" key="70"/>
+					</targets>
+					<view ltx="1251" lty="42" rbx="1369" rby="96"/>
+				</component>
+				<component name="equal" library="core" uid="636" kind="5">
+					<sources>
+						<datapoint pos="0" key="78"/>
+						<datapoint pos="1" key="82"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="83"/>
+					</targets>
+					<view ltx="929" lty="631" rbx="985" rby="685"/>
+				</component>
+				<component name="constant" library="core" uid="622" kind="2">
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="30" lty="42" rbx="81" rby="59"/>
+					<data>
+						<constant value="IT" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="645" kind="2">
+					<targets>
+						<datapoint pos="0" key="107"/>
+					</targets>
+					<view ltx="31" lty="264" rbx="116" rby="281"/>
+					<data>
+						<constant value="MAZTAV" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="646" kind="2">
+					<targets>
+						<datapoint pos="0" key="97"/>
+					</targets>
+					<view ltx="31" lty="280" rbx="104" rby="297"/>
+					<data>
+						<constant value="ALIME" datatype="string"/>
+					</data>
+				</component>
+				<component name="divide" library="core" uid="649" kind="5">
+					<sources>
+						<datapoint pos="0" key="104"/>
+						<datapoint pos="1" key="106"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105"/>
+					</targets>
+					<view ltx="1702" lty="512" rbx="1784" rby="566"/>
+				</component>
+				<component name="constant" library="core" uid="634" kind="2">
+					<targets>
+						<datapoint pos="0" key="95"/>
+					</targets>
+					<view ltx="30" lty="74" rbx="85" rby="91"/>
+					<data>
+						<constant value="FR" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="627" kind="2">
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="30" lty="136" rbx="176" rby="153"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="653" kind="5">
+					<sources>
+						<datapoint pos="0" key="134"/>
+						<datapoint pos="1" key="137"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="138"/>
+					</targets>
+					<view ltx="1044" lty="829" rbx="1100" rby="883"/>
+				</component>
+				<component name="constant" library="core" uid="630" kind="2">
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="30" lty="202" rbx="120" rby="219"/>
+					<data>
+						<constant value="00000000" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="631" kind="5">
+					<sources>
+						<datapoint pos="0" key="53"/>
+						<datapoint pos="1" key="54"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="929" lty="259" rbx="985" rby="313"/>
+				</component>
+				<component name="now" library="lang" uid="613" kind="5">
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="788" lty="-180" rbx="838" rby="-142"/>
+				</component>
+				<component name="parse-date" library="core" uid="651" kind="5">
+					<sources>
+						<datapoint pos="0" key="131"/>
+						<datapoint pos="1" key="130"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="133"/>
+					</targets>
+					<view ltx="1017" lty="882" rbx="1100" rby="936"/>
+				</component>
+				<component name="format-date" library="core" uid="652" kind="5">
+					<sources>
+						<datapoint pos="0" key="132"/>
+						<datapoint pos="1" key="128"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="129"/>
+					</targets>
+					<view ltx="1922" lty="788" rbx="2020" rby="858"/>
+				</component>
+				<component name="if-else" library="core" uid="654" kind="4">
+					<sources>
+						<datapoint pos="0" key="139"/>
+						<datapoint pos="1" key="136"/>
+						<datapoint pos="2" key="140"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="135"/>
+					</targets>
+					<view ltx="1388" lty="829" rbx="1492" rby="902"/>
+				</component>
+				<component name="EWBOLC" library="text" uid="611" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="367" lty="-68" rbx="695" rby="879"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="28" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="44" expanded="1">
+										<entry name="BC012-MITTENTE" outkey="108"/>
+										<entry name="BC013-INDIRIZZO MITTENTE" outkey="109"/>
+										<entry name="BC014-LOCALITA&apos; MITTENTE" outkey="110"/>
+										<entry name="BC015-ZONA MITTENTE" outkey="111"/>
+										<entry name="BC017-CAP" outkey="112"/>
+										<entry name="BC018-RIF. MITTENTE" outkey="145"/>
+										<entry name="BC019-DATA RIF. MITTENTE" outkey="146"/>
+										<entry name="BC027-DESTINATARIO" outkey="29"/>
+										<entry name="BC028-INDIRIZZO DESTINATARIO" outkey="30"/>
+										<entry name="BC029-LOCALITA DETINATARIO" outkey="31"/>
+										<entry name="BC030-ZONA DESTINATARIO" outkey="113"/>
+										<entry name="BC032-CAP" outkey="32"/>
+										<entry name="BC035-COLLI" outkey="114"/>
+										<entry name="BC036-PESO" outkey="101"/>
+										<entry name="BC037-VOLUME M.C." outkey="115"/>
+										<entry name="BC054-BANCALI" outkey="147"/>
+										<entry name="BC057-DATA PER CONSEGNA 1" outkey="45"/>
+										<entry name="BC083-DATA DISTINTA " outkey="116"/>
+										<entry name="BC087-ANNO DISTINTA" outkey="46"/>
+										<entry name="BC088-FIL.DISTINTA" outkey="47"/>
+										<entry name="BC089-N.DISTINTA" outkey="48"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="flf" encoding="52" byteorder="1" byteordermark="0" inputinstance="..\01.Tracciati\EWBOLC_Example.TXT">
+							<settings delimiter="true" fillchar=" " removeempty="true">
+								<names root="EWBOLC_Example" block="Rows">
+									<field0 name="BC001-ANNO" type="string" length="4"/>
+									<field1 name="BC002-FIL.BOLLETT." type="string" length="2"/>
+									<field2 name="BC003-PROGRESSIVO" type="string" length="7"/>
+									<field3 name="BC004-SOC.FIL.BOLLETT." type="string" length="2"/>
+									<field4 name="BC005-TIPO RESA" type="string" length="3"/>
+									<field5 name="BC006-DATA BOLLA" type="string" length="8"/>
+									<field6 name="BC007-FIL.LETTERA VETTURA" type="string" length="2"/>
+									<field7 name="BC008-N.LETTERA VETTURA" type="string" length="13"/>
+									<field8 name="BC009-FILIALE MITTENTE" type="string" length="2"/>
+									<field9 name="BC010-CODICE MITTENTE" type="string" length="6"/>
+									<field10 name="BC011-CONTRATTO MITTENTE" type="string" length="3"/>
+									<field11 name="BC012-MITTENTE" type="string" length="30"/>
+									<field12 name="BC013-INDIRIZZO MITTENTE" type="string" length="30"/>
+									<field13 name="BC014-LOCALITA&apos; MITTENTE" type="string" length="30"/>
+									<field14 name="BC015-ZONA MITTENTE" type="string" length="5"/>
+									<field15 name="BC016-ZONA_REG. MITTENTE" realname="BC016-ZONA/REG. MITTENTE" type="string" length="5"/>
+									<field16 name="BC017-CAP" type="string" length="10"/>
+									<field17 name="BC018-RIF. MITTENTE" type="string" length="15"/>
+									<field18 name="BC019-DATA RIF. MITTENTE" type="string" length="8"/>
+									<field19 name="BC020-ULT.RIF.MITT.1" type="string" length="15"/>
+									<field20 name="BC021-DATA ULT.RIF. MITT.1" type="string" length="8"/>
+									<field21 name="BC022-ULT.RIF.MITT.2" type="string" length="15"/>
+									<field22 name="BC023-DATA ULT.RIF. MITT.2" type="string" length="8"/>
+									<field23 name="BC024-FILIALE DESTIN." type="string" length="2"/>
+									<field24 name="BC025-CODICE DESTIN." type="string" length="6"/>
+									<field25 name="BC026-CONTRATTO DESTIN." type="string" length="3"/>
+									<field26 name="BC027-DESTINATARIO" type="string" length="30"/>
+									<field27 name="BC028-INDIRIZZO DESTINATARIO" type="string" length="30"/>
+									<field28 name="BC029-LOCALITA DETINATARIO" type="string" length="30"/>
+									<field29 name="BC030-ZONA DESTINATARIO" type="string" length="5"/>
+									<field30 name="BC031-ZONA_REG. DESTIN." realname="BC031-ZONA/REG. DESTIN." type="string" length="5"/>
+									<field31 name="BC032-CAP" type="string" length="10"/>
+									<field32 name="BC033-1° MITTENTE" type="string" length="15"/>
+									<field33 name="BC034-ZONA 1°MITTENTE" type="string" length="5"/>
+									<field34 name="BC035-COLLI" type="string" length="5"/>
+									<field35 name="BC036-PESO" type="string" length="8"/>
+									<field36 name="BC037-VOLUME M.C." type="string" length="8"/>
+									<field37 name="BC038-SEGNACOLLI DAL" type="string" length="7"/>
+									<field38 name="BC039-SEGNACOLLI AL" type="string" length="7"/>
+									<field39 name="BC040-FASCIA SEGNACOLLI" type="string" length="3"/>
+									<field40 name="BC041-FIL.EMISSIONE SEGNACOLLO" type="string" length="2"/>
+									<field41 name="BC042-CONTRASSEGNO" type="string" length="13"/>
+									<field42 name="BC043-DIVISA C_ASS." realname="BC043-DIVISA C/ASS." type="string" length="3"/>
+									<field43 name="BC044-ANTICIPATA" type="string" length="13"/>
+									<field44 name="BC045-DIVISA ANTICIPATA" type="string" length="3"/>
+									<field45 name="BC046-1° VETTORE" type="string" length="5"/>
+									<field46 name="BC047-N° FATT.1° VETTORE" type="string" length="10"/>
+									<field47 name="BC048-TOTALE FATTURA" type="string" length="13"/>
+									<field48 name="BC049-DIVISA TOT.FATT." type="string" length="3"/>
+									<field49 name="BC050-NUMERO FATTURA" type="string" length="10"/>
+									<field50 name="BC051-VALORE MERCE" type="string" length="13"/>
+									<field51 name="BC052-DIVISA V.MERCE" type="string" length="3"/>
+									<field52 name="BC053-COLLI SFUSI" type="string" length="5"/>
+									<field53 name="BC054-BANCALI" type="string" length="3"/>
+									<field54 name="BC055-TIPO UNITA MISURA" type="string" length="2"/>
+									<field55 name="BC056-UNITA MISURA" type="string" length="5"/>
+									<field56 name="BC057-DATA PER CONSEGNA 1" type="string" length="8"/>
+									<field57 name="BC058-DATA PER CONSEGNA 2" type="string" length="8"/>
+									<field58 name="BC059-TIPO DATA PER CONSEGNA" type="string" length="1"/>
+									<field59 name="BC060-GIORNO CHIUSURA 1" type="string" length="3"/>
+									<field60 name="BC061-1-MATT. 2=POMER. 3=ENTRAMBI" type="string" length="1"/>
+									<field61 name="BC062-GIORNO CHIUSURA 2" type="string" length="3"/>
+									<field62 name="BC063-M-MATT. P=POMER. E=ENTRAMBI" type="string" length="1"/>
+									<field63 name="BC064-ORA ENTRO CUI CONS." type="string" length="4"/>
+									<field64 name="BC065-1=URGENTE" type="string" length="1"/>
+									<field65 name="BC066-TIPO SERVIZIO_VIAGGIO" realname="BC066-TIPO SERVIZIO/VIAGGIO" type="string" length="3"/>
+									<field66 name="BC067-NOTE RIGA UNO" type="string" length="30"/>
+									<field67 name="BC068-NOTE RIGA DUE" type="string" length="30"/>
+									<field68 name="BC069-Ad uso interno" type="string" length="1"/>
+									<field69 name="BC070-Tipo volume (da concordare)" type="string" length="1"/>
+									<field70 name="BC071-Richiesta telefonata 1=Normale 2=Cellulare" type="string" length="1"/>
+									<field71 name="BC072-Ad uso interno" type="string" length="1"/>
+									<field72 name="BC073-Non gestito" type="string" length="1"/>
+									<field73 name="BC074-Non gestito" type="string" length="1"/>
+									<field74 name="BC075-Non gestito" type="string" length="1"/>
+									<field75 name="BC076-Non gestito" type="string" length="1"/>
+									<field76 name="BC077-Non gestito" type="string" length="1"/>
+									<field77 name="BC078-Non gestito" type="string" length="1"/>
+									<field78 name="BC079-TIPO MERCE" type="string" length="3"/>
+									<field79 name="BC080-Tabella tipo incasso contrassegni" type="string" length="3"/>
+									<field80 name="BC081-Non gestito" type="string" length="3"/>
+									<field81 name="BC082-CODICE CORRISPONDENTE" type="string" length="8"/>
+									<field82 name="BC083-DATA DISTINTA " type="string" length="8"/>
+									<field83 name="BC084-Altro PESO " type="string" length="8"/>
+									<field84 name="BC085-alle ore (tipo data consegna L-dalle alle)" type="string" length="4"/>
+									<field85 name="BC086-Bancali legno" type="string" length="4"/>
+									<field86 name="BC087-ANNO DISTINTA" type="string" length="4"/>
+									<field87 name="BC088-FIL.DISTINTA" type="string" length="2"/>
+									<field88 name="BC089-N.DISTINTA" type="string" length="9"/>
+									<field89 name="BC090-SOC.EMISS.DISTINTA" type="string" length="2"/>
+									<field90 name="BC091-VETTORE RITIRO" type="string" length="5"/>
+									<field91 name="BC092-DATA RITIRO" type="string" length="8"/>
+									<field92 name="BC093A-RIFERIMENTO MERCE" type="string" length="0"/>
+									<field93 name="BC093B-Codice destinatario" type="string" length="0"/>
+									<field94 name="BC093C-Codice agente" type="string" length="0"/>
+									<field95 name="BC093D-Telefono x contatto" type="string" length="0"/>
+									<field96 name="BC094A-Indirizzo mail" type="string" length="0"/>
+									<field97 name="BC094B-Persona per contatto" type="string" length="0"/>
+									<field98 name="BO999-FINE RECORD" type="string" length="2"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="650" kind="2">
+					<targets>
+						<datapoint pos="0" key="148"/>
+					</targets>
+					<view ltx="31" lty="312" rbx="85" rby="329"/>
+					<data>
+						<constant value="01" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="648" kind="2">
+					<targets>
+						<datapoint pos="0" key="103"/>
+					</targets>
+					<view ltx="31" lty="296" rbx="97" rby="313"/>
+					<data>
+						<constant value="1000" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="640" kind="2">
+					<targets>
+						<datapoint pos="0" key="96"/>
+					</targets>
+					<view ltx="31" lty="248" rbx="80" rby="265"/>
+					<data>
+						<constant value="C" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="655" kind="2">
+					<targets>
+						<datapoint pos="0" key="160"/>
+					</targets>
+					<view ltx="33" lty="338" rbx="85" rby="355"/>
+					<data>
+						<constant value="M" datatype="string"/>
+					</data>
+				</component>
+				<component name="divide" library="core" uid="647" kind="5">
+					<sources>
+						<datapoint pos="0" key="98"/>
+						<datapoint pos="1" key="99"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="100"/>
+					</targets>
+					<view ltx="1702" lty="459" rbx="1784" rby="513"/>
+				</component>
+				<component name="constant" library="core" uid="628" kind="2">
+					<targets>
+						<datapoint pos="0" key="39"/>
+					</targets>
+					<view ltx="30" lty="152" rbx="174" rby="169"/>
+					<data>
+						<constant value="[Y,4-4]-[M,2-2]-[D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="626" kind="5">
+					<sources>
+						<datapoint pos="0" key="56"/>
+						<datapoint pos="1" key="57"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="58"/>
+					</targets>
+					<view ltx="929" lty="312" rbx="1012" rby="366"/>
+				</component>
+				<component name="parse-date" library="core" uid="637" kind="5">
+					<sources>
+						<datapoint pos="0" key="77"/>
+						<datapoint pos="1" key="76"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="85"/>
+					</targets>
+					<view ltx="929" lty="684" rbx="1012" rby="738"/>
+				</component>
+				<component name="if-else" library="core" uid="639" kind="4">
+					<sources>
+						<datapoint pos="0" key="84"/>
+						<datapoint pos="1" key="81"/>
+						<datapoint pos="2" key="86"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="1186" lty="612" rbx="1290" rby="685"/>
+				</component>
+				<component name="parse-dateTime" library="core" uid="657" kind="5">
+					<sources>
+						<datapoint pos="0" key="149"/>
+						<datapoint pos="1" key="150"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="151"/>
+					</targets>
+					<view ltx="1743" lty="276" rbx="1849" rby="330"/>
+				</component>
+				<component name="parse-dateTime" library="core" uid="658" kind="5">
+					<sources>
+						<datapoint pos="0" key="153"/>
+						<datapoint pos="1" key="155"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="154"/>
+					</targets>
+					<view ltx="1702" lty="646" rbx="1808" rby="700"/>
+				</component>
+				<component name="datetime-diff" library="lang" uid="656" kind="5">
+					<sources>
+						<datapoint pos="0" key="152"/>
+						<datapoint pos="1" key="161"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="162"/>
+					</targets>
+					<view ltx="1966" lty="413" rbx="2066" rby="467"/>
+				</component>
+				<component name="if-else" library="core" uid="632" kind="4">
+					<sources>
+						<datapoint pos="0" key="49"/>
+						<datapoint pos="1" key="50"/>
+						<datapoint pos="2" key="51"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="1186" lty="276" rbx="1290" rby="349"/>
+				</component>
+				<component name="constant" library="core" uid="660" kind="2">
+					<targets>
+						<datapoint pos="0" key="163"/>
+					</targets>
+					<view ltx="50" lty="375" rbx="98" rby="392"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="less" library="core" uid="662" kind="5">
+					<sources>
+						<datapoint pos="0" key="164"/>
+						<datapoint pos="1" key="165"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="166"/>
+					</targets>
+					<view ltx="2379" lty="399" rbx="2435" rby="453"/>
+				</component>
+				<component name="format-date" library="core" uid="629" kind="5">
+					<sources>
+						<datapoint pos="0" key="40"/>
+						<datapoint pos="1" key="41"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="1493" lty="276" rbx="1591" rby="346"/>
+				</component>
+				<component name="if-else" library="core" uid="661" kind="4">
+					<sources>
+						<datapoint pos="0" key="156"/>
+						<datapoint pos="1" key="157"/>
+						<datapoint pos="2" key="159"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="158"/>
+					</targets>
+					<view ltx="2495" lty="394" rbx="2599" rby="467"/>
+				</component>
+				<component name="format-date" library="core" uid="638" kind="5">
+					<sources>
+						<datapoint pos="0" key="80"/>
+						<datapoint pos="1" key="74"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="75"/>
+					</targets>
+					<view ltx="1440" lty="646" rbx="1538" rby="716"/>
+				</component>
+				<component name="day-from-duration" library="lang" uid="659" kind="5">
+					<sources>
+						<datapoint pos="0" key="167"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="168"/>
+					</targets>
+					<view ltx="2106" lty="413" rbx="2228" rby="451"/>
+				</component>
+				<component name="TrasportoEntrataOrdini" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2870" lty="-157" rbx="3277" rby="720"/>
+					<data>
+						<root scrollposition="755">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="59" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="TrasportoEntrataOrdini_1_00" expanded="1">
+										<entry name="IdFlusso" inpkey="60"/>
+										<entry name="Ordini" expanded="1">
+											<entry name="Ordine" inpkey="61" expanded="1">
+												<entry name="Anno" inpkey="62"/>
+												<entry name="Filiale">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="SE"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="ElementoId" inpkey="63"/>
+												<entry name="Azione">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="Insert"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="OrdineRiferimento" inpkey="64"/>
+												<entry name="TipoServizio" inpkey="91"/>
+												<entry name="CarichiScarichi" expanded="1">
+													<entry name="CaricoScarico" inpkey="65" expanded="1">
+														<entry name="CaricoData" inpkey="92"/>
+														<entry name="CaricoDati" inpkey="93"/>
+														<entry name="CaricoMittenteInformazioniAnagrafiche" expanded="1">
+															<entry name="RagioneSociale" inpkey="117"/>
+															<entry name="Indirizzo" inpkey="118"/>
+															<entry name="Cap" inpkey="119"/>
+															<entry name="Localita" inpkey="120"/>
+															<entry name="Provincia" inpkey="121"/>
+															<entry name="Nazione" inpkey="122"/>
+														</entry>
+														<entry name="CaricoProvenienzaInformazioniAnagrafiche" expanded="1"/>
+														<entry name="CaricoMagazzino" inpkey="123"/>
+														<entry name="CaricoIncompleti" expanded="1"/>
+														<entry name="ScaricoData" inpkey="66"/>
+														<entry name="ScaricoDati" inpkey="94"/>
+														<entry name="ScaricoDestinatarioInformazioniAnagrafiche" expanded="1">
+															<entry name="RagioneSociale" inpkey="22"/>
+															<entry name="Indirizzo" inpkey="23"/>
+															<entry name="Cap" inpkey="24"/>
+															<entry name="Localita" inpkey="25"/>
+															<entry name="Provincia" inpkey="124"/>
+															<entry name="Nazione" inpkey="26"/>
+														</entry>
+														<entry name="ScaricoDestinazioneInformazioniAnagrafiche" expanded="1"/>
+														<entry name="ScaricoIncompleti" expanded="1"/>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" expanded="1">
+																<entry name="Codice" inpkey="125"/>
+																<entry name="Um1Codice">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="CO"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Um1Valore" inpkey="126"/>
+																<entry name="Um2Codice">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="KG"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Um2Valore" inpkey="102"/>
+																<entry name="Um3Codice">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="MC"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Um3Valore" inpkey="127"/>
+																<entry name="Um4Codice">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="PA"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Um4Valore" inpkey="141"/>
+															</entry>
+														</entry>
+														<entry name="Documenti" expanded="1">
+															<entry name="Documento" expanded="1">
+																<entry name="Tipo" inpkey="142"/>
+																<entry name="Numero" inpkey="143"/>
+																<entry name="Data" inpkey="144"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T4\TrasportoEntrataOrdini.xsd" instanceroot="{}TrasportoEntrataOrdini_1_00" outputinstance="..\..\..\_Global\Trasporto-T4\TrasportoEntrataOrdini.xml"/>
+					</data>
+				</component>
+				<component name="inputFile" library="core" uid="616" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="30" lty="-180" rbx="133" rby="-142"/>
+					<data>
+						<input datatype="string" previewvalue="E:\Root_Interlocutori_Deliverit\Mazzocco\TEST\TMS\from_Interlocutore_Ordini\maz_1838_20240222_194925.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="inputFile"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="70" to="1"/>
+			<edge from="2" to="3"/>
+			<edge from="21" to="4"/>
+			<edge from="5" to="6"/>
+			<edge from="2" to="7"/>
+			<edge from="19" to="8"/>
+			<edge from="21" to="9"/>
+			<edge from="18" to="10"/>
+			<edge from="16" to="11"/>
+			<edge from="20" to="12"/>
+			<edge from="38" to="13"/>
+			<edge from="29" to="22"/>
+			<edge from="30" to="23"/>
+			<edge from="32" to="24"/>
+			<edge from="31" to="25"/>
+			<edge from="27" to="26"/>
+			<edge from="17" to="28"/>
+			<edge from="46" to="34"/>
+			<edge from="47" to="35"/>
+			<edge from="48" to="36"/>
+			<edge from="52" to="40"/>
+			<edge from="39" to="41"/>
+			<edge from="55" to="49"/>
+			<edge from="2" to="50"/>
+			<edge from="58" to="51"/>
+			<edge from="45" to="53"/>
+			<edge from="43" to="54"/>
+			<edge from="45" to="56"/>
+			<edge from="33" to="57"/>
+			<edge from="14" to="59"/>
+			<edge from="70" to="60"/>
+			<edge from="69" to="61"/>
+			<edge from="15" to="62"/>
+			<edge from="70" to="63"/>
+			<edge from="70" to="64"/>
+			<edge from="44" to="65"/>
+			<edge from="158" to="66"/>
+			<edge from="44" to="67"/>
+			<edge from="37" to="68"/>
+			<edge from="39" to="74"/>
+			<edge from="33" to="76"/>
+			<edge from="116" to="77"/>
+			<edge from="116" to="78"/>
+			<edge from="79" to="80"/>
+			<edge from="2" to="81"/>
+			<edge from="43" to="82"/>
+			<edge from="83" to="84"/>
+			<edge from="85" to="86"/>
+			<edge from="95" to="91"/>
+			<edge from="75" to="92"/>
+			<edge from="160" to="93"/>
+			<edge from="96" to="94"/>
+			<edge from="101" to="98"/>
+			<edge from="103" to="99"/>
+			<edge from="100" to="102"/>
+			<edge from="115" to="104"/>
+			<edge from="103" to="106"/>
+			<edge from="108" to="117"/>
+			<edge from="109" to="118"/>
+			<edge from="112" to="119"/>
+			<edge from="110" to="120"/>
+			<edge from="111" to="121"/>
+			<edge from="27" to="122"/>
+			<edge from="107" to="123"/>
+			<edge from="113" to="124"/>
+			<edge from="97" to="125"/>
+			<edge from="114" to="126"/>
+			<edge from="105" to="127"/>
+			<edge from="39" to="128"/>
+			<edge from="33" to="130"/>
+			<edge from="146" to="131"/>
+			<edge from="135" to="132"/>
+			<edge from="146" to="134"/>
+			<edge from="2" to="136"/>
+			<edge from="43" to="137"/>
+			<edge from="138" to="139"/>
+			<edge from="133" to="140"/>
+			<edge from="147" to="141"/>
+			<edge from="148" to="142"/>
+			<edge from="145" to="143"/>
+			<edge from="129" to="144"/>
+			<edge from="42" to="149"/>
+			<edge from="39" to="150"/>
+			<edge from="151" to="152"/>
+			<edge from="75" to="153"/>
+			<edge from="39" to="155"/>
+			<edge from="166" to="156"/>
+			<edge from="75" to="157"/>
+			<edge from="42" to="159"/>
+			<edge from="154" to="161"/>
+			<edge from="168" to="164"/>
+			<edge from="163" to="165"/>
+			<edge from="162" to="167"/>
+		</connections>
+	</component>
+</mapping>

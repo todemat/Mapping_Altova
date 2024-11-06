@@ -1,0 +1,1290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/01_Italtrans/Coca Cola/Mappings/COCACOLA_ImportOrdiniUpdate_to_SgaTrasporto_Ordini.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select 
+	a.ELEMENTO_ID,
+	a.TIPO_SERVIZIO,
+	b.RIGA_CS,
+	b.CARICO_DATA_ORA,
+	b.ESTERNO_CARICO_CODICE,
+	b.ESTERNO_CARICO_RAGIONE_SOCIALE,
+	b.ESTERNO_CARICO_INDIRIZZO,
+	b.ESTERNO_CARICO_LOCALITA,
+	b.ESTERNO_CARICO_PROVINCIA,
+	b.ESTERNO_CARICO_CAP,
+	b.ESTERNO_CARICO_NAZIONE,
+	b.SCARICO_DATA_ORA,
+	b.ESTERNO_SCARICO_CODICE,
+	b.ESTERNO_SCARICO_RAGIONE_SOCIALE,
+	b.ESTERNO_SCARICO_INDIRIZZO,
+	b.ESTERNO_SCARICO_LOCALITA,
+	b.ESTERNO_SCARICO_PROVINCIA,
+	b.ESTERNO_SCARICO_CAP,
+	b.ESTERNO_SCARICO_NAZIONE
+from T2RicezioneOrdini a
+left join t2ricezioneordinicarichiscarichi b on a.societa=b.societa and a.ELABORAZIONE_SOGGETTO=b.ELABORAZIONE_SOGGETTO and a.ELABORAZIONE_PROGRESSIVO=b.ELABORAZIONE_PROGRESSIVO and a.ELABORAZIONE_SEQUENZA=b.ELABORAZIONE_SEQUENZA
+where  a.elaborazione_soggetto=&apos;COCA&apos; and a.elemento_id=:Elemento_Id and a.STATO_RICEZIONE=&apos;C&apos; and a.DATA_ORA_RICEZIONE&gt;=getdate()-15
+">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_RicezioneOrdiniConnectori" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Elemento_Id" type="varchar" size="100" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="OutputPath" library="core" uid="6" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="36"/>
+					</targets>
+					<view ltx="53" lty="140" rbx="171" rby="178"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\01_Italtrans\CocaCola\out" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputPath"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="9" kind="5">
+					<targets>
+						<datapoint pos="0" key="48"/>
+					</targets>
+					<view ltx="893" lty="-1" rbx="943" rby="37"/>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="57"/>
+					</targets>
+					<view ltx="53" lty="281" rbx="100" rby="298"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="10" kind="5">
+					<sources>
+						<datapoint pos="0" key="49"/>
+						<datapoint pos="1" key="52"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="50"/>
+					</targets>
+					<view ltx="1104" lty="52" rbx="1216" rby="122"/>
+				</component>
+				<component name="CodiceCliente" library="core" uid="4" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="53" lty="66" rbx="181" rby="104"/>
+					<data>
+						<input datatype="string" previewvalue="10146" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="CodiceCliente"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="53" lty="297" rbx="199" rby="314"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2][f,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<targets>
+						<datapoint pos="0" key="58"/>
+					</targets>
+					<view ltx="53" lty="313" rbx="115" rby="330"/>
+					<data>
+						<constant value=".xml" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="15" kind="2">
+					<targets>
+						<datapoint pos="0" key="56"/>
+					</targets>
+					<view ltx="52" lty="329" rbx="100" rby="346"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="7" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="39"/>
+						<datapoint pos="1" key="43"/>
+						<datapoint pos="2" key="46"/>
+						<datapoint pos="3" key="45"/>
+						<datapoint pos="4" key="44"/>
+						<datapoint pos="5" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="1895" lty="-1" rbx="1987" rby="123"/>
+				</component>
+				<component name="filter" library="core" uid="19" kind="3">
+					<sources>
+						<datapoint pos="0" key="69"/>
+						<datapoint pos="1" key="70"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="71"/>
+						<datapoint/>
+					</targets>
+					<view ltx="2462" lty="69" rbx="2575" rby="123"/>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="123"/>
+					</targets>
+					<view ltx="53" lty="345" rbx="165" rby="362"/>
+					<data>
+						<constant value="[H,2-2]:[m,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="45" kind="4">
+					<sources>
+						<datapoint pos="0" key="186"/>
+						<datapoint pos="1" key="182"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="189"/>
+					</targets>
+					<view ltx="1462" lty="766" rbx="1566" rby="839"/>
+				</component>
+				<component name="concat" library="core" uid="48" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="194"/>
+						<datapoint pos="1" key="195"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="196"/>
+					</targets>
+					<view ltx="1726" lty="719" rbx="1808" rby="775"/>
+				</component>
+				<component name="concat" library="core" uid="11" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="53"/>
+						<datapoint pos="1" key="47"/>
+						<datapoint pos="2" key="51"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="54"/>
+					</targets>
+					<view ltx="1339" lty="187" rbx="1431" rby="260"/>
+				</component>
+				<component name="concat" library="core" uid="51" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="199"/>
+						<datapoint pos="1" key="200"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="201"/>
+					</targets>
+					<view ltx="2433" lty="304" rbx="2515" rby="360"/>
+				</component>
+				<component name="db" library="db" uid="16" kind="15">
+					<view ltx="53" lty="-35" rbx="426" rby="14"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_RicezioneOrdiniConnectori" type="routine" expanded="1" displayselectionmode="selection"/>
+								<entry name="dbo.SELECT_RicezioneOrdiniConnectori" type="routine" outkey="72">
+									<condition>
+										<expression>
+											<function name="equal" library="core">
+												<expression>
+													<attribute name="input"/>
+												</expression>
+												<expression>
+													<constant value="false" datatype="boolean"/>
+												</expression>
+											</function>
+										</expression>
+									</condition>
+									<entry name="dbo.SELECT_RicezioneOrdiniConnectori" type="table" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_RicezioneOrdiniConnectori" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="29" kind="5">
+					<sources>
+						<datapoint pos="0" key="128"/>
+						<datapoint pos="1" key="126"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="127"/>
+					</targets>
+					<view ltx="2194" lty="873" rbx="2281" rby="927"/>
+				</component>
+				<component name="concat" library="core" uid="37" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="173"/>
+						<datapoint pos="1" key="174"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="175"/>
+					</targets>
+					<view ltx="1064" lty="730" rbx="1146" rby="786"/>
+				</component>
+				<component name="not-equal" library="core" uid="47" kind="5">
+					<sources>
+						<datapoint pos="0" key="187"/>
+						<datapoint pos="1" key="183"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="185"/>
+					</targets>
+					<view ltx="1064" lty="795" rbx="1142" rby="849"/>
+				</component>
+				<component name="concat" library="core" uid="50" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="191"/>
+						<datapoint pos="1" key="192"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="193"/>
+					</targets>
+					<view ltx="1064" lty="848" rbx="1146" rby="904"/>
+				</component>
+				<component name="if-else" library="core" uid="35" kind="4">
+					<sources>
+						<datapoint pos="0" key="166"/>
+						<datapoint pos="1" key="169"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="167"/>
+					</targets>
+					<view ltx="1462" lty="658" rbx="1566" rby="731"/>
+				</component>
+				<component name="format-date" library="core" uid="28" kind="5">
+					<sources>
+						<datapoint pos="0" key="117"/>
+						<datapoint pos="1" key="118"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="119"/>
+					</targets>
+					<view ltx="2183" lty="804" rbx="2281" rby="874"/>
+				</component>
+				<component name="not-equal" library="core" uid="34" kind="5">
+					<sources>
+						<datapoint pos="0" key="170"/>
+						<datapoint pos="1" key="168"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="165"/>
+					</targets>
+					<view ltx="1064" lty="677" rbx="1142" rby="731"/>
+				</component>
+				<component name="constant" library="core" uid="39" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="52" lty="414" rbx="196" rby="431"/>
+					<data>
+						<constant value="[D,2-2]/[M,2-2]/[Y,4-4] [H,2-2]:[m,2-2]:[s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="53" lty="265" rbx="229" rby="282"/>
+					<data>
+						<constant value="\TRAS_AggiornamentoOrdini_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="26" kind="2">
+					<targets>
+						<datapoint pos="0" key="130"/>
+					</targets>
+					<view ltx="52" lty="366" rbx="194" rby="383"/>
+					<data>
+						<constant value="[D,2-2].[M,2-2].[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="49" kind="2">
+					<targets>
+						<datapoint pos="0" key="190"/>
+					</targets>
+					<view ltx="52" lty="446" rbx="98" rby="463"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="44" kind="5">
+					<sources>
+						<datapoint pos="0" key="178"/>
+						<datapoint pos="1" key="179"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="180"/>
+					</targets>
+					<view ltx="2315" lty="639" rbx="2402" rby="693"/>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="112"/>
+					</targets>
+					<view ltx="52" lty="398" rbx="196" rby="415"/>
+					<data>
+						<constant value="[D,2-2]/[M,2-2]/[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="23" kind="5">
+					<sources>
+						<datapoint pos="0" key="108"/>
+						<datapoint pos="1" key="109"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="110"/>
+					</targets>
+					<view ltx="2315" lty="474" rbx="2413" rby="544"/>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="164"/>
+					</targets>
+					<view ltx="52" lty="430" rbx="120" rby="447"/>
+					<data>
+						<constant value="#N/A" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="76" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="59" lty="486" rbx="101" rby="503"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="25" kind="5">
+					<sources>
+						<datapoint pos="0" key="131"/>
+						<datapoint pos="1" key="132"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="113"/>
+					</targets>
+					<view ltx="1104" lty="345" rbx="1187" rby="399"/>
+				</component>
+				<component name="if-else" library="core" uid="52" kind="4">
+					<sources>
+						<datapoint pos="0" key="202"/>
+						<datapoint pos="1" key="203"/>
+						<datapoint pos="2" key="205"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="204"/>
+					</targets>
+					<view ltx="1895" lty="414" rbx="1999" rby="487"/>
+				</component>
+				<component name="if-else" library="core" uid="33" kind="4">
+					<sources>
+						<datapoint pos="0" key="161"/>
+						<datapoint pos="1" key="162"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="163"/>
+					</targets>
+					<view ltx="1895" lty="579" rbx="1999" rby="652"/>
+				</component>
+				<component name="OrdiniStandard" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2830" lty="-2" rbx="3178" rby="986"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="6" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Sga" expanded="1">
+										<entry name="OrdiniTrasporto" expanded="1">
+											<entry name="Versione" type="attribute" inpkey="63"/>
+											<entry name="OrdineTrasporto" inpkey="211" expanded="1">
+												<entry name="ElementoId" inpkey="64"/>
+												<entry name="Azione">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="Update"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Cliente" inpkey="65"/>
+												<entry name="RiferimentoInterno" inpkey="198"/>
+												<entry name="OrdineRiferimento" inpkey="66"/>
+												<entry name="TipoServizio">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="NN"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Ordine" inpkey="8">
+													<entry name="Stato" type="attribute">
+														<inputnodefunctions>
+															<rule applyto="self">
+																<default value="A"/>
+															</rule>
+														</inputnodefunctions>
+													</entry>
+													<entry name="TipoTariffa" type="attribute">
+														<inputnodefunctions>
+															<rule applyto="self">
+																<default value="F"/>
+															</rule>
+														</inputnodefunctions>
+													</entry>
+												</entry>
+												<entry name="NoteInterne" inpkey="176"/>
+												<entry name="CarichiScarichi" expanded="1">
+													<entry name="CaricoScarico" inpkey="90" expanded="1">
+														<entry name="Carico" expanded="1">
+															<entry name="Data" inpkey="111"/>
+															<entry name="Ora" inpkey="124"/>
+															<entry name="Codice" inpkey="91"/>
+															<entry name="RagioneSociale" inpkey="92"/>
+															<entry name="Indirizzo" inpkey="93"/>
+															<entry name="Localita" inpkey="94"/>
+															<entry name="Provincia" inpkey="95"/>
+															<entry name="Nazione" inpkey="96"/>
+															<entry name="Cap" inpkey="97"/>
+														</entry>
+														<entry name="Scarico" expanded="1">
+															<entry name="Data" inpkey="98"/>
+															<entry name="Ora" inpkey="134"/>
+															<entry name="Codice" inpkey="99"/>
+															<entry name="RagioneSociale" inpkey="100"/>
+															<entry name="Indirizzo" inpkey="101"/>
+															<entry name="Localita" inpkey="102"/>
+															<entry name="Provincia" inpkey="103"/>
+															<entry name="Nazione" inpkey="104"/>
+															<entry name="Cap" inpkey="105"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="106" expanded="1">
+																<entry name="Codice">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="BE"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Descrizione">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="BEVANDE"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="UnitaMisura1" expanded="1"/>
+																<entry name="UnitaMisura2" expanded="1"/>
+																<entry name="UnitaMisura3" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\OrdiniStandard.xsd" instanceroot="{}Sga" outputinstance="\\192.168.0.9\Root$\Root_EDI\PROGETTI_ALTOVA\Progetti\Mazzocco\03.Esempi\Backup\TRAS_OrdiniStandard.xml"/>
+					</data>
+				</component>
+				<component name="exists" library="core" uid="77" kind="5">
+					<sources>
+						<datapoint pos="0" key="218"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="219"/>
+					</targets>
+					<view ltx="1311" lty="474" rbx="1387" rby="512"/>
+				</component>
+				<component name="format-date" library="core" uid="75" kind="5">
+					<sources>
+						<datapoint pos="0" key="215"/>
+						<datapoint pos="1" key="216"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="217"/>
+					</targets>
+					<view ltx="993" lty="474" rbx="1091" rby="544"/>
+				</component>
+				<component name="InputFile" library="core" uid="5" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="53" lty="103" rbx="156" rby="141"/>
+					<data>
+						<input datatype="string" previewvalue="I:\Root_EDI\UFFORDINI\CocaCola\Import ordini Italtrans 100524.xlsx" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFile"/>
+					</data>
+				</component>
+				<component name="exists" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="67"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="68"/>
+					</targets>
+					<view ltx="2183" lty="222" rbx="2259" rby="260"/>
+				</component>
+				<component name="Italtrans Export" library="xlsx" uid="3" kind="26">
+					<properties DynamicFilenames="1"/>
+					<view ltx="413" lty="242" rbx="787" rby="858"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="59" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Workbook" expanded="1">
+										<entry name="Worksheet" expanded="1">
+											<ranges>
+												<range id="2" start="1"/>
+											</ranges>
+											<entry name="Row" expanded="1" displayselectionmode="selection">
+												<entry name="Cell" datatype="string"/>
+											</entry>
+											<entry name="Row" outkey="153" expanded="1" enabletitlerow="1">
+												<condition>
+													<expression>
+														<function name="is-range-id">
+															<expression>
+																<constant value="2" datatype="long"/>
+															</expression>
+														</function>
+													</expression>
+												</condition>
+												<entry name="Cell" displayselectionmode="selection" datatype="string"/>
+												<entry name="Cell" outkey="154" annotation="Spedizione
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="1" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="171" annotation="driverPIN
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="2" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="197" annotation="Delivery No.
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="3" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="155" annotation="Reference document
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="4" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="156" annotation="Data per il carico
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="5" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="157" annotation="Slot per caricare
+" datatype="dateTime">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="6" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="dt"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Punto di carico
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="7" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Data Finale
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="8" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Città di Arrivo
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="9" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Fermate
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="10" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="PAL da caricare
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="11" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Ritiro prodotto finito (PAL)
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="12" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Ritiro cauzioni (PAL)
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="13" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Rientro Pallet
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="14" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Aggiungi Carico
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="15" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Torna a deposito
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="16" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Descrizione dell&apos;Automezzo
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="17" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<excel inputinstance="\\Itafs00\h$\Root\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Trasporto\004. Clienti e Fornitori\Italtrans\Coca Cola\Documentazione\Italtrans Export 0202.xlsx" outputinstance="\\Itafs00\h$\Root\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Trasporto\004. Clienti e Fornitori\Italtrans\Coca Cola\Documentazione\Italtrans Export 0202.xlsx"/>
+					</data>
+				</component>
+				<component name="group-by" library="core" uid="61" kind="5">
+					<sources>
+						<datapoint pos="0" key="207"/>
+						<datapoint pos="1" key="208"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="209"/>
+						<datapoint pos="1" key="210"/>
+					</targets>
+					<view ltx="993" lty="218" rbx="1111" rby="272"/>
+				</component>
+				<component name="dbo.SELECT_RicezioneOrdiniConnectori" library="db" uid="30" kind="28">
+					<view ltx="1473" lty="889" rbx="1901" rby="1270"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="135"/>
+							<entry name="dbo.SELECT_RicezioneOrdiniConnectori" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_RicezioneOrdiniConnectori" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Elemento_Id" type="attribute" inpkey="136"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_RicezioneOrdiniConnectori" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_RicezioneOrdiniConnectori" outkey="137" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_RicezioneOrdiniConnectori" expanded="1">
+									<entry name="ESTERNO_CARICO_CODICE" type="attribute" outkey="138"/>
+									<entry name="ESTERNO_CARICO_RAGIONE_SOCIALE" type="attribute" outkey="139"/>
+									<entry name="ESTERNO_CARICO_INDIRIZZO" type="attribute" outkey="140"/>
+									<entry name="ESTERNO_CARICO_LOCALITA" type="attribute" outkey="141"/>
+									<entry name="ESTERNO_CARICO_PROVINCIA" type="attribute" outkey="142"/>
+									<entry name="ESTERNO_CARICO_CAP" type="attribute" outkey="143"/>
+									<entry name="ESTERNO_CARICO_NAZIONE" type="attribute" outkey="144"/>
+									<entry name="SCARICO_DATA_ORA" type="attribute" outkey="145"/>
+									<entry name="ESTERNO_SCARICO_CODICE" type="attribute" outkey="146"/>
+									<entry name="ESTERNO_SCARICO_RAGIONE_SOCIALE" type="attribute" outkey="147"/>
+									<entry name="ESTERNO_SCARICO_INDIRIZZO" type="attribute" outkey="148"/>
+									<entry name="ESTERNO_SCARICO_LOCALITA" type="attribute" outkey="149"/>
+									<entry name="ESTERNO_SCARICO_PROVINCIA" type="attribute" outkey="150"/>
+									<entry name="ESTERNO_SCARICO_CAP" type="attribute" outkey="151"/>
+									<entry name="ESTERNO_SCARICO_NAZIONE" type="attribute" outkey="152"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="71" to="6"/>
+			<edge from="153" to="8"/>
+			<edge from="36" to="39"/>
+			<edge from="58" to="40"/>
+			<edge from="42" to="43"/>
+			<edge from="54" to="44"/>
+			<edge from="57" to="45"/>
+			<edge from="38" to="46"/>
+			<edge from="57" to="47"/>
+			<edge from="48" to="49"/>
+			<edge from="50" to="51"/>
+			<edge from="55" to="52"/>
+			<edge from="210" to="53"/>
+			<edge from="37" to="59"/>
+			<edge from="56" to="63"/>
+			<edge from="210" to="64"/>
+			<edge from="38" to="65"/>
+			<edge from="155" to="66"/>
+			<edge from="137" to="67"/>
+			<edge from="41" to="69"/>
+			<edge from="68" to="70"/>
+			<edge from="137" to="90"/>
+			<edge from="138" to="91"/>
+			<edge from="139" to="92"/>
+			<edge from="140" to="93"/>
+			<edge from="141" to="94"/>
+			<edge from="142" to="95"/>
+			<edge from="144" to="96"/>
+			<edge from="143" to="97"/>
+			<edge from="119" to="98"/>
+			<edge from="146" to="99"/>
+			<edge from="147" to="100"/>
+			<edge from="148" to="101"/>
+			<edge from="149" to="102"/>
+			<edge from="150" to="103"/>
+			<edge from="152" to="104"/>
+			<edge from="151" to="105"/>
+			<edge from="210" to="106"/>
+			<edge from="204" to="108"/>
+			<edge from="112" to="109"/>
+			<edge from="110" to="111"/>
+			<edge from="145" to="117"/>
+			<edge from="112" to="118"/>
+			<edge from="180" to="124"/>
+			<edge from="123" to="126"/>
+			<edge from="145" to="128"/>
+			<edge from="156" to="131"/>
+			<edge from="130" to="132"/>
+			<edge from="127" to="134"/>
+			<edge from="72" to="135"/>
+			<edge from="210" to="136"/>
+			<edge from="219" to="161"/>
+			<edge from="157" to="162"/>
+			<edge from="165" to="166"/>
+			<edge from="164" to="168"/>
+			<edge from="175" to="169"/>
+			<edge from="171" to="170"/>
+			<edge from="190" to="173"/>
+			<edge from="171" to="174"/>
+			<edge from="196" to="176"/>
+			<edge from="163" to="178"/>
+			<edge from="123" to="179"/>
+			<edge from="193" to="182"/>
+			<edge from="164" to="183"/>
+			<edge from="185" to="186"/>
+			<edge from="197" to="187"/>
+			<edge from="190" to="191"/>
+			<edge from="197" to="192"/>
+			<edge from="167" to="194"/>
+			<edge from="189" to="195"/>
+			<edge from="201" to="198"/>
+			<edge from="210" to="199"/>
+			<edge from="196" to="200"/>
+			<edge from="219" to="202"/>
+			<edge from="157" to="203"/>
+			<edge from="113" to="205"/>
+			<edge from="153" to="207"/>
+			<edge from="154" to="208"/>
+			<edge from="209" to="211"/>
+			<edge from="157" to="215"/>
+			<edge from="112" to="216"/>
+			<edge from="217" to="218"/>
+		</connections>
+	</component>
+</mapping>

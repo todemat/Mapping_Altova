@@ -1,0 +1,1092 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Ferrero/Mappings/FRS_FileDischetto_to_OpenInterface_to_RC_ModificaDocumenti.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" autoselecttoolversion="1" toolversion="2022" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select * from RitiriConsegneDocumenti where Societa=1 and Cliente_CliFor=&apos;C&apos; and Cliente=:Cliente and Documento_Cliente_Numero=:Ndoc and Year(Documento_Cliente_Data)=:AnnoDoc ">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_RitiriConsegne_Documenti" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Cliente" type="int" size="4" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Ndoc" type="varchar" size="20" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="AnnoDoc" type="int" size="4" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+			<datasource name="OI_FRS">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="OI_FRS" vendor="microsoftsqlserver" import_kind="ADO" name="OI_FRS" path="OI_FRS"/>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="1985" lty="34" rbx="2051" rby="51"/>
+					<data>
+						<constant value=".XML" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="1985" lty="19" rbx="2132" rby="36"/>
+					<data>
+						<constant value="\RC_AggDocumenti_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="107"/>
+					</targets>
+					<view ltx="36" lty="276" rbx="96" rby="293"/>
+					<data>
+						<constant value="055" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="117"/>
+					</targets>
+					<view ltx="36" lty="324" rbx="99" rby="341"/>
+					<data>
+						<constant value="1.00" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="11" kind="15">
+					<properties/>
+					<view ltx="2950" lty="796" rbx="3250" rby="1296"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.FRS_STORAGE_DISCHETTO" type="table" inpkey="24" expanded="1">
+									<entry name="CODICE_DEPOSITO_DI_SPEDIZIONE" inpkey="25"/>
+									<entry name="TIPO_DOCUMENTO_DI_CONSEGNA" inpkey="26"/>
+									<entry name="DATA_DOCUMENTO_DI_CONSEGNA" inpkey="27"/>
+									<entry name="CODICE_DOCUMENTO_DI_CONSEGNA" inpkey="28"/>
+									<entry name="NUMERO_DOCUMENTO_DI_CONSEGNA" inpkey="29"/>
+									<entry name="DATA_DOCUMENTO_ABBINATO" inpkey="30"/>
+									<entry name="CODICE_DOCUMENTO_ABBINATO" inpkey="31"/>
+									<entry name="NUMERO_DOCUMENTO_ABBINATO" inpkey="32"/>
+									<entry name="TIPO_DOCUMENTO" inpkey="33"/>
+									<entry name="CODICE_DITTA_AUTOTRASPORTATRICE" inpkey="34"/>
+									<entry name="CODICE_CONSEGNATARIO" inpkey="35"/>
+									<entry name="CODICE_CLIENTE_DESTINATARIO" inpkey="36"/>
+									<entry name="NUMERO_LINEA" inpkey="37"/>
+									<entry name="RAGIONE_SOCIALE_DESTINATARIO" inpkey="38"/>
+									<entry name="INDIRIZZO_DESTINATARIO" inpkey="39"/>
+									<entry name="LOCALITA_DESTINATARIO" inpkey="40"/>
+									<entry name="PROVINCIA" inpkey="41"/>
+									<entry name="CAP_DESTINATARIO" inpkey="42"/>
+									<entry name="TIPO_CLIENTE" inpkey="43"/>
+									<entry name="GIORNI_CONSEGNA_DESTINATARIO" inpkey="44"/>
+									<entry name="NUMERO_COLLI" inpkey="45"/>
+									<entry name="PESO" inpkey="46"/>
+									<entry name="UNITA_DI_MISURA_DEI_PESI" inpkey="47"/>
+									<entry name="VOLUME" inpkey="48"/>
+									<entry name="UNITA_DI_MISURA_DEI_VOLUMI" inpkey="49"/>
+									<entry name="CONTRASSEGNO_IMPORTO_CONTANTI_VALUTA_FER" inpkey="50"/>
+									<entry name="CODICE_VALUTA_FERRERO" inpkey="51"/>
+									<entry name="TIPO_OPERAZIONE" inpkey="52"/>
+									<entry name="TOTALE_RIGHE_DETTAGLIO_PRODOTTI" inpkey="53"/>
+									<entry name="CODICE_PRODOTTO" inpkey="54"/>
+									<entry name="DESCRIZIONE_PRODOTTO" inpkey="55"/>
+									<entry name="QUANTITA" inpkey="56"/>
+									<entry name="UNITA_DI_MISURA_DELLE_QUANTITA" inpkey="57"/>
+									<entry name="DATA_REGISTRAZIONE_RECORD" inpkey="58"/>
+									<entry name="DATA_CONSEGNA" inpkey="59"/>
+									<entry name="CODICE_DEL_VIAGGIO" inpkey="60"/>
+									<entry name="CODICE_CLIENTE_OMAGGIO" inpkey="61"/>
+									<entry name="TIPO_PAGAMENTO" inpkey="62"/>
+									<entry name="FILLER" inpkey="63"/>
+									<entry name="TIPO_RESO" inpkey="64"/>
+									<entry name="RIQUADRO" inpkey="65"/>
+									<entry name="TIPO_CONSEGNA" inpkey="66"/>
+									<entry name="LOTTO_PRODUZIONE" inpkey="67"/>
+									<entry name="DATA_SCADENZA_LOTTO" inpkey="68"/>
+									<entry name="FRAZIONE_DEST" inpkey="69"/>
+									<entry name="NOTE_ALLA_CONSEGNA" inpkey="70"/>
+									<entry name="CONSEGNA_DEST_ORA_LUN_INIZIO1" inpkey="71"/>
+									<entry name="CONSEGNA_DEST_ORA_LUN_FINE1" inpkey="72"/>
+									<entry name="CONSEGNA_DEST_ORA_LUN_INIZIO2" inpkey="73"/>
+									<entry name="CONSEGNA_DEST_ORA_LUN_FINE2" inpkey="74"/>
+									<entry name="CONSEGNA_DEST_ORA_MAR_INIZIO1" inpkey="75"/>
+									<entry name="CONSEGNA_DEST_ORA_MAR_FINE1" inpkey="76"/>
+									<entry name="CONSEGNA_DEST_ORA_MAR_INIZIO2" inpkey="77"/>
+									<entry name="CONSEGNA_DEST_ORA_MAR_FINE2" inpkey="78"/>
+									<entry name="CONSEGNA_DEST_ORA_MER_INIZIO1" inpkey="79"/>
+									<entry name="CONSEGNA_DEST_ORA_MER_FINE1" inpkey="80"/>
+									<entry name="CONSEGNA_DEST_ORA_MER_INIZIO2" inpkey="81"/>
+									<entry name="CONSEGNA_DEST_ORA_MER_FINE2" inpkey="82"/>
+									<entry name="CONSEGNA_DEST_ORA_GIO_INIZIO1" inpkey="83"/>
+									<entry name="CONSEGNA_DEST_ORA_GIO_FINE1" inpkey="84"/>
+									<entry name="CONSEGNA_DEST_ORA_GIO_INIZIO2" inpkey="85"/>
+									<entry name="CONSEGNA_DEST_ORA_GIO_FINE2" inpkey="86"/>
+									<entry name="CONSEGNA_DEST_ORA_VEN_INIZIO1" inpkey="87"/>
+									<entry name="CONSEGNA_DEST_ORA_VEN_FINE1" inpkey="88"/>
+									<entry name="CONSEGNA_DEST_ORA_VEN_INIZIO2" inpkey="89"/>
+									<entry name="CONSEGNA_DEST_ORA_VEN_FINE2" inpkey="90"/>
+									<entry name="CONSEGNA_DEST_ORA_SAB_INIZIO1" inpkey="91"/>
+									<entry name="CONSEGNA_DEST_ORA_SAB_FINE1" inpkey="92"/>
+									<entry name="CONSEGNA_DEST_ORA_SAB_INIZIO2" inpkey="93"/>
+									<entry name="CONSEGNA_DEST_ORA_SAB_FINE2" inpkey="94"/>
+									<entry name="CONSEGNA_DEST_ORA_DOM_INIZIO1" inpkey="95"/>
+									<entry name="CONSEGNA_DEST_ORA_DOM_FINE1" inpkey="96"/>
+									<entry name="CONSEGNA_DEST_ORA_DOM_INIZIO2" inpkey="97"/>
+									<entry name="CONSEGNA_DEST_ORA_DOM_FINE2" inpkey="98"/>
+									<entry name="SALES_DOCUMENT" inpkey="99"/>
+									<entry name="NOTE_ORDINE" inpkey="100"/>
+									<entry name="NOTE_CONSEGNA" inpkey="101"/>
+									<entry name="FILE_INPUT" inpkey="102"/>
+									<entry name="NUMERO_TRASPORTO" inpkey="103"/>
+									<entry name="NUMERO_PEDANE" inpkey="104"/>
+									<entry name="IDVIAGGIO" inpkey="105"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="OI_FRS">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="OI_FRS" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="FRS_STORAGE_DISCHETTO" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="29" kind="5">
+					<targets>
+						<datapoint pos="0" key="217"/>
+					</targets>
+					<view ltx="1816" lty="-18" rbx="1866" rby="20"/>
+				</component>
+				<component name="OutputDir" library="core" uid="9" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1584" lty="34" rbx="1694" rby="72"/>
+					<data>
+						<input datatype="string" previewvalue="..\04.Output" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="32" kind="2">
+					<targets>
+						<datapoint pos="0" key="220"/>
+					</targets>
+					<view ltx="36" lty="372" rbx="182" rby="389"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="20" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="109"/>
+						<datapoint pos="1" key="110"/>
+						<datapoint pos="2" key="111"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="112"/>
+					</targets>
+					<view ltx="948" lty="220" rbx="1040" rby="293"/>
+				</component>
+				<component name="first-items" library="core" uid="39" kind="5">
+					<sources>
+						<datapoint pos="0" key="235"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="240"/>
+					</targets>
+					<view ltx="2563" lty="182" rbx="2678" rby="236"/>
+				</component>
+				<component name="first-items" library="core" uid="40" kind="5">
+					<sources>
+						<datapoint pos="0" key="241"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="242"/>
+					</targets>
+					<view ltx="2588" lty="205" rbx="2703" rby="259"/>
+				</component>
+				<component name="first-items" library="core" uid="41" kind="5">
+					<sources>
+						<datapoint pos="0" key="243"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="244"/>
+					</targets>
+					<view ltx="2618" lty="235" rbx="2733" rby="289"/>
+				</component>
+				<component name="first-items" library="core" uid="50" kind="5">
+					<sources>
+						<datapoint pos="0" key="280"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="281"/>
+					</targets>
+					<view ltx="2683" lty="570" rbx="2798" rby="624"/>
+				</component>
+				<component name="first-items" library="core" uid="51" kind="5">
+					<sources>
+						<datapoint pos="0" key="282"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="283"/>
+					</targets>
+					<view ltx="2713" lty="600" rbx="2828" rby="654"/>
+				</component>
+				<component name="first-items" library="core" uid="44" kind="5">
+					<sources>
+						<datapoint pos="0" key="250"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="251"/>
+					</targets>
+					<view ltx="2618" lty="346" rbx="2733" rby="400"/>
+				</component>
+				<component name="first-items" library="core" uid="43" kind="5">
+					<sources>
+						<datapoint pos="0" key="245"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="246"/>
+					</targets>
+					<view ltx="2588" lty="311" rbx="2703" rby="365"/>
+				</component>
+				<component name="right-trim" library="lang" uid="57" kind="5">
+					<sources>
+						<datapoint pos="0" key="284"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="285"/>
+					</targets>
+					<view ltx="2323" lty="292" rbx="2402" rby="330"/>
+				</component>
+				<component name="constant" library="core" uid="60" kind="2">
+					<targets>
+						<datapoint pos="0" key="269"/>
+					</targets>
+					<view ltx="44" lty="439" rbx="89" rby="456"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="52" kind="5">
+					<sources>
+						<datapoint pos="0" key="255"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="288"/>
+					</targets>
+					<view ltx="2538" lty="427" rbx="2653" rby="481"/>
+				</component>
+				<component name="replace" library="lang" uid="61" kind="5">
+					<sources>
+						<datapoint pos="0" key="289"/>
+						<datapoint pos="1" key="272"/>
+						<datapoint pos="2" key="271"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="290"/>
+					</targets>
+					<view ltx="2061" lty="426" rbx="2162" rby="496"/>
+				</component>
+				<component name="first-items" library="core" uid="46" kind="5">
+					<sources>
+						<datapoint pos="0" key="252"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="253"/>
+					</targets>
+					<view ltx="2563" lty="450" rbx="2678" rby="504"/>
+				</component>
+				<component name="first-items" library="core" uid="48" kind="5">
+					<sources>
+						<datapoint pos="0" key="293"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="294"/>
+					</targets>
+					<view ltx="2623" lty="510" rbx="2738" rby="564"/>
+				</component>
+				<component name="first-items" library="core" uid="49" kind="5">
+					<sources>
+						<datapoint pos="0" key="300"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="301"/>
+					</targets>
+					<view ltx="2653" lty="540" rbx="2768" rby="594"/>
+				</component>
+				<component name="replace" library="lang" uid="63" kind="5">
+					<sources>
+						<datapoint pos="0" key="302"/>
+						<datapoint pos="1" key="276"/>
+						<datapoint pos="2" key="275"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="303"/>
+					</targets>
+					<view ltx="2121" lty="486" rbx="2222" rby="556"/>
+				</component>
+				<component name="replace" library="lang" uid="64" kind="5">
+					<sources>
+						<datapoint pos="0" key="304"/>
+						<datapoint pos="1" key="305"/>
+						<datapoint pos="2" key="306"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="307"/>
+					</targets>
+					<view ltx="2151" lty="516" rbx="2252" rby="586"/>
+				</component>
+				<component name="constant" library="core" uid="66" kind="2">
+					<targets>
+						<datapoint pos="0" key="277"/>
+					</targets>
+					<view ltx="36" lty="487" rbx="108" rby="504"/>
+					<data>
+						<constant value="00001" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="67" kind="2">
+					<targets>
+						<datapoint pos="0" key="278"/>
+					</targets>
+					<view ltx="36" lty="503" rbx="132" rby="520"/>
+					<data>
+						<constant value="GENERICO" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="65" kind="2">
+					<targets>
+						<datapoint pos="0" key="279"/>
+					</targets>
+					<view ltx="36" lty="519" rbx="95" rby="536"/>
+					<data>
+						<constant value="MC" datatype="string"/>
+					</data>
+				</component>
+				<component name="first-items" library="core" uid="47" kind="5">
+					<sources>
+						<datapoint pos="0" key="319"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="320"/>
+					</targets>
+					<view ltx="2593" lty="480" rbx="2708" rby="534"/>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="108"/>
+					</targets>
+					<view ltx="36" lty="292" rbx="94" rby="309"/>
+					<data>
+						<constant value="M9" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="225"/>
+					</targets>
+					<view ltx="36" lty="340" rbx="164" rby="357"/>
+					<data>
+						<constant value="FileDischettoFRS" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<targets>
+						<datapoint pos="0" key="106"/>
+					</targets>
+					<view ltx="36" lty="260" rbx="108" rby="277"/>
+					<data>
+						<constant value="12821" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="28" kind="5">
+					<sources>
+						<datapoint pos="0" key="218"/>
+						<datapoint pos="1" key="219"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="216"/>
+					</targets>
+					<view ltx="1939" lty="62" rbx="2051" rby="132"/>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="226"/>
+					</targets>
+					<view ltx="36" lty="356" rbx="83" rby="373"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="10" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="17"/>
+						<datapoint pos="2" key="227"/>
+						<datapoint pos="3" key="228"/>
+						<datapoint pos="4" key="229"/>
+						<datapoint pos="5" key="323"/>
+						<datapoint pos="6" key="221"/>
+						<datapoint pos="7" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="2353" lty="-9" rbx="2445" rby="149"/>
+				</component>
+				<component name="filter" library="core" uid="68" kind="3">
+					<sources>
+						<datapoint pos="0" key="324"/>
+						<datapoint pos="1" key="325"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="326"/>
+						<datapoint/>
+					</targets>
+					<view ltx="2702" lty="34" rbx="2815" rby="88"/>
+				</component>
+				<component name="exists" library="core" uid="69" kind="5">
+					<sources>
+						<datapoint pos="0" key="327"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="328"/>
+					</targets>
+					<view ltx="2538" lty="111" rbx="2614" rby="149"/>
+				</component>
+				<component name="group-by" library="core" uid="42" kind="5">
+					<sources>
+						<datapoint pos="0" key="236"/>
+						<datapoint pos="1" key="237"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="238"/>
+						<datapoint pos="1" key="239"/>
+					</targets>
+					<view ltx="1079" lty="158" rbx="1197" rby="212"/>
+				</component>
+				<component name="dbo.SELECT_RitiriConsegne_Documenti" library="db" uid="18" kind="28">
+					<view ltx="1323" lty="182" rbx="1729" rby="791"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="118"/>
+							<entry name="dbo.SELECT_RitiriConsegne_Documenti" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_RitiriConsegne_Documenti" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Cliente" type="attribute" inpkey="119"/>
+								<entry name="Ndoc" type="attribute" inpkey="120"/>
+								<entry name="AnnoDoc" type="attribute" inpkey="121"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_RitiriConsegne_Documenti" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_RitiriConsegne_Documenti" outkey="329" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_RitiriConsegne_Documenti" expanded="1">
+									<entry name="ANNO" type="attribute" outkey="123"/>
+									<entry name="FILIALE" type="attribute" outkey="124"/>
+									<entry name="NUMERO" type="attribute" outkey="125"/>
+									<entry name="PESO" type="attribute" outkey="254"/>
+									<entry name="VOLUME" type="attribute" outkey="295"/>
+									<entry name="PALETTE" type="attribute" outkey="260"/>
+									<entry name="UM1_CODICE" type="attribute" outkey="296"/>
+									<entry name="UM1_VALORE" type="attribute" outkey="297"/>
+									<entry name="UM2_CODICE" type="attribute" outkey="298"/>
+									<entry name="UM2_VALORE" type="attribute" outkey="299"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="db" library="db" uid="17" kind="15">
+					<view ltx="36" lty="10" rbx="336" rby="72"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_RitiriConsegne_Documenti" type="routine" outkey="23" expanded="1"/>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_RitiriConsegne_Documenti" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="62" kind="5">
+					<sources>
+						<datapoint pos="0" key="291"/>
+						<datapoint pos="1" key="274"/>
+						<datapoint pos="2" key="273"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="292"/>
+					</targets>
+					<view ltx="2091" lty="456" rbx="2192" rby="526"/>
+				</component>
+				<component name="constant" library="core" uid="59" kind="2">
+					<targets>
+						<datapoint pos="0" key="270"/>
+					</targets>
+					<view ltx="38" lty="423" rbx="83" rby="440"/>
+					<data>
+						<constant value="." datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="58" kind="5">
+					<sources>
+						<datapoint pos="0" key="286"/>
+						<datapoint pos="1" key="267"/>
+						<datapoint pos="2" key="268"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="287"/>
+					</targets>
+					<view ltx="2031" lty="396" rbx="2132" rby="466"/>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="113"/>
+					</targets>
+					<view ltx="36" lty="308" rbx="84" rby="325"/>
+					<data>
+						<constant value="4" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="233"/>
+					</targets>
+					<view ltx="36" lty="398" rbx="182" rby="415"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="37" kind="5">
+					<sources>
+						<datapoint pos="0" key="247"/>
+						<datapoint pos="1" key="248"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="249"/>
+					</targets>
+					<view ltx="2323" lty="346" rbx="2406" rby="400"/>
+				</component>
+				<component name="left" library="lang" uid="23" kind="5">
+					<sources>
+						<datapoint pos="0" key="114"/>
+						<datapoint pos="1" key="115"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="116"/>
+					</targets>
+					<view ltx="1037" lty="372" rbx="1126" rby="426"/>
+				</component>
+				<component name="FILE DISCHETTO" library="text" uid="2" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="343" lty="128" rbx="657" rby="1445"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="321" outkey="127" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="128" expanded="1">
+										<entry name="CODICE_DEPOSITO_DI_SPEDIZIONE" outkey="129"/>
+										<entry name="TIPO_DOCUMENTO_DI_CONSEGNA" outkey="130"/>
+										<entry name="DATA_DOCUMENTO_DI_CONSEGNA" outkey="131"/>
+										<entry name="CODICE_DOCUMENTO_DI_CONSEGNA" outkey="132"/>
+										<entry name="NUMERO_DOCUMENTO_DI_CONSEGNA" outkey="133"/>
+										<entry name="DATA_DOCUMENTO_ABBINATO" outkey="134"/>
+										<entry name="CODICE_DOCUMENTO_ABBINATO" outkey="135"/>
+										<entry name="NUMERO_DOCUMENTO_ABBINATO" outkey="136"/>
+										<entry name="TIPO_DOCUMENTO" outkey="137"/>
+										<entry name="CODICE_DITTA_AUTOTRASPORTATRICE" outkey="138"/>
+										<entry name="CODICE_CONSEGNATARIO" outkey="139"/>
+										<entry name="CODICE_CLIENTE_DESTINATARIO" outkey="140"/>
+										<entry name="NUMERO_LINEA" outkey="141"/>
+										<entry name="RAGIONE_SOCIALE_DESTINATARIO" outkey="142"/>
+										<entry name="INDIRIZZO_DESTINATARIO" outkey="143"/>
+										<entry name="LOCALITA_DESTINATARIO" outkey="144"/>
+										<entry name="PROVINCIA" outkey="145"/>
+										<entry name="CAP_DESTINATARIO" outkey="146"/>
+										<entry name="TIPO_CLIENTE" outkey="147"/>
+										<entry name="GIORNI_CONSEGNA_DESTINATARIO" outkey="148"/>
+										<entry name="NUMERO_COLLI" outkey="149"/>
+										<entry name="PESO" outkey="150"/>
+										<entry name="UNITA_DI_MISURA_DEI_PESI" outkey="151"/>
+										<entry name="VOLUME" outkey="152"/>
+										<entry name="UNITA_DI_MISURA_DEI_VOLUMI" outkey="153"/>
+										<entry name="CONTRASSEGNO_IMPORTO_CONTANTI_VALUTA_PER" outkey="154"/>
+										<entry name="CODICE_VALUTA_FERRERO" outkey="155"/>
+										<entry name="TIPO_OPERAZIONE" outkey="156"/>
+										<entry name="TOTALE_RIGHE_DETTAGLIO_PRODOTTI" outkey="157"/>
+										<entry name="CODICE_PRODOTTO" outkey="158"/>
+										<entry name="DESCRIZIONE_PRODOTTO" outkey="159"/>
+										<entry name="QUANTITA" outkey="160"/>
+										<entry name="UNITA_DI_MISURA_DELLE_QUANTITA" outkey="161"/>
+										<entry name="DATA_REGISTRAZIONE_RECORD" outkey="162"/>
+										<entry name="DATA_CONSEGNA" outkey="163"/>
+										<entry name="CODICE_DEL_VIAGGIO" outkey="164"/>
+										<entry name="CODICE_CLIENTE_OMAGGIO" outkey="165"/>
+										<entry name="TIPO_PAGAMENTO" outkey="166"/>
+										<entry name="FILLER" outkey="167"/>
+										<entry name="TIPO_RESO" outkey="168"/>
+										<entry name="RIQUADRO" outkey="169"/>
+										<entry name="TIPO_CONSEGNA" outkey="170"/>
+										<entry name="LOTTO_PRODUZIONE" outkey="171"/>
+										<entry name="DATA_SCADENZA_LOTTO" outkey="172"/>
+										<entry name="FRAZIONE_DEST" outkey="173"/>
+										<entry name="NOTE_ALLA_CONSEGNA" outkey="174"/>
+										<entry name="CONSEGNA_DEST_ORA_LUN_INIZIO1" outkey="175"/>
+										<entry name="CONSEGNA_DEST_ORA_LUN_FINE1" outkey="176"/>
+										<entry name="CONSEGNA_DEST_ORA_LUN_INIZIO2" outkey="177"/>
+										<entry name="CONSEGNA_DEST_ORA_LUN_FINE2" outkey="178"/>
+										<entry name="CONSEGNA_DEST_ORA_MAR_INIZIO1" outkey="179"/>
+										<entry name="CONSEGNA_DEST_ORA_MAR_FINE1" outkey="180"/>
+										<entry name="CONSEGNA_DEST_ORA_MAR_INIZIO2" outkey="181"/>
+										<entry name="CONSEGNA_DEST_ORA_MAR_FINE2" outkey="182"/>
+										<entry name="CONSEGNA_DEST_ORA_MER_INIZIO1" outkey="183"/>
+										<entry name="CONSEGNA_DEST_ORA_MER_FINE1" outkey="184"/>
+										<entry name="CONSEGNA_DEST_ORA_MER_INIZIO2" outkey="185"/>
+										<entry name="CONSEGNA_DEST_ORA_MER_FINE2" outkey="186"/>
+										<entry name="CONSEGNA_DEST_ORA_GIO_INIZIO1" outkey="187"/>
+										<entry name="CONSEGNA_DEST_ORA_GIO_FINE1" outkey="188"/>
+										<entry name="CONSEGNA_DEST_ORA_GIO_INIZIO2" outkey="189"/>
+										<entry name="CONSEGNA_DEST_ORA_GIO_FINE2" outkey="190"/>
+										<entry name="CONSEGNA_DEST_ORA_VER_INIZIO1" outkey="191"/>
+										<entry name="CONSEGNA_DEST_ORA_VER_FINE1" outkey="192"/>
+										<entry name="CONSEGNA_DEST_ORA_VER_INIZIO2" outkey="193"/>
+										<entry name="CONSEGNA_DEST_ORA_VER_FINE2" outkey="194"/>
+										<entry name="CONSEGNA_DEST_ORA_SAB_INIZIO1" outkey="195"/>
+										<entry name="CONSEGNA_DEST_ORA_SAB_FINE1" outkey="196"/>
+										<entry name="CONSEGNA_DEST_ORA_SAB_INIZIO2" outkey="197"/>
+										<entry name="CONSEGNA_DEST_ORA_SAB_FINE2" outkey="198"/>
+										<entry name="CONSEGNA_DEST_ORA_DOM_INIZIO1" outkey="199"/>
+										<entry name="CONSEGNA_DEST_ORA_DOM_FINE1" outkey="200"/>
+										<entry name="CONSEGNA_DEST_ORA_DOM_INIZIO2" outkey="201"/>
+										<entry name="CONSEGNA_DEST_ORA_DOM_FINE2" outkey="202"/>
+										<entry name="SALES_DOCUMENT" outkey="203"/>
+										<entry name="NOTE_ORDINE" outkey="204"/>
+										<entry name="NOTE_CONSEGNA" outkey="205"/>
+										<entry name="NUMERO_TRASPORTO" outkey="206"/>
+										<entry name="NUMERO_PEDANE" outkey="207"/>
+										<entry name="IDVIAGGIO" outkey="208"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\01.Tracciati\ITDR_0064378174_20210818185522930.txt">
+							<settings separator=";" quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="FILE DISCHETTO" block="Rows">
+									<field0 name="CODICE_DEPOSITO_DI_SPEDIZIONE" type="string"/>
+									<field1 name="TIPO_DOCUMENTO_DI_CONSEGNA" type="string"/>
+									<field2 name="DATA_DOCUMENTO_DI_CONSEGNA" type="string"/>
+									<field3 name="CODICE_DOCUMENTO_DI_CONSEGNA" type="string"/>
+									<field4 name="NUMERO_DOCUMENTO_DI_CONSEGNA" type="string"/>
+									<field5 name="DATA_DOCUMENTO_ABBINATO" type="string"/>
+									<field6 name="CODICE_DOCUMENTO_ABBINATO" type="string"/>
+									<field7 name="NUMERO_DOCUMENTO_ABBINATO" type="string"/>
+									<field8 name="TIPO_DOCUMENTO" type="string"/>
+									<field9 name="CODICE_DITTA_AUTOTRASPORTATRICE" type="string"/>
+									<field10 name="CODICE_CONSEGNATARIO" type="string"/>
+									<field11 name="CODICE_CLIENTE_DESTINATARIO" type="string"/>
+									<field12 name="NUMERO_LINEA" type="string"/>
+									<field13 name="RAGIONE_SOCIALE_DESTINATARIO" type="string"/>
+									<field14 name="INDIRIZZO_DESTINATARIO" type="string"/>
+									<field15 name="LOCALITA_DESTINATARIO" type="string"/>
+									<field16 name="PROVINCIA" type="string"/>
+									<field17 name="CAP_DESTINATARIO" type="string"/>
+									<field18 name="TIPO_CLIENTE" type="string"/>
+									<field19 name="GIORNI_CONSEGNA_DESTINATARIO" type="string"/>
+									<field20 name="NUMERO_COLLI" type="string"/>
+									<field21 name="PESO" type="string"/>
+									<field22 name="UNITA_DI_MISURA_DEI_PESI" type="string"/>
+									<field23 name="VOLUME" type="string"/>
+									<field24 name="UNITA_DI_MISURA_DEI_VOLUMI" type="string"/>
+									<field25 name="CONTRASSEGNO_IMPORTO_CONTANTI_VALUTA_PER" type="string"/>
+									<field26 name="CODICE_VALUTA_FERRERO" type="string"/>
+									<field27 name="TIPO_OPERAZIONE" type="string"/>
+									<field28 name="TOTALE_RIGHE_DETTAGLIO_PRODOTTI" type="string"/>
+									<field29 name="CODICE_PRODOTTO" type="string"/>
+									<field30 name="DESCRIZIONE_PRODOTTO" type="string"/>
+									<field31 name="QUANTITA" type="string"/>
+									<field32 name="UNITA_DI_MISURA_DELLE_QUANTITA" type="string"/>
+									<field33 name="DATA_REGISTRAZIONE_RECORD" type="string"/>
+									<field34 name="DATA_CONSEGNA" type="string"/>
+									<field35 name="CODICE_DEL_VIAGGIO" type="string"/>
+									<field36 name="CODICE_CLIENTE_OMAGGIO" type="string"/>
+									<field37 name="TIPO_PAGAMENTO" type="string"/>
+									<field38 name="FILLER" type="string"/>
+									<field39 name="TIPO_RESO" type="string"/>
+									<field40 name="RIQUADRO" type="string"/>
+									<field41 name="TIPO_CONSEGNA" type="string"/>
+									<field42 name="LOTTO_PRODUZIONE" type="string"/>
+									<field43 name="DATA_SCADENZA_LOTTO" type="string"/>
+									<field44 name="FRAZIONE_DEST" type="string"/>
+									<field45 name="NOTE_ALLA_CONSEGNA" type="string"/>
+									<field46 name="CONSEGNA_DEST_ORA_LUN_INIZIO1" type="string"/>
+									<field47 name="CONSEGNA_DEST_ORA_LUN_FINE1" type="string"/>
+									<field48 name="CONSEGNA_DEST_ORA_LUN_INIZIO2" type="string"/>
+									<field49 name="CONSEGNA_DEST_ORA_LUN_FINE2" type="string"/>
+									<field50 name="CONSEGNA_DEST_ORA_MAR_INIZIO1" type="string"/>
+									<field51 name="CONSEGNA_DEST_ORA_MAR_FINE1" type="string"/>
+									<field52 name="CONSEGNA_DEST_ORA_MAR_INIZIO2" type="string"/>
+									<field53 name="CONSEGNA_DEST_ORA_MAR_FINE2" type="string"/>
+									<field54 name="CONSEGNA_DEST_ORA_MER_INIZIO1" type="string"/>
+									<field55 name="CONSEGNA_DEST_ORA_MER_FINE1" type="string"/>
+									<field56 name="CONSEGNA_DEST_ORA_MER_INIZIO2" type="string"/>
+									<field57 name="CONSEGNA_DEST_ORA_MER_FINE2" type="string"/>
+									<field58 name="CONSEGNA_DEST_ORA_GIO_INIZIO1" type="string"/>
+									<field59 name="CONSEGNA_DEST_ORA_GIO_FINE1" type="string"/>
+									<field60 name="CONSEGNA_DEST_ORA_GIO_INIZIO2" type="string"/>
+									<field61 name="CONSEGNA_DEST_ORA_GIO_FINE2" type="string"/>
+									<field62 name="CONSEGNA_DEST_ORA_VER_INIZIO1" type="string"/>
+									<field63 name="CONSEGNA_DEST_ORA_VER_FINE1" type="string"/>
+									<field64 name="CONSEGNA_DEST_ORA_VER_INIZIO2" type="string"/>
+									<field65 name="CONSEGNA_DEST_ORA_VER_FINE2" type="string"/>
+									<field66 name="CONSEGNA_DEST_ORA_SAB_INIZIO1" type="string"/>
+									<field67 name="CONSEGNA_DEST_ORA_SAB_FINE1" type="string"/>
+									<field68 name="CONSEGNA_DEST_ORA_SAB_INIZIO2" type="string"/>
+									<field69 name="CONSEGNA_DEST_ORA_SAB_FINE2" type="string"/>
+									<field70 name="CONSEGNA_DEST_ORA_DOM_INIZIO1" type="string"/>
+									<field71 name="CONSEGNA_DEST_ORA_DOM_FINE1" type="string"/>
+									<field72 name="CONSEGNA_DEST_ORA_DOM_INIZIO2" type="string"/>
+									<field73 name="CONSEGNA_DEST_ORA_DOM_FINE2" type="string"/>
+									<field74 name="SALES_DOCUMENT" type="string"/>
+									<field75 name="NOTE_ORDINE" type="string"/>
+									<field76 name="NOTE_CONSEGNA" type="string"/>
+									<field77 name="NUMERO_TRASPORTO" type="string"/>
+									<field78 name="NUMERO_PEDANE" type="string"/>
+									<field79 name="IDVIAGGIO" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="ModificaDocumenti" library="xml" uid="4" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="3188" lty="145" rbx="3531" rby="715"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="209" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="RitiriConsegne.ModificaDocumenti" expanded="1">
+										<entry name="Release" inpkey="211"/>
+										<entry name="Documenti" expanded="1">
+											<entry name="Documento" inpkey="212" expanded="1">
+												<entry name="KeyCodice" expanded="1">
+													<entry name="Anno" inpkey="213"/>
+													<entry name="Numero" inpkey="214"/>
+													<entry name="Filiale" inpkey="215"/>
+												</entry>
+												<entry name="DocumentoTrasporto" expanded="1">
+													<entry name="Data" inpkey="231"/>
+													<entry name="Numero" inpkey="232"/>
+												</entry>
+												<entry name="Quantita" expanded="1">
+													<entry name="Palette" inpkey="308"/>
+													<entry name="Peso" inpkey="309"/>
+													<entry name="Volume" inpkey="310"/>
+													<entry name="Um1Codice" inpkey="311"/>
+													<entry name="Um1Valore" inpkey="312"/>
+													<entry name="Um2Codice" inpkey="313"/>
+													<entry name="Um2Valore" inpkey="314"/>
+												</entry>
+												<entry name="Articoli" expanded="1">
+													<entry name="Articolo" expanded="1">
+														<entry name="Codice" inpkey="315"/>
+														<entry name="Descrizione" inpkey="316"/>
+														<entry name="UnitaDiMisura" inpkey="317"/>
+														<entry name="Quantita" inpkey="318"/>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\RitiriConsegne\ModificaDocumenti.xsd" instanceroot="{}RitiriConsegne.ModificaDocumenti" outputinstance="..\01.Tracciati\RC_ModificaDocumenti.xml"/>
+					</data>
+				</component>
+				<component name="FileInput" library="core" uid="3" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="322"/>
+					</targets>
+					<view ltx="36" lty="158" rbx="139" rby="196"/>
+					<data>
+						<input datatype="string" previewvalue="I:\Root_EDI\CLIENTI\Ferrero\PROD\From_CLIENTE_DDT\ITDR_0066415130_20230724165141951.txt.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="FileInput"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="6" to="7"/>
+			<edge from="10" to="11"/>
+			<edge from="16" to="17"/>
+			<edge from="128" to="24"/>
+			<edge from="129" to="25"/>
+			<edge from="130" to="26"/>
+			<edge from="131" to="27"/>
+			<edge from="132" to="28"/>
+			<edge from="133" to="29"/>
+			<edge from="134" to="30"/>
+			<edge from="135" to="31"/>
+			<edge from="136" to="32"/>
+			<edge from="137" to="33"/>
+			<edge from="138" to="34"/>
+			<edge from="139" to="35"/>
+			<edge from="140" to="36"/>
+			<edge from="141" to="37"/>
+			<edge from="142" to="38"/>
+			<edge from="143" to="39"/>
+			<edge from="144" to="40"/>
+			<edge from="145" to="41"/>
+			<edge from="146" to="42"/>
+			<edge from="147" to="43"/>
+			<edge from="148" to="44"/>
+			<edge from="149" to="45"/>
+			<edge from="150" to="46"/>
+			<edge from="151" to="47"/>
+			<edge from="152" to="48"/>
+			<edge from="153" to="49"/>
+			<edge from="154" to="50"/>
+			<edge from="155" to="51"/>
+			<edge from="156" to="52"/>
+			<edge from="157" to="53"/>
+			<edge from="158" to="54"/>
+			<edge from="159" to="55"/>
+			<edge from="160" to="56"/>
+			<edge from="161" to="57"/>
+			<edge from="162" to="58"/>
+			<edge from="163" to="59"/>
+			<edge from="164" to="60"/>
+			<edge from="165" to="61"/>
+			<edge from="166" to="62"/>
+			<edge from="167" to="63"/>
+			<edge from="168" to="64"/>
+			<edge from="169" to="65"/>
+			<edge from="170" to="66"/>
+			<edge from="171" to="67"/>
+			<edge from="172" to="68"/>
+			<edge from="173" to="69"/>
+			<edge from="174" to="70"/>
+			<edge from="175" to="71"/>
+			<edge from="176" to="72"/>
+			<edge from="177" to="73"/>
+			<edge from="178" to="74"/>
+			<edge from="179" to="75"/>
+			<edge from="180" to="76"/>
+			<edge from="181" to="77"/>
+			<edge from="182" to="78"/>
+			<edge from="183" to="79"/>
+			<edge from="184" to="80"/>
+			<edge from="185" to="81"/>
+			<edge from="186" to="82"/>
+			<edge from="187" to="83"/>
+			<edge from="188" to="84"/>
+			<edge from="189" to="85"/>
+			<edge from="190" to="86"/>
+			<edge from="191" to="87"/>
+			<edge from="192" to="88"/>
+			<edge from="193" to="89"/>
+			<edge from="194" to="90"/>
+			<edge from="195" to="91"/>
+			<edge from="196" to="92"/>
+			<edge from="197" to="93"/>
+			<edge from="198" to="94"/>
+			<edge from="199" to="95"/>
+			<edge from="200" to="96"/>
+			<edge from="201" to="97"/>
+			<edge from="202" to="98"/>
+			<edge from="203" to="99"/>
+			<edge from="204" to="100"/>
+			<edge from="205" to="101"/>
+			<edge from="127" to="102"/>
+			<edge from="206" to="103"/>
+			<edge from="207" to="104"/>
+			<edge from="208" to="105"/>
+			<edge from="107" to="109"/>
+			<edge from="108" to="110"/>
+			<edge from="203" to="111"/>
+			<edge from="162" to="114"/>
+			<edge from="113" to="115"/>
+			<edge from="23" to="118"/>
+			<edge from="106" to="119"/>
+			<edge from="239" to="120"/>
+			<edge from="116" to="121"/>
+			<edge from="326" to="209"/>
+			<edge from="117" to="211"/>
+			<edge from="238" to="212"/>
+			<edge from="240" to="213"/>
+			<edge from="244" to="214"/>
+			<edge from="242" to="215"/>
+			<edge from="217" to="218"/>
+			<edge from="220" to="219"/>
+			<edge from="216" to="221"/>
+			<edge from="225" to="227"/>
+			<edge from="226" to="228"/>
+			<edge from="106" to="229"/>
+			<edge from="251" to="231"/>
+			<edge from="246" to="232"/>
+			<edge from="123" to="235"/>
+			<edge from="128" to="236"/>
+			<edge from="112" to="237"/>
+			<edge from="124" to="241"/>
+			<edge from="125" to="243"/>
+			<edge from="285" to="245"/>
+			<edge from="131" to="247"/>
+			<edge from="233" to="248"/>
+			<edge from="249" to="250"/>
+			<edge from="290" to="252"/>
+			<edge from="287" to="255"/>
+			<edge from="270" to="267"/>
+			<edge from="269" to="268"/>
+			<edge from="269" to="271"/>
+			<edge from="270" to="272"/>
+			<edge from="269" to="273"/>
+			<edge from="270" to="274"/>
+			<edge from="269" to="275"/>
+			<edge from="270" to="276"/>
+			<edge from="298" to="280"/>
+			<edge from="307" to="282"/>
+			<edge from="133" to="284"/>
+			<edge from="260" to="286"/>
+			<edge from="254" to="289"/>
+			<edge from="295" to="291"/>
+			<edge from="296" to="293"/>
+			<edge from="303" to="300"/>
+			<edge from="297" to="302"/>
+			<edge from="299" to="304"/>
+			<edge from="270" to="305"/>
+			<edge from="269" to="306"/>
+			<edge from="288" to="308"/>
+			<edge from="253" to="309"/>
+			<edge from="320" to="310"/>
+			<edge from="294" to="311"/>
+			<edge from="301" to="312"/>
+			<edge from="281" to="313"/>
+			<edge from="283" to="314"/>
+			<edge from="277" to="315"/>
+			<edge from="278" to="316"/>
+			<edge from="279" to="317"/>
+			<edge from="320" to="318"/>
+			<edge from="292" to="319"/>
+			<edge from="322" to="321"/>
+			<edge from="226" to="323"/>
+			<edge from="13" to="324"/>
+			<edge from="328" to="325"/>
+			<edge from="329" to="327"/>
+		</connections>
+	</component>
+</mapping>

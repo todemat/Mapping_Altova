@@ -1,0 +1,172 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="Phone" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="CompanyName" type="xs:string"/>
+  <xs:element name="Address1" type="xs:string"/>
+  <xs:element name="Postalcode" type="xs:string"/>
+  <xs:element name="CityName" type="xs:string"/>
+  <xs:element name="IsoCountryCode" type="xs:string"/>
+  <xs:element name="PostalCode" type="xs:string"/>
+  <xs:element name="Cityname" type="xs:string"/>
+  <xs:element name="ReferenceDescription" type="xs:string"/>
+  <xs:element name="TypeOfCharge" type="xs:string"/>
+  <xs:element name="Amount" type="xs:float"/>
+  <xs:element name="AmountCur" type="xs:string"/>
+  <xs:element name="Id" type="xs:string"/>
+  <xs:element name="EquipmentTYpe" type="xs:string"/>
+  <xs:element name="ReferenceType" type="xs:string"/>
+  <xs:element name="Weight" type="xs:float"/>
+  <xs:element name="WeightUnit" type="xs:string"/>
+  <xs:element name="Count" type="xs:float"/>
+  <xs:element name="CountUnits" type="xs:string"/>
+  <xs:element name="Volume" type="xs:float"/>
+  <xs:element name="Volumeunits" type="xs:string"/>
+  <xs:element name="HandlingUnits" type="xs:float"/>
+  <xs:element name="SizeHeights" type="xs:byte"/>
+  <xs:element name="Instructions" type="xs:string"/>
+  <xs:element name="Number" type="xs:byte"/>
+  <xs:element name="UniqueSequenceNumber" type="xs:byte"/>
+  <xs:element name="Action" type="xs:string"/>
+  <xs:element name="Earliest" type="xs:dateTime"/>
+  <xs:element name="Latest" type="xs:dateTime"/>
+  <xs:element name="References">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ReferenceType"/>
+        <xs:element ref="ReferenceDescription"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Goods">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Weight"/>
+        <xs:element ref="WeightUnit"/>
+        <xs:element ref="Count"/>
+        <xs:element ref="CountUnits"/>
+        <xs:element ref="Volume"/>
+        <xs:element ref="Volumeunits"/>
+        <xs:element ref="HandlingUnits"/>
+        <xs:element ref="SizeHeights"/>
+        <xs:element ref="Instructions"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MessageID" type="xs:string"/>
+  <xs:element name="MessageDatetime" type="xs:dateTime"/>
+  <xs:element name="MessageStatus" type="xs:string"/>
+  <xs:element name="LoadId" type="xs:int"/>
+  <xs:element name="OrderNumber" type="xs:string"/>
+  <xs:element name="TripNumber" type="xs:string"/>
+  <xs:element name="Confirmation">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Name"/>
+        <xs:element ref="Phone"/>
+        <xs:element ref="Email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Sender">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CompanyName"/>
+        <xs:element ref="Address1"/>
+        <xs:element ref="Postalcode"/>
+        <xs:element ref="CityName"/>
+        <xs:element ref="IsoCountryCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Receiver">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="CompanyName"/>
+        <xs:element ref="Address1"/>
+        <xs:element ref="PostalCode"/>
+        <xs:element ref="Cityname"/>
+        <xs:element ref="IsoCountryCode"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DateOfCreation" type="xs:dateTime"/>
+  <xs:element name="Refrences">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ReferenceDescription"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Charges">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="TypeOfCharge"/>
+        <xs:element ref="Amount"/>
+        <xs:element ref="AmountCur"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Remarks" type="xs:string"/>
+  <xs:element name="Remarks2" type="xs:string"/>
+  <xs:element name="ServiceType" type="xs:string"/>
+  <xs:element name="Carrier">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Id"/>
+        <xs:element ref="EquipmentTYpe"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Stops">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Number"/>
+        <xs:element ref="UniqueSequenceNumber"/>
+        <xs:element ref="Action"/>
+        <xs:element ref="CompanyName"/>
+        <xs:element ref="Address1"/>
+        <xs:element ref="PostalCode"/>
+        <xs:element ref="CityName"/>
+        <xs:element ref="IsoCountryCode"/>
+        <xs:element ref="Earliest"/>
+        <xs:element ref="Latest"/>
+        <xs:element ref="References"/>
+        <xs:element ref="Goods"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Message">
+    <xs:annotation>
+      <xs:documentation>version 0.1 - DJV/JWV</xs:documentation>
+    </xs:annotation>
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="MessageID"/>
+        <xs:element ref="MessageDatetime"/>
+        <xs:element ref="MessageStatus"/>
+        <xs:element ref="LoadId"/>
+        <xs:element ref="OrderNumber"/>
+        <xs:element ref="TripNumber"/>
+        <xs:element ref="Confirmation"/>
+        <xs:element ref="Sender"/>
+        <xs:element ref="Receiver"/>
+        <xs:element ref="DateOfCreation"/>
+        <xs:element ref="Refrences"/>
+        <xs:element ref="Charges"/>
+        <xs:element ref="Weight"/>
+        <xs:element ref="WeightUnit"/>
+        <xs:element ref="Count"/>
+        <xs:element ref="CountUnits"/>
+        <xs:element ref="Volume"/>
+        <xs:element ref="Volumeunits"/>
+        <xs:element ref="Remarks"/>
+        <xs:element ref="Remarks2"/>
+        <xs:element ref="Instructions"/>
+        <xs:element ref="ServiceType"/>
+        <xs:element ref="Carrier"/>
+        <xs:element ref="Stops" maxOccurs="unbounded" minOccurs="0"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

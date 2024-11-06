@@ -1,0 +1,1863 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="31">
+	<settings>
+		<deployment path="/Progetti/Italtrans/Mappings/Import_MovimentiIva_to_SGA.mapping" server="itaas42" port="8082" user="NT/marco.seghezzi@italtransspa.local" toolversion="2021r3"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="83" kind="2">
+					<targets>
+						<datapoint pos="0" key="252"/>
+					</targets>
+					<view ltx="18" lty="225" rbx="130" rby="242"/>
+					<data>
+						<constant value="[H,2-2]:[m,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="87" kind="2">
+					<targets>
+						<datapoint pos="0" key="258"/>
+					</targets>
+					<view ltx="18" lty="241" rbx="90" rby="258"/>
+					<data>
+						<constant value="[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="27" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="18" lty="113" rbx="65" rby="130"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="61" kind="2">
+					<targets>
+						<datapoint pos="0" key="97"/>
+					</targets>
+					<view ltx="18" lty="177" rbx="129" rby="194"/>
+					<data>
+						<constant value="[M,2-2]/[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="86" kind="5">
+					<sources>
+						<datapoint pos="0" key="263"/>
+						<datapoint pos="1" key="264"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="265"/>
+					</targets>
+					<view ltx="942" lty="188" rbx="1029" rby="242"/>
+				</component>
+				<component name="constant" library="core" uid="113" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="18" lty="257" rbx="162" rby="274"/>
+					<data>
+						<constant value="[Y,4-4]-[M,2-2]-[D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="85" kind="5">
+					<sources>
+						<datapoint pos="0" key="255"/>
+						<datapoint pos="1" key="254"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="256"/>
+					</targets>
+					<view ltx="942" lty="101" rbx="1040" rby="171"/>
+				</component>
+				<component name="constant" library="core" uid="82" kind="2">
+					<targets>
+						<datapoint pos="0" key="257"/>
+					</targets>
+					<view ltx="18" lty="209" rbx="162" rby="226"/>
+					<data>
+						<constant value="[D,2-2]/[M,2-2]/[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="88" kind="5">
+					<sources>
+						<datapoint pos="0" key="260"/>
+						<datapoint pos="1" key="262"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="261"/>
+					</targets>
+					<view ltx="942" lty="358" rbx="1040" rby="428"/>
+				</component>
+				<component name="constant" library="core" uid="32" kind="2">
+					<targets>
+						<datapoint pos="0" key="56"/>
+					</targets>
+					<view ltx="18" lty="129" rbx="66" rby="146"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="33" kind="2">
+					<targets>
+						<datapoint pos="0" key="44"/>
+					</targets>
+					<view ltx="18" lty="145" rbx="66" rby="162"/>
+					<data>
+						<constant value="2" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="127" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="18" lty="321" rbx="58" rby="338"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="129" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="18" lty="305" rbx="58" rby="322"/>
+					<data>
+						<constant value="0" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="132" kind="4">
+					<sources>
+						<datapoint pos="0" key="410"/>
+						<datapoint pos="1" key="411"/>
+						<datapoint pos="2" key="412"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="413"/>
+					</targets>
+					<view ltx="1187" lty="21" rbx="1291" rby="94"/>
+				</component>
+				<component name="greater" library="core" uid="103" kind="5">
+					<sources>
+						<datapoint pos="0" key="294"/>
+						<datapoint pos="1" key="288"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="290"/>
+					</targets>
+					<view ltx="1437" lty="21" rbx="1501" rby="75"/>
+				</component>
+				<component name="constant" library="core" uid="50" kind="2">
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="18" lty="193" rbx="66" rby="210"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-date" library="core" uid="101" kind="5">
+					<sources>
+						<datapoint pos="0" key="279"/>
+						<datapoint pos="1" key="281"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="280"/>
+					</targets>
+					<view ltx="942" lty="640" rbx="1040" rby="710"/>
+				</component>
+				<component name="if-else" library="core" uid="8" kind="4">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="63"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="1187" lty="233" rbx="1291" rby="306"/>
+				</component>
+				<component name="right-trim" library="lang" uid="90" kind="5">
+					<sources>
+						<datapoint pos="0" key="305"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="306"/>
+					</targets>
+					<view ltx="1187" lty="321" rbx="1266" rby="359"/>
+				</component>
+				<component name="format-date" library="core" uid="106" kind="5">
+					<sources>
+						<datapoint pos="0" key="302"/>
+						<datapoint pos="1" key="300"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="301"/>
+					</targets>
+					<view ltx="1187" lty="452" rbx="1285" rby="522"/>
+				</component>
+				<component name="format-date" library="core" uid="115" kind="5">
+					<sources>
+						<datapoint pos="0" key="370"/>
+						<datapoint pos="1" key="369"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="371"/>
+					</targets>
+					<view ltx="1187" lty="541" rbx="1285" rby="611"/>
+				</component>
+				<component name="left-trim" library="lang" uid="116" kind="5">
+					<sources>
+						<datapoint pos="0" key="374"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="375"/>
+					</targets>
+					<view ltx="1187" lty="640" rbx="1266" rby="678"/>
+				</component>
+				<component name="logical-and" library="core" uid="98" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="282"/>
+						<datapoint pos="1" key="283"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="284"/>
+					</targets>
+					<view ltx="1662" lty="21" rbx="1747" rby="77"/>
+				</component>
+				<component name="logical-and" library="core" uid="102" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="293"/>
+						<datapoint pos="1" key="291"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="295"/>
+					</targets>
+					<view ltx="1662" lty="101" rbx="1747" rby="157"/>
+				</component>
+				<component name="greater" library="core" uid="134" kind="5">
+					<sources>
+						<datapoint pos="0" key="418"/>
+						<datapoint pos="1" key="419"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="420"/>
+					</targets>
+					<view ltx="1437" lty="101" rbx="1501" rby="155"/>
+				</component>
+				<component name="first-items" library="core" uid="10" kind="5">
+					<sources>
+						<datapoint pos="0" key="9"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1437" lty="188" rbx="1552" rby="242"/>
+				</component>
+				<component name="tokenize" library="core" uid="91" kind="5">
+					<sources>
+						<datapoint pos="0" key="307"/>
+						<datapoint pos="1" key="308"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="309"/>
+					</targets>
+					<view ltx="1437" lty="259" rbx="1531" rby="313"/>
+				</component>
+				<component name="Rows 1(h), n=dyn" library="core" uid="109" kind="3">
+					<sources>
+						<datapoint pos="0" key="359"/>
+						<datapoint pos="1" key="360"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="361"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1930" lty="21" rbx="2047" rby="75"/>
+				</component>
+				<component name="right-trim" library="lang" uid="117" kind="5">
+					<sources>
+						<datapoint pos="0" key="372"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="373"/>
+					</targets>
+					<view ltx="1437" lty="358" rbx="1516" rby="396"/>
+				</component>
+				<component name="item-at" library="core" uid="93" kind="5">
+					<sources>
+						<datapoint pos="0" key="313"/>
+						<datapoint pos="1" key="314"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="315"/>
+					</targets>
+					<view ltx="1662" lty="259" rbx="1772" rby="313"/>
+				</component>
+				<component name="Rows 1(h), n=dyn" library="core" uid="110" kind="3">
+					<sources>
+						<datapoint pos="0" key="362"/>
+						<datapoint pos="1" key="363"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="364"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1930" lty="101" rbx="2047" rby="155"/>
+				</component>
+				<component name="count" library="core" uid="144" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="429"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="476"/>
+					</targets>
+					<view ltx="2624" lty="168" rbx="2749" rby="222"/>
+				</component>
+				<component name="count" library="core" uid="145" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="430"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="477"/>
+					</targets>
+					<view ltx="2624" lty="257" rbx="2749" rby="311"/>
+				</component>
+				<component name="count" library="core" uid="146" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="431"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="478"/>
+					</targets>
+					<view ltx="2624" lty="340" rbx="2749" rby="394"/>
+				</component>
+				<component name="count" library="core" uid="147" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="432"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="479"/>
+					</targets>
+					<view ltx="2624" lty="420" rbx="2749" rby="474"/>
+				</component>
+				<component name="add" library="core" uid="149" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="480"/>
+						<datapoint pos="1" key="481"/>
+						<datapoint pos="2" key="482"/>
+						<datapoint pos="3" key="483"/>
+						<datapoint pos="4" key="485"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="484"/>
+					</targets>
+					<view ltx="2916" lty="224" rbx="3008" rby="331"/>
+				</component>
+				<component name="constant" library="core" uid="128" kind="2">
+					<targets>
+						<datapoint pos="0" key="406"/>
+					</targets>
+					<view ltx="18" lty="337" rbx="58" rby="354"/>
+					<data>
+						<constant value="2" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="133" kind="4">
+					<sources>
+						<datapoint pos="0" key="415"/>
+						<datapoint pos="1" key="414"/>
+						<datapoint pos="2" key="416"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="417"/>
+					</targets>
+					<view ltx="1187" lty="124" rbx="1291" rby="197"/>
+				</component>
+				<component name="exists" library="core" uid="97" kind="5">
+					<sources>
+						<datapoint pos="0" key="274"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="275"/>
+					</targets>
+					<view ltx="942" lty="573" rbx="1018" rby="611"/>
+				</component>
+				<component name="replace" library="lang" uid="151" kind="5">
+					<sources>
+						<datapoint pos="0" key="493"/>
+						<datapoint pos="1" key="492"/>
+						<datapoint pos="2" key="490"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="491"/>
+					</targets>
+					<view ltx="1437" lty="597" rbx="1538" rby="667"/>
+				</component>
+				<component name="replace" library="lang" uid="152" kind="5">
+					<sources>
+						<datapoint pos="0" key="497"/>
+						<datapoint pos="1" key="496"/>
+						<datapoint pos="2" key="494"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="495"/>
+					</targets>
+					<view ltx="1437" lty="696" rbx="1538" rby="766"/>
+				</component>
+				<component name="exists" library="core" uid="104" kind="5">
+					<sources>
+						<datapoint pos="0" key="289"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="292"/>
+					</targets>
+					<view ltx="942" lty="728" rbx="1018" rby="766"/>
+				</component>
+				<component name="exists" library="core" uid="154" kind="5">
+					<sources>
+						<datapoint pos="0" key="498"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="499"/>
+					</targets>
+					<view ltx="942" lty="789" rbx="1018" rby="827"/>
+				</component>
+				<component name="Rows 1(h), n=dyn" library="core" uid="153" kind="3">
+					<sources>
+						<datapoint pos="0" key="500"/>
+						<datapoint pos="1" key="501"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="502"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1662" lty="420" rbx="1779" rby="474"/>
+				</component>
+				<component name="now" library="lang" uid="84" kind="5">
+					<targets>
+						<datapoint pos="0" key="253"/>
+					</targets>
+					<view ltx="18" lty="419" rbx="68" rby="457"/>
+				</component>
+				<component name="constant" library="core" uid="155" kind="2">
+					<targets>
+						<datapoint pos="0" key="505"/>
+					</targets>
+					<view ltx="18" lty="353" rbx="115" rby="370"/>
+					<data>
+						<constant value="Elaborato_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="156" kind="2">
+					<targets>
+						<datapoint pos="0" key="507"/>
+					</targets>
+					<view ltx="18" lty="369" rbx="78" rby="386"/>
+					<data>
+						<constant value=".csv" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="119" kind="2">
+					<targets>
+						<datapoint pos="0" key="382"/>
+					</targets>
+					<view ltx="18" lty="273" rbx="63" rby="290"/>
+					<data>
+						<constant value="." datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="120" kind="2">
+					<targets>
+						<datapoint pos="0" key="383"/>
+					</targets>
+					<view ltx="18" lty="289" rbx="63" rby="306"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="118" kind="5">
+					<sources>
+						<datapoint pos="0" key="378"/>
+						<datapoint pos="1" key="379"/>
+						<datapoint pos="2" key="380"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="381"/>
+					</targets>
+					<view ltx="1437" lty="420" rbx="1538" rby="490"/>
+				</component>
+				<component name="InputFile" library="core" uid="68" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="150"/>
+					</targets>
+					<view ltx="18" lty="-89" rbx="121" rby="-51"/>
+					<data>
+						<input datatype="string" previewvalue="\\192.168.0.9\Root$\Root_EDI\COGE\to_SGA\Processati\movimenti_iva_dmitaltrans.xlsx" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFile"/>
+					</data>
+				</component>
+				<component name="OutputFilePath" library="core" uid="157" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="504"/>
+					</targets>
+					<view ltx="18" lty="-52" rbx="154" rby="-14"/>
+					<data>
+						<input datatype="string" previewvalue="\\192.168.0.9\Root$\Root_EDI\COGE\to_SGA\Processati\" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputFilePath"/>
+					</data>
+				</component>
+				<component name="OriginalFileName" library="core" uid="158" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="506"/>
+					</targets>
+					<view ltx="18" lty="-15" rbx="164" rby="23"/>
+					<data>
+						<input datatype="string" previewvalue="movimenti_iva_dmitaltrans.xlsx" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OriginalFileName"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="159" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="508"/>
+						<datapoint pos="1" key="509"/>
+						<datapoint pos="2" key="510"/>
+						<datapoint pos="3" key="511"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="512"/>
+					</targets>
+					<view ltx="2240" lty="-175" rbx="2332" rby="-85"/>
+				</component>
+				<component name="exists" library="core" uid="40" kind="5">
+					<sources>
+						<datapoint pos="0" key="61"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="62"/>
+					</targets>
+					<view ltx="942" lty="21" rbx="1018" rby="59"/>
+				</component>
+				<component name="format-number" library="core" uid="162" kind="5">
+					<sources>
+						<datapoint pos="0" key="514"/>
+						<datapoint pos="1" key="515"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="516"/>
+					</targets>
+					<view ltx="663" lty="21" rbx="834" rby="107"/>
+				</component>
+				<component name="replace" library="lang" uid="150" kind="5">
+					<sources>
+						<datapoint pos="0" key="487"/>
+						<datapoint pos="1" key="488"/>
+						<datapoint pos="2" key="486"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="489"/>
+					</targets>
+					<view ltx="1437" lty="505" rbx="1538" rby="575"/>
+				</component>
+				<component name="sum" library="core" uid="66" kind="5">
+					<sources>
+						<datapoint pos="0" key="377"/>
+						<datapoint pos="1" key="143"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="144"/>
+					</targets>
+					<view ltx="942" lty="274" rbx="1067" rby="328"/>
+				</component>
+				<component name="constant" library="core" uid="163" kind="2">
+					<targets>
+						<datapoint pos="0" key="517"/>
+					</targets>
+					<view ltx="18" lty="385" rbx="82" rby="402"/>
+					<data>
+						<constant value="#.00" datatype="string"/>
+					</data>
+				</component>
+				<component name="ImportExport_PrimaNota_SGA" library="text" uid="78" kind="16">
+					<properties XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="3068" lty="21" rbx="3360" rby="1025"/>
+					<data>
+						<root scrollposition="358">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="503" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Root" inpkey="162" expanded="1">
+										<entry name="Split once" expanded="1">
+											<entry name="Testata" inpkey="163" expanded="1">
+												<entry name="Identificativo">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="TESTATA"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Data" inpkey="259"/>
+												<entry name="Ora" inpkey="266"/>
+												<entry name="Descrizione">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="IMPORT MOVIMENTI IVA"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Numero Righe" inpkey="243"/>
+											</entry>
+											<entry name="Split once Inizio Iva" inpkey="433" expanded="1">
+												<entry name="Split INIZIO e DETTAGLI" expanded="1">
+													<entry name="IVA-INIZIO" expanded="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Identificativo Sottosezione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="INIZIO"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Filiale">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="SE"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Registro IVA">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="AC"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Numero">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="0"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Causale">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="15"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Valuta">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="EURO"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Cambio">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="1"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Sospensione IVA">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Simulazione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Confermata">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Aprrovata">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Storico">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Pagamento bloccato">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="S"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Pareggiata">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="N"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+													</entry>
+													<entry name="Split DETTAGLI e IVA" expanded="1">
+														<entry name="IVA-CR" expanded="1">
+															<entry name="Identificativo">
+																<inputnodefunctions>
+																	<rule applyto="self">
+																		<default value="IVA"/>
+																	</rule>
+																</inputnodefunctions>
+															</entry>
+															<entry name="Identificativo Sottosezione">
+																<inputnodefunctions>
+																	<rule applyto="self">
+																		<default value="CR"/>
+																	</rule>
+																</inputnodefunctions>
+															</entry>
+															<entry name="Giroconto accertamento">
+																<inputnodefunctions>
+																	<rule applyto="self">
+																		<default value="N"/>
+																	</rule>
+																</inputnodefunctions>
+															</entry>
+														</entry>
+														<entry name="CRCDC-CRCOMP-IVA" expanded="1">
+															<entry name="IVA-CRCDC" expanded="1">
+																<entry name="Identificativo">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="IVA"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+																<entry name="Identificativo Sottosezione">
+																	<inputnodefunctions>
+																		<rule applyto="self">
+																			<default value="CRCDC"/>
+																		</rule>
+																	</inputnodefunctions>
+																</entry>
+															</entry>
+															<entry name="Split once" expanded="1">
+																<entry name="IVA-CRCOMP" expanded="1">
+																	<entry name="Identificativo">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="IVA"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Identificativo Sottosezione">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="CRCOMP"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Tipo">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="M"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																</entry>
+																<entry name="IVA-CRCOMP" expanded="1" clone="1">
+																	<entry name="Identificativo">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="IVA"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Identificativo Sottosezione">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="CRCOMP"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Tipo">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="M"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																</entry>
+																<entry name="IVA-IVA" expanded="1">
+																	<entry name="Identificativo">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="IVA"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Identificativo Sottosezione">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="IVA"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Filiale">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="SE"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																	<entry name="Giroconto accertamento">
+																		<inputnodefunctions>
+																			<rule applyto="self">
+																				<default value="N"/>
+																			</rule>
+																		</inputnodefunctions>
+																	</entry>
+																</entry>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+												<entry name="Split once FINE" expanded="1">
+													<entry name="IVA-FINE" expanded="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Identificativo Sottosezione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="FINE"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+													</entry>
+													<entry name="CODA" expanded="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="CODA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="txt" encoding="52" byteorder="1" byteordermark="0" config="..\Tracciati\ImportExport_PrimaNota_SGA.mft" inputinstance="..\01.Tracciati\Oouput.csv"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="92" kind="5">
+					<sources>
+						<datapoint pos="0" key="310"/>
+						<datapoint pos="1" key="311"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="312"/>
+					</targets>
+					<view ltx="1662" lty="188" rbx="1772" rby="242"/>
+				</component>
+				<component name="constant" library="core" uid="34" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="18" lty="161" rbx="66" rby="178"/>
+					<data>
+						<constant value="3" datatype="string"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="94" kind="5">
+					<sources>
+						<datapoint pos="0" key="316"/>
+						<datapoint pos="1" key="317"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="318"/>
+					</targets>
+					<view ltx="1662" lty="342" rbx="1772" rby="396"/>
+				</component>
+				<component name="exists" library="core" uid="95" kind="5">
+					<sources>
+						<datapoint pos="0" key="269"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="268"/>
+					</targets>
+					<view ltx="942" lty="518" rbx="1018" rby="556"/>
+				</component>
+				<component name="Rows 1(h), n=dyn" library="core" uid="108" kind="3">
+					<sources>
+						<datapoint pos="0" key="356"/>
+						<datapoint pos="1" key="357"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="358"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1187" lty="374" rbx="1304" rby="428"/>
+				</component>
+				<component name="txt" library="text" uid="138" kind="16">
+					<properties/>
+					<view ltx="2240" lty="168" rbx="2495" rby="1029"/>
+					<data>
+						<root scrollposition="307">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="Split once Inizio Iva" outkey="434" expanded="1">
+									<entry name="Split INIZIO e DETTAGLI" inpkey="435" expanded="1">
+										<entry name="IVA-INIZIO" inpkey="436" expanded="1">
+											<entry name="Identificativo">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="IVA"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Identificativo Sottosezione">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="INIZIO"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Anno" inpkey="437"/>
+											<entry name="Filiale">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="SE"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Registro IVA">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="AC"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Numero">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="0"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Causale">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="15"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Data registrazione" inpkey="438"/>
+											<entry name="Data documento" inpkey="439"/>
+											<entry name="Data riferimento" inpkey="440"/>
+											<entry name="Numero riferimento" inpkey="441"/>
+											<entry name="Codice anagrafico" inpkey="442"/>
+											<entry name="Pagamento" inpkey="443"/>
+											<entry name="Valuta">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="EURO"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Cambio">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="1"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Sospensione IVA">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Simulazione">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Confermata">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Aprrovata">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Storico">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Imponibile" inpkey="444"/>
+											<entry name="Imponibile in valuta" inpkey="445"/>
+											<entry name="Pagamento bloccato">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="S"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Pareggiata">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="N"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Data ricezione" inpkey="446"/>
+										</entry>
+										<entry name="Split DETTAGLI e IVA" inpkey="447" expanded="1">
+											<entry name="IVA-CR" inpkey="448" outkey="449" expanded="1">
+												<entry name="Identificativo">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="IVA"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Identificativo Sottosezione">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="CR"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+												<entry name="Conto gruppo" inpkey="450"/>
+												<entry name="Conto conto" inpkey="451"/>
+												<entry name="Conto Sottoconto" inpkey="452"/>
+												<entry name="Filiale" inpkey="453"/>
+												<entry name="Assoggettamento" inpkey="454"/>
+												<entry name="Importo in valuta" inpkey="455"/>
+												<entry name="Importo" inpkey="456"/>
+												<entry name="Descrizione" inpkey="457"/>
+												<entry name="Giroconto accertamento">
+													<inputnodefunctions>
+														<rule applyto="self">
+															<default value="N"/>
+														</rule>
+													</inputnodefunctions>
+												</entry>
+											</entry>
+											<entry name="CRCDC-CRCOMP-IVA" expanded="1">
+												<entry name="IVA-CRCDC" inpkey="458" outkey="459" expanded="1">
+													<entry name="Identificativo">
+														<inputnodefunctions>
+															<rule applyto="self">
+																<default value="IVA"/>
+															</rule>
+														</inputnodefunctions>
+													</entry>
+													<entry name="Identificativo Sottosezione">
+														<inputnodefunctions>
+															<rule applyto="self">
+																<default value="CRCDC"/>
+															</rule>
+														</inputnodefunctions>
+													</entry>
+													<entry name="CdC" inpkey="460"/>
+													<entry name="Importo in valuta" inpkey="461"/>
+												</entry>
+												<entry name="Split once" expanded="1">
+													<entry name="IVA-CRCOMP" inpkey="462" outkey="463" expanded="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Identificativo Sottosezione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="CRCOMP"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Tipo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="M"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Mese" inpkey="464"/>
+														<entry name="Importo in valuta" inpkey="465"/>
+													</entry>
+													<entry name="IVA-CRCOMP" inpkey="466" expanded="1" clone="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Identificativo Sottosezione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="CRCOMP"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Tipo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="M"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Mese" inpkey="467"/>
+														<entry name="Importo in valuta" inpkey="468"/>
+													</entry>
+													<entry name="IVA-IVA" inpkey="469" outkey="470" expanded="1">
+														<entry name="Identificativo">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Identificativo Sottosezione">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="IVA"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Filiale">
+															<inputnodefunctions>
+																<rule applyto="self">
+																	<default value="SE"/>
+																</rule>
+															</inputnodefunctions>
+														</entry>
+														<entry name="Assoggettamento" inpkey="471"/>
+														<entry name="Imponibile in valuta" inpkey="472"/>
+														<entry name="Imponibile" inpkey="473"/>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+									<entry name="Split once FINE" expanded="1">
+										<entry name="IVA-FINE" inpkey="474" expanded="1">
+											<entry name="Identificativo">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="IVA"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Identificativo Sottosezione">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="FINE"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+										</entry>
+										<entry name="CODA" inpkey="475" expanded="1">
+											<entry name="Identificativo">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="CODA"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="txt" encoding="52" byteorder="1" byteordermark="0" config="..\Tracciati\ImportExport_PrimaNota_SGA.mft"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="Root"/>
+								<entry name="Split once"/>
+								<entry name="Split once Inizio Iva"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="MovimentiIVA" library="xlsx" uid="3" kind="26">
+					<properties DynamicFilenames="1"/>
+					<view ltx="250" lty="71" rbx="552" rby="484"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="151" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Workbook" expanded="1">
+										<entry name="Worksheet" outkey="338" expanded="1">
+											<ranges>
+												<range id="3" start="1"/>
+											</ranges>
+											<entry name="Row" expanded="1" displayselectionmode="selection">
+												<entry name="Cell" datatype="string"/>
+											</entry>
+											<entry name="Row" outkey="339" expanded="1" enabletitlerow="1">
+												<condition>
+													<expression>
+														<function name="is-range-id">
+															<expression>
+																<constant value="3" datatype="long"/>
+															</expression>
+														</function>
+													</expression>
+												</condition>
+												<entry name="Cell" displayselectionmode="selection" datatype="string"/>
+												<entry name="Cell" outkey="340" annotation="Codice Fornitore" datatype="double">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="1" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="n"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="341" annotation="Codice pagamento" datatype="double">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="2" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="n"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="342" annotation="Data Riferimento" datatype="date">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="3" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="d"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="343" annotation="Numero documento" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="4" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="344" annotation="Filiale" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="5" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="345" annotation="CDC" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="6" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="346" annotation="Conto Contabile" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="7" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Competenza" datatype="date">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="8" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="d"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="347" annotation="Somma x CDC" datatype="double">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="9" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="n"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="348" annotation="Codice assoggettamento" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="10" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="349" annotation="Importo competenza 1" datatype="double">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="11" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="n"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="350" annotation="Periodo competenza 1" datatype="date">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="12" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="d"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="351" annotation="Importo competenza 2" datatype="double">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="13" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="n"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="352" annotation="Periodo competenza 2" datatype="date">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="14" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="d"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="353" annotation="Descrizione" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="15" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<excel inputinstance="..\01.Tracciati\MovimentiIVA.xlsx" outputinstance="..\01.Tracciati\MovimentiIVA.xlsx"/>
+					</data>
+				</component>
+				<component name="left-trim" library="lang" uid="89" kind="5">
+					<sources>
+						<datapoint pos="0" key="303"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="304"/>
+					</targets>
+					<view ltx="942" lty="452" rbx="1021" rby="490"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="13" to="9"/>
+			<edge from="62" to="11"/>
+			<edge from="340" to="61"/>
+			<edge from="340" to="63"/>
+			<edge from="516" to="143"/>
+			<edge from="150" to="151"/>
+			<edge from="338" to="162"/>
+			<edge from="10" to="163"/>
+			<edge from="484" to="243"/>
+			<edge from="257" to="254"/>
+			<edge from="253" to="255"/>
+			<edge from="256" to="259"/>
+			<edge from="253" to="260"/>
+			<edge from="258" to="262"/>
+			<edge from="253" to="263"/>
+			<edge from="252" to="264"/>
+			<edge from="265" to="266"/>
+			<edge from="345" to="269"/>
+			<edge from="349" to="274"/>
+			<edge from="350" to="279"/>
+			<edge from="97" to="281"/>
+			<edge from="275" to="282"/>
+			<edge from="420" to="283"/>
+			<edge from="79" to="288"/>
+			<edge from="351" to="289"/>
+			<edge from="290" to="291"/>
+			<edge from="292" to="293"/>
+			<edge from="413" to="294"/>
+			<edge from="97" to="300"/>
+			<edge from="352" to="302"/>
+			<edge from="346" to="303"/>
+			<edge from="304" to="305"/>
+			<edge from="306" to="307"/>
+			<edge from="40" to="308"/>
+			<edge from="309" to="310"/>
+			<edge from="56" to="311"/>
+			<edge from="309" to="313"/>
+			<edge from="44" to="314"/>
+			<edge from="309" to="316"/>
+			<edge from="45" to="317"/>
+			<edge from="339" to="356"/>
+			<edge from="268" to="357"/>
+			<edge from="339" to="359"/>
+			<edge from="284" to="360"/>
+			<edge from="339" to="362"/>
+			<edge from="295" to="363"/>
+			<edge from="257" to="369"/>
+			<edge from="342" to="370"/>
+			<edge from="375" to="372"/>
+			<edge from="344" to="374"/>
+			<edge from="338" to="377"/>
+			<edge from="144" to="378"/>
+			<edge from="382" to="379"/>
+			<edge from="383" to="380"/>
+			<edge from="292" to="410"/>
+			<edge from="351" to="411"/>
+			<edge from="79" to="412"/>
+			<edge from="349" to="414"/>
+			<edge from="275" to="415"/>
+			<edge from="79" to="416"/>
+			<edge from="417" to="418"/>
+			<edge from="79" to="419"/>
+			<edge from="449" to="429"/>
+			<edge from="459" to="430"/>
+			<edge from="463" to="431"/>
+			<edge from="470" to="432"/>
+			<edge from="434" to="433">
+				<data type="2"/>
+			</edge>
+			<edge from="339" to="435"/>
+			<edge from="10" to="436"/>
+			<edge from="261" to="437"/>
+			<edge from="371" to="438"/>
+			<edge from="371" to="439"/>
+			<edge from="371" to="440"/>
+			<edge from="343" to="441"/>
+			<edge from="340" to="442"/>
+			<edge from="341" to="443"/>
+			<edge from="381" to="444"/>
+			<edge from="381" to="445"/>
+			<edge from="371" to="446"/>
+			<edge from="502" to="447"/>
+			<edge from="502" to="448"/>
+			<edge from="312" to="450"/>
+			<edge from="315" to="451"/>
+			<edge from="318" to="452"/>
+			<edge from="373" to="453"/>
+			<edge from="348" to="454"/>
+			<edge from="489" to="455"/>
+			<edge from="489" to="456"/>
+			<edge from="353" to="457"/>
+			<edge from="358" to="458"/>
+			<edge from="345" to="460"/>
+			<edge from="489" to="461"/>
+			<edge from="361" to="462"/>
+			<edge from="280" to="464"/>
+			<edge from="491" to="465"/>
+			<edge from="364" to="466"/>
+			<edge from="301" to="467"/>
+			<edge from="495" to="468"/>
+			<edge from="502" to="469"/>
+			<edge from="348" to="471"/>
+			<edge from="489" to="472"/>
+			<edge from="489" to="473"/>
+			<edge from="10" to="474"/>
+			<edge from="10" to="475"/>
+			<edge from="476" to="480"/>
+			<edge from="477" to="481"/>
+			<edge from="478" to="482"/>
+			<edge from="479" to="483"/>
+			<edge from="406" to="485"/>
+			<edge from="383" to="486"/>
+			<edge from="516" to="487"/>
+			<edge from="382" to="488"/>
+			<edge from="383" to="490"/>
+			<edge from="382" to="492"/>
+			<edge from="349" to="493"/>
+			<edge from="383" to="494"/>
+			<edge from="382" to="496"/>
+			<edge from="351" to="497"/>
+			<edge from="348" to="498"/>
+			<edge from="339" to="500"/>
+			<edge from="499" to="501"/>
+			<edge from="512" to="503"/>
+			<edge from="504" to="508"/>
+			<edge from="505" to="509"/>
+			<edge from="506" to="510"/>
+			<edge from="507" to="511"/>
+			<edge from="347" to="514"/>
+			<edge from="517" to="515"/>
+		</connections>
+	</component>
+</mapping>

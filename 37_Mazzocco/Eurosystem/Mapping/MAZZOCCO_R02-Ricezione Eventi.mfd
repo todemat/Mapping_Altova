@@ -1,0 +1,919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="41">
+	<settings>
+		<deployment path="/Progetti/37_Mazzocco/Eurosystem/Mappings/MAZZOCCO_R02-Ricezione Eventi.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1">
+		<properties AppName="MAZZOCCO_R01-Ricezione Spedizioni Terra" SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="now" library="lang" uid="81" kind="5">
+					<targets>
+						<datapoint pos="0" key="217"/>
+					</targets>
+					<view ltx="251" lty="-99" rbx="301" rby="-61"/>
+				</component>
+				<component name="structure" library="core" uid="85" kind="29">
+					<view ltx="337" lty="-117" rbx="469" rby="-81"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace uid="http://www.altova.com/mapforce"/>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="compute-when">
+								<setting value="once"/>
+							</entry>
+							<entry name="document" expanded="1">
+								<entry name="value" ns="1" inpkey="221" outkey="222"/>
+							</entry>
+						</root>
+						<variable datatype="dateTime"/>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="94" kind="5">
+					<targets>
+						<datapoint pos="0" key="241"/>
+					</targets>
+					<view ltx="1757" lty="188" rbx="1807" rby="226"/>
+				</component>
+				<component name="constant" library="core" uid="95" kind="2">
+					<targets>
+						<datapoint pos="0" key="242"/>
+					</targets>
+					<view ltx="1588" lty="188" rbx="1734" rby="205"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="97" kind="2">
+					<targets>
+						<datapoint pos="0" key="255"/>
+					</targets>
+					<view ltx="1588" lty="204" rbx="1733" rby="221"/>
+					<data>
+						<constant value="[H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="96" kind="5">
+					<sources>
+						<datapoint pos="0" key="244"/>
+						<datapoint pos="1" key="245"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="243"/>
+					</targets>
+					<view ltx="1839" lty="210" rbx="1951" rby="280"/>
+				</component>
+				<component name="constant" library="core" uid="84" kind="2">
+					<targets>
+						<datapoint pos="0" key="210"/>
+					</targets>
+					<view ltx="750" lty="-46" rbx="812" rby="-29"/>
+					<data>
+						<constant value=".xml" datatype="string"/>
+					</data>
+				</component>
+				<component name="OutPutDirXml" library="core" uid="78" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="207"/>
+					</targets>
+					<view ltx="-102" lty="-117" rbx="25" rby="-79"/>
+					<data>
+						<input datatype="string" previewvalue="Esempi" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutPutDirXml"/>
+					</data>
+				</component>
+				<component name="OutPutDirEsiti" library="core" uid="101" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="253"/>
+					</targets>
+					<view ltx="1133" lty="-117" rbx="1263" rby="-79"/>
+					<data>
+						<input datatype="string" previewvalue="Esempi" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutPutDirEsiti"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="82" kind="5">
+					<sources>
+						<datapoint pos="0" key="218"/>
+						<datapoint pos="1" key="219"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="220"/>
+					</targets>
+					<view ltx="512" lty="-99" rbx="624" rby="-29"/>
+				</component>
+				<component name="constant" library="core" uid="99" kind="2">
+					<targets>
+						<datapoint pos="0" key="251"/>
+					</targets>
+					<view ltx="1343" lty="-82" rbx="1414" rby="-65"/>
+					<data>
+						<constant value="\Esiti-" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="100" kind="2">
+					<targets>
+						<datapoint pos="0" key="252"/>
+					</targets>
+					<view ltx="1343" lty="-46" rbx="1403" rby="-29"/>
+					<data>
+						<constant value=".csv" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="83" kind="2">
+					<targets>
+						<datapoint pos="0" key="209"/>
+					</targets>
+					<view ltx="229" lty="-62" rbx="375" rby="-45"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2][f,3-3]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="152" kind="2">
+					<targets>
+						<datapoint pos="0" key="437"/>
+					</targets>
+					<view ltx="596" lty="504" rbx="662" rby="521"/>
+					<data>
+						<constant value="0000" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="156" kind="2">
+					<targets>
+						<datapoint pos="0" key="444"/>
+					</targets>
+					<view ltx="759" lty="592" rbx="871" rby="609"/>
+					<data>
+						<constant value="[H,2-2]:[m,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="93" kind="5">
+					<sources>
+						<datapoint pos="0" key="237"/>
+						<datapoint pos="1" key="238"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="239"/>
+					</targets>
+					<view ltx="1839" lty="141" rbx="1951" rby="211"/>
+				</component>
+				<component name="constant" library="core" uid="92" kind="2">
+					<targets>
+						<datapoint pos="0" key="254"/>
+					</targets>
+					<view ltx="1588" lty="172" rbx="1645" rby="189"/>
+					<data>
+						<constant value="OK" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="150" kind="2">
+					<targets>
+						<datapoint pos="0" key="424"/>
+					</targets>
+					<view ltx="1150" lty="109" rbx="1196" rby="126"/>
+					<data>
+						<constant value="11" datatype="decimal"/>
+					</data>
+				</component>
+				<component name="format-number" library="core" uid="153" kind="5">
+					<sources>
+						<datapoint pos="0" key="439"/>
+						<datapoint pos="1" key="438"/>
+						<datapoint/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="442"/>
+					</targets>
+					<view ltx="700" lty="472" rbx="871" rby="558"/>
+				</component>
+				<component name="constant" library="core" uid="155" kind="2">
+					<targets>
+						<datapoint pos="0" key="440"/>
+					</targets>
+					<view ltx="759" lty="576" rbx="868" rby="593"/>
+					<data>
+						<constant value="[H,2-2][m,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="160" kind="5">
+					<sources>
+						<datapoint pos="0" key="452"/>
+						<datapoint pos="1" key="451"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="454"/>
+					</targets>
+					<view ltx="472" lty="379" rbx="528" rby="433"/>
+				</component>
+				<component name="constant" library="core" uid="159" kind="2">
+					<targets>
+						<datapoint pos="0" key="450"/>
+					</targets>
+					<view ltx="392" lty="416" rbx="440" rby="433"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="147" kind="2">
+					<targets>
+						<datapoint pos="0" key="416"/>
+					</targets>
+					<view ltx="558" lty="188" rbx="604" rby="205"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="79" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="212"/>
+						<datapoint pos="1" key="213"/>
+						<datapoint pos="2" key="214"/>
+						<datapoint pos="3" key="215"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="456"/>
+					</targets>
+					<view ltx="887" lty="-104" rbx="979" rby="-14"/>
+				</component>
+				<component name="concat" library="core" uid="98" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="246"/>
+						<datapoint pos="1" key="250"/>
+						<datapoint pos="2" key="249"/>
+						<datapoint pos="3" key="248"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="247"/>
+					</targets>
+					<view ltx="1524" lty="-117" rbx="1616" rby="-27"/>
+				</component>
+				<component name="parse-time" library="core" uid="154" kind="5">
+					<sources>
+						<datapoint pos="0" key="443"/>
+						<datapoint pos="1" key="441"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="446"/>
+					</targets>
+					<view ltx="939" lty="482" rbx="1022" rby="536"/>
+				</component>
+				<component name="if-else" library="core" uid="158" kind="4">
+					<sources>
+						<datapoint pos="0" key="455"/>
+						<datapoint/>
+						<datapoint pos="2" key="449"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="453"/>
+					</targets>
+					<view ltx="558" lty="416" rbx="662" rby="489"/>
+				</component>
+				<component name="Esiti" library="text" uid="90" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="2044" lty="57" rbx="2245" rby="257"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="256" expanded="1">
+								<file role="outputinstance" name="Esempi\ESITI_00001.csv"/>
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" inpkey="458" expanded="1">
+										<entry name="Ctr" inpkey="459"/>
+										<entry name="Data" inpkey="240"/>
+										<entry name="Ora" inpkey="259"/>
+										<entry name="Esito" inpkey="260"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="|" quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="Esiti" block="Rows">
+									<field0 name="Ctr" type="string"/>
+									<field1 name="Data" type="string"/>
+									<field2 name="Ora" type="string"/>
+									<field3 name="Esito" type="string"/>
+									<field4 name="Errore" type="string"/>
+								</names>
+							</settings>
+						</text>
+						<comment>
+							<text>File esiti per AS400</text>
+						</comment>
+					</data>
+				</component>
+				<component name="comment" library="core" uid="88" kind="35">
+					<view ltx="-27" lty="-33" rbx="109" rby="-14"/>
+					<data>
+						<comment>
+							<text>MAZZOCCO: CSV -&gt; XML</text>
+						</comment>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="148" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="419"/>
+						<datapoint pos="1" key="420"/>
+						<datapoint pos="2" key="415"/>
+						<datapoint pos="3" key="417"/>
+						<datapoint pos="4" key="418"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="421"/>
+					</targets>
+					<view ltx="700" lty="130" rbx="792" rby="237"/>
+					<data>
+						<comment>
+							<text>Anno-Filiale-Progressivo</text>
+						</comment>
+					</data>
+				</component>
+				<component name="InputFileName" library="core" uid="77" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="457"/>
+					</targets>
+					<view ltx="-102" lty="6" rbx="30" rby="44"/>
+					<data>
+						<input datatype="string" previewvalue="E:\Root_Interlocutori_Mazzocco\Eurosystem\TEST\TMS\from_Interlocutore_Esitazione\EVENTI_0001362456.CSV" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFileName"/>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="157" kind="5">
+					<sources>
+						<datapoint pos="0" key="447"/>
+						<datapoint pos="1" key="445"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="448"/>
+					</targets>
+					<view ltx="1080" lty="565" rbx="1167" rby="619"/>
+				</component>
+				<component name="constant" library="core" uid="182" kind="2">
+					<targets>
+						<datapoint pos="0" key="481"/>
+					</targets>
+					<view ltx="-86" lty="141" rbx="-30" rby="158"/>
+					<data>
+						<constant value="GF" datatype="string"/>
+					</data>
+				</component>
+				<component name="EventiAS400" library="text" uid="146" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="93" lty="57" rbx="341" rby="447"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="460" expanded="1">
+								<file role="inputinstance" name="Esempi\EVENTI_0000000101.CSV"/>
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="431" expanded="1">
+										<outputnodefunctions>
+											<rule applyto="descendants">
+												<function name="1EF9EB74-704F-4569-A139-C5C1E147A11E"/>
+												<filter datatype="string"/>
+											</rule>
+										</outputnodefunctions>
+										<entry name="SRE01 - ANNO" outkey="461"/>
+										<entry name="SRE02 - FILIALE" outkey="462"/>
+										<entry name="SRE03 - PROGRESSIVO" outkey="463"/>
+										<entry name="SRE05 - PROG.RIGA UNIVOCO" outkey="464"/>
+										<entry name="SRE06 - CODICE EVENTO" outkey="465"/>
+										<entry name="SRE07 - CAUSALE EVENTO" outkey="466"/>
+										<entry name="SRE08 - DESCRIZIONE CAUSALE" outkey="467"/>
+										<entry name="SRE09 - DATA EVENTO" outkey="468"/>
+										<entry name="SRE10 - ORA EVENTO" outkey="469"/>
+										<entry name="SRE11 - NOTE EVENTO" outkey="470"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0">
+							<settings separator="|" quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="EVENTI_0000000101" block="Rows">
+									<field0 name="SRE01 - ANNO" type="string"/>
+									<field1 name="SRE02 - FILIALE" type="string"/>
+									<field2 name="SRE03 - PROGRESSIVO" type="string"/>
+									<field3 name="SRE04 - CTR" type="string"/>
+									<field4 name="SRE05 - PROG.RIGA UNIVOCO" type="string"/>
+									<field5 name="SRE06 - CODICE EVENTO" type="string"/>
+									<field6 name="SRE07 - CAUSALE EVENTO" type="string"/>
+									<field7 name="SRE08 - DESCRIZIONE CAUSALE" type="string"/>
+									<field8 name="SRE09 - DATA EVENTO" type="string"/>
+									<field9 name="SRE10 - ORA EVENTO" type="string"/>
+									<field10 name="SRE11 - NOTE EVENTO" type="string"/>
+									<field11 name="SRE12 - DATA SCRITTURA EVENTO" type="string"/>
+									<field12 name="SRE13 - ORA SCRITTURA EVENTO" type="string"/>
+									<field13 name="SRE14 - DATA SCRITTURA FILE" type="string"/>
+									<field14 name="SRE15 - ORA SCRITTURA FILE" type="string"/>
+									<field15 name="SRE16 - PROG NOME FILE" type="string"/>
+									<field16 name="SRE17 - DATA ELAB ALTOVA" type="string"/>
+									<field17 name="SRE18 - ORA ELAB ALTOVA" type="string"/>
+									<field18 name="SRE19 - FLAG ELAB ALTOVA" type="string"/>
+									<field19 name="SRE20 - DESC ELAB ALTOVA" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="ConvertiDate" library="user" uid="149" kind="19" visible="0">
+					<view ltx="700" lty="276" rbx="839" rby="293"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="DataInput" inpkey="422" componentid="27"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="DataOut" outkey="423" componentid="28"/>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="80" kind="2">
+					<targets>
+						<datapoint pos="0" key="208"/>
+					</targets>
+					<view ltx="684" lty="-78" rbx="827" rby="-61"/>
+					<data>
+						<constant value="\Eventi-Spedizione_" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="180" kind="4">
+					<sources>
+						<datapoint pos="0" key="485"/>
+						<datapoint/>
+						<datapoint pos="2" key="486"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="487"/>
+					</targets>
+					<view ltx="939" lty="740" rbx="1043" rby="813"/>
+				</component>
+				<component name="equal" library="core" uid="181" kind="5">
+					<sources>
+						<datapoint pos="0" key="482"/>
+						<datapoint pos="1" key="483"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="484"/>
+					</targets>
+					<view ltx="759" lty="740" rbx="815" rby="794"/>
+				</component>
+				<component name="S_Eventi" library="xml" uid="145" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="1839" lty="353" rbx="2220" rby="1087"/>
+					<data>
+						<root scrollposition="423">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="471" expanded="1">
+								<file role="outputinstance" name="S_Eventi_V02.xml"/>
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Spedizioni" expanded="1">
+										<entry name="Versione" inpkey="425"/>
+										<entry name="Spedizione" inpkey="426" expanded="1">
+											<entry name="Identificativo" expanded="1">
+												<entry name="RiferimentoInternoExtra" inpkey="478"/>
+											</entry>
+											<entry name="Eventi" expanded="1">
+												<entry name="Evento" expanded="1">
+													<entry name="Codice" inpkey="429"/>
+													<entry name="Descrizione" inpkey="473"/>
+													<entry name="Data" inpkey="430"/>
+													<entry name="Ora" inpkey="474"/>
+													<entry name="Note" inpkey="475"/>
+													<entry name="Giacenza" expanded="1"/>
+													<entry name="GiacenzaNoPratica" inpkey="479" expanded="1">
+														<entry name="Motivo" inpkey="480"/>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Spedizioni\S_Eventi.Xsd" instanceroot="{}Spedizioni"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="207" to="212"/>
+			<edge from="208" to="213"/>
+			<edge from="220" to="214"/>
+			<edge from="210" to="215"/>
+			<edge from="222" to="218"/>
+			<edge from="209" to="219"/>
+			<edge from="217" to="221"/>
+			<edge from="241" to="237"/>
+			<edge from="242" to="238"/>
+			<edge from="239" to="240"/>
+			<edge from="241" to="244"/>
+			<edge from="255" to="245"/>
+			<edge from="253" to="246"/>
+			<edge from="252" to="248"/>
+			<edge from="220" to="249"/>
+			<edge from="251" to="250"/>
+			<edge from="247" to="256"/>
+			<edge from="243" to="259"/>
+			<edge from="254" to="260"/>
+			<edge from="462" to="415">
+				<data name="Filiale"/>
+			</edge>
+			<edge from="416" to="417"/>
+			<edge from="463" to="418">
+				<data name="Prog"/>
+			</edge>
+			<edge from="461" to="419">
+				<data name="Anno"/>
+			</edge>
+			<edge from="416" to="420"/>
+			<edge from="468" to="422">
+				<data name="Data Ev"/>
+			</edge>
+			<edge from="424" to="425"/>
+			<edge from="431" to="426"/>
+			<edge from="465" to="429">
+				<data name="Codice Evento"/>
+			</edge>
+			<edge from="423" to="430">
+				<data name="Data Ev"/>
+			</edge>
+			<edge from="437" to="438"/>
+			<edge from="453" to="439"/>
+			<edge from="440" to="441"/>
+			<edge from="442" to="443"/>
+			<edge from="444" to="445"/>
+			<edge from="446" to="447"/>
+			<edge from="469" to="449">
+				<data name="Ora Ev"/>
+			</edge>
+			<edge from="450" to="451"/>
+			<edge from="469" to="452"/>
+			<edge from="454" to="455"/>
+			<edge from="431" to="458"/>
+			<edge from="464" to="459"/>
+			<edge from="457" to="460"/>
+			<edge from="456" to="471"/>
+			<edge from="467" to="473">
+				<data name="Descrizione Evento"/>
+			</edge>
+			<edge from="448" to="474">
+				<data name="Ora Ev"/>
+			</edge>
+			<edge from="470" to="475">
+				<data name="Note Ev"/>
+			</edge>
+			<edge from="421" to="478">
+				<data name="Anno-Filiale-Prog (ID)"/>
+			</edge>
+			<edge from="487" to="479"/>
+			<edge from="487" to="480"/>
+			<edge from="465" to="482"/>
+			<edge from="481" to="483"/>
+			<edge from="484" to="485"/>
+			<edge from="466" to="486"/>
+		</connections>
+	</component>
+	<component name="ConvertiDate" library="user" uid="19" inline="1">
+		<structure>
+			<children>
+				<component name="DataOut" library="core" uid="28" kind="7">
+					<sources>
+						<datapoint pos="0" key="17"/>
+					</sources>
+					<view ltx="1621" lty="72" rbx="1693" rby="110"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="DataOut"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="26" kind="2">
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="1104" lty="176" rbx="1248" rby="193"/>
+					<data>
+						<constant value="[D,2-2]/[M,2-2]/[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-date" library="core" uid="21" kind="5">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="1302" lty="91" rbx="1385" rby="145"/>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="73" lty="72" rbx="121" rby="89"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="DataInput" library="core" uid="27" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view rbx="109" rby="38"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="DataInput"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="177" kind="2">
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="62" lty="116" rbx="152" rby="133"/>
+					<data>
+						<constant value="99999999" datatype="string"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="178" kind="5">
+					<sources>
+						<datapoint pos="0" key="19"/>
+						<datapoint pos="1" key="20"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="240" lty="88" rbx="296" rby="142"/>
+				</component>
+				<component name="equal" library="core" uid="23" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="240" rbx="296" rby="54"/>
+				</component>
+				<component name="logical-or" library="core" uid="176" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="26"/>
+						<datapoint pos="1" key="27"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="339" lty="19" rbx="421" rby="75"/>
+				</component>
+				<component name="format-date" library="core" uid="24" kind="5">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint pos="1" key="13"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="1423" lty="91" rbx="1521" rby="161"/>
+				</component>
+				<component name="if-else" library="core" uid="22" kind="4">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="29"/>
+						<datapoint pos="2" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1144" lty="72" rbx="1248" rby="145"/>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="1102" lty="160" rbx="1248" rby="177"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="184" kind="2">
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="6" lty="250" rbx="152" rby="267"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="185" kind="5">
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="22" lty="196" rbx="72" rby="234"/>
+				</component>
+				<component name="format-date" library="core" uid="183" kind="5">
+					<sources>
+						<datapoint pos="0" key="22"/>
+						<datapoint pos="1" key="23"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="369" lty="186" rbx="467" rby="256"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="2" to="3"/>
+			<edge from="16" to="4"/>
+			<edge from="5" to="6"/>
+			<edge from="16" to="7"/>
+			<edge from="8" to="9"/>
+			<edge from="10" to="11"/>
+			<edge from="12" to="13"/>
+			<edge from="28" to="15"/>
+			<edge from="1" to="17"/>
+			<edge from="16" to="19"/>
+			<edge from="25" to="20"/>
+			<edge from="30" to="22"/>
+			<edge from="24" to="23"/>
+			<edge from="14" to="26"/>
+			<edge from="18" to="27"/>
+			<edge from="21" to="29"/>
+		</connections>
+	</component>
+	<component name="MaggioreDiZero" library="user" uid="121" inline="1">
+		<structure>
+			<children>
+				<component name="dataOutput" library="core" uid="122" kind="7">
+					<sources>
+						<datapoint pos="0" key="1"/>
+					</sources>
+					<view ltx="719" lty="29" rbx="800" rby="66"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="dataOutput"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="127" kind="2">
+					<targets>
+						<datapoint pos="0" key="2"/>
+					</targets>
+					<view ltx="233" lty="138" rbx="278" rby="155"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="greater" library="core" uid="125" kind="5">
+					<sources>
+						<datapoint pos="0" key="3"/>
+						<datapoint pos="1" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="324" lty="101" rbx="385" rby="155"/>
+				</component>
+				<component name="if-else" library="core" uid="126" kind="4">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="8"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="550" lty="101" rbx="645" rby="174"/>
+				</component>
+				<component name="dataInput" library="core" uid="123" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="135" lty="29" rbx="230" rby="66"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="dataInput"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="9" to="1"/>
+			<edge from="6" to="3"/>
+			<edge from="2" to="4"/>
+			<edge from="5" to="7"/>
+			<edge from="6" to="8"/>
+		</connections>
+	</component>
+	<component name="1EF9EB74-704F-4569-A139-C5C1E147A11E" library="mapforce_nodefunction" uid="170">
+		<structure>
+			<children>
+				<component name="result" library="core" uid="172" kind="7">
+					<sources>
+						<datapoint pos="0" key="8"/>
+					</sources>
+					<view ltx="800" rbx="857" rby="38"/>
+					<data>
+						<output datatype="anySimpleType"/>
+						<parameter usageKind="output" name="result"/>
+					</data>
+				</component>
+				<component name="empty" library="lang" uid="175" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="399" rbx="475" rby="38"/>
+				</component>
+				<component name="normalize-space" library="core" uid="174" kind="5">
+					<sources>
+						<datapoint pos="0" key="3"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="235" rbx="345" rby="38"/>
+				</component>
+				<component name="raw_value" library="core" uid="171" kind="6">
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view rbx="78" rby="38"/>
+					<data>
+						<input datatype="anySimpleType"/>
+						<parameter usageKind="input" name="raw_value"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="173" kind="4">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint/>
+						<datapoint pos="2" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="571" rbx="675" rby="73"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="9" to="3"/>
+			<edge from="1" to="4"/>
+			<edge from="6" to="7"/>
+			<edge from="5" to="8"/>
+		</connections>
+	</component>
+</mapping>

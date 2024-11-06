@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="RitiriConsegne.ListeDiCarico">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="Release" type="xs:decimal"/>
+				<xs:element name="ListeDiCarico">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ListaDiCarico" minOccurs="1" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="Anno" type="xs:short"/>
+										<xs:element name="Filiale" type="xs:string"/>
+										<xs:element name="Numero" type="xs:short"/>
+										<xs:element name="Id" type="xs:string"/>
+										<xs:element name="Definitiva" type="xs:string"/>
+										<xs:element name="Descrizione" type="xs:string"/>
+										<xs:element name="Riferimento" type="xs:string"/>
+										<xs:element name="Data" type="xs:int"/>
+										<xs:element name="DataOraCarico" type="xs:string"/>
+										<xs:element name="Magazzino">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Codice">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="Descrizione">
+														<xs:complexType>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Vettore">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Codice" type="xs:short"/>
+													<xs:element name="RagioneSociale" type="xs:string"/>
+													<xs:element name="Interno" type="xs:string"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Autista">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="TargaMotrice">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="TargaRiomorchio">
+											<xs:complexType>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Km" type="xs:byte"/>
+										<xs:element name="Note" type="xs:string"/>
+										<xs:element name="Documenti">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Documento" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Anno" type="xs:short"/>
+																<xs:element name="Filiale" type="xs:string"/>
+																<xs:element name="Numero" type="xs:int"/>
+																<xs:element name="Data" type="xs:int"/>
+																<xs:element name="RitiroConsegna" type="xs:string"/>
+																<xs:element name="Cliente" type="xs:string"/>
+																<xs:element name="ClienteSpedizione">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ClienteCodice" type="xs:short"/>
+																<xs:element name="ClienteSpedizioneCodice" type="xs:byte"/>
+																<xs:element name="Raggruppamento" type="xs:string"/>
+																<xs:element name="RaggruppamentoId" type="xs:string"/>
+																<xs:element name="DocumentoCliente">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Numero" type="xs:string"/>
+																			<xs:element name="Data" type="xs:int"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DocumentoTrasporto">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Numero" type="xs:int"/>
+																			<xs:element name="Data" type="xs:int"/>
+																			<xs:element name="Riferimento" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="DocumentoMittenteDestinatario">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Numero">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Data">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Spedizione">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Numero">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Data">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Prevista">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Data" type="xs:int"/>
+																			<xs:element name="OraInizio" type="xs:string"/>
+																			<xs:element name="OraFine" type="xs:string"/>
+																			<xs:element name="Tassativa" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Concordata">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Data">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="OraInizio">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="OraFine">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Valori">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Peso" type="xs:string"/>
+																			<xs:element name="Volume" type="xs:string"/>
+																			<xs:element name="Imballi" type="xs:short"/>
+																			<xs:element name="Palette" type="xs:string"/>
+																			<xs:element name="PaletteTeoriche" type="xs:string"/>
+																			<xs:element name="Etichette" type="xs:byte"/>
+																			<xs:element name="Um1Codice">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Um1Valore" type="xs:string"/>
+																			<xs:element name="Um2Codice">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Um2Valore" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Contrassegno">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="TipoIncasso">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Valuta">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Importo" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="ValoreMerce">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Valuta">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Importo" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Preavviso">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Eseguire" type="xs:string"/>
+																			<xs:element name="Telefono">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="TipoVeicolo">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="TipoServizio" type="xs:string"/>
+																<xs:element name="Note">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="MittenteDestinatario">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="RagioneSociale" type="xs:string"/>
+																			<xs:element name="Indirizzo" type="xs:string"/>
+																			<xs:element name="Cap" type="xs:short"/>
+																			<xs:element name="Localita" type="xs:string"/>
+																			<xs:element name="Provincia" type="xs:string"/>
+																			<xs:element name="Nazione" type="xs:string"/>
+																			<xs:element name="Interlocutore">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Telefono">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Email">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="CodiceEsterno">
+																				<xs:complexType>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="CaricoScarico">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Carico">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="RagioneSociale" type="xs:string"/>
+																						<xs:element name="Indirizzo" type="xs:string"/>
+																						<xs:element name="Cap" type="xs:short"/>
+																						<xs:element name="Localita" type="xs:string"/>
+																						<xs:element name="Provincia" type="xs:string"/>
+																						<xs:element name="Nazione" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Scarico">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="RagioneSociale" type="xs:string"/>
+																						<xs:element name="Indirizzo" type="xs:string"/>
+																						<xs:element name="Cap" type="xs:short"/>
+																						<xs:element name="Localita" type="xs:string"/>
+																						<xs:element name="Provincia" type="xs:string"/>
+																						<xs:element name="Nazione" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="TransitPoint">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="Codice">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="RagioneSociale">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Indirizzo">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Cap">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Localita">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Provincia">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Nazione">
+																							<xs:complexType>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																			<xs:element name="Modalita" type="xs:string"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Articoli">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element name="Articolo">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element name="NumeroRiga" type="xs:byte"/>
+																						<xs:element name="Codice" type="xs:byte"/>
+																						<xs:element name="Descrizione" type="xs:string"/>
+																						<xs:element name="UnitaMisura" type="xs:string"/>
+																						<xs:element name="Quantita" type="xs:string"/>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="BarCodes">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+																<xs:element name="Udm">
+																	<xs:complexType>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

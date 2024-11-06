@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--Created with Liquid XML Studio Designer Edition 9.1.1.3301 (http://www.liquid-technologies.com)-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="ListaDiCaricoProvvisoria">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Versione" type="xs:byte" minOccurs="1" maxOccurs="1" />
+                <xs:element name="Viaggio">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Codice" minOccurs="1" maxOccurs="1">
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="1" maxOccurs="1">
+                                        <xs:element name="Anno" type="xs:short" />
+                                        <xs:element name="Filiale" type="xs:string" />
+                                        <xs:element name="Numero" type="xs:int" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Raggruppamento" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="TipoViaggio" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Direttrice" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Vettore" type="VettoreType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Autista" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Corrispondente" type="CorrispondenteType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Automezzo" type="AutomezzoType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Rimorchio" type="RimorchioType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Partenza" type="PartenzaArrivoType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="Arrivo" type="PartenzaArrivoType" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="ValoriQuantitativi" type="ValoriQuantitativiType" minOccurs="0" maxOccurs="1" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="RitiriConsegne">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="RitiroConsegna">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="RitiroConsegna" type="xs:string" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="Codice" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="Tipo" type="xs:string" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Anno" type="xs:short" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Filiale" type="xs:string" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Numero" type="xs:int" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Identificativo" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                    <xs:element name="SenderID" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                    <xs:element name="ReceiverID" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                    <xs:element name="IdNetworkSga" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Settore" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Committente" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="TipoServizio" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="TipoTrasporto" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Resa" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="ResaNazionale" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Linea" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="LineaDistribuzione" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Viaggio" minOccurs="1" maxOccurs="1">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="SequenzaCarico" type="xs:short" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="SequenzaScarico" type="xs:short" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Provenienza" type="ProvenienzaType" minOccurs="1" maxOccurs="1" />
+                                                    <xs:element name="Destinazione" type="DestinazioneType" />
+                                                    <xs:element name="Barcodes" type="BarcodesType" minOccurs="0" maxOccurs="1" />
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Mittente" type="RitiroConsegnaMittenteDestinatarioType" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="Destinatario" type="RitiroConsegnaMittenteDestinatarioType" minOccurs="1" maxOccurs="1" />
+                                        <xs:element name="Provenienza" type="RitiroConsegnaMittenteDestinatarioType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Destinazione" type="RitiroConsegnaMittenteDestinatarioType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="DateOreRitiro" type="DateOreRitiroType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="DateOreConsegna" type="DateOreConsegnaType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Merce" type="MerceType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="ValoriQuantitativi" type="RitiriConsegneValoriQuantitativiType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Imballi" type="ImballiType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Palette" type="PaletteType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Caratteristiche" type="CaratteristicheType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Ddt" type="DdtType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Documenti" type="DocumentiType" minOccurs="0" maxOccurs="unbounded" />
+                                        <xs:element name="ValoreMerce" type="ImportoValutaType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="ImportoAssicurato" type="ImportoValutaType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Contrassegno" type="ContrassegnoType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Riferimenti" type="RiferimentiType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="Note" type="NoteType" minOccurs="0" maxOccurs="unbounded" />
+                                        <xs:element name="Proprieta" type="ProprietaListaType" minOccurs="0" maxOccurs="unbounded" />
+                                        <xs:element name="ImballaggiSupporti" type="ImballaggiSupportiType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="TassazioneAttiva" type="TassazioneAttivaPassivaType" minOccurs="0" maxOccurs="1" />
+                                        <xs:element name="TassazionePassiva" type="TassazioneAttivaPassivaType" minOccurs="0" maxOccurs="1" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="RimorchioType">
+        <xs:sequence>
+            <xs:element name="Tipo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Targa" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="AutomezzoType">
+        <xs:sequence>
+            <xs:element name="Tipo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Targa" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CorrispondenteType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="RagioneSociale" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VettoreType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="RagioneSociale" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PartenzaArrivoType">
+        <xs:sequence>
+            <xs:element name="Deposito" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Cap" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Localita" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Sito" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Provincia" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Nazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ValoriQuantitativiType">
+        <xs:sequence>
+            <xs:element name="TotaleRitiri">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Imballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="Palette" type="xs:int" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="PesoLordo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="MetriLineari" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="TotaleConsegne">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Imballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="Palette" type="xs:int" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="PesoLordo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                        <xs:element name="MetriLineari" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DestinazioneType">
+        <xs:sequence>
+            <xs:element name="DataPrevista" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="DataOraInizio" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+                        <xs:element name="DataOraFine" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Tipo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Codice" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RagioneSociale" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Indirizzo" type="xs:string" minOccurs="0" />
+            <xs:element name="Cap" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Localita" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Sito" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Provincia" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Nazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProvenienzaType">
+        <xs:sequence>
+            <xs:element name="DataPrevista" minOccurs="0" maxOccurs="1">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="DataOraInizio" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+                        <xs:element name="DataOraFine" type="xs:dateTime" minOccurs="1" maxOccurs="1" />
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="Tipo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Codice" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RagioneSociale" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Indirizzo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Cap" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Localita" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Sito" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Provincia" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Nazione" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BarcodesType">
+        <xs:sequence>
+            <xs:element name="Barcode" type="BarcodeType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BarcodeType">
+        <xs:sequence>
+            <xs:element name="Udm" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Entrata" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Uscita" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="BarcodeInterno" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RitiroConsegnaMittenteDestinatarioType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="CodiceInterno" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RagioneSociale" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Indirizzo" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Cap" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Localita" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Sito" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Provincia" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Nazione" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="P.IVA_CF-VAT" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Eori" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PartitaIva" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DateOreRitiroType">
+        <xs:sequence>
+            <xs:element name="Tipo" type="xs:string" />
+            <xs:element name="Data" type="xs:dateTime" />
+            <xs:element name="OraInizio" type="xs:string" />
+            <xs:element name="OraFine" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DateOreConsegnaType">
+        <xs:sequence>
+            <xs:element name="RichiestaTipoData" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RichiestaData" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RichiestaOraInizio" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RichiestaOraFine" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DestinatarioTipoData" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DestinatarioData" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DestinatarioOraInizio" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DestinatarioOraFine" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CorrispondenteData" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CorrispondenteOra" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ConcordataTipo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ConcordataData" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ConcordataOraInizio" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ConcordataOraFine" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="MerceType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CodiciOnuAdr" type="CodiciOnuAdrType" minOccurs="0" maxOccurs="1" />
+            <xs:element name="AdrPunteggio" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CodiceOnuAdrType">
+        <xs:sequence>
+            <xs:element name="CodiceOnu" type="xs:int" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Descrizione" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="ClassePericolo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CodiceClassificazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="GruppoImballaggio" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Moltiplicatore" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CategoriaTrasporto" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RestrizioniGalleria" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="TipoImballo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="QuantitaImballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="UnitaMisura" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Quantita" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="QuantitaLimitata" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DenominazioneTecnica" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Etichette" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CodiciOnuAdrType">
+        <xs:sequence>
+            <xs:element name="CodiceOnuAdr" type="CodiceOnuAdrType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RitiriConsegneValoriQuantitativiType">
+        <xs:sequence>
+            <xs:element name="Imballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Palette" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoLordo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoTassabile" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="MetriLineari" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PostiPallet" type="xs:short" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Um1Codice" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Um1Valore" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Um2Codice" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Um2Valore" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ImballiType">
+        <xs:sequence>
+            <xs:element name="Imballo" type="ImballoType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ImballoType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Quantita" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Lunghezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Larghezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Altezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Peso" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PaletteType">
+        <xs:sequence>
+            <xs:element name="Paletta" type="PalettaType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="PalettaType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Quantita" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Lunghezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Larghezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Altezza" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Peso" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CaratteristicheType">
+        <xs:sequence>
+            <xs:element name="Caratteristica" type="CaratteristicaType" minOccurs="0" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="CaratteristicaType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Descrizione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Quantita" type="xs:decimal" minOccurs="0" />
+            <xs:element name="Testo" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Lista" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Note" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TassazioneAttivaPassivaType">
+        <xs:sequence>
+            <xs:element name="Imballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Palette" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoLordo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="MetriLineari" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ValoreMerce" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ImballaggiSupportiType">
+        <xs:sequence>
+            <xs:element name="Iniziali" type="ImballaggiSupportiInizialiType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ImballaggiSupportiInizialiType">
+        <xs:sequence>
+            <xs:element name="Tipologia" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Stato" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Quantita" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProprietaListaType">
+        <xs:sequence>
+            <xs:element name="Proprieta" type="ProprietaType" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ProprietaType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Valore" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="NoteType">
+        <xs:sequence>
+            <xs:element name="Nota" type="xs:string" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="RiferimentiType">
+        <xs:sequence>
+            <xs:element name="Ordine" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Interno" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="InternoExtra" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Committente" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Mittente" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Destinatario" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ClienteMittente" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ClienteDestinatario" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="RitiroRifEsterno" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="ConsegnaRifEsterno" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="CumulativaTariffazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Link2pConnectSpedizioniEsitazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ContrassegnoType">
+        <xs:sequence>
+            <xs:element name="Valuta" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Importo" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+            <xs:element name="TipoIncasso" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Note" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ImportoValutaType">
+        <xs:sequence>
+            <xs:element name="Valuta" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Importo" type="xs:decimal" minOccurs="1" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DocumentiType">
+        <xs:sequence>
+            <xs:element name="Documento" type="DocumentoType" minOccurs="1" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DocumentoType">
+        <xs:sequence>
+            <xs:element name="Codice" type="xs:string" minOccurs="1" maxOccurs="1" />
+            <xs:element name="Numero" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Riferimento" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Data" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Importo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Valuta" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Imballi" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Palette" type="xs:int" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoLordo" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoNetto" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="PesoTassabile" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Volume" type="xs:decimal" minOccurs="0" maxOccurs="1" />
+            <xs:element name="UfficioEsportazione" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="UfficioUscita" type="xs:string" minOccurs="0" maxOccurs="1" />
+            <xs:element name="DataUscita" type="xs:date" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="DdtType">
+        <xs:sequence>
+            <xs:element name="Data" type="xs:date" minOccurs="0" maxOccurs="1" />
+            <xs:element name="Numero" type="xs:string" minOccurs="0" maxOccurs="1" />
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

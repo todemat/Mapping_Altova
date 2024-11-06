@@ -1,0 +1,839 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Pata/Mappings/PATA_SgaTrasporto_Esitazione_to_Interlocutore.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaSql02_DWTracking">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWTracking" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWTracking" path="ItaSql02_DWTracking">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select Id,
+NumeroBolla,DataBolla,EventoData, CLI_EventoCodice,CLI_EventoMotivoCodice,OrdineRiferimento,TRAS_OrdineRiferimento,TipologiaDocumento
+from DWTracking.dbo.TRCKEventOrder to2 
+where TRAS_CodiceCliente =:CodiceCliente and Sorgente =:Sorgente and CLI_Import =1 and (CLI_Imported = 0 or CLI_Imported is null)">
+							<PathElement Name="DWTracking" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_DwTracking" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="CodiceCliente" type="varchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Sorgente" type="varchar" size="50" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+			<datasource name="ItaSql02_DWTracking1">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWTracking" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWTracking1" path="ItaSql02_DWTracking1"/>
+			</datasource>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select * from t2viaggiclienticarichiscarichidocumenti where societa=1 and anno=:OrdineAnno and filiale=:OrdineFiliale and numero=:OrdineNumero and numero_carico_scarico=:OrdineCarSca and documento_tipo=:TipoDocumento and documento_numero=:NumeroDocumento and cast(documento_data as date)=:DataDocumento">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Documento_SGA" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="OrdineAnno" type="smallint" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineFiliale" type="varchar" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineNumero" type="int" size="4" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineCarSca" type="smallint" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="TipoDocumento" type="varchar" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="NumeroDocumento" type="varchar" size="20" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="DataDocumento" type="nvarchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="select * from t2viaggiclientieventi where societa=1 and anno=:OrdineAnno and filiale=:OrdineFiliale and numero=:OrdineNumero and id_carico_scarico=:OrdineCarSca and documento_tipo=:TipoDocumento and documento_numero=:NumeroDocumento and cast(documento_data as date)=:DataDocumento">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Eventi_SGA" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="OrdineAnno" type="smallint" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineFiliale" type="varchar" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineNumero" type="int" size="4" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="OrdineCarSca" type="smallint" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="TipoDocumento" type="varchar" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="NumeroDocumento" type="varchar" size="20" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="DataDocumento" type="nvarchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="6" kind="2">
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="-30" lty="346" rbx="137" rby="363"/>
+					<data>
+						<constant value="SGATRASPORTO_EVENTI" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="7" kind="4">
+					<sources>
+						<datapoint pos="0" key="10"/>
+						<datapoint pos="1" key="11"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="1320" lty="269" rbx="1424" rby="342"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="-30" lty="378" rbx="29" rby="395"/>
+					<data>
+						<constant value="MC" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="13" kind="4">
+					<sources>
+						<datapoint pos="0" key="21"/>
+						<datapoint pos="1" key="22"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="1320" lty="341" rbx="1424" rby="414"/>
+				</component>
+				<component name="equal" library="core" uid="11" kind="5">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="1143" lty="269" rbx="1199" rby="323"/>
+				</component>
+				<component name="equal" library="core" uid="12" kind="5">
+					<sources>
+						<datapoint pos="0" key="19"/>
+						<datapoint pos="1" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="1143" lty="341" rbx="1199" rby="395"/>
+				</component>
+				<component name="constant" library="core" uid="17" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="-27" lty="414" rbx="19" rby="431"/>
+					<data>
+						<constant value="/" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="48"/>
+					</targets>
+					<view ltx="-27" lty="430" rbx="21" rby="447"/>
+					<data>
+						<constant value="2" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="49"/>
+					</targets>
+					<view ltx="-27" lty="446" rbx="21" rby="463"/>
+					<data>
+						<constant value="3" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<targets>
+						<datapoint pos="0" key="50"/>
+					</targets>
+					<view ltx="-27" lty="462" rbx="21" rby="479"/>
+					<data>
+						<constant value="4" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="14" kind="15">
+					<view ltx="-30" lty="178" rbx="280" rby="229"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_Documento_SGA" type="routine" outkey="72" expanded="1"/>
+								<entry name="dbo.SELECT_Eventi_SGA" type="routine" outkey="81"/>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Documento_SGA" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Eventi_SGA" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="19" kind="5">
+					<sources>
+						<datapoint pos="0" key="40"/>
+						<datapoint pos="1" key="54"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="1155" lty="795" rbx="1265" rby="849"/>
+				</component>
+				<component name="item-at" library="core" uid="20" kind="5">
+					<sources>
+						<datapoint pos="0" key="41"/>
+						<datapoint pos="1" key="56"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="57"/>
+					</targets>
+					<view ltx="1185" lty="825" rbx="1295" rby="879"/>
+				</component>
+				<component name="item-at" library="core" uid="21" kind="5">
+					<sources>
+						<datapoint pos="0" key="42"/>
+						<datapoint pos="1" key="58"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="59"/>
+					</targets>
+					<view ltx="1216" lty="848" rbx="1326" rby="902"/>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="51"/>
+					</targets>
+					<view ltx="-27" lty="478" rbx="21" rby="495"/>
+					<data>
+						<constant value="6" datatype="string"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="27" kind="5">
+					<sources>
+						<datapoint pos="0" key="75"/>
+						<datapoint pos="1" key="73"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="74"/>
+					</targets>
+					<view ltx="1246" lty="878" rbx="1356" rby="932"/>
+				</component>
+				<component name="constant" library="core" uid="29" kind="2">
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="-29" lty="494" rbx="19" rby="511"/>
+					<data>
+						<constant value="5" datatype="string"/>
+					</data>
+				</component>
+				<component name="dbo.SELECT_Eventi_SGA" library="db" uid="26" kind="28">
+					<view ltx="1600" lty="848" rbx="1993" rby="1071"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="82"/>
+							<entry name="dbo.SELECT_Eventi_SGA" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Eventi_SGA" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="OrdineAnno" type="attribute" inpkey="83"/>
+								<entry name="OrdineFiliale" type="attribute" inpkey="84"/>
+								<entry name="OrdineNumero" type="attribute" inpkey="85"/>
+								<entry name="OrdineCarSca" type="attribute" inpkey="86"/>
+								<entry name="TipoDocumento" type="attribute" inpkey="87"/>
+								<entry name="NumeroDocumento" type="attribute" inpkey="88"/>
+								<entry name="DataDocumento" type="attribute" inpkey="89"/>
+							</entry>
+						</root>
+						<root scrollposition="409">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Eventi_SGA" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Eventi_SGA" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Eventi_SGA" expanded="1">
+									<entry name="DESCRIZIONE" type="attribute" outkey="90"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="9" kind="2">
+					<targets>
+						<datapoint pos="0" key="14"/>
+					</targets>
+					<view ltx="-30" lty="362" rbx="26" rby="379"/>
+					<data>
+						<constant value="CR" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="-29" lty="330" rbx="43" rby="347"/>
+					<data>
+						<constant value="12787" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
+					<view ltx="-30" lty="68" rbx="270" rby="115"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_DwTracking" type="routine" outkey="1" expanded="1"/>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWTracking">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_DwTracking" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="38"/>
+						<datapoint pos="1" key="52"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="53"/>
+					</targets>
+					<view ltx="1125" lty="765" rbx="1235" rby="819"/>
+				</component>
+				<component name="value-map" library="core" uid="8" kind="23">
+					<sources>
+						<datapoint pos="0" key="30"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view ltx="1320" lty="232" rbx="1400" rby="270"/>
+					<data>
+						<valuemap>
+							<valuemapTable>
+								<entry from="OK" to="Esito OK"/>
+								<entry from="CR" to="Consegna con Riserva"/>
+								<entry from="MC" to="Mancata Consegna"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="dbo.SELECT_Documento_SGA" library="db" uid="15" kind="28">
+					<view ltx="1600" lty="482" rbx="2004" rby="782"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="62"/>
+							<entry name="dbo.SELECT_Documento_SGA" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Documento_SGA" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="OrdineAnno" type="attribute" inpkey="63"/>
+								<entry name="OrdineFiliale" type="attribute" inpkey="64"/>
+								<entry name="OrdineNumero" type="attribute" inpkey="65"/>
+								<entry name="OrdineCarSca" type="attribute" inpkey="66"/>
+								<entry name="TipoDocumento" type="attribute" inpkey="67"/>
+								<entry name="NumeroDocumento" type="attribute" inpkey="68"/>
+								<entry name="DataDocumento" type="attribute" inpkey="69"/>
+							</entry>
+						</root>
+						<root scrollposition="52">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Documento_SGA" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Documento_SGA" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Documento_SGA" expanded="1">
+									<entry name="CONTRASSEGNO_STATO" type="attribute" outkey="70"/>
+									<entry name="CONTRASSEGNO_NOTE" type="attribute" outkey="71"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="34" kind="2">
+					<targets>
+						<datapoint pos="0" key="100"/>
+					</targets>
+					<view ltx="1575" lty="66" rbx="1730" rby="83"/>
+					<data>
+						<constant value="\EsitazioneConsegne_" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="37" kind="5">
+					<sources>
+						<datapoint pos="0" key="93"/>
+						<datapoint pos="1" key="91"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="94"/>
+					</targets>
+					<view ltx="1437" lty="107" rbx="1549" rby="177"/>
+				</component>
+				<component name="constant" library="core" uid="38" kind="2">
+					<targets>
+						<datapoint pos="0" key="101"/>
+					</targets>
+					<view ltx="1575" lty="82" rbx="1633" rby="99"/>
+					<data>
+						<constant value=".txt" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="39" kind="2">
+					<targets>
+						<datapoint pos="0" key="95"/>
+					</targets>
+					<view ltx="-30" lty="543" rbx="116" rby="560"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="36" kind="5">
+					<targets>
+						<datapoint pos="0" key="92"/>
+					</targets>
+					<view ltx="1320" lty="107" rbx="1370" rby="145"/>
+				</component>
+				<component name="constant" library="core" uid="40" kind="2">
+					<targets>
+						<datapoint pos="0" key="107"/>
+					</targets>
+					<view ltx="11" lty="588" rbx="59" rby="605"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="41" kind="2">
+					<targets>
+						<datapoint pos="0" key="108"/>
+					</targets>
+					<view ltx="-4" lty="627" rbx="79" rby="644"/>
+					<data>
+						<constant value="ALTOVA" datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="16" kind="5">
+					<sources>
+						<datapoint pos="0" key="46"/>
+						<datapoint pos="1" key="47"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="39"/>
+					</targets>
+					<view ltx="936" lty="848" rbx="1030" rby="902"/>
+				</component>
+				<component name="exists" library="core" uid="42" kind="5">
+					<sources>
+						<datapoint pos="0" key="119"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="120"/>
+					</targets>
+					<view ltx="1159" lty="154" rbx="1235" rby="192"/>
+				</component>
+				<component name="dbo.SELECT_DwTracking" library="db" uid="4" kind="28">
+					<view ltx="412" lty="232" rbx="826" rby="494"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="2"/>
+							<entry name="dbo.SELECT_DwTracking" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_DwTracking" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="CodiceCliente" type="attribute" inpkey="3"/>
+								<entry name="Sorgente" type="attribute" inpkey="4"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_DwTracking" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_DwTracking" outkey="33" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_DwTracking" expanded="1">
+									<entry name="Id" type="attribute" outkey="112"/>
+									<entry name="NumeroBolla" type="attribute" outkey="35"/>
+									<entry name="DataBolla" type="attribute" outkey="36"/>
+									<entry name="EventoData" type="attribute" outkey="37"/>
+									<entry name="CLI_EventoCodice" type="attribute" outkey="15"/>
+									<entry name="CLI_EventoMotivoCodice" type="attribute" outkey="16"/>
+									<entry name="OrdineRiferimento" type="attribute" outkey="34"/>
+									<entry name="TRAS_OrdineRiferimento" type="attribute" outkey="60"/>
+									<entry name="TipologiaDocumento" type="attribute" outkey="61"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="35" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="102"/>
+						<datapoint pos="1" key="103"/>
+						<datapoint pos="2" key="104"/>
+						<datapoint pos="3" key="105"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="106"/>
+					</targets>
+					<view ltx="1871" lty="31" rbx="1963" rby="121"/>
+				</component>
+				<component name="if-else" library="core" uid="43" kind="4">
+					<sources>
+						<datapoint pos="0" key="121"/>
+						<datapoint pos="1" key="122"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="123"/>
+					</targets>
+					<view ltx="2120" lty="119" rbx="2224" rby="192"/>
+				</component>
+				<component name="db" library="db" uid="30" kind="15">
+					<properties/>
+					<view ltx="2926" lty="551" rbx="3164" rby="1051"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.TRCKEventOrder" type="table" inpkey="113" expanded="1">
+									<tableactions>
+										<action operation="update" deletewithchildren="1" proceedchildren="1">
+											<field name="ID" function="equal"/>
+										</action>
+									</tableactions>
+									<entry name="ID" inpkey="114" valuekeygeneration="forcemappedvalue"/>
+									<entry name="CLI_Imported" inpkey="115"/>
+									<entry name="CLI_ImportedUser" inpkey="116"/>
+									<entry name="CLI_ImportedDate" inpkey="117"/>
+									<entry name="CLI_FileOutput" inpkey="118"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWTracking1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="TRCKEventOrder" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="group-by" library="core" uid="44" kind="5">
+					<sources>
+						<datapoint pos="0" key="124"/>
+						<datapoint pos="1" key="125"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="126"/>
+						<datapoint pos="1" key="127"/>
+					</targets>
+					<view ltx="967" lty="171" rbx="1085" rby="225"/>
+				</component>
+				<component name="Esitazioni" library="text" uid="2" kind="16">
+					<properties XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="2513" lty="149" rbx="2840" rby="460"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="110" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" inpkey="23" expanded="1">
+										<entry name="Identificativo" inpkey="24"/>
+										<entry name="NumeroBolla" inpkey="25"/>
+										<entry name="DataBolla" inpkey="26"/>
+										<entry name="DescrizioneEvento" inpkey="27"/>
+										<entry name="DescMotivoRiserva" inpkey="13"/>
+										<entry name="DescMotivoMancataConsegna" inpkey="28"/>
+										<entry name="Note" inpkey="80"/>
+										<entry name="ContrassegnoStato" inpkey="43"/>
+										<entry name="ContrassegnoNote" inpkey="44"/>
+										<entry name="DataOraEvento" inpkey="29"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\01.Tracciati\EsitazioneConsegne_20220526094616460.txt">
+							<settings separator=";" quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="EsitazioneConsegne_20220526094616460" block="Rows">
+									<field0 name="Identificativo" type="string"/>
+									<field1 name="NumeroBolla" type="string"/>
+									<field2 name="DataBolla" type="string"/>
+									<field3 name="DescrizioneEvento" type="string"/>
+									<field4 name="DescMotivoRiserva" type="string"/>
+									<field5 name="DescMotivoMancataConsegna" type="string"/>
+									<field6 name="Note" type="string"/>
+									<field7 name="ContrassegnoStato" type="string"/>
+									<field8 name="ContrassegnoNote" type="string"/>
+									<field9 name="DataOraEvento" type="string"/>
+									<field10 name="Vuoto" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="OutputDir" library="core" uid="33" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="109"/>
+					</targets>
+					<view ltx="1332" lty="8" rbx="1442" rby="46"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\Pata\Output" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="5" to="3"/>
+			<edge from="6" to="4"/>
+			<edge from="15" to="7"/>
+			<edge from="14" to="8"/>
+			<edge from="9" to="10"/>
+			<edge from="16" to="11"/>
+			<edge from="12" to="13"/>
+			<edge from="32" to="18"/>
+			<edge from="15" to="19"/>
+			<edge from="20" to="21"/>
+			<edge from="16" to="22"/>
+			<edge from="126" to="23"/>
+			<edge from="34" to="24"/>
+			<edge from="35" to="25"/>
+			<edge from="36" to="26"/>
+			<edge from="31" to="27"/>
+			<edge from="17" to="28"/>
+			<edge from="37" to="29"/>
+			<edge from="15" to="30"/>
+			<edge from="39" to="38"/>
+			<edge from="39" to="40"/>
+			<edge from="39" to="41"/>
+			<edge from="39" to="42"/>
+			<edge from="70" to="43"/>
+			<edge from="71" to="44"/>
+			<edge from="60" to="46"/>
+			<edge from="45" to="47"/>
+			<edge from="48" to="52"/>
+			<edge from="49" to="54"/>
+			<edge from="50" to="56"/>
+			<edge from="51" to="58"/>
+			<edge from="72" to="62"/>
+			<edge from="53" to="63"/>
+			<edge from="55" to="64"/>
+			<edge from="57" to="65"/>
+			<edge from="59" to="66"/>
+			<edge from="61" to="67"/>
+			<edge from="35" to="68"/>
+			<edge from="36" to="69"/>
+			<edge from="79" to="73"/>
+			<edge from="39" to="75"/>
+			<edge from="90" to="80"/>
+			<edge from="81" to="82"/>
+			<edge from="53" to="83"/>
+			<edge from="55" to="84"/>
+			<edge from="57" to="85"/>
+			<edge from="74" to="86"/>
+			<edge from="61" to="87"/>
+			<edge from="35" to="88"/>
+			<edge from="36" to="89"/>
+			<edge from="95" to="91"/>
+			<edge from="92" to="93"/>
+			<edge from="109" to="102"/>
+			<edge from="100" to="103"/>
+			<edge from="94" to="104"/>
+			<edge from="101" to="105"/>
+			<edge from="123" to="110"/>
+			<edge from="126" to="113"/>
+			<edge from="127" to="114"/>
+			<edge from="107" to="115"/>
+			<edge from="108" to="116"/>
+			<edge from="92" to="117"/>
+			<edge from="106" to="118"/>
+			<edge from="126" to="119"/>
+			<edge from="120" to="121"/>
+			<edge from="106" to="122"/>
+			<edge from="33" to="124"/>
+			<edge from="112" to="125"/>
+		</connections>
+	</component>
+</mapping>

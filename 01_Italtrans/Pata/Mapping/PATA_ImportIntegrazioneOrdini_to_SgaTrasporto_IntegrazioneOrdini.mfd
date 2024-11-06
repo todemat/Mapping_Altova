@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="26">
+	<settings>
+		<deployment path="/Progetti/Pata/Mappings/PATA_ImportIntegrazioneOrdini_to_SgaTrasporto_IntegrazioneOrdini.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="28" lty="398" rbx="99" rby="415"/>
+					<data>
+						<constant value="Insert" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="24" lty="430" rbx="82" rby="447"/>
+					<data>
+						<constant value="NN" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="108" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="36" lty="701" rbx="97" rby="718"/>
+					<data>
+						<constant value="MO" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="109" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="32" lty="717" rbx="83" rby="734"/>
+					<data>
+						<constant value="BI" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="110" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="32" lty="733" rbx="86" rby="750"/>
+					<data>
+						<constant value="37" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="112" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="55" lty="797" rbx="110" rby="814"/>
+					<data>
+						<constant value="CE" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="103" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="37" lty="635" rbx="91" rby="652"/>
+					<data>
+						<constant value="20" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="104" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="37" lty="651" rbx="91" rby="668"/>
+					<data>
+						<constant value="34" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="111" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="34" lty="749" rbx="89" rby="766"/>
+					<data>
+						<constant value="AT" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="105" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="37" lty="667" rbx="91" rby="684"/>
+					<data>
+						<constant value="37" datatype="string"/>
+					</data>
+				</component>
+				<component name="distinct-values" library="core" uid="126" kind="5">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="383"/>
+					</targets>
+					<view ltx="2600" lty="1035" rbx="2701" rby="1073"/>
+				</component>
+				<component name="constant" library="core" uid="124" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="32" lty="851" rbx="82" rby="868"/>
+					<data>
+						<constant value="N" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="130" kind="5">
+					<targets>
+						<datapoint pos="0" key="460"/>
+					</targets>
+					<view ltx="1525" lty="61" rbx="1575" rby="99"/>
+				</component>
+				<component name="constant" library="core" uid="131" kind="2">
+					<targets>
+						<datapoint pos="0" key="468"/>
+					</targets>
+					<view ltx="1819" lty="47" rbx="1885" rby="64"/>
+					<data>
+						<constant value=".XML" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="134" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="467"/>
+						<datapoint pos="1" key="465"/>
+						<datapoint pos="2" key="457"/>
+						<datapoint pos="3" key="458"/>
+						<datapoint pos="4" key="474"/>
+						<datapoint pos="5" key="475"/>
+						<datapoint pos="6" key="463"/>
+						<datapoint pos="7" key="469"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="470"/>
+					</targets>
+					<view ltx="2030" lty="61" rbx="2122" rby="219"/>
+				</component>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="28" lty="261" rbx="75" rby="278"/>
+					<data>
+						<constant value="_" datatype="string"/>
+					</data>
+				</component>
+				<component name="string-join" library="core" uid="127" kind="5">
+					<sources>
+						<datapoint/>
+						<datapoint pos="1" key="384"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="2725" lty="1035" rbx="2850" rby="1105"/>
+				</component>
+				<component name="constant" library="core" uid="129" kind="2">
+					<targets>
+						<datapoint pos="0" key="464"/>
+					</targets>
+					<view ltx="1819" lty="32" rbx="1983" rby="49"/>
+					<data>
+						<constant value="\TRAS_IntegrazioneOrdini_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<targets>
+						<datapoint pos="0" key="112"/>
+					</targets>
+					<view ltx="28" lty="414" rbx="100" rby="431"/>
+					<data>
+						<constant value="12787" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="28" lty="334" rbx="135" rby="351"/>
+					<data>
+						<constant value="ALIMENTARE" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="125" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="47" lty="779" rbx="105" rby="796"/>
+					<data>
+						<constant value="PAI" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="28" lty="366" rbx="83" rby="383"/>
+					<data>
+						<constant value="PA" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="28" lty="382" rbx="86" rby="399"/>
+					<data>
+						<constant value="CO" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="31" kind="2">
+					<targets>
+						<datapoint pos="0" key="118"/>
+					</targets>
+					<view ltx="36" lty="503" rbx="84" rby="520"/>
+					<data>
+						<constant value="S" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="38" kind="2">
+					<targets>
+						<datapoint pos="0" key="119"/>
+					</targets>
+					<view ltx="36" lty="519" rbx="89" rby="536"/>
+					<data>
+						<constant value="IN" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="39" kind="2">
+					<targets>
+						<datapoint pos="0" key="120"/>
+					</targets>
+					<view ltx="36" lty="547" rbx="91" rby="564"/>
+					<data>
+						<constant value="AS" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="40" kind="2">
+					<targets>
+						<datapoint pos="0" key="121"/>
+					</targets>
+					<view ltx="36" lty="577" rbx="108" rby="594"/>
+					<data>
+						<constant value="EURO" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="42" kind="2">
+					<targets>
+						<datapoint pos="0" key="122"/>
+					</targets>
+					<view ltx="43" lty="609" rbx="88" rby="626"/>
+					<data>
+						<constant value=" " datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="138" kind="4">
+					<sources>
+						<datapoint pos="0" key="491"/>
+						<datapoint pos="1" key="492"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="493"/>
+					</targets>
+					<view ltx="1140" lty="705" rbx="1244" rby="778"/>
+				</component>
+				<component name="if-else" library="core" uid="142" kind="4">
+					<sources>
+						<datapoint pos="0" key="494"/>
+						<datapoint pos="1" key="495"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="496"/>
+					</targets>
+					<view ltx="1170" lty="735" rbx="1274" rby="808"/>
+				</component>
+				<component name="if-else" library="core" uid="143" kind="4">
+					<sources>
+						<datapoint pos="0" key="497"/>
+						<datapoint pos="1" key="498"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="499"/>
+					</targets>
+					<view ltx="1200" lty="765" rbx="1304" rby="838"/>
+				</component>
+				<component name="equal" library="core" uid="147" kind="5">
+					<sources>
+						<datapoint pos="0" key="502"/>
+						<datapoint pos="1" key="503"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="504"/>
+					</targets>
+					<view ltx="1107" lty="389" rbx="1163" rby="443"/>
+				</component>
+				<component name="if-else" library="core" uid="148" kind="4">
+					<sources>
+						<datapoint pos="0" key="505"/>
+						<datapoint/>
+						<datapoint pos="2" key="506"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="507"/>
+					</targets>
+					<view ltx="1425" lty="389" rbx="1529" rby="462"/>
+				</component>
+				<component name="constant" library="core" uid="29" kind="2">
+					<targets>
+						<datapoint pos="0" key="114"/>
+					</targets>
+					<view ltx="36" lty="487" rbx="84" rby="504"/>
+					<data>
+						<constant value="3" datatype="string"/>
+					</data>
+				</component>
+				<component name="left" library="lang" uid="149" kind="5">
+					<sources>
+						<datapoint pos="0" key="508"/>
+						<datapoint pos="1" key="509"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="510"/>
+					</targets>
+					<view ltx="1215" lty="508" rbx="1304" rby="562"/>
+				</component>
+				<component name="value-map" library="core" uid="150" kind="23">
+					<sources>
+						<datapoint pos="0" key="481"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="482"/>
+					</targets>
+					<view ltx="1637" lty="541" rbx="1717" rby="579"/>
+					<data>
+						<valuemap enableDefaultValue="1">
+							<valuemapTable>
+								<entry from="EPAL" to="PA"/>
+								<entry from="CHEP" to="CHEP"/>
+								<entry from="EUR" to="PA"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string" defaultValue="PA"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="28" lty="350" rbx="89" rby="367"/>
+					<data>
+						<constant value="PAT" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="26" kind="2">
+					<targets>
+						<datapoint pos="0" key="67"/>
+					</targets>
+					<view ltx="34" lty="459" rbx="76" rby="476"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="146" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="478"/>
+						<datapoint pos="1" key="479"/>
+						<datapoint pos="2" key="477"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="480"/>
+					</targets>
+					<view ltx="804" lty="851" rbx="896" rby="924"/>
+				</component>
+				<component name="if-else" library="core" uid="145" kind="4">
+					<sources>
+						<datapoint pos="0" key="487"/>
+						<datapoint pos="1" key="488"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="490"/>
+					</targets>
+					<view ltx="1230" lty="894" rbx="1334" rby="967"/>
+				</component>
+				<component name="equal" library="core" uid="137" kind="5">
+					<sources>
+						<datapoint pos="0" key="484"/>
+						<datapoint pos="1" key="485"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="486"/>
+					</targets>
+					<view ltx="804" lty="751" rbx="860" rby="805"/>
+				</component>
+				<component name="Integrazione_Ordini" library="text" uid="2" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="208" lty="100" rbx="512" rby="944"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="472" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" expanded="1">
+										<entry name="CodiceOrdine" outkey="20"/>
+										<entry name="CaricoData" outkey="21"/>
+										<entry name="CaricoOra" outkey="22"/>
+										<entry name="ScaricoData" outkey="24"/>
+										<entry name="ScaricoOraDa" outkey="25"/>
+										<entry name="ScaricoIdCliente" outkey="28"/>
+										<entry name="PAT" outkey="30"/>
+										<entry name="PA" outkey="31"/>
+										<entry name="TipoPallet" outkey="534"/>
+										<entry name="Colli" outkey="32"/>
+										<entry name="DocumentoNumero" outkey="66"/>
+										<entry name="DocumentoData" outkey="156"/>
+										<entry name="Contrassegno" outkey="157"/>
+										<entry name="ContrassegnoIncasso" outkey="158"/>
+										<entry name="ContrassegnoDesPagamento" outkey="159"/>
+										<entry name="ContrassegnoNoteIncasso" outkey="160"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="csv" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\01.Tracciati\Integrazioni_20220525094316.txt">
+							<settings separator=";" quote="&quot;" firstrownames="false" removeempty="true">
+								<names root="Integrazione_Ordini" block="Rows">
+									<field0 name="CodiceOrdine" type="string"/>
+									<field1 name="RiferimentoOrdine" type="string"/>
+									<field2 name="CaricoData" type="string"/>
+									<field3 name="CaricoOra" type="string"/>
+									<field4 name="CaricoZona" type="string"/>
+									<field5 name="ScaricoData" type="string"/>
+									<field6 name="ScaricoOraDa" type="string"/>
+									<field7 name="ScaricoTassativo" type="string"/>
+									<field8 name="ScaricoIdCliente" type="string"/>
+									<field9 name="ScaricoZona" type="string"/>
+									<field10 name="ScaricoZona2" type="string"/>
+									<field11 name="ScaricoIndirizzo" type="string"/>
+									<field12 name="ScaricoCap" type="string"/>
+									<field13 name="ScaricoLocalita" type="string"/>
+									<field14 name="ScaricoPr" type="string"/>
+									<field15 name="ScaricoNazione" type="string"/>
+									<field16 name="ScaricoTelefono" type="string"/>
+									<field17 name="Annotazioni" type="string"/>
+									<field18 name="DatiAggiuntivi" type="string"/>
+									<field19 name="TipoMotirce" type="string"/>
+									<field20 name="TipoRimorchio" type="string"/>
+									<field21 name="TipoMezzoNo" type="string"/>
+									<field22 name="TipoRimorchioNo" type="string"/>
+									<field23 name="Sponda" type="string"/>
+									<field24 name="TipoMezzo" type="string"/>
+									<field25 name="Transpallet" type="string"/>
+									<field26 name="PAT" type="string"/>
+									<field27 name="PA" type="string"/>
+									<field28 name="TipoPallet" type="string"/>
+									<field29 name="Volume" type="string"/>
+									<field30 name="Colli" type="string"/>
+									<field31 name="DocumentoNumero" type="string"/>
+									<field32 name="DocumentoData" type="string"/>
+									<field33 name="Contrassegno" type="string"/>
+									<field34 name="ContrassegnoIncasso" type="string"/>
+									<field35 name="ContrassegnoIncasso2" type="string"/>
+									<field36 name="ContrassegnoDesPagamento" type="string"/>
+									<field37 name="ContrassegnoNoteIncasso" type="string"/>
+									<field38 name="Definitivo" type="string"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="144" kind="4">
+					<sources>
+						<datapoint pos="0" key="500"/>
+						<datapoint pos="1" key="543"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="501"/>
+					</targets>
+					<view ltx="1384" lty="810" rbx="1488" rby="883"/>
+				</component>
+				<component name="constant" library="core" uid="152" kind="2">
+					<targets>
+						<datapoint pos="0" key="544"/>
+					</targets>
+					<view ltx="50" lty="827" rbx="95" rby="844"/>
+					<data>
+						<constant value="." datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="153" kind="2">
+					<targets>
+						<datapoint pos="0" key="545"/>
+					</targets>
+					<view ltx="58" lty="877" rbx="103" rby="894"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="151" kind="5">
+					<sources>
+						<datapoint pos="0" key="546"/>
+						<datapoint pos="1" key="547"/>
+						<datapoint pos="2" key="548"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="549"/>
+					</targets>
+					<view ltx="2003" lty="844" rbx="2104" rby="914"/>
+				</component>
+				<component name="FileInput" library="core" uid="128" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="476"/>
+					</targets>
+					<view ltx="21" lty="18" rbx="124" rby="56"/>
+					<data>
+						<input datatype="string" previewvalue="\\ITAFS00.italtransspa.local\Root$\Root_EDI\CLIENTI\Pata\PROD\from_CLIENTE_IntegrazioneOrdini\integrazioni_20220712153235.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="FileInput"/>
+					</data>
+				</component>
+				<component name="OutputDir" library="core" uid="132" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="466"/>
+					</targets>
+					<view ltx="1298" lty="11" rbx="1408" rby="49"/>
+					<data>
+						<input datatype="string" previewvalue="Esempi" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="133" kind="5">
+					<sources>
+						<datapoint pos="0" key="461"/>
+						<datapoint pos="1" key="459"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="462"/>
+					</targets>
+					<view ltx="1642" lty="61" rbx="1754" rby="131"/>
+				</component>
+				<component name="constant" library="core" uid="135" kind="2">
+					<targets>
+						<datapoint pos="0" key="471"/>
+					</targets>
+					<view ltx="32" lty="305" rbx="178" rby="322"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="IntegrazioneOrdiniStandard" library="xml" uid="4" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="2784" lty="47" rbx="3175" rby="950"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="473" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Sga" expanded="1">
+										<entry name="IntegrazioneOrdiniTrasporto" expanded="1">
+											<entry name="Versione" type="attribute" inpkey="511"/>
+											<entry name="OrdineTrasporto" inpkey="512" expanded="1">
+												<entry name="Cliente" inpkey="513"/>
+												<entry name="OrdineRiferimento" inpkey="535"/>
+												<entry name="CarichiScarichi" expanded="1">
+													<entry name="CaricoScarico" inpkey="514" expanded="1">
+														<entry name="Riferimento" inpkey="515"/>
+														<entry name="Carico" expanded="1">
+															<entry name="Data" inpkey="536"/>
+															<entry name="Ora" inpkey="537"/>
+														</entry>
+														<entry name="Scarico" expanded="1">
+															<entry name="Data" inpkey="538"/>
+															<entry name="Ora" inpkey="539"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" expanded="1">
+																<entry name="Codice" inpkey="516"/>
+																<entry name="Descrizione" inpkey="517"/>
+																<entry name="Riferimento" inpkey="518"/>
+																<entry name="Contenitore" inpkey="540" expanded="1"/>
+																<entry name="UnitaMisura1" expanded="1">
+																	<entry name="Codice" type="attribute" inpkey="519"/>
+																	<entry name="Valore" type="attribute" inpkey="520"/>
+																</entry>
+																<entry name="UnitaMisura2" expanded="1">
+																	<entry name="Codice" type="attribute" inpkey="521"/>
+																	<entry name="Valore" type="attribute" inpkey="522"/>
+																</entry>
+																<entry name="UnitaMisura3" expanded="1">
+																	<entry name="Codice" type="attribute" inpkey="523"/>
+																	<entry name="Valore" type="attribute" inpkey="524"/>
+																</entry>
+																<entry name="UnitaMisura4" inpkey="541" expanded="1"/>
+																<entry name="UnitaMisura5" inpkey="542"/>
+															</entry>
+														</entry>
+														<entry name="Documenti" expanded="1">
+															<entry name="Documento" inpkey="525" expanded="1">
+																<entry name="Tipo" inpkey="526"/>
+																<entry name="Numero" inpkey="527"/>
+																<entry name="Data" inpkey="528"/>
+																<entry name="Contrassegno_stato" inpkey="529"/>
+																<entry name="Contrassegno_Tipo" inpkey="530"/>
+																<entry name="Contrassegno_valuta" inpkey="531"/>
+																<entry name="Contrassegno_importo" inpkey="532"/>
+																<entry name="Contrassegno_note" inpkey="533"/>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\IntegrazioneOrdiniStandard.xsd" instanceroot="{}Sga" outputinstance="..\..\_Global\TRAS_OrdiniStandard.xml"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="136" kind="2">
+					<targets>
+						<datapoint pos="0" key="483"/>
+					</targets>
+					<view ltx="84" lty="235" rbx="132" rby="252"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="383">
+						<edges>
+							<edge vertexkey="384"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="112">
+						<edges>
+							<edge vertexkey="457"/>
+							<edge vertexkey="513"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="458"/>
+							<edge vertexkey="475"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="471">
+						<edges>
+							<edge vertexkey="459"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="460">
+						<edges>
+							<edge vertexkey="461"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="462">
+						<edges>
+							<edge vertexkey="463"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="464">
+						<edges>
+							<edge vertexkey="465"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="466">
+						<edges>
+							<edge vertexkey="467"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="468">
+						<edges>
+							<edge vertexkey="469"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="476">
+						<edges>
+							<edge vertexkey="472"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="470">
+						<edges>
+							<edge vertexkey="473"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="20">
+						<edges>
+							<edge vertexkey="474"/>
+							<edge vertexkey="512"/>
+							<edge vertexkey="514"/>
+							<edge vertexkey="518"/>
+							<edge vertexkey="535"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="160">
+						<edges>
+							<edge vertexkey="477"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="159">
+						<edges>
+							<edge vertexkey="478"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="122">
+						<edges>
+							<edge vertexkey="479"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="534">
+						<edges>
+							<edge vertexkey="481"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="157">
+						<edges>
+							<edge vertexkey="484"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="118">
+						<edges>
+							<edge vertexkey="485"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="486">
+						<edges>
+							<edge vertexkey="487"/>
+							<edge vertexkey="491"/>
+							<edge vertexkey="494"/>
+							<edge vertexkey="497"/>
+							<edge vertexkey="500"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="480">
+						<edges>
+							<edge vertexkey="488"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="119">
+						<edges>
+							<edge vertexkey="492"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="120">
+						<edges>
+							<edge vertexkey="495"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="121">
+						<edges>
+							<edge vertexkey="498"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="66">
+						<edges>
+							<edge vertexkey="502"/>
+							<edge vertexkey="506"/>
+							<edge vertexkey="508"/>
+							<edge vertexkey="527"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="67">
+						<edges>
+							<edge vertexkey="503"/>
+							<edge vertexkey="540"/>
+							<edge vertexkey="541"/>
+							<edge vertexkey="542"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="504">
+						<edges>
+							<edge vertexkey="505"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="114">
+						<edges>
+							<edge vertexkey="509"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="483">
+						<edges>
+							<edge vertexkey="511"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="515"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="15">
+						<edges>
+							<edge vertexkey="516"/>
+							<edge vertexkey="517"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="519"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="30">
+						<edges>
+							<edge vertexkey="520"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="482">
+						<edges>
+							<edge vertexkey="521"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="522"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="523"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="524"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="507">
+						<edges>
+							<edge vertexkey="525"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="510">
+						<edges>
+							<edge vertexkey="526"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="156">
+						<edges>
+							<edge vertexkey="528"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="493">
+						<edges>
+							<edge vertexkey="529"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="496">
+						<edges>
+							<edge vertexkey="530"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="499">
+						<edges>
+							<edge vertexkey="531"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="549">
+						<edges>
+							<edge vertexkey="532"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="490">
+						<edges>
+							<edge vertexkey="533"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="21">
+						<edges>
+							<edge vertexkey="536"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="22">
+						<edges>
+							<edge vertexkey="537"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="24">
+						<edges>
+							<edge vertexkey="538"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="25">
+						<edges>
+							<edge vertexkey="539"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="158">
+						<edges>
+							<edge vertexkey="543"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="501">
+						<edges>
+							<edge vertexkey="546"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="545">
+						<edges>
+							<edge vertexkey="547"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="544">
+						<edges>
+							<edge vertexkey="548"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>

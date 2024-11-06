@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Mazzocco/Mappings/MAZZOCCO_EwEsin_to_DWTracking_TRCKEventOrder.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaSql02_DWMazzocco">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWMazzocco" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWMazzocco" path="ItaSql02_DWMazzocco">
+					<LocalViewStorage>
+						<LocalViewElement SQL="SELECT Results.EN001_Riferimento, Results.EN009_AnnoBolla, Results.EN010_FilialeBolla, Results.EN011_ProgrBolla, 
+	RTRIM(LTRIM(STUFF((
+    	SELECT replace(replace(lower(isnull(EN008_Note,&apos;&apos;)),&apos;? &apos;,&apos; &apos;),char(0),&apos;&apos;) + &apos; &apos;
+	    FROM dbo.E2K_EWESIN as asd
+    	WHERE (asd.EN001_Riferimento = Results.EN001_Riferimento  and cast(asd.FileInput as varchar(max)) =:NomeFileInput)
+	    FOR XML PATH(&apos;&apos;),TYPE).value(&apos;(./text())[1]&apos;,&apos;VARCHAR(MAX)&apos;)
+  ,1,0,&apos;&apos;))) AS Nota
+FROM dbo.E2K_EWESIN as Results
+WHERE cast(Results.FileInput as varchar(max)) =:NomeFileInput and Results.DataElaborazione is null 
+GROUP BY Results.EN001_Riferimento, Results.EN009_AnnoBolla, Results.EN010_FilialeBolla, Results.EN011_ProgrBolla">
+							<PathElement Name="DWMazzocco" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_ConcatNote" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="NomeFileInput" type="nvarchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="select * from dbo.E2K_EWESIN where cast(FileInput as varchar(MAX))=:Fileinput ">
+							<PathElement Name="DWMazzocco" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Fileinput" type="varchar" size="8000" prec="8000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+			<datasource name="ItaSql02_DWMazzocco1">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWMazzocco" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWMazzocco1" path="ItaSql02_DWMazzocco1"/>
+			</datasource>
+			<datasource name="ItaSql02_DWTracking">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWTracking" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWTracking" path="ItaSql02_DWTracking"/>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="55" kind="2">
+					<targets>
+						<datapoint pos="0" key="129"/>
+					</targets>
+					<view ltx="41" lty="280" rbx="123" rby="297"/>
+					<data>
+						<constant value="EWESIN" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="211" kind="2">
+					<targets>
+						<datapoint pos="0" key="386"/>
+					</targets>
+					<view ltx="41" lty="248" rbx="89" rby="265"/>
+					<data>
+						<constant value="X" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="226" kind="2">
+					<targets>
+						<datapoint pos="0" key="404"/>
+					</targets>
+					<view ltx="41" lty="306" rbx="170" rby="323"/>
+					<data>
+						<constant value="|PROG_CLIENTE=" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="227" kind="2">
+					<targets>
+						<datapoint pos="0" key="409"/>
+					</targets>
+					<view ltx="41" lty="322" rbx="86" rby="339"/>
+					<data>
+						<constant value="|" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="225" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="425"/>
+						<datapoint pos="1" key="426"/>
+						<datapoint pos="2" key="427"/>
+						<datapoint pos="3" key="428"/>
+						<datapoint pos="4" key="429"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="430"/>
+					</targets>
+					<view ltx="2492" lty="447" rbx="2584" rby="554"/>
+				</component>
+				<component name="dbo.SELECT_ConcatNote" library="db" uid="256" kind="28">
+					<view ltx="1889" lty="390" rbx="2189" rby="590"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="466"/>
+							<entry name="dbo.SELECT_ConcatNote" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_ConcatNote" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="NomeFileInput" type="attribute" inpkey="467"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_ConcatNote" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_ConcatNote" outkey="468" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_ConcatNote" expanded="1">
+									<entry name="EN009_AnnoBolla" type="attribute" outkey="469"/>
+									<entry name="EN010_FilialeBolla" type="attribute" outkey="470"/>
+									<entry name="EN011_ProgrBolla" type="attribute" outkey="471"/>
+									<entry name="Nota" type="attribute" outkey="472"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="262" kind="5">
+					<sources>
+						<datapoint pos="0" key="483"/>
+						<datapoint pos="1" key="484"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="485"/>
+					</targets>
+					<view ltx="1273" lty="517" rbx="1329" rby="571"/>
+				</component>
+				<component name="dbo.E2K_EWESIN" library="core" uid="261" kind="3">
+					<sources>
+						<datapoint pos="0" key="486"/>
+						<datapoint pos="1" key="487"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="488"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1449" lty="425" rbx="1563" rby="479"/>
+				</component>
+				<component name="group-by" library="core" uid="260" kind="5">
+					<sources>
+						<datapoint pos="0" key="480"/>
+						<datapoint pos="1" key="481"/>
+					</sources>
+					<targets>
+						<datapoint/>
+						<datapoint pos="1" key="482"/>
+					</targets>
+					<view ltx="1663" lty="470" rbx="1781" rby="524"/>
+				</component>
+				<component name="constant" library="core" uid="102" kind="2">
+					<targets>
+						<datapoint pos="0" key="243"/>
+					</targets>
+					<view ltx="41" lty="232" rbx="165" rby="249"/>
+					<data>
+						<constant value="MAZZOCCO-EDI" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="5" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="2926" lty="34" rbx="3204" rby="823"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" DBUseTransactions="1" expanded="1">
+								<entry name="dbo.TRCKEventOrder" type="table" inpkey="431" expanded="1">
+									<tableactions>
+										<action operation="update" deletewithchildren="1" proceedchildren="1">
+											<field name="Descrizione1" function="equalignorecase"/>
+											<field name="FileInput" function="equal"/>
+											<field name="Annullato" function="equal"/>
+											<field name="Sorgente" function="equal"/>
+										</action>
+									</tableactions>
+									<entry name="Sorgente" inpkey="432">
+										<inputnodefunctions>
+											<rule applyto="self">
+												<default value="MAZZOCCO"/>
+											</rule>
+										</inputnodefunctions>
+									</entry>
+									<entry name="Annullato" inpkey="433">
+										<inputnodefunctions>
+											<rule applyto="self">
+												<default value="X"/>
+											</rule>
+										</inputnodefunctions>
+									</entry>
+									<entry name="EventoNote" inpkey="436"/>
+									<entry name="Descrizione1" inpkey="434"/>
+									<entry name="FileInput" inpkey="435"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWTracking">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="TRCKEventOrder" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="db" library="db" uid="255" kind="15">
+					<view ltx="912" lty="212" rbx="1251" rby="274"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_ConcatNote" type="routine" outkey="441"/>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWMazzocco">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWMazzocco" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_ConcatNote" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="DWMazzocco" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="db" library="db" uid="254" kind="15">
+					<properties/>
+					<view ltx="912" lty="436" rbx="1167" rby="746"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" DBUseTransactions="1" expanded="1">
+								<entry name="dbo.E2K_EWESIN" type="table" inpkey="450" outkey="479" expanded="1">
+									<entry name="EN001_Riferimento" inpkey="451"/>
+									<entry name="EN002_DataRifMitt" inpkey="452"/>
+									<entry name="EN003_TipoEvento" inpkey="453"/>
+									<entry name="EN004_FilEmissioneEvento" inpkey="454"/>
+									<entry name="EN005_CtrEvento" inpkey="455"/>
+									<entry name="EN006_ProgrEventoFiliale" inpkey="456"/>
+									<entry name="EN007_ProgrRigaNota" inpkey="457"/>
+									<entry name="EN008_Note" inpkey="458"/>
+									<entry name="EN009_AnnoBolla" inpkey="459"/>
+									<entry name="EN010_FilialeBolla" inpkey="460"/>
+									<entry name="EN011_ProgrBolla" inpkey="461"/>
+									<entry name="EN012_SiglaLv" inpkey="462"/>
+									<entry name="EN013_NumeroLv" inpkey="463"/>
+									<entry name="FileInput" inpkey="464" outkey="465"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWMazzocco1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWMazzocco" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="E2K_EWESIN" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="FileInputName" library="core" uid="228" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="405"/>
+					</targets>
+					<view ltx="41" lty="169" rbx="173" rby="207"/>
+					<data>
+						<input datatype="string" previewvalue="EWESIN14163820240216.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="FileInputName"/>
+					</data>
+				</component>
+				<component name="FileInput" library="core" uid="52" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="127"/>
+					</targets>
+					<view ltx="41" lty="97" rbx="144" rby="135"/>
+					<data>
+						<input datatype="string" previewvalue="E:\Root_Interlocutori\Mazzocco\PROD\TMS\from_Interlocutore_Esitazione\Nuova cartella\EWESIN14163820240216.txt" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="FileInput"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="54" kind="2">
+					<targets>
+						<datapoint pos="0" key="128"/>
+					</targets>
+					<view ltx="41" lty="264" rbx="122" rby="281"/>
+					<data>
+						<constant value="EWESIC" datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="230" kind="5">
+					<sources>
+						<datapoint pos="0" key="411"/>
+						<datapoint pos="1" key="412"/>
+						<datapoint pos="2" key="413"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="414"/>
+					</targets>
+					<view ltx="1889" lty="631" rbx="1990" rby="701"/>
+				</component>
+				<component name="EWESIN" library="text" uid="3" kind="16">
+					<properties DynamicFilenames="1"/>
+					<view ltx="401" lty="436" rbx="683" rby="746"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="138" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Rows" outkey="415" expanded="1">
+										<entry name="EN001-RIFERIMENTO" outkey="139"/>
+										<entry name="EN002-DATARIFMITT" outkey="442"/>
+										<entry name="EN003-TIPOEVENTO" outkey="443"/>
+										<entry name="EN004-FILEMISSIONEEVENTO" outkey="444"/>
+										<entry name="EN005-CTREVENTO" outkey="445"/>
+										<entry name="EN006-PROGREVENTOFILIALE" outkey="446"/>
+										<entry name="EN007-PROGRRIGANOTA" outkey="447"/>
+										<entry name="EN008-NOTE" outkey="140"/>
+										<entry name="EN009-ANNOBOLLA" outkey="416"/>
+										<entry name="EN010-FILIALEBOLLA" outkey="417"/>
+										<entry name="EN011-PROGRBOLLA" outkey="418"/>
+										<entry name="EN012-SIGLALV" outkey="448"/>
+										<entry name="EN013-NUMEROLV" outkey="449"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="flf" encoding="1000" byteorder="1" byteordermark="0" inputinstance="..\..\..\..\..\..\..\Temp\Test_Progetti\Altova\Mazzocco\Esempi\EWESIN15333620210519.txt">
+							<settings delimiter="true" fillchar=" " removeempty="true">
+								<names root="EWESIN" block="Rows">
+									<field0 name="EN001-RIFERIMENTO" type="string" length="15"/>
+									<field1 name="EN002-DATARIFMITT" type="string" length="8"/>
+									<field2 name="EN003-TIPOEVENTO" type="string" length="2"/>
+									<field3 name="EN004-FILEMISSIONEEVENTO" type="string" length="2"/>
+									<field4 name="EN005-CTREVENTO" type="string" length="1"/>
+									<field5 name="EN006-PROGREVENTOFILIALE" type="string" length="3"/>
+									<field6 name="EN007-PROGRRIGANOTA" type="string" length="3"/>
+									<field7 name="EN008-NOTE" type="string" length="70"/>
+									<field8 name="EN009-ANNOBOLLA" type="string" length="4"/>
+									<field9 name="EN010-FILIALEBOLLA" type="string" length="2"/>
+									<field10 name="EN011-PROGRBOLLA" type="string" length="7"/>
+									<field11 name="EN012-SIGLALV" type="string" length="2"/>
+									<field12 name="EN013-NUMEROLV" type="string" length="13"/>
+								</names>
+							</settings>
+						</text>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="127" to="138"/>
+			<edge from="465" to="411"/>
+			<edge from="129" to="412"/>
+			<edge from="128" to="413"/>
+			<edge from="404" to="425"/>
+			<edge from="469" to="426"/>
+			<edge from="470" to="427"/>
+			<edge from="471" to="428"/>
+			<edge from="409" to="429"/>
+			<edge from="468" to="431"/>
+			<edge from="243" to="432"/>
+			<edge from="386" to="433"/>
+			<edge from="430" to="434"/>
+			<edge from="414" to="435"/>
+			<edge from="472" to="436"/>
+			<edge from="415" to="450"/>
+			<edge from="139" to="451"/>
+			<edge from="442" to="452"/>
+			<edge from="443" to="453"/>
+			<edge from="444" to="454"/>
+			<edge from="445" to="455"/>
+			<edge from="446" to="456"/>
+			<edge from="447" to="457"/>
+			<edge from="140" to="458"/>
+			<edge from="416" to="459"/>
+			<edge from="417" to="460"/>
+			<edge from="418" to="461"/>
+			<edge from="448" to="462"/>
+			<edge from="449" to="463"/>
+			<edge from="405" to="464"/>
+			<edge from="441" to="466"/>
+			<edge from="482" to="467"/>
+			<edge from="488" to="480"/>
+			<edge from="465" to="481"/>
+			<edge from="405" to="483"/>
+			<edge from="465" to="484"/>
+			<edge from="479" to="486"/>
+			<edge from="485" to="487"/>
+		</connections>
+	</component>
+</mapping>

@@ -1,0 +1,1783 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/35_Fto/Esselunga/Mappings/ESSELUNGA_ImportOrdini_to_SgaTrasporto_Ordini.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1">
+		<properties AppName="M0000404-ESSELUNGA_R01_VIAGGI.mfd" SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="exists" library="core" uid="4" kind="5">
+					<sources>
+						<datapoint pos="0" key="39"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="850" lty="209" rbx="926" rby="247"/>
+				</component>
+				<component name="structure" library="core" uid="12" kind="29">
+					<view ltx="907" lty="-1" rbx="1039" rby="35"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace uid="http://www.altova.com/mapforce"/>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="compute-when">
+								<setting value="once"/>
+							</entry>
+							<entry name="document" expanded="1">
+								<entry name="value" ns="1" inpkey="19" outkey="1"/>
+							</entry>
+						</root>
+						<variable datatype="dateTime"/>
+						<parameter usageKind="variable"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="23" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="27"/>
+						<datapoint pos="1" key="31"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="1124" lty="382" rbx="1236" rby="452"/>
+				</component>
+				<component name="Rows 1(h), n=dyn" library="core" uid="5" kind="3">
+					<sources>
+						<datapoint pos="0" key="43"/>
+						<datapoint pos="1" key="44"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="45"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1029" lty="167" rbx="1146" rby="221"/>
+				</component>
+				<component name="format-dateTime" library="core" uid="22" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="26"/>
+						<datapoint pos="1" key="32"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="29"/>
+					</targets>
+					<view ltx="1124" lty="313" rbx="1236" rby="383"/>
+				</component>
+				<component name="format-dateTime" library="core" uid="13" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="14"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="1213" lty="56" rbx="1325" rby="126"/>
+				</component>
+				<component name="concat" library="core" uid="34" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="93"/>
+						<datapoint pos="1" key="94"/>
+						<datapoint pos="2" key="95"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="96"/>
+					</targets>
+					<view ltx="1446" lty="209" rbx="1538" rby="282"/>
+				</component>
+				<component name="value-map" library="core" uid="138" kind="23">
+					<sources>
+						<datapoint pos="0" key="131"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="132"/>
+					</targets>
+					<view ltx="901" lty="309" rbx="981" rby="347"/>
+					<data>
+						<valuemap defaultValueMode="input">
+							<valuemapTable>
+								<entry from="DRO" to="1"/>
+								<entry from="LAS" to="2"/>
+								<entry from="FEV" to="3"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="SafeFileName" library="sga" uid="152" kind="19" visible="0">
+					<view ltx="1657" lty="137" rbx="1794" rby="171"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="input" inpkey="133" componentid="147"/>
+							<entry name="ReplaceChar" componentid="148"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="134" componentid="140"/>
+						</root>
+					</data>
+				</component>
+				<component name="SafeFileName" library="sga" uid="153" kind="19" visible="0">
+					<view ltx="1671" lty="11" rbx="1808" rby="45"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="input" inpkey="136" componentid="147"/>
+							<entry name="ReplaceChar" componentid="148"/>
+						</root>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="135" componentid="140"/>
+						</root>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="10" kind="5">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="754" lty="23" rbx="804" rby="61"/>
+				</component>
+				<component name="constant" library="core" uid="35" kind="2">
+					<targets>
+						<datapoint pos="0" key="92"/>
+					</targets>
+					<view ltx="25" lty="296" rbx="71" rby="313"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="20" lty="394" rbx="69" rby="411"/>
+					<data>
+						<constant value="A" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="20" lty="410" rbx="68" rby="427"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="22" lty="499" rbx="159" rby="516"/>
+					<data>
+						<constant value="-Ordine-Standard-" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="25" lty="547" rbx="71" rby="564"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="23" lty="563" rbx="85" rby="580"/>
+					<data>
+						<constant value=".xml" datatype="string"/>
+					</data>
+				</component>
+				<component name="CodiceCliente" library="core" uid="18" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="25" lty="178" rbx="153" rby="216"/>
+					<data>
+						<input datatype="string" previewvalue="ESSELUNGA" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="CodiceCliente" optional="1"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="7" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="23" lty="531" rbx="69" rby="548"/>
+					<data>
+						<constant value="\" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="15" kind="5" growable="1" growablebasename="value">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="12"/>
+						<datapoint pos="1" key="4"/>
+						<datapoint pos="2" key="112"/>
+						<datapoint pos="3" key="8"/>
+						<datapoint pos="4" key="20"/>
+						<datapoint pos="5" key="17"/>
+						<datapoint pos="6" key="16"/>
+						<datapoint pos="7" key="10"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="2065" lty="23" rbx="2157" rby="181"/>
+				</component>
+				<component name="constant" library="core" uid="134" kind="2">
+					<targets>
+						<datapoint pos="0" key="115"/>
+					</targets>
+					<view ltx="25" lty="252" rbx="80" rby="269"/>
+					<data>
+						<constant value="FV" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="22" lty="451" rbx="166" rby="468"/>
+					<data>
+						<constant value="[D,2-2]/[M,2-2]/[Y,4-4]" datatype="string"/>
+					</data>
+				</component>
+				<component name="parse-time" library="core" uid="31" kind="5">
+					<sources>
+						<datapoint pos="0" key="53"/>
+						<datapoint pos="1" key="54"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="1124" lty="531" rbx="1207" rby="585"/>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="22" lty="483" rbx="163" rby="500"/>
+					<data>
+						<constant value="[H,1-2].[m,2-2].[s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="OutPutDir" library="core" uid="17" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="11"/>
+					</targets>
+					<view ltx="25" lty="141" rbx="134" rby="179"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\FTO\Esselunga\out" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutPutDir"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="9" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="13"/>
+					</targets>
+					<view ltx="22" lty="515" rbx="168" rby="532"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2][f,3-3]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="159" kind="2">
+					<targets>
+						<datapoint pos="0" key="160"/>
+					</targets>
+					<view ltx="22" lty="663" rbx="90" rby="680"/>
+					<data>
+						<constant value="PT1H" datatype="string"/>
+					</data>
+				</component>
+				<component name="datetime-add" library="lang" uid="158" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="155"/>
+						<datapoint pos="1" key="161"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="163"/>
+					</targets>
+					<view ltx="1344" lty="640" rbx="1440" rby="696"/>
+				</component>
+				<component name="format-time" library="core" uid="160" kind="5">
+					<sources>
+						<datapoint pos="0" key="154"/>
+						<datapoint pos="1" key="152"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="153"/>
+					</targets>
+					<view ltx="1720" lty="642" rbx="1807" rby="696"/>
+				</component>
+				<component name="year-from-datetime" library="lang" uid="154" kind="5">
+					<sources>
+						<datapoint pos="0" key="137"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="138"/>
+					</targets>
+					<view ltx="1315" lty="715" rbx="1440" rby="753"/>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="20" lty="378" rbx="91" rby="395"/>
+					<data>
+						<constant value="Insert" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="155" kind="2">
+					<targets>
+						<datapoint pos="0" key="140"/>
+					</targets>
+					<view ltx="25" lty="236" rbx="127" rby="253"/>
+					<data>
+						<constant value="ESSELUNGA" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="29" kind="2">
+					<targets>
+						<datapoint pos="0" key="46"/>
+					</targets>
+					<view ltx="20" lty="346" rbx="70" rby="363"/>
+					<data>
+						<constant value="N" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="32" kind="5">
+					<sources>
+						<datapoint pos="0" key="77"/>
+						<datapoint pos="1" key="78"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="79"/>
+					</targets>
+					<view ltx="1258" lty="531" rbx="1345" rby="585"/>
+				</component>
+				<component name="document" library="xml" uid="174" kind="14">
+					<properties/>
+					<view ltx="1965" lty="263" rbx="2115" rby="706"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+								<entry name="Carico" outkey="225" expanded="1">
+									<entry name="CompletiIncompleti" inpkey="226" outkey="227"/>
+									<entry name="Data" inpkey="228" outkey="229"/>
+									<entry name="TipoOra" inpkey="230" outkey="231"/>
+									<entry name="Ora" inpkey="232" outkey="233"/>
+									<entry name="DataFine" outkey="234"/>
+									<entry name="OraAlle" outkey="235"/>
+									<entry name="Tassativo" outkey="236"/>
+									<entry name="Riferimento" outkey="237"/>
+									<entry name="Codice" inpkey="238"/>
+									<entry name="RagioneSociale" outkey="239"/>
+									<entry name="Indirizzo" outkey="240"/>
+									<entry name="Localita" outkey="241"/>
+									<entry name="Sito" outkey="242"/>
+									<entry name="Provincia" outkey="243"/>
+									<entry name="Nazione" outkey="244"/>
+									<entry name="Zona" outkey="245"/>
+									<entry name="Cap" outkey="246"/>
+									<entry name="Sequenza" outkey="247"/>
+									<entry name="Dogana" outkey="248"/>
+									<entry name="Note" outkey="249"/>
+									<entry name="NoteMittDest" outkey="250"/>
+									<entry name="Latitudine" outkey="251"/>
+									<entry name="Longitudine" outkey="252"/>
+									<entry name="Verificato" outkey="253"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\OrdiniStandard.xsd"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="Sga"/>
+								<entry name="OrdiniTrasporto"/>
+								<entry name="OrdineTrasporto"/>
+								<entry name="CarichiScarichi"/>
+								<entry name="CaricoScarico"/>
+								<entry name="Carico"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="26" kind="2">
+					<targets>
+						<datapoint pos="0" key="75"/>
+					</targets>
+					<view ltx="20" lty="362" rbx="69" rby="379"/>
+					<data>
+						<constant value="C" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-dateTime" library="core" uid="27" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="35"/>
+						<datapoint pos="1" key="36"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="37"/>
+					</targets>
+					<view ltx="1124" lty="451" rbx="1236" rby="521"/>
+				</component>
+				<component name="constant" library="core" uid="28" kind="2">
+					<targets>
+						<datapoint pos="0" key="76"/>
+					</targets>
+					<view ltx="22" lty="330" rbx="71" rby="347"/>
+					<data>
+						<constant value="A" datatype="string"/>
+					</data>
+				</component>
+				<component name="24-03 esselunga" library="xlsx" uid="2" kind="26">
+					<properties DynamicFilenames="1"/>
+					<view ltx="285" lty="284" rbx="745" rby="730"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="97" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Workbook" expanded="1">
+										<entry name="Worksheet" expanded="1">
+											<ranges>
+												<range id="1" start="1"/>
+											</ranges>
+											<entry name="Row" expanded="1" displayselectionmode="selection">
+												<entry name="Cell" datatype="string"/>
+											</entry>
+											<entry name="Row" outkey="47" expanded="1" enabletitlerow="1">
+												<condition>
+													<expression>
+														<function name="is-range-id">
+															<expression>
+																<constant value="1" datatype="long"/>
+															</expression>
+														</function>
+													</expression>
+												</condition>
+												<entry name="Cell" displayselectionmode="selection" datatype="string"/>
+												<entry name="Cell" outkey="48" annotation="N.Trasp" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="1" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="49" annotation="Reparto" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="2" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="50" annotation="Data Trasp." datatype="date">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="3" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="d"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="51" annotation="Ora Pianificata" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="4" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="90" annotation="Dest. 1" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="5" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="91" annotation="Dest. 2" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="6" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="52" annotation="Dest. 3" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="7" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="254" annotation="Dest. 4" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="8" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="255" annotation="Dest. 5" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="9" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="256" annotation="Dest. 6" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="10" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="257" annotation="Dest. 7" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="11" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="258" annotation="Dest. 8" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="12" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" outkey="259" annotation="Note" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="13" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Autista" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="14" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" annotation="Rim." datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="15" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<excel inputinstance="Esempi\24-03 esselunga.xlsx" outputinstance="Esempi\24-03 esselunga.xlsx"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="156" kind="2">
+					<targets>
+						<datapoint pos="0" key="143"/>
+					</targets>
+					<view ltx="23" lty="579" rbx="78" rby="596"/>
+					<data>
+						<constant value="PA" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="157" kind="2">
+					<targets>
+						<datapoint pos="0" key="144"/>
+					</targets>
+					<view ltx="23" lty="595" rbx="71" rby="612"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="175" kind="14">
+					<properties/>
+					<view ltx="1952" lty="903" rbx="2102" rby="1159"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+								<entry name="Merce" outkey="260" expanded="1">
+									<entry name="Codice" inpkey="261"/>
+									<entry name="Descrizione" inpkey="262"/>
+									<entry name="UnitaMisura1" inpkey="263">
+										<entry name="Codice" type="attribute" inpkey="264"/>
+										<entry name="Valore" type="attribute" inpkey="265"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\OrdiniStandard.xsd"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="Sga"/>
+								<entry name="OrdiniTrasporto"/>
+								<entry name="OrdineTrasporto"/>
+								<entry name="CarichiScarichi"/>
+								<entry name="CaricoScarico"/>
+								<entry name="Merci"/>
+								<entry name="Merce"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="datetime-add" library="lang" uid="179" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="191"/>
+						<datapoint pos="1" key="189"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="192"/>
+					</targets>
+					<view ltx="1364" lty="882" rbx="1460" rby="938"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="181" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="197"/>
+						<datapoint pos="1" key="195"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="198"/>
+					</targets>
+					<view ltx="1394" lty="912" rbx="1490" rby="968"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="183" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="203"/>
+						<datapoint pos="1" key="201"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="204"/>
+					</targets>
+					<view ltx="1424" lty="942" rbx="1520" rby="998"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="185" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="209"/>
+						<datapoint pos="1" key="207"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="210"/>
+					</targets>
+					<view ltx="1454" lty="972" rbx="1550" rby="1028"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="187" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="215"/>
+						<datapoint pos="1" key="213"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="216"/>
+					</targets>
+					<view ltx="1484" lty="1002" rbx="1580" rby="1058"/>
+				</component>
+				<component name="format-time" library="core" uid="173" kind="5">
+					<sources>
+						<datapoint pos="0" key="172"/>
+						<datapoint pos="1" key="171"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="170"/>
+					</targets>
+					<view ltx="1471" lty="824" rbx="1558" rby="878"/>
+				</component>
+				<component name="constant" library="core" uid="24" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="30"/>
+					</targets>
+					<view ltx="22" lty="467" rbx="134" rby="484"/>
+					<data>
+						<constant value="[H,2-2]:[m,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="datetime-add" library="lang" uid="172" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="167"/>
+						<datapoint pos="1" key="166"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="168"/>
+					</targets>
+					<view ltx="1304" lty="822" rbx="1400" rby="878"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="177" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="185"/>
+						<datapoint pos="1" key="183"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="186"/>
+					</targets>
+					<view ltx="1334" lty="852" rbx="1430" rby="908"/>
+				</component>
+				<component name="parse-dateTime" library="core" uid="162" kind="5">
+					<sources>
+						<datapoint pos="0" key="180"/>
+						<datapoint pos="1" key="181"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="164"/>
+					</targets>
+					<view ltx="1093" lty="684" rbx="1199" rby="738"/>
+				</component>
+				<component name="constant" library="core" uid="171" kind="2">
+					<targets>
+						<datapoint pos="0" key="162"/>
+					</targets>
+					<view ltx="20" lty="679" rbx="88" rby="696"/>
+					<data>
+						<constant value="PT2H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="188" kind="2">
+					<targets>
+						<datapoint pos="0" key="219"/>
+					</targets>
+					<view ltx="25" lty="695" rbx="93" rby="712"/>
+					<data>
+						<constant value="PT3H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="189" kind="2">
+					<targets>
+						<datapoint pos="0" key="220"/>
+					</targets>
+					<view ltx="25" lty="711" rbx="93" rby="728"/>
+					<data>
+						<constant value="PT4H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="190" kind="2">
+					<targets>
+						<datapoint pos="0" key="221"/>
+					</targets>
+					<view ltx="25" lty="727" rbx="93" rby="744"/>
+					<data>
+						<constant value="PT5H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="191" kind="2">
+					<targets>
+						<datapoint pos="0" key="222"/>
+					</targets>
+					<view ltx="25" lty="743" rbx="93" rby="760"/>
+					<data>
+						<constant value="PT6H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="192" kind="2">
+					<targets>
+						<datapoint pos="0" key="223"/>
+					</targets>
+					<view ltx="59" lty="759" rbx="127" rby="776"/>
+					<data>
+						<constant value="PT7H" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="193" kind="2">
+					<targets>
+						<datapoint pos="0" key="224"/>
+					</targets>
+					<view ltx="25" lty="775" rbx="93" rby="792"/>
+					<data>
+						<constant value="PT8H" datatype="string"/>
+					</data>
+				</component>
+				<component name="format-time" library="core" uid="176" kind="5">
+					<sources>
+						<datapoint pos="0" key="187"/>
+						<datapoint pos="1" key="184"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="188"/>
+					</targets>
+					<view ltx="1501" lty="854" rbx="1588" rby="908"/>
+				</component>
+				<component name="format-time" library="core" uid="178" kind="5">
+					<sources>
+						<datapoint pos="0" key="193"/>
+						<datapoint pos="1" key="190"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="194"/>
+					</targets>
+					<view ltx="1531" lty="884" rbx="1618" rby="938"/>
+				</component>
+				<component name="format-time" library="core" uid="180" kind="5">
+					<sources>
+						<datapoint pos="0" key="199"/>
+						<datapoint pos="1" key="196"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="200"/>
+					</targets>
+					<view ltx="1561" lty="914" rbx="1648" rby="968"/>
+				</component>
+				<component name="format-time" library="core" uid="182" kind="5">
+					<sources>
+						<datapoint pos="0" key="205"/>
+						<datapoint pos="1" key="202"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="206"/>
+					</targets>
+					<view ltx="1591" lty="944" rbx="1678" rby="998"/>
+				</component>
+				<component name="format-time" library="core" uid="184" kind="5">
+					<sources>
+						<datapoint pos="0" key="211"/>
+						<datapoint pos="1" key="208"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="212"/>
+					</targets>
+					<view ltx="1621" lty="974" rbx="1708" rby="1028"/>
+				</component>
+				<component name="format-time" library="core" uid="186" kind="5">
+					<sources>
+						<datapoint pos="0" key="217"/>
+						<datapoint pos="1" key="214"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="218"/>
+					</targets>
+					<view ltx="1651" lty="1004" rbx="1738" rby="1058"/>
+				</component>
+				<component name="OrdiniStandard" library="xml" uid="6" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2670" lty="11" rbx="3270" rby="967"/>
+					<data>
+						<root scrollposition="949">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="57" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Sga" expanded="1">
+										<entry name="OrdiniTrasporto" expanded="1">
+											<entry name="Versione" type="attribute" inpkey="58"/>
+											<entry name="OrdineTrasporto" inpkey="59" expanded="1">
+												<entry name="Codice" expanded="1">
+													<entry name="Anno" type="attribute" inpkey="139"/>
+												</entry>
+												<entry name="ElementoId" inpkey="60"/>
+												<entry name="Azione" inpkey="61"/>
+												<entry name="Cliente" inpkey="62"/>
+												<entry name="OrdineRiferimento" inpkey="118"/>
+												<entry name="TipoServizio" inpkey="63"/>
+												<entry name="Ordine" expanded="1">
+													<entry name="Stato" type="attribute" inpkey="64"/>
+													<entry name="Cumulativa" type="attribute" inpkey="130"/>
+												</entry>
+												<entry name="Apertura" expanded="1">
+													<entry name="Data" type="attribute" inpkey="34"/>
+													<entry name="Ora" type="attribute" inpkey="65"/>
+												</entry>
+												<entry name="NoteDisponente" inpkey="66"/>
+												<entry name="CarichiScarichi" expanded="1">
+													<entry name="CaricoScarico" inpkey="98">
+														<entry name="Carico" inpkey="266" expanded="1"/>
+														<entry name="Scarico" inpkey="81" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="71"/>
+															<entry name="Data" inpkey="72"/>
+															<entry name="TipoOra" inpkey="73"/>
+															<entry name="Ora" inpkey="74"/>
+															<entry name="Codice" inpkey="82"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" expanded="1">
+																<entry name="Codice" inpkey="89"/>
+																<entry name="Descrizione" inpkey="142"/>
+																<entry name="UnitaMisura1" inpkey="145" expanded="1">
+																	<entry name="Codice" type="attribute" inpkey="146"/>
+																	<entry name="Valore" type="attribute" inpkey="147"/>
+																</entry>
+															</entry>
+														</entry>
+														<entry name="Documenti" expanded="1">
+															<entry name="Documento" inpkey="119" expanded="1">
+																<entry name="Tipo" inpkey="120"/>
+																<entry name="Numero" inpkey="121"/>
+																<entry name="Data" inpkey="122"/>
+															</entry>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="99" expanded="1" clone="1">
+														<entry name="Carico" inpkey="267">
+															<entry name="CompletiIncompleti" inpkey="100"/>
+															<entry name="Data" inpkey="101"/>
+															<entry name="TipoOra" inpkey="102"/>
+															<entry name="Ora" inpkey="173"/>
+															<entry name="DataFine" inpkey="268"/>
+															<entry name="OraAlle" inpkey="269"/>
+															<entry name="Tassativo" inpkey="270"/>
+															<entry name="Riferimento" inpkey="271"/>
+															<entry name="Codice" inpkey="103"/>
+															<entry name="RagioneSociale" inpkey="272"/>
+															<entry name="Indirizzo" inpkey="273"/>
+															<entry name="Localita" inpkey="274"/>
+															<entry name="Sito" inpkey="275"/>
+															<entry name="Provincia" inpkey="276"/>
+															<entry name="Nazione" inpkey="277"/>
+															<entry name="Zona" inpkey="278"/>
+															<entry name="Cap" inpkey="279"/>
+															<entry name="Sequenza" inpkey="280"/>
+															<entry name="Dogana" inpkey="281"/>
+															<entry name="Note" inpkey="282"/>
+															<entry name="NoteMittDest" inpkey="283"/>
+															<entry name="Latitudine" inpkey="284"/>
+															<entry name="Longitudine" inpkey="285"/>
+															<entry name="Verificato" inpkey="286"/>
+														</entry>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="287"/>
+															<entry name="Data" inpkey="288"/>
+															<entry name="TipoOra" inpkey="289"/>
+															<entry name="Ora" inpkey="182"/>
+															<entry name="Codice" inpkey="290"/>
+														</entry>
+														<entry name="Merci">
+															<entry name="Merce" inpkey="291" expanded="1">
+																<entry name="UnitaMisura1" expanded="1"/>
+															</entry>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="292" clone="1">
+														<entry name="Carico" inpkey="293"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="294"/>
+															<entry name="Data" inpkey="295"/>
+															<entry name="TipoOra" inpkey="296"/>
+															<entry name="Ora" inpkey="297"/>
+															<entry name="Codice" inpkey="298"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="299"/>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="300" clone="1">
+														<entry name="Carico" inpkey="301"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="302"/>
+															<entry name="Data" inpkey="303"/>
+															<entry name="TipoOra" inpkey="304"/>
+															<entry name="Ora" inpkey="305"/>
+															<entry name="Codice" inpkey="306"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="307"/>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="308" clone="1">
+														<entry name="Carico" inpkey="309"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="310"/>
+															<entry name="Data" inpkey="311"/>
+															<entry name="TipoOra" inpkey="312"/>
+															<entry name="Ora" inpkey="313"/>
+															<entry name="Codice" inpkey="314"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="315"/>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="316" clone="1">
+														<entry name="Carico" inpkey="317"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="318"/>
+															<entry name="Data" inpkey="319"/>
+															<entry name="TipoOra" inpkey="320"/>
+															<entry name="Ora" inpkey="321"/>
+															<entry name="Codice" inpkey="322"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="323"/>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="324" clone="1">
+														<entry name="Carico" inpkey="325"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="326"/>
+															<entry name="Data" inpkey="327"/>
+															<entry name="TipoOra" inpkey="328"/>
+															<entry name="Ora" inpkey="329"/>
+															<entry name="Codice" inpkey="330"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="331"/>
+														</entry>
+													</entry>
+													<entry name="CaricoScarico" inpkey="332" clone="1">
+														<entry name="Carico" inpkey="333"/>
+														<entry name="Scarico" expanded="1">
+															<entry name="CompletiIncompleti" inpkey="334"/>
+															<entry name="Data" inpkey="335"/>
+															<entry name="TipoOra" inpkey="336"/>
+															<entry name="Ora" inpkey="337"/>
+															<entry name="Codice" inpkey="338"/>
+														</entry>
+														<entry name="Merci" expanded="1">
+															<entry name="Merce" inpkey="339"/>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\OrdiniStandard.xsd" instanceroot="{}Sga" outputinstance="OrdiniStandard.xml"/>
+					</data>
+				</component>
+				<component name="InputFileName" library="core" uid="16" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="25" lty="104" rbx="157" rby="142"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\FTO\Esselunga\in\22948993-Master 13-01.xlsx" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFileName"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="3" to="4"/>
+			<edge from="7" to="8"/>
+			<edge from="9" to="10"/>
+			<edge from="11" to="12"/>
+			<edge from="13" to="14"/>
+			<edge from="15" to="16"/>
+			<edge from="5" to="17"/>
+			<edge from="18" to="19"/>
+			<edge from="134" to="20"/>
+			<edge from="1" to="26"/>
+			<edge from="1" to="27"/>
+			<edge from="30" to="31"/>
+			<edge from="28" to="32"/>
+			<edge from="29" to="34"/>
+			<edge from="50" to="35"/>
+			<edge from="28" to="36"/>
+			<edge from="48" to="39"/>
+			<edge from="47" to="43"/>
+			<edge from="40" to="44"/>
+			<edge from="51" to="53"/>
+			<edge from="38" to="54"/>
+			<edge from="24" to="57"/>
+			<edge from="25" to="58"/>
+			<edge from="45" to="59"/>
+			<edge from="96" to="60"/>
+			<edge from="42" to="61"/>
+			<edge from="22" to="62"/>
+			<edge from="49" to="63"/>
+			<edge from="41" to="64"/>
+			<edge from="33" to="65"/>
+			<edge from="259" to="66"/>
+			<edge from="75" to="71"/>
+			<edge from="37" to="72"/>
+			<edge from="76" to="73"/>
+			<edge from="153" to="74"/>
+			<edge from="55" to="77"/>
+			<edge from="30" to="78"/>
+			<edge from="90" to="81"/>
+			<edge from="90" to="82"/>
+			<edge from="49" to="89"/>
+			<edge from="48" to="93"/>
+			<edge from="92" to="94"/>
+			<edge from="90" to="95"/>
+			<edge from="23" to="97"/>
+			<edge from="42" to="98"/>
+			<edge from="91" to="99"/>
+			<edge from="227" to="100"/>
+			<edge from="229" to="101"/>
+			<edge from="231" to="102"/>
+			<edge from="140" to="103"/>
+			<edge from="135" to="112"/>
+			<edge from="48" to="118"/>
+			<edge from="48" to="119"/>
+			<edge from="115" to="120"/>
+			<edge from="48" to="121"/>
+			<edge from="37" to="122"/>
+			<edge from="132" to="130"/>
+			<edge from="49" to="131"/>
+			<edge from="48" to="133"/>
+			<edge from="22" to="136"/>
+			<edge from="18" to="137"/>
+			<edge from="138" to="139"/>
+			<edge from="49" to="142"/>
+			<edge from="49" to="145"/>
+			<edge from="143" to="146"/>
+			<edge from="144" to="147"/>
+			<edge from="30" to="152"/>
+			<edge from="163" to="154"/>
+			<edge from="164" to="155"/>
+			<edge from="160" to="161"/>
+			<edge from="162" to="166"/>
+			<edge from="164" to="167"/>
+			<edge from="30" to="171"/>
+			<edge from="168" to="172"/>
+			<edge from="233" to="173"/>
+			<edge from="51" to="180"/>
+			<edge from="38" to="181"/>
+			<edge from="170" to="182"/>
+			<edge from="219" to="183"/>
+			<edge from="30" to="184"/>
+			<edge from="164" to="185"/>
+			<edge from="186" to="187"/>
+			<edge from="220" to="189"/>
+			<edge from="30" to="190"/>
+			<edge from="164" to="191"/>
+			<edge from="192" to="193"/>
+			<edge from="221" to="195"/>
+			<edge from="30" to="196"/>
+			<edge from="164" to="197"/>
+			<edge from="198" to="199"/>
+			<edge from="222" to="201"/>
+			<edge from="30" to="202"/>
+			<edge from="164" to="203"/>
+			<edge from="204" to="205"/>
+			<edge from="223" to="207"/>
+			<edge from="30" to="208"/>
+			<edge from="164" to="209"/>
+			<edge from="210" to="211"/>
+			<edge from="224" to="213"/>
+			<edge from="30" to="214"/>
+			<edge from="164" to="215"/>
+			<edge from="216" to="217"/>
+			<edge from="75" to="226"/>
+			<edge from="37" to="228"/>
+			<edge from="46" to="230"/>
+			<edge from="79" to="232"/>
+			<edge from="140" to="238"/>
+			<edge from="49" to="261"/>
+			<edge from="49" to="262"/>
+			<edge from="49" to="263"/>
+			<edge from="143" to="264"/>
+			<edge from="144" to="265"/>
+			<edge from="225" to="266">
+				<data type="2"/>
+			</edge>
+			<edge from="225" to="267"/>
+			<edge from="234" to="268"/>
+			<edge from="235" to="269"/>
+			<edge from="236" to="270"/>
+			<edge from="237" to="271"/>
+			<edge from="239" to="272"/>
+			<edge from="240" to="273"/>
+			<edge from="241" to="274"/>
+			<edge from="242" to="275"/>
+			<edge from="243" to="276"/>
+			<edge from="244" to="277"/>
+			<edge from="245" to="278"/>
+			<edge from="246" to="279"/>
+			<edge from="247" to="280"/>
+			<edge from="248" to="281"/>
+			<edge from="249" to="282"/>
+			<edge from="250" to="283"/>
+			<edge from="251" to="284"/>
+			<edge from="252" to="285"/>
+			<edge from="253" to="286"/>
+			<edge from="75" to="287"/>
+			<edge from="37" to="288"/>
+			<edge from="76" to="289"/>
+			<edge from="91" to="290"/>
+			<edge from="260" to="291">
+				<data type="2"/>
+			</edge>
+			<edge from="52" to="292"/>
+			<edge from="225" to="293">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="294"/>
+			<edge from="37" to="295"/>
+			<edge from="76" to="296"/>
+			<edge from="188" to="297"/>
+			<edge from="52" to="298"/>
+			<edge from="260" to="299">
+				<data type="2"/>
+			</edge>
+			<edge from="254" to="300"/>
+			<edge from="225" to="301">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="302"/>
+			<edge from="37" to="303"/>
+			<edge from="76" to="304"/>
+			<edge from="194" to="305"/>
+			<edge from="254" to="306"/>
+			<edge from="260" to="307">
+				<data type="2"/>
+			</edge>
+			<edge from="255" to="308"/>
+			<edge from="225" to="309">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="310"/>
+			<edge from="37" to="311"/>
+			<edge from="76" to="312"/>
+			<edge from="200" to="313"/>
+			<edge from="255" to="314"/>
+			<edge from="260" to="315">
+				<data type="2"/>
+			</edge>
+			<edge from="256" to="316"/>
+			<edge from="225" to="317">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="318"/>
+			<edge from="37" to="319"/>
+			<edge from="76" to="320"/>
+			<edge from="206" to="321"/>
+			<edge from="256" to="322"/>
+			<edge from="260" to="323">
+				<data type="2"/>
+			</edge>
+			<edge from="257" to="324"/>
+			<edge from="225" to="325">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="326"/>
+			<edge from="37" to="327"/>
+			<edge from="76" to="328"/>
+			<edge from="212" to="329"/>
+			<edge from="256" to="330"/>
+			<edge from="260" to="331">
+				<data type="2"/>
+			</edge>
+			<edge from="258" to="332"/>
+			<edge from="225" to="333">
+				<data type="2"/>
+			</edge>
+			<edge from="75" to="334"/>
+			<edge from="37" to="335"/>
+			<edge from="76" to="336"/>
+			<edge from="218" to="337"/>
+			<edge from="258" to="338"/>
+			<edge from="260" to="339">
+				<data type="2"/>
+			</edge>
+		</connections>
+	</component>
+	<component name="SafeFileName" library="sga" uid="139" inline="1">
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="141" kind="2">
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="116" lty="198" rbx="162" rby="215"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="142" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="5"/>
+						<datapoint pos="1" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="607" lty="51" rbx="689" rby="107"/>
+				</component>
+				<component name="char-from-code" library="core" uid="143" kind="5">
+					<sources>
+						<datapoint pos="0" key="13"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="440" lty="51" rbx="546" rby="89"/>
+				</component>
+				<component name="string-length" library="core" uid="145" kind="5">
+					<sources>
+						<datapoint pos="0" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="218" lty="321" rbx="313" rby="359"/>
+				</component>
+				<component name="constant" library="core" uid="146" kind="2">
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="457" lty="88" rbx="546" rby="105"/>
+					<data>
+						<constant value="\/?*:&quot;&lt;&gt;| " datatype="string"/>
+					</data>
+				</component>
+				<component name="input" library="core" uid="147" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="116" lty="106" rbx="201" rby="144"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="input"/>
+					</data>
+				</component>
+				<component name="ReplaceChar" library="core" uid="148" kind="6">
+					<sources>
+						<datapoint pos="0" key="11"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="116" lty="214" rbx="237" rby="252"/>
+					<data>
+						<input datatype="string"/>
+						<parameter usageKind="input" name="ReplaceChar" optional="1"/>
+					</data>
+				</component>
+				<component name="repeat-string" library="lang" uid="149" kind="5">
+					<sources>
+						<datapoint pos="0" key="20"/>
+						<datapoint pos="1" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="15"/>
+					</targets>
+					<view ltx="324" lty="261" rbx="418" rby="315"/>
+				</component>
+				<component name="constant" library="core" uid="150" kind="2">
+					<targets>
+						<datapoint pos="0" key="12"/>
+					</targets>
+					<view ltx="370" lty="72" rbx="418" rby="89"/>
+					<data>
+						<constant value="9" datatype="string"/>
+					</data>
+				</component>
+				<component name="result" library="core" uid="140" kind="7">
+					<sources>
+						<datapoint pos="0" key="21"/>
+					</sources>
+					<view ltx="1185" lty="88" rbx="1242" rby="126"/>
+					<data>
+						<output datatype="string"/>
+						<parameter usageKind="output" name="result"/>
+					</data>
+				</component>
+				<component name="translate" library="core" uid="144" kind="5">
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="14"/>
+						<datapoint pos="2" key="16"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="772" lty="106" rbx="857" rby="176"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="4" to="5"/>
+			<edge from="6" to="7"/>
+			<edge from="8" to="9"/>
+			<edge from="10" to="11"/>
+			<edge from="12" to="13"/>
+			<edge from="8" to="14"/>
+			<edge from="15" to="16"/>
+			<edge from="17" to="18"/>
+			<edge from="19" to="20"/>
+			<edge from="3" to="21"/>
+		</connections>
+	</component>
+</mapping>

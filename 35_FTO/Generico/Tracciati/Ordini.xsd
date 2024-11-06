@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ElencoOrdini" type="OrdiniType"/>
+	<xs:complexType name="OrdiniType">
+		<xs:sequence>
+			<xs:element name="Ordini" type="OrdineType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrdineType">
+		<xs:sequence>
+			<xs:element name="GIRO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SERALEFESTIVO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CODICECARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CODICEMERCE" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DATACARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ORACARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DATASCARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="TIPOMEZZO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="MOTRICE" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="RIMORCHIO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SEDEAUTISTA" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CODICEAUTISTA" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="CLIENTE" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DESTINATARIO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PALLET" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="SEQUENZA" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="ORASCARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

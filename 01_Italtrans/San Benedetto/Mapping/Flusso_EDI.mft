@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexText>
+	<Commands>
+		<Project FileName="C:\Users\marco.seghezzi\Desktop\Per Controlli\San Benedetto\Controllo\1877894_ZTIN_IFTMI_65686425" ByteOrderMark="0">
+			<Version/>
+			<RootName Value="Root"/>
+			<Connections>
+				<Connection>
+					<SplitMultiple Mode="DynLS" Behavior="LineStartsWith">
+						<Version/>
+						<Separator Value="EDI_DC40_U7"/>
+						<RegexPattern Value=","/>
+						<SeparatorForWriting/>
+						<Name Value="Split%20once%20Flusso"/>
+						<Connections>
+							<Connection>
+								<SplitSingle>
+									<Version/>
+									<Upper Offset="1"/>
+									<Lower/>
+									<Name Value="Split%20once%20Singolo%20Flusso"/>
+									<Connections>
+										<Connection>
+											<FLF>
+												<Version/>
+												<RecordName Value="Record%20Testata"/>
+												<Fields>
+													<Field Type="string" Size="10">
+														<Name Value="Field"/>
+														<Version/>
+													</Field>
+													<Field Type="string" Size="515">
+														<Name Value="Field2"/>
+														<Version/>
+													</Field>
+												</Fields>
+												<Connections>
+													<Connection/>
+												</Connections>
+												<XData>
+													<OpenState Property="1" Preview="1" Connector="1"/>
+													<Dimension FullWidth="629" FullHeight="254" TextHeight="221"/>
+												</XData>
+											</FLF>
+										</Connection>
+										<Connection>
+											<SplitSingle>
+												<Version/>
+												<Upper Offset="1"/>
+												<Lower/>
+												<Name Value="Split%20once"/>
+												<Connections>
+													<Connection>
+														<FLF>
+															<Version/>
+															<RecordName Value="E1EDT20"/>
+															<Fields>
+																<Field Type="string" Size="63">
+																	<Name Value="Filler1"/>
+																	<Version/>
+																</Field>
+																<Field Type="integer" Size="10">
+																	<Name Value="NumeroTrasporto"/>
+																	<Version/>
+																</Field>
+																<Field Type="string" Size="12">
+																	<Name Value="Field"/>
+																	<Version/>
+																</Field>
+																<Field Type="string" Size="23">
+																	<Name Value="Spole"/>
+																	<Version/>
+																</Field>
+																<Field Type="string" Size="231">
+																	<Name Value="Filler2"/>
+																	<Version/>
+																</Field>
+															</Fields>
+															<Connections>
+																<Connection/>
+															</Connections>
+															<XData>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+															</XData>
+														</FLF>
+													</Connection>
+													<Connection>
+														<SplitSingle>
+															<Version/>
+															<Upper Offset="2"/>
+															<Lower/>
+															<Name Value="Split%20once"/>
+															<Connections>
+																<Connection>
+																	<Null>
+																		<Connections>
+																			<Connection/>
+																		</Connections>
+																		<XData>
+																			<OpenState Property="1" Preview="1" Connector="1"/>
+																			<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																		</XData>
+																	</Null>
+																</Connection>
+																<Connection>
+																	<SplitMultiple Mode="DynLS" Behavior="LineStartsWith">
+																		<Version/>
+																		<Separator Value="E2EDL20003"/>
+																		<RegexPattern Value=","/>
+																		<SeparatorForWriting/>
+																		<Name Value="Repeated%20split"/>
+																		<Connections>
+																			<Connection>
+																				<SplitSingle>
+																					<Version/>
+																					<Upper Offset="1"/>
+																					<Lower/>
+																					<Name Value="Split%20once"/>
+																					<Connections>
+																						<Connection>
+																							<FLF>
+																								<Version/>
+																								<RecordName Value="Dati%20Bolla"/>
+																								<Fields>
+																									<Field Type="string" Size="63">
+																										<Name Value="Field"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="integer" Size="10">
+																										<Name Value="Consegna"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="81">
+																										<Name Value="Field2"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="17">
+																										<Name Value="Peso%20Totale"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="15">
+																										<Name Value="Peso%20Netto"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="21">
+																										<Name Value="Field3"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="integer" Size="5">
+																										<Name Value="Colli"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="59">
+																										<Name Value="Field4"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="10">
+																										<Name Value="Numero%20Bolla"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="70">
+																										<Name Value="Field5"/>
+																										<Version/>
+																									</Field>
+																									<Field Type="string" Size="8">
+																										<Name Value="Data%20Bolla"/>
+																										<Version/>
+																									</Field>
+																								</Fields>
+																								<Connections>
+																									<Connection/>
+																								</Connections>
+																								<XData>
+																									<OpenState Property="1" Preview="1" Connector="1"/>
+																									<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																								</XData>
+																							</FLF>
+																						</Connection>
+																						<Connection>
+																							<SplitSingle>
+																								<Version/>
+																								<Upper Offset="1"/>
+																								<Lower/>
+																								<Name Value="Split%20once"/>
+																								<Connections>
+																									<Connection>
+																										<Null>
+																											<Connections>
+																												<Connection/>
+																											</Connections>
+																											<XData>
+																												<OpenState Property="1" Preview="1" Connector="1"/>
+																												<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																											</XData>
+																										</Null>
+																									</Connection>
+																									<Connection>
+																										<SplitSingle>
+																											<Version/>
+																											<Upper Offset="1"/>
+																											<Lower/>
+																											<Name Value="Split%20once"/>
+																											<Connections>
+																												<Connection>
+																													<FLF>
+																														<Version/>
+																														<RecordName Value="FLF"/>
+																														<Fields>
+																															<Field Type="string" Size="118">
+																																<Name Value="Field"/>
+																																<Version/>
+																															</Field>
+																															<Field Type="string" Size="40">
+																																<Name Value="RagioneSocialeScarico"/>
+																																<Version/>
+																															</Field>
+																															<Field Type="string" Size="449">
+																																<Name Value="Field2"/>
+																																<Version/>
+																															</Field>
+																															<Field Type="string" Size="50">
+																																<Name Value="Localita"/>
+																																<Version/>
+																															</Field>
+																														</Fields>
+																														<Connections>
+																															<Connection/>
+																														</Connections>
+																														<XData>
+																															<OpenState Property="1" Preview="1" Connector="1"/>
+																															<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																														</XData>
+																													</FLF>
+																												</Connection>
+																												<Connection>
+																													<Null>
+																														<Connections>
+																															<Connection/>
+																														</Connections>
+																														<XData>
+																															<OpenState Property="1" Preview="1" Connector="1"/>
+																															<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																														</XData>
+																													</Null>
+																												</Connection>
+																											</Connections>
+																											<XData>
+																												<OpenState Property="1" Preview="1" Connector="1"/>
+																												<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																											</XData>
+																										</SplitSingle>
+																									</Connection>
+																								</Connections>
+																								<XData>
+																									<OpenState Property="1" Preview="1" Connector="1"/>
+																									<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																								</XData>
+																							</SplitSingle>
+																						</Connection>
+																					</Connections>
+																					<XData>
+																						<OpenState Property="1" Preview="1" Connector="1"/>
+																						<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																					</XData>
+																				</SplitSingle>
+																			</Connection>
+																		</Connections>
+																		<XData>
+																			<OpenState Property="1" Preview="1" Connector="1"/>
+																			<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+																		</XData>
+																	</SplitMultiple>
+																</Connection>
+															</Connections>
+															<XData>
+																<OpenState Property="1" Preview="1" Connector="1"/>
+																<Dimension FullWidth="631" FullHeight="211" TextHeight="184"/>
+															</XData>
+														</SplitSingle>
+													</Connection>
+												</Connections>
+												<XData>
+													<OpenState Property="1" Preview="1" Connector="1"/>
+													<Dimension FullWidth="631" FullHeight="254" TextHeight="184"/>
+												</XData>
+											</SplitSingle>
+										</Connection>
+									</Connections>
+									<XData>
+										<OpenState Property="1" Preview="1" Connector="1"/>
+										<Dimension FullWidth="414" FullHeight="254" TextHeight="233"/>
+									</XData>
+								</SplitSingle>
+							</Connection>
+						</Connections>
+						<XData>
+							<OpenState Property="1" Preview="1" Connector="1"/>
+							<Dimension FullWidth="600" FullHeight="400" TextHeight="200"/>
+						</XData>
+					</SplitMultiple>
+				</Connection>
+			</Connections>
+			<XData>
+				<OpenState Property="1" Preview="1" Connector="1"/>
+				<Dimension/>
+			</XData>
+		</Project>
+		<Functions/>
+	</Commands>
+</FlexText>

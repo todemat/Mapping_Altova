@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="tisys">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="tsmBooking2Carrier">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="timestamp" type="xs:string"/>
+							<xs:element name="tournumber" type="xs:int"/>
+							<xs:element name="transport_number_numeric" type="xs:int"/>
+							<xs:element name="transport_id" type="xs:int"/>
+							<xs:element name="delivery_numbers"  minOccurs="0" maxOccurs="1" >
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="number" maxOccurs="unbounded" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="genericDispatchStatus" type="xs:string"/>
+							<xs:element name="status" type="xs:string"/>
+							<xs:element name="type" type="xs:string"/>
+							<xs:element name="reservationValidUntil" type="xs:string"/>
+							<xs:element name="schedulerTypeList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="schedulerType" type="xs:string"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="date_time_begin" type="xs:string"/>
+							<xs:element name="date_time_end" type="xs:string"/>
+							<xs:element name="earliest_registration_time" type="xs:string"/>
+							<xs:element name="latest_registration_time" type="xs:string"/>
+							<xs:element name="carrier_id" type="xs:int"/>
+							<xs:element name="carrier_name" type="xs:string"/>
+							<xs:element name="location_id" type="xs:string"/>
+							<xs:element name="location_name" type="xs:string"/>
+							<xs:element name="gate_id" type="xs:int"/>
+							<xs:element name="gate_name" type="xs:string"/>
+							<xs:element name="driver_name" type="xs:string"/>
+							<xs:element name="license_plate" type="xs:string"/>
+							<xs:element name="mobile_number" type="xs:long"/>
+							<xs:element name="shipment_order">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="external_ids">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="loading_type" type="xs:string"/>
+							<xs:element name="comment">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="dispatchStatusList">
+								<xs:complexType>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="extensionList">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="extension">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="qualifier" type="xs:string"/>
+													<xs:element name="value" type="xs:byte"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" use="required" type="xs:int"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

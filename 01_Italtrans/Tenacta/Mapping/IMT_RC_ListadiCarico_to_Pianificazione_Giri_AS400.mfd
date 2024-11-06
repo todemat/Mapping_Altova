@@ -1,0 +1,689 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="26">
+	<settings>
+		<deployment path="/Progetti/01_Italtrans/Tenacta/Mappings/IMT_RC_ListadiCarico_to_Pianificazione_Giri_AS400.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="51" kind="2">
+					<targets>
+						<datapoint pos="0" key="143"/>
+					</targets>
+					<view ltx="14" lty="261" rbx="186" rby="278"/>
+					<data>
+						<constant value="RITIRI_CONSEGNE_PIANIFICAZIONI" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="50" kind="2">
+					<targets>
+						<datapoint pos="0" key="144"/>
+					</targets>
+					<view ltx="14" lty="245" rbx="85" rby="262"/>
+					<data>
+						<constant value="HEAD" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="52" kind="2">
+					<targets>
+						<datapoint pos="0" key="145"/>
+					</targets>
+					<view ltx="14" lty="276" rbx="77" rby="293"/>
+					<data>
+						<constant value="1.00" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="26" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="34"/>
+						<datapoint pos="1" key="35"/>
+						<datapoint pos="2" key="36"/>
+						<datapoint pos="3" key="37"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="1975" lty="-87" rbx="2067" rby="3"/>
+				</component>
+				<component name="format-dateTime" library="core" uid="29" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+						<datapoint pos="1" key="2"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="1604" lty="-87" rbx="1716" rby="-17"/>
+				</component>
+				<component name="DirectoryOutput" library="core" uid="24" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="31"/>
+					</targets>
+					<view ltx="14" lty="67" rbx="155" rby="105"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\tenacta\Output\" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="DirectoryOutput"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="28" kind="2">
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="14" lty="213" rbx="77" rby="230"/>
+					<data>
+						<constant value=".TXT" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="32"/>
+					</targets>
+					<view ltx="14" lty="197" rbx="101" rby="214"/>
+					<data>
+						<constant value="IMTGIRI_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="14" lty="292" rbx="84" rby="309"/>
+					<data>
+						<constant value="DATA" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="30" kind="2">
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="14" lty="340" rbx="160" rby="357"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2][H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="42" kind="2">
+					<targets>
+						<datapoint pos="0" key="115"/>
+					</targets>
+					<view ltx="14" lty="356" rbx="78" rby="373"/>
+					<data>
+						<constant value="END" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="27" kind="5">
+					<targets>
+						<datapoint pos="0" key="39"/>
+					</targets>
+					<view ltx="14" lty="447" rbx="64" rby="485"/>
+				</component>
+				<component name="string" library="core" uid="41" kind="5">
+					<sources>
+						<datapoint pos="0" key="51"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="52"/>
+					</targets>
+					<view ltx="1426" lty="30" rbx="1492" rby="68"/>
+				</component>
+				<component name="empty" library="lang" uid="38" kind="5">
+					<sources>
+						<datapoint pos="0" key="44"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="1604" lty="30" rbx="1680" rby="68"/>
+				</component>
+				<component name="if-else" library="core" uid="39" kind="4">
+					<sources>
+						<datapoint pos="0" key="26"/>
+						<datapoint pos="1" key="24"/>
+						<datapoint pos="2" key="27"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="1809" lty="30" rbx="1913" rby="103"/>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<targets>
+						<datapoint pos="0" key="29"/>
+					</targets>
+					<view ltx="14" lty="229" rbx="62" rby="246"/>
+					<data>
+						<constant value="8" datatype="string"/>
+					</data>
+				</component>
+				<component name="if-else" library="core" uid="17" kind="4">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="8"/>
+						<datapoint pos="2" key="9"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="10"/>
+					</targets>
+					<view ltx="1604" lty="108" rbx="1708" rby="181"/>
+				</component>
+				<component name="empty" library="lang" uid="16" kind="5">
+					<sources>
+						<datapoint pos="0" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="1426" lty="96" rbx="1502" rby="134"/>
+				</component>
+				<component name="left" library="lang" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="13"/>
+						<datapoint pos="1" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="1809" lty="144" rbx="1898" rby="198"/>
+				</component>
+				<component name="filter" library="core" uid="53" kind="3">
+					<sources>
+						<datapoint pos="0" key="183"/>
+						<datapoint pos="1" key="184"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="185"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1975" lty="30" rbx="2088" rby="84"/>
+				</component>
+				<component name="equal" library="core" uid="47" kind="5">
+					<sources>
+						<datapoint pos="0" key="140"/>
+						<datapoint pos="1" key="141"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="142"/>
+					</targets>
+					<view ltx="1426" lty="179" rbx="1482" rby="233"/>
+				</component>
+				<component name="Id" library="core" uid="48" kind="3">
+					<sources>
+						<datapoint pos="0" key="137"/>
+						<datapoint pos="1" key="138"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="139"/>
+						<datapoint/>
+					</targets>
+					<view ltx="1604" lty="223" rbx="1717" rby="277"/>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="42"/>
+					</targets>
+					<view ltx="14" lty="308" rbx="64" rby="325"/>
+					<data>
+						<constant value="N" datatype="string"/>
+					</data>
+				</component>
+				<component name="FileInput" library="core" uid="21" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="14" lty="30" rbx="117" rby="68"/>
+					<data>
+						<input datatype="string" previewvalue="\\192.168.0.9\Root$\Root_EDI\CLIENTI\TenactaImetec\PROD\from_SGA_Pianificazione_AS400\Processed\11771_PIANIFICAZIONE_202403221123100131.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="FileInput"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="36" kind="2">
+					<targets>
+						<datapoint pos="0" key="46"/>
+					</targets>
+					<view ltx="14" lty="324" rbx="56" rby="341"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="46" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="1077" lty="79" rbx="1304" rby="883"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+								<entry name="Documento" inpkey="122" outkey="123" expanded="1">
+									<entry name="Anno" outkey="124"/>
+									<entry name="Filiale" outkey="125"/>
+									<entry name="Numero" outkey="126"/>
+									<entry name="Raggruppamento" outkey="128"/>
+									<entry name="RaggruppamentoId" outkey="136"/>
+									<entry name="DocumentoCliente" expanded="1">
+										<entry name="Numero" outkey="129"/>
+										<entry name="Data" outkey="130"/>
+									</entry>
+									<entry name="MittenteDestinatario" expanded="1">
+										<entry name="RagioneSociale" outkey="131"/>
+										<entry name="Indirizzo" outkey="132"/>
+										<entry name="Localita" outkey="133"/>
+										<entry name="Provincia" outkey="134"/>
+										<entry name="Nazione" outkey="135"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\RitiriConsegne\ListeDiCarico_Out.xsd"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="RitiriConsegne.ListeDiCarico"/>
+								<entry name="ListeDiCarico"/>
+								<entry name="ListaDiCarico"/>
+								<entry name="Documenti"/>
+								<entry name="Documento"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="ListeDiCarico_Out" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="282" lty="30" rbx="677" rby="596"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="47" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="RitiriConsegne.ListeDiCarico" expanded="1">
+										<entry name="ListeDiCarico" expanded="1">
+											<entry name="ListaDiCarico" outkey="116" expanded="1"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\RitiriConsegne\ListeDiCarico_Out.xsd" instanceroot="{}RitiriConsegne.ListeDiCarico" outputinstance="..\..\_Global\RC_ListeDiCarico_Out.xml"/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="44" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="750" lty="79" rbx="932" rby="517"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+								<entry name="ListaDiCarico" inpkey="117" expanded="1">
+									<entry name="Id" outkey="118"/>
+									<entry name="Descrizione" outkey="119"/>
+									<entry name="DataOraCarico" outkey="120"/>
+									<entry name="Vettore" expanded="1">
+										<entry name="Codice" outkey="186"/>
+									</entry>
+									<entry name="Documenti" expanded="1">
+										<entry name="Documento" outkey="121"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\RitiriConsegne\ListeDiCarico_Out.xsd"/>
+						<parameter usageKind="variable">
+							<root>
+								<entry name="RitiriConsegne.ListeDiCarico"/>
+								<entry name="ListeDiCarico"/>
+								<entry name="ListaDiCarico"/>
+							</root>
+						</parameter>
+					</data>
+				</component>
+				<component name="IMT_Pianificazione_to_AS400" library="text" uid="49" kind="16">
+					<properties XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="2243" lty="30" rbx="2548" rby="704"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="146" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Root" expanded="1">
+										<entry name="Split once" expanded="1">
+											<entry name="CSV" expanded="1">
+												<entry name="HEAD" inpkey="147"/>
+												<entry name="RC_PIANIFICAZIONE" inpkey="148"/>
+												<entry name="1.00" inpkey="149"/>
+											</entry>
+											<entry name="Split once" expanded="1">
+												<entry name="CSV" inpkey="150" expanded="1">
+													<entry name="DATA" inpkey="151"/>
+													<entry name="RaggruppamentoID" inpkey="152"/>
+													<entry name="Raggruppamento" inpkey="153"/>
+													<entry name="N" inpkey="154"/>
+													<entry name="FILLER1" inpkey="155"/>
+													<entry name="FILLER2" inpkey="156"/>
+													<entry name="FILLER3" inpkey="157"/>
+													<entry name="FILLER4" inpkey="158"/>
+													<entry name="ANNO" inpkey="159"/>
+													<entry name="FILIALE" inpkey="160"/>
+													<entry name="NUMERO" inpkey="161"/>
+													<entry name="VettoreCodice" inpkey="187"/>
+													<entry name="FILLER5" inpkey="174"/>
+													<entry name="RagioneSociale" inpkey="175"/>
+													<entry name="Indirizzo" inpkey="176"/>
+													<entry name="FILLER6" inpkey="177"/>
+													<entry name="Localita" inpkey="178"/>
+													<entry name="Provincia" inpkey="179"/>
+													<entry name="Nazione" inpkey="180"/>
+													<entry name="DataOrdine" inpkey="181"/>
+													<entry name="NumeroOrdine" inpkey="171"/>
+													<entry name="FILLER7" inpkey="182"/>
+												</entry>
+												<entry name="CSV2" expanded="1">
+													<entry name="END" inpkey="172"/>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="txt" encoding="1000" byteorder="1" byteordermark="0" config="IMT_Pianificazione_to_AS400.mft"/>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="54" kind="23">
+					<sources>
+						<datapoint pos="0" key="188"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="189"/>
+					</targets>
+					<view ltx="1668" lty="420" rbx="1748" rby="458"/>
+					<data>
+						<valuemap enableDefaultValue="1">
+							<valuemapTable>
+								<entry from="10" to="GLS"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string"/>
+						</valuemap>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges>
+					<edge edgekey="117">
+						<data>
+							<dataconnection type="2"/>
+						</data>
+					</edge>
+					<edge edgekey="122">
+						<data>
+							<dataconnection type="2"/>
+						</data>
+					</edge>
+				</edges>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="39">
+						<edges>
+							<edge vertexkey="4"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="119">
+						<edges>
+							<edge vertexkey="5"/>
+							<edge vertexkey="9"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="6">
+						<edges>
+							<edge vertexkey="7"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="128">
+						<edges>
+							<edge vertexkey="8"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="10">
+						<edges>
+							<edge vertexkey="13"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="46">
+						<edges>
+							<edge vertexkey="24"/>
+							<edge vertexkey="155"/>
+							<edge vertexkey="157"/>
+							<edge vertexkey="158"/>
+							<edge vertexkey="174"/>
+							<edge vertexkey="177"/>
+							<edge vertexkey="182"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="45">
+						<edges>
+							<edge vertexkey="26"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="120">
+						<edges>
+							<edge vertexkey="27"/>
+							<edge vertexkey="51"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="31">
+						<edges>
+							<edge vertexkey="34"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="32">
+						<edges>
+							<edge vertexkey="35"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="36"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="33">
+						<edges>
+							<edge vertexkey="37"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="29">
+						<edges>
+							<edge vertexkey="40"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="52">
+						<edges>
+							<edge vertexkey="44"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="43">
+						<edges>
+							<edge vertexkey="47"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="116">
+						<edges>
+							<edge vertexkey="117" edgekey="117"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="121">
+						<edges>
+							<edge vertexkey="122" edgekey="122"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="118">
+						<edges>
+							<edge vertexkey="137"/>
+							<edge vertexkey="140"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="142">
+						<edges>
+							<edge vertexkey="138"/>
+							<edge vertexkey="184"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="136">
+						<edges>
+							<edge vertexkey="141"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="38">
+						<edges>
+							<edge vertexkey="146"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="144">
+						<edges>
+							<edge vertexkey="147"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="143">
+						<edges>
+							<edge vertexkey="148"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="145">
+						<edges>
+							<edge vertexkey="149"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="123">
+						<edges>
+							<edge vertexkey="150"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="28">
+						<edges>
+							<edge vertexkey="151"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="139">
+						<edges>
+							<edge vertexkey="152"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="185">
+						<edges>
+							<edge vertexkey="153"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="42">
+						<edges>
+							<edge vertexkey="154"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="25">
+						<edges>
+							<edge vertexkey="156"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="124">
+						<edges>
+							<edge vertexkey="159"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="125">
+						<edges>
+							<edge vertexkey="160"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="126">
+						<edges>
+							<edge vertexkey="161"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="129">
+						<edges>
+							<edge vertexkey="171"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="115">
+						<edges>
+							<edge vertexkey="172"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="131">
+						<edges>
+							<edge vertexkey="175"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="132">
+						<edges>
+							<edge vertexkey="176"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="133">
+						<edges>
+							<edge vertexkey="178"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="134">
+						<edges>
+							<edge vertexkey="179"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="135">
+						<edges>
+							<edge vertexkey="180"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="130">
+						<edges>
+							<edge vertexkey="181"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="41">
+						<edges>
+							<edge vertexkey="183"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="189">
+						<edges>
+							<edge vertexkey="187"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="186">
+						<edges>
+							<edge vertexkey="188"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>

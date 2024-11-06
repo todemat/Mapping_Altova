@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/GLS/Mappings/GLS_InvioSpedizioni_to_Corriere.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL=" 
+select 
+	CAST(&apos;KG&apos; AS VARCHAR(10))										AS KG,
+	cast(SUM(
+	CASE 
+		WHEN b.UM_1_CODICE=&apos;KG&apos; THEN isnull(b.UM_1_VALORE,0) 
+		WHEN b.UM_2_CODICE=&apos;KG&apos; THEN isnull(b.UM_2_VALORE,0) 
+		WHEN b.UM_3_CODICE=&apos;KG&apos; THEN isnull(b.UM_3_VALORE,0)  
+		WHEN b.UM_4_CODICE=&apos;KG&apos; THEN isnull(b.UM_4_VALORE,0)  
+		WHEN b.UM_5_CODICE=&apos;KG&apos; THEN isnull(b.UM_5_VALORE,0) 
+		ELSE cast(0 as decimal(10,3))
+	END)as decimal(11,1))											AS Tot_KG,
+	CAST(&apos;MC&apos; AS VARCHAR(10))										AS MC,
+	cast(SUM(
+	CASE 
+		WHEN b.UM_1_CODICE IN (&apos;MC&apos;) THEN isnull(b.UM_1_VALORE,0) 
+		WHEN b.UM_2_CODICE IN (&apos;MC&apos;) THEN isnull(b.UM_2_VALORE,0) 
+		WHEN b.UM_3_CODICE IN (&apos;MC&apos;) THEN isnull(b.UM_3_VALORE,0)  
+		WHEN b.UM_4_CODICE IN (&apos;MC&apos;) THEN isnull(b.UM_4_VALORE,0)  
+		WHEN b.UM_5_CODICE IN (&apos;MC&apos;) THEN isnull(b.UM_5_VALORE,0) 
+		ELSE cast(0 as decimal(10,3))
+	END) as decimal(10,3))											AS Tot_MC,
+	CAST(&apos;CO&apos; AS VARCHAR(10))										AS COL,
+	cast(sum(
+	CASE 
+		WHEN b.UM_1_CODICE IN (&apos;COLLI&apos;,&apos;CO&apos;) THEN isnull(b.UM_1_VALORE,0) 
+		WHEN b.UM_2_CODICE IN (&apos;COLLI&apos;,&apos;CO&apos;) THEN isnull(b.UM_2_VALORE,0) 
+		WHEN b.UM_3_CODICE IN (&apos;COLLI&apos;,&apos;CO&apos;) THEN isnull(b.UM_3_VALORE,0)  
+		WHEN b.UM_4_CODICE IN (&apos;COLLI&apos;,&apos;CO&apos;) THEN isnull(b.UM_4_VALORE,0)  
+		WHEN b.UM_5_CODICE IN (&apos;COLLI&apos;,&apos;CO&apos;) THEN isnull(b.UM_5_VALORE,0) 
+		ELSE cast(0 as int)
+	END) as int)													AS Tot_COL,
+	CAST(&apos;PLT&apos; AS VARCHAR(10))										AS PLT,
+	cast(sum(
+	CASE 
+		WHEN b.UM_1_CODICE IN (&apos;PS&apos;,&apos;PLT&apos;,&apos;PLTS&apos;,&apos;PA&apos;,&apos;PLS&apos;) THEN isnull(b.UM_1_VALORE,0) 
+		WHEN b.UM_2_CODICE IN (&apos;PS&apos;,&apos;PLT&apos;,&apos;PLTS&apos;,&apos;PA&apos;,&apos;PLS&apos;) THEN isnull(b.UM_2_VALORE,0) 
+		WHEN b.UM_3_CODICE IN (&apos;PS&apos;,&apos;PLT&apos;,&apos;PLTS&apos;,&apos;PA&apos;,&apos;PLS&apos;) THEN isnull(b.UM_3_VALORE,0)  
+		WHEN b.UM_4_CODICE IN (&apos;PS&apos;,&apos;PLT&apos;,&apos;PLTS&apos;,&apos;PA&apos;,&apos;PLS&apos;) THEN isnull(b.UM_4_VALORE,0)  
+		WHEN b.UM_5_CODICE IN (&apos;PS&apos;,&apos;PLT&apos;,&apos;PLTS&apos;,&apos;PA&apos;,&apos;PLS&apos;) THEN isnull(b.UM_5_VALORE,0) 
+		ELSE cast(0 as decimal(10,3))
+	END) as int)													AS Tot_PLT	,
+	RTRIM(LTRIM(STUFF((	   
+	SELECT CONCAT(RTRIM(LTRIM(asd.RIFERIMENTO)) , &apos;;&apos;)	 
+    FROM dbo.t2viaggiclienticarichiscarichimerci as asd
+    WHERE asd.SOCIETA=b.SOCIETA and asd.ANNO=b.ANNO and asd.NUMERO=b.NUMERO and asd.FILIALE=b.FILIALE and asd.NUMERO_CARICO_SCARICO=b.NUMERO_CARICO_SCARICO 
+    FOR XML PATH(&apos;&apos;),TYPE).value(&apos;(./text())[1]&apos;,&apos;VARCHAR(MAX)&apos;)
+  ,1,0,&apos;&apos;))) AS Nota
+ from t2viaggiclienticarichiscarichi a
+ left join t2viaggiclienticarichiscarichimerci b on a.SOCIETA=b.SOCIETA and a.ANNO=b.ANNO and a.NUMERO=b.NUMERO and a.FILIALE=b.FILIALE and a.NUMERO_CARICO_SCARICO=b.NUMERO_CARICO_SCARICO
+ where a.societa=1 and a.anno=:AnnoOrdine and a.numero=:NumroOrdine and a.filiale=:FilialeOrdine and a.id_carico_scarico=:IdCaricoScarico
+ group by 	b.societa,b.anno,b.NUMERO,b.FILIALE,b.NUMERO_CARICO_SCARICO">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Riferimenti" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="AnnoOrdine" type="nchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+								<Parameter name="NumroOrdine" type="nchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+								<Parameter name="FilialeOrdine" type="nchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+								<Parameter name="IdCaricoScarico" type="nchar" size="4000" prec="4000" null="Yes">
+									<Properties Detected="false"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="43" lty="109" rbx="91" rby="126"/>
+					<data>
+						<constant value="6" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="43" lty="125" rbx="91" rby="142"/>
+					<data>
+						<constant value="0" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="9" kind="2">
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="43" lty="93" rbx="91" rby="110"/>
+					<data>
+						<constant value="5" datatype="string"/>
+					</data>
+				</component>
+				<component name="replace" library="lang" uid="14" kind="5">
+					<sources>
+						<datapoint pos="0" key="42"/>
+						<datapoint pos="1" key="43"/>
+						<datapoint pos="2" key="44"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="1881" lty="442" rbx="1982" rby="512"/>
+				</component>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="43" lty="157" rbx="88" rby="174"/>
+					<data>
+						<constant value="," datatype="string"/>
+					</data>
+				</component>
+				<component name="Spedizioni_Corriere" library="text" uid="2" kind="16">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="2557" lty="57" rbx="2999" rby="629"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Root" expanded="1">
+										<entry name="FLF" inpkey="1" expanded="1">
+											<entry name="RagioneSocialeDestinatario" inpkey="2"/>
+											<entry name="IndirizzoDestinatario" inpkey="3"/>
+											<entry name="CittaDestinataro" inpkey="4"/>
+											<entry name="CapDestinatario" inpkey="5"/>
+											<entry name="SiglaProvinciaDestinatario" inpkey="6"/>
+											<entry name="NumeroColli" inpkey="19"/>
+											<entry name="NumeroBancali">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="00"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Peso" inpkey="46"/>
+											<entry name="TipoPorto">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="F"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="Assicurazione">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="00000000000"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="PesoVolume">
+												<inputnodefunctions>
+													<rule applyto="self">
+														<default value="00000000000"/>
+													</rule>
+												</inputnodefunctions>
+											</entry>
+											<entry name="RiferimentoMittente" inpkey="47"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<text type="txt" encoding="52" byteorder="1" byteordermark="0" config="..\01. Tracciati\Spedizioni_Corriere.mft"/>
+					</data>
+				</component>
+				<component name="InvioDisposizioni" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="451" lty="-8" rbx="743" rby="793"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="8" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="Sga" expanded="1">
+										<entry name="OrdiniTrasporto" expanded="1">
+											<entry name="OrdineTrasporto" expanded="1">
+												<entry name="CarichiScarichi" expanded="1">
+													<entry name="CaricoScarico" outkey="9" expanded="1">
+														<entry name="Ordine" expanded="1">
+															<entry name="Anno" outkey="28"/>
+															<entry name="Filiale" outkey="29"/>
+															<entry name="Numero" outkey="30"/>
+															<entry name="IdCaricoScarico" outkey="31"/>
+														</entry>
+														<entry name="Scarico" expanded="1">
+															<entry name="RagioneSociale" outkey="10"/>
+															<entry name="Indirizzo" outkey="11"/>
+															<entry name="Localita" outkey="12"/>
+															<entry name="Provincia" outkey="13"/>
+															<entry name="Cap" outkey="14"/>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\Trasporto-T2\InvioDisposizioni.xsd" instanceroot="{}Sga" outputinstance="..\..\_Global\TRAS_InvioDisposizioni.xml"/>
+					</data>
+				</component>
+				<component name="pad-string-left" library="lang" uid="11" kind="5">
+					<sources>
+						<datapoint pos="0" key="26"/>
+						<datapoint pos="1" key="24"/>
+						<datapoint pos="2" key="25"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="1602" lty="427" rbx="1727" rby="497"/>
+				</component>
+				<component name="db" library="db" uid="6" kind="15">
+					<view ltx="43" lty="-89" rbx="375" rby="-32"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_Riferimenti" type="routine" outkey="55"/>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Riferimenti" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="15" kind="2">
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="43" lty="141" rbx="88" rby="158"/>
+					<data>
+						<constant value="." datatype="string"/>
+					</data>
+				</component>
+				<component name="InputFile" library="core" uid="4" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="7"/>
+					</targets>
+					<view ltx="43" lty="56" rbx="146" rby="94"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\InvioDisposizioni_20230729101606.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFile"/>
+					</data>
+				</component>
+				<component name="dbo.SELECT_Riferimenti" library="db" uid="7" kind="28">
+					<view ltx="977" lty="208" rbx="1283" rby="489"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="33"/>
+							<entry name="dbo.SELECT_Riferimenti" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Riferimenti" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="AnnoOrdine" type="attribute" inpkey="48"/>
+								<entry name="NumroOrdine" type="attribute" inpkey="49"/>
+								<entry name="FilialeOrdine" type="attribute" inpkey="50"/>
+								<entry name="IdCaricoScarico" type="attribute" inpkey="51"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Riferimenti" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Riferimenti" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Riferimenti" expanded="1">
+									<entry name="Tot_KG" type="attribute" outkey="52"/>
+									<entry name="Tot_COL" type="attribute" outkey="53"/>
+									<entry name="Nota" type="attribute" outkey="54"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="pad-string-left" library="lang" uid="8" kind="5">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="16"/>
+						<datapoint pos="2" key="17"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="1591" lty="318" rbx="1716" rby="388"/>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="9" to="1"/>
+			<edge from="10" to="2"/>
+			<edge from="11" to="3"/>
+			<edge from="12" to="4"/>
+			<edge from="14" to="5"/>
+			<edge from="13" to="6"/>
+			<edge from="7" to="8"/>
+			<edge from="53" to="15"/>
+			<edge from="20" to="16"/>
+			<edge from="21" to="17"/>
+			<edge from="18" to="19"/>
+			<edge from="27" to="24"/>
+			<edge from="21" to="25"/>
+			<edge from="52" to="26"/>
+			<edge from="55" to="33"/>
+			<edge from="23" to="42"/>
+			<edge from="40" to="43"/>
+			<edge from="41" to="44"/>
+			<edge from="45" to="46"/>
+			<edge from="54" to="47"/>
+			<edge from="28" to="48"/>
+			<edge from="30" to="49"/>
+			<edge from="29" to="50"/>
+			<edge from="31" to="51"/>
+		</connections>
+	</component>
+</mapping>

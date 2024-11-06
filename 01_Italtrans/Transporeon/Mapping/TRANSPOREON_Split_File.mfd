@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="26">
+	<settings>
+		<deployment path="/Progetti/01_Italtrans/Transporeon/Mappings/TRANSPOREON_Split_File.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2"/>
+	</settings>
+	<resources/>
+	<component name="defaultmap" uid="1" editable="1" blackbox="0">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="InputFileName" library="core" uid="6" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="55" lty="206" rbx="187" rby="244"/>
+					<data>
+						<input datatype="string" previewvalue="filename.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFileName"/>
+					</data>
+				</component>
+				<component name="InputFile" library="core" uid="4" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="55" lty="149" rbx="158" rby="187"/>
+					<data>
+						<input datatype="string" previewvalue="I:\Root_EDI\CLIENTI\Transporeon\PROD\to_SGA_TRAS_Ordini\Importati\Marzo2023\20230316110441_246416_791693354_1533668_transport.tiflow.accepted_568_20230316_1106.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFile"/>
+					</data>
+				</component>
+				<component name="OutputSubDir" library="core" uid="11" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="55" lty="444" rbx="185" rby="482"/>
+					<data>
+						<input datatype="string" previewvalue="PROD\to_SGA_TRAS_Ordini\" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputSubDir"/>
+					</data>
+				</component>
+				<component name="OutputDir" library="core" uid="5" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="55" lty="260" rbx="165" rby="298"/>
+					<data>
+						<input datatype="string" previewvalue="c:\temp\" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputDir"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="7" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="11"/>
+						<datapoint pos="1" key="12"/>
+						<datapoint pos="2" key="13"/>
+						<datapoint pos="3" key="14"/>
+						<datapoint pos="4" key="15"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view ltx="1462" lty="53" rbx="1554" rby="160"/>
+				</component>
+				<component name="TransporeonOrdini" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="399" lty="149" rbx="784" rby="874"/>
+					<data>
+						<root scrollposition="307">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="2" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="tisys" outkey="7" expanded="1">
+										<entry name="tour" expanded="1">
+											<entry name="company_id" outkey="8"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\TransporeonOrdini.xsd" instanceroot="{}tisys" inputinstance="I:\Root_EDI\CLIENTI\Transporeon\PROD\to_SGA_TRAS_Ordini\Importati\Marzo2023\20230316110441_246416_791693369_1533670_transport.tiflow.accepted_427_20230316_1106.xml" outputinstance="I:\Root_EDI\CLIENTI\Transporeon\PROD\to_SGA_TRAS_Ordini\Importati\Marzo2023\20230316110441_246416_791693369_1533670_transport.tiflow.accepted_427_20230316_1106.xml"/>
+					</data>
+				</component>
+				<component name="TransporeonOrdini" library="xml" uid="3" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2091" lty="131" rbx="2476" rby="856"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="9" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="tisys" inpkey="10" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Trasporto-T2\TransporeonOrdini.xsd" instanceroot="{}tisys" inputinstance="I:\Root_EDI\CLIENTI\Transporeon\PROD\to_SGA_TRAS_Ordini\Importati\Marzo2023\20230316110441_246416_791693369_1533670_transport.tiflow.accepted_427_20230316_1106.xml" outputinstance="I:\Root_EDI\CLIENTI\Transporeon\PROD\to_SGA_TRAS_Ordini\Importati\Marzo2023\20230316110441_246416_791693369_1533670_transport.tiflow.accepted_427_20230316_1106.xml"/>
+					</data>
+				</component>
+				<component name="value-map" library="core" uid="9" kind="23">
+					<sources>
+						<datapoint pos="0" key="17"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="1040" lty="260" rbx="1120" rby="298"/>
+					<data>
+						<valuemap enableDefaultValue="1">
+							<valuemapTable>
+								<entry from="260842" to="Barilla"/>
+								<entry from="401412" to="Heineken"/>
+								<entry from="263245" to="Nestrade"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string" defaultValue="Transporeon"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="55" lty="380" rbx="233" rby="397"/>
+					<data>
+						<constant value="PROD\to_SGA_TRAS_Ordini\" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="55" lty="327" rbx="101" rby="344"/>
+					<data>
+						<constant value="\" datatype="string"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges>
+					<edge edgekey="10">
+						<data>
+							<dataconnection type="2"/>
+						</data>
+					</edge>
+				</edges>
+				<vertices>
+					<vertex vertexkey="1">
+						<edges>
+							<edge vertexkey="2"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="16">
+						<edges>
+							<edge vertexkey="9"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="7">
+						<edges>
+							<edge vertexkey="10" edgekey="10"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="4">
+						<edges>
+							<edge vertexkey="11"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="18">
+						<edges>
+							<edge vertexkey="12"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="5">
+						<edges>
+							<edge vertexkey="13"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="19">
+						<edges>
+							<edge vertexkey="14"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="3">
+						<edges>
+							<edge vertexkey="15"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="8">
+						<edges>
+							<edge vertexkey="17"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>

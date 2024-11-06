@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/public/SgaSpedizioni_ListeDiCarico_to_OI_Italtrans_PianificazioneWms.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="OI_Italtrans">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="OI_Italtrans" vendor="microsoftsqlserver" import_kind="ADO" name="OI_Italtrans" path="OI_Italtrans"/>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="8" kind="2">
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="47" lty="335" rbx="130" rby="352"/>
+					<data>
+						<constant value="ALTOVA" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="6" kind="2">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="47" lty="319" rbx="93" rby="336"/>
+					<data>
+						<constant value="/" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="10" kind="5">
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="47" lty="576" rbx="97" rby="614"/>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint/>
+					</targets>
+					<view ltx="47" lty="303" rbx="93" rby="320"/>
+					<data>
+						<constant value="-" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="15" kind="2">
+					<targets>
+						<datapoint pos="0" key="45"/>
+					</targets>
+					<view ltx="47" lty="351" rbx="95" rby="368"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="44"/>
+					</targets>
+					<view ltx="47" lty="367" rbx="95" rby="384"/>
+					<data>
+						<constant value="5" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="7" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="12"/>
+						<datapoint pos="1" key="16"/>
+						<datapoint pos="2" key="15"/>
+						<datapoint pos="3" key="13"/>
+						<datapoint pos="4" key="14"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="1485" lty="433" rbx="1577" rby="540"/>
+				</component>
+				<component name="concat" library="core" uid="5" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="1"/>
+						<datapoint pos="1" key="2"/>
+						<datapoint pos="2" key="3"/>
+						<datapoint pos="3" key="4"/>
+						<datapoint pos="4" key="5"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="6"/>
+					</targets>
+					<view ltx="1485" lty="283" rbx="1577" rby="390"/>
+				</component>
+				<component name="value-map" library="core" uid="12" kind="23">
+					<sources>
+						<datapoint pos="0" key="42"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="43"/>
+					</targets>
+					<view ltx="1911" lty="620" rbx="1991" rby="658"/>
+					<data>
+						<valuemap defaultValueMode="custom">
+							<valuemapTable>
+								<entry from="038M7" to="OI_AGR"/>
+								<entry from="020M1" to="OI_BND"/>
+								<entry from="023M9" to="OI_BNS"/>
+								<entry from="052M9" to="OI_CCI"/>
+								<entry from="056A2" to="OI_CEA"/>
+								<entry from="047M7" to="OI_CNE"/>
+								<entry from="037A2" to="OI_CNF"/>
+								<entry from="071M9" to="OI_DAV"/>
+								<entry from="069M9" to="OI_FRC"/>
+								<entry from="055M9" to="OI_FRS"/>
+								<entry from="070M2" to="OI_LDA"/>
+								<entry from="049M1" to="OI_LDL"/>
+								<entry from="072M2" to="OI_LDM"/>
+								<entry from="042M7" to="OI_LKR"/>
+								<entry from="057M1" to="OI_MEG"/>
+								<entry from="064M9" to="OI_PER"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string" defaultValue="XXX"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="inputFile" library="core" uid="3" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="47" lty="39" rbx="150" rby="77"/>
+					<data>
+						<input datatype="string" previewvalue="\\itaint01\e$\Root_Interlocutori\Italtrans\TEST\TMS\from_SgaSpedizioni_ListeCarico-AS400\ListeDiCarico_WMS_202404161050240288_2024_SE_1.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="inputFile"/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="14" kind="5">
+					<sources>
+						<datapoint pos="0" key="38"/>
+						<datapoint pos="1" key="39"/>
+						<datapoint pos="2" key="40"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="41"/>
+					</targets>
+					<view ltx="1485" lty="588" rbx="1568" rby="658"/>
+				</component>
+				<component name="E_ListaDiCaricoProvvisoria" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="360" lty="39" rbx="744" rby="905"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="28" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="ListaDiCaricoProvvisoria" expanded="1">
+										<entry name="Viaggio" expanded="1">
+											<entry name="Codice" expanded="1">
+												<entry name="Anno" outkey="7"/>
+												<entry name="Filiale" outkey="10"/>
+												<entry name="Numero" outkey="9"/>
+											</entry>
+											<entry name="Raggruppamento" outkey="29"/>
+											<entry name="Partenza" expanded="1"/>
+										</entry>
+										<entry name="RitiriConsegne" expanded="1">
+											<entry name="RitiroConsegna" outkey="48" expanded="1">
+												<entry name="Codice" expanded="1">
+													<entry name="Anno" outkey="30"/>
+													<entry name="Filiale" outkey="31"/>
+													<entry name="Numero" outkey="32"/>
+													<entry name="Identificativo" outkey="37"/>
+												</entry>
+												<entry name="Viaggio" expanded="1"/>
+												<entry name="Riferimenti" expanded="1">
+													<entry name="Committente" outkey="35"/>
+												</entry>
+												<entry name="Proprieta" expanded="1">
+													<entry name="Proprieta" expanded="1"/>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\..\_Global\Spedizioni\E_ListaDiCaricoProvvisoria.Xsd" instanceroot="{}ListaDiCaricoProvvisoria" outputinstance="..\..\..\_Global\Spedizioni\E_ListaDiCaricoProvvisoria.xml"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="4" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="2447" lty="340" rbx="2738" rby="570"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" DBUseTransactions="1" expanded="1">
+								<entry name="dbo.Pianificazione_TMS-WMS" type="table" inpkey="46" expanded="1">
+									<entry name="OI_Ambiente" inpkey="47"/>
+									<entry name="SGA_RiferimentoCommittente" inpkey="19"/>
+									<entry name="SGA_DescrizioneViaggio" inpkey="20"/>
+									<entry name="SGA_ChiaveSpedizione" inpkey="21"/>
+									<entry name="SGA_ChiaveViaggio" inpkey="11"/>
+									<entry name="DataOraInsert" inpkey="22"/>
+									<entry name="UtenteInsert" inpkey="23"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="OI_Italtrans">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="Pianificazione_TMS-WMS" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="7" to="1"/>
+			<edge from="8" to="2"/>
+			<edge from="10" to="3"/>
+			<edge from="8" to="4"/>
+			<edge from="9" to="5"/>
+			<edge from="6" to="11"/>
+			<edge from="30" to="12"/>
+			<edge from="8" to="13"/>
+			<edge from="32" to="14"/>
+			<edge from="31" to="15"/>
+			<edge from="8" to="16"/>
+			<edge from="35" to="19"/>
+			<edge from="29" to="20"/>
+			<edge from="17" to="21"/>
+			<edge from="25" to="22"/>
+			<edge from="24" to="23"/>
+			<edge from="18" to="28"/>
+			<edge from="37" to="38"/>
+			<edge from="45" to="39"/>
+			<edge from="44" to="40"/>
+			<edge from="41" to="42"/>
+			<edge from="48" to="46"/>
+			<edge from="43" to="47"/>
+		</connections>
+	</component>
+</mapping>

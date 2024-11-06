@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Transporeon/Mappings/TRANSPOREON_Check_File_Booking.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaltransTrasporto1">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto1" path="ItaltransTrasporto1">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select isnull(cast(vcv.numero as varchar),&apos;NODISPOSTO&apos;) as CheckDispo
+from italtrans.[dbo].[T2ViaggiClientiCarichiScarichiRiferimenti] rif 
+left join italtrans.dbo.T2ViaggiVettoriClienti vcv on rif.SOCIETA=vcv.SOCIETA and rif.ANNO=vcv.CLIENTE_ANNO and rif.NUMERO=vcv.CLIENTE_NUMERO and rif.FILIALE=vcv.CLIENTE_FILIALE and rif.NUMERO_CARICO_SCARICO=vcv.CLIENTE_NUMERO_CARICO_SCARICO
+where rif.societa=1 and LTRIM(RTRIM(SUBSTRING(rif.RIFERIMENTO,7,100))) =:Riferimento ">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Riferimento" type="nvarchar" size="30" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="uppercase" library="lang" uid="6" kind="5">
+					<sources>
+						<datapoint pos="0" key="4"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view ltx="945" lty="118" rbx="1025" rby="156"/>
+				</component>
+				<component name="value-map" library="core" uid="5" kind="23">
+					<sources>
+						<datapoint pos="0" key="7"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="1178" lty="118" rbx="1258" rby="156"/>
+					<data>
+						<valuemap defaultValueMode="custom">
+							<valuemapTable>
+								<entry from="BOOKED" to="OK"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string" defaultValue="KO"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="exists" library="core" uid="46" kind="5">
+					<sources>
+						<datapoint pos="0" key="54"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="55"/>
+					</targets>
+					<view ltx="1178" lty="180" rbx="1254" rby="218"/>
+				</component>
+				<component name="dbo.SELECT_Statement" library="db" uid="65" kind="28">
+					<view ltx="945" lty="394" rbx="1245" rby="594"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="72"/>
+							<entry name="dbo.SELECT_Statement" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Statement" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Riferimento" type="attribute" inpkey="73"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_Statement" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_Statement" outkey="90" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_Statement" expanded="1">
+									<entry name="CheckDispo" type="attribute" outkey="74"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="48" kind="5">
+					<sources>
+						<datapoint pos="0" key="60"/>
+						<datapoint pos="1" key="58"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="63"/>
+					</targets>
+					<view ltx="1369" lty="230" rbx="1425" rby="284"/>
+				</component>
+				<component name="exists" library="core" uid="71" kind="5">
+					<sources>
+						<datapoint pos="0" key="88"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="89"/>
+					</targets>
+					<view ltx="1369" lty="320" rbx="1445" rby="358"/>
+				</component>
+				<component name="if-else" library="core" uid="72" kind="4">
+					<sources>
+						<datapoint pos="0" key="91"/>
+						<datapoint pos="1" key="92"/>
+						<datapoint pos="2" key="93"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="94"/>
+					</targets>
+					<view ltx="1535" lty="118" rbx="1639" rby="191"/>
+				</component>
+				<component name="equal" library="core" uid="69" kind="5">
+					<sources>
+						<datapoint pos="0" key="84"/>
+						<datapoint pos="1" key="83"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="82"/>
+					</targets>
+					<view ltx="1713" lty="209" rbx="1769" rby="263"/>
+				</component>
+				<component name="logical-or" library="core" uid="67" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="81"/>
+						<datapoint pos="1" key="86"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="87"/>
+					</targets>
+					<view ltx="1879" lty="118" rbx="1961" rby="174"/>
+				</component>
+				<component name="concat" library="core" uid="18" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="22"/>
+						<datapoint pos="1" key="23"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="2452" lty="118" rbx="2534" rby="174"/>
+				</component>
+				<component name="concat" library="core" uid="51" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="69"/>
+						<datapoint pos="1" key="67"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="68"/>
+					</targets>
+					<view ltx="2452" lty="235" rbx="2534" rby="291"/>
+				</component>
+				<component name="InputFileName" library="core" uid="21" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="75" lty="155" rbx="207" rby="193"/>
+					<data>
+						<input datatype="string" previewvalue="20230808120529_246416_1544799273_808369612_234880SG_booking.created_824.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFileName"/>
+					</data>
+				</component>
+				<component name="LocalFolderInputBooking" library="core" uid="20" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="26"/>
+					</targets>
+					<view ltx="75" lty="192" rbx="262" rby="230"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Users\it.dev\Desktop\Progetti Altova\Transporeon\TEST\OK" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="LocalFolderInputBooking"/>
+					</data>
+				</component>
+				<component name="LocalFolderInputBookingDelete" library="core" uid="49" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="64"/>
+					</targets>
+					<view ltx="75" lty="229" rbx="295" rby="267"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Users\it.dev\Desktop\Progetti Altova\Transporeon\TEST\KO" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="LocalFolderInputBookingDelete"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="60" kind="15">
+					<view ltx="75" lty="320" rbx="382" rby="387"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_Statement" type="routine" expanded="1" displayselectionmode="selection"/>
+								<entry name="dbo.SELECT_Statement" type="routine" outkey="75" expanded="1">
+									<condition>
+										<expression>
+											<function name="equal" library="core">
+												<expression>
+													<attribute name="input"/>
+												</expression>
+												<expression>
+													<constant value="false" datatype="boolean"/>
+												</expression>
+											</function>
+										</expression>
+									</condition>
+									<entry name="dbo.SELECT_Statement" type="table" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_Statement" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="68" kind="2">
+					<targets>
+						<datapoint pos="0" key="85"/>
+					</targets>
+					<view ltx="75" lty="461" rbx="117" rby="478"/>
+					<data>
+						<constant datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="75" lty="477" rbx="132" rby="494"/>
+					<data>
+						<constant value="OK" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="63" kind="2">
+					<targets>
+						<datapoint pos="0" key="71"/>
+					</targets>
+					<view ltx="75" lty="493" rbx="187" rby="510"/>
+					<data>
+						<constant value="NODISPOSTO" datatype="string"/>
+					</data>
+				</component>
+				<component name="InputFile" library="core" uid="3" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="1"/>
+					</targets>
+					<view ltx="75" lty="118" rbx="178" rby="156"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\20231004132407_246416_1549737891_815365916_100174900_booking.created_284.xml" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="InputFile"/>
+					</data>
+				</component>
+				<component name="equal" library="core" uid="62" kind="5">
+					<sources>
+						<datapoint pos="0" key="76"/>
+						<datapoint pos="1" key="77"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="78"/>
+					</targets>
+					<view ltx="1713" lty="118" rbx="1769" rby="172"/>
+				</component>
+				<component name="filter" library="core" uid="13" kind="3">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="16"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+						<datapoint pos="1" key="70"/>
+					</targets>
+					<view ltx="2270" lty="118" rbx="2383" rby="172"/>
+				</component>
+				<component name="equal" library="core" uid="17" kind="5">
+					<sources>
+						<datapoint pos="0" key="19"/>
+						<datapoint pos="1" key="20"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="1369" lty="118" rbx="1425" rby="172"/>
+				</component>
+				<component name="logical-and" library="core" uid="43" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="48"/>
+						<datapoint pos="1" key="49"/>
+						<datapoint pos="2" key="62"/>
+						<datapoint pos="3" key="79"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="50"/>
+					</targets>
+					<view ltx="2078" lty="173" rbx="2170" rby="263"/>
+				</component>
+				<component name="value-map" library="core" uid="47" kind="23">
+					<sources>
+						<datapoint pos="0" key="56"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="57"/>
+					</targets>
+					<view ltx="1178" lty="246" rbx="1258" rby="284"/>
+					<data>
+						<valuemap defaultValueMode="custom">
+							<valuemapTable>
+								<entry from="386280001" to="KO"/>
+								<entry from="386280000" to="KO"/>
+							</valuemapTable>
+							<input name="input" type="string"/>
+							<result name="result" type="string" defaultValue="OK"/>
+						</valuemap>
+					</data>
+				</component>
+				<component name="transporeon-booking-example" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" DynamicFilenames="1"/>
+					<view ltx="472" lty="118" rbx="773" rby="793"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="2" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="tisys" outkey="14" expanded="1">
+										<entry name="tsmBooking2Carrier" expanded="1">
+											<entry name="delivery_numbers" outkey="53" expanded="1">
+												<entry name="number" outkey="80"/>
+											</entry>
+											<entry name="genericDispatchStatus" outkey="3"/>
+											<entry name="location_id" outkey="61"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\Trasporto-T2\transporeon-booking-example.xsd" instanceroot="{}tisys" inputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml" outputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml"/>
+					</data>
+				</component>
+				<component name="transporeon-booking-example" library="xml" uid="50" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2654" lty="361" rbx="2907" rby="524"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="66" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="tisys" inpkey="65" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\Trasporto-T2\transporeon-booking-example.xsd" instanceroot="{}tisys" inputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml" outputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml"/>
+					</data>
+				</component>
+				<component name="transporeon-booking-example" library="xml" uid="12" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1" AddSchemaLocation="0" DynamicFilenames="1"/>
+					<view ltx="2654" lty="118" rbx="2907" rby="281"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="11" expanded="1">
+								<entry name="document" ns="1" expanded="1" casttotargettypemode="cast-in-subtree">
+									<entry name="tisys" inpkey="12" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\_Global\Trasporto-T2\transporeon-booking-example.xsd" instanceroot="{}tisys" inputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml" outputinstance="I:\Root_Aziendale\AR_Sistemi\Riservata\Area TMS &amp; Applicativi\004. Clienti\Transporeon\Esempi\transporeon-booking-example.xml"/>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="1" to="2"/>
+			<edge from="3" to="4"/>
+			<edge from="5" to="7"/>
+			<edge from="24" to="11"/>
+			<edge from="14" to="12">
+				<data type="2"/>
+			</edge>
+			<edge from="25" to="15"/>
+			<edge from="50" to="16"/>
+			<edge from="8" to="19"/>
+			<edge from="18" to="20"/>
+			<edge from="26" to="22"/>
+			<edge from="17" to="23"/>
+			<edge from="21" to="48"/>
+			<edge from="55" to="49"/>
+			<edge from="53" to="54"/>
+			<edge from="61" to="56"/>
+			<edge from="18" to="58"/>
+			<edge from="57" to="60"/>
+			<edge from="63" to="62"/>
+			<edge from="14" to="65">
+				<data type="2"/>
+			</edge>
+			<edge from="68" to="66"/>
+			<edge from="70" to="67"/>
+			<edge from="64" to="69"/>
+			<edge from="75" to="72"/>
+			<edge from="80" to="73"/>
+			<edge from="94" to="76"/>
+			<edge from="71" to="77"/>
+			<edge from="87" to="79"/>
+			<edge from="78" to="81"/>
+			<edge from="85" to="83"/>
+			<edge from="94" to="84"/>
+			<edge from="82" to="86"/>
+			<edge from="90" to="88"/>
+			<edge from="89" to="91"/>
+			<edge from="74" to="92"/>
+			<edge from="85" to="93"/>
+		</connections>
+	</component>
+</mapping>

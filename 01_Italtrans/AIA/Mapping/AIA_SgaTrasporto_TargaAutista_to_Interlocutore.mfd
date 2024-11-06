@@ -1,0 +1,727 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2023r2 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/AIA/Mappings/AIA_SgaTrasporto_TargaAutista_to_Interlocutore.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2023r2" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ApplicativiRPTS">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ApplicativiRPTS" vendor="microsoftsqlserver" import_kind="ADO" name="ApplicativiRPTS" path="ApplicativiRPTS">
+					<RecordSetStructureStorage>
+						<RecordSetStructureElement UseTransaction="Yes">
+							<RoutinePath>
+								<PathElement Name="ApplicativiRPTS" Kind="Database"/>
+								<PathElement Name="dbo" Kind="Schema"/>
+								<PathElement Name="RPTS_SGA_Estrazioni" Kind="Stored Procedure"/>
+							</RoutinePath>
+							<SampleValues>
+								<SampleValue Name="@cli" Type="string" Value="10784"/>
+								<SampleValue Name="@dtf" Type="string" Value="2022-02-15T12:14:30.000000000 +01:00"/>
+								<SampleValue Name="@dti" Type="string" Value="2022-02-15T12:14:30.000000000 +01:00"/>
+								<SampleValue Name="@out" Type="string" Value="005"/>
+								<SampleValue Name="@soc" Type="string" Value="1"/>
+							</SampleValues>
+							<RecordSetStructures>
+								<RecordSetStructure Name="RS1">
+									<Column name="SOCIETA" type="smallint"/>
+									<Column name="DEFINITIVO" type="char" size="1"/>
+									<Column name="ANNO" type="smallint"/>
+									<Column name="FILIALE" type="varchar" size="2"/>
+									<Column name="NUMERO" type="int"/>
+									<Column name="ORDINE_RIFERIMENTO" type="varchar" size="30"/>
+									<Column name="MOTRICE_NUMERO_INTERNO" type="varchar" size="10"/>
+									<Column name="MOTRICE_TARGA" type="varchar" size="10" null="Yes"/>
+									<Column name="RIMORCHIO_NUMERO_INTERNO" type="varchar" size="10"/>
+									<Column name="RIMORCHIO_TARGA" type="varchar" size="10" null="Yes"/>
+									<Column name="CODICE_AUTISTA" type="int" null="Yes"/>
+									<Column name="COGNOME_NOME_AUTISTA" type="varchar" size="30" null="Yes"/>
+									<Column name="CELLULARE_AUTISTA" type="varchar" size="20" null="Yes"/>
+									<Column name="NUMERO_PATENTE_AUTISTA" type="varchar" size="20" null="Yes"/>
+								</RecordSetStructure>
+							</RecordSetStructures>
+						</RecordSetStructureElement>
+					</RecordSetStructureStorage>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="23"/>
+					</targets>
+					<view ltx="41" lty="311" rbx="113" rby="328"/>
+					<data>
+						<constant value="10784" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="16" kind="2">
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="41" lty="375" rbx="101" rby="392"/>
+					<data>
+						<constant value="005" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="41" lty="343" rbx="107" rby="360"/>
+					<data>
+						<constant value="-P1D" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<targets>
+						<datapoint pos="0" key="25"/>
+					</targets>
+					<view ltx="41" lty="359" rbx="103" rby="376"/>
+					<data>
+						<constant value="P1D" datatype="string"/>
+					</data>
+				</component>
+				<component name="datetime-add" library="lang" uid="20" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="16"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view ltx="286" lty="512" rbx="382" rby="568"/>
+				</component>
+				<component name="datetime-add" library="lang" uid="21" kind="5" growable="1" growablebasename="duration">
+					<sources>
+						<datapoint pos="0" key="20"/>
+						<datapoint pos="1" key="18"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="286" lty="594" rbx="382" rby="650"/>
+				</component>
+				<component name="db" library="db" uid="2" kind="15">
+					<view ltx="26" lty="11" rbx="232" rby="47"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.RPTS_SGA_Estrazioni" type="routine" outkey="26" expanded="1"/>
+							</entry>
+						</root>
+						<database ref="ApplicativiRPTS">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="ApplicativiRPTS" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="RPTS_SGA_Estrazioni" Kind="Stored Procedure"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="4" kind="2">
+					<targets>
+						<datapoint pos="0" key="27"/>
+					</targets>
+					<view ltx="41" lty="295" rbx="89" rby="312"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="OutputPath" library="core" uid="22" kind="6">
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="41" lty="100" rbx="159" rby="138"/>
+					<data>
+						<input datatype="string" previewvalue="C:\Temp\Test_Progetti\Altova\AIA\Output" usepreviewvalue="1"/>
+						<parameter usageKind="input" name="OutputPath"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="41" lty="151" rbx="178" rby="168"/>
+					<data>
+						<constant value="\InvioDatiViaggio_" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="25" kind="2">
+					<targets>
+						<datapoint pos="0" key="28"/>
+					</targets>
+					<view ltx="49" lty="189" rbx="112" rby="206"/>
+					<data>
+						<constant value=".xlsx" datatype="string"/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="24" kind="5" growable="1" growablebasename="value">
+					<sources>
+						<datapoint pos="0" key="29"/>
+						<datapoint pos="1" key="30"/>
+						<datapoint pos="2" key="31"/>
+						<datapoint pos="3" key="32"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="33"/>
+					</targets>
+					<view ltx="1967" lty="86" rbx="2059" rby="176"/>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint pos="0" key="4"/>
+					</targets>
+					<view ltx="41" lty="327" rbx="187" rby="344"/>
+					<data>
+						<constant value="[Y,4-4][M,2-2][D,2-2]_[H,2-2][m,2-2][s,2-2]" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="9" kind="5">
+					<targets>
+						<datapoint pos="0" key="8"/>
+					</targets>
+					<view ltx="39" lty="491" rbx="89" rby="529"/>
+				</component>
+				<component name="format-dateTime" library="core" uid="8" kind="5">
+					<sources>
+						<datapoint pos="0" key="2"/>
+						<datapoint pos="1" key="1"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="1253" lty="158" rbx="1365" rby="228"/>
+				</component>
+				<component name="Excel file" library="xlsx" uid="17" kind="26">
+					<properties XSLTDefaultOutput="1" DynamicFilenames="1"/>
+					<view ltx="2655" lty="202" rbx="3036" rby="416"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="1" inpkey="34" expanded="1">
+								<entry name="document" ns="1" expanded="1">
+									<entry name="Workbook" expanded="1">
+										<entry name="Worksheet" expanded="1" displayselectionmode="selection">
+											<ranges>
+												<range id="1" start="1"/>
+											</ranges>
+											<entry name="Row" expanded="1" displayselectionmode="selection">
+												<entry name="Cell" datatype="string"/>
+											</entry>
+											<entry name="Row" expanded="1">
+												<condition>
+													<expression>
+														<function name="is-range-id">
+															<expression>
+																<constant value="1" datatype="long"/>
+															</expression>
+														</function>
+													</expression>
+												</condition>
+												<entry name="Cell" expanded="1" displayselectionmode="selection" datatype="string"/>
+												<entry name="Cell" expanded="1" annotation="N. ORDINE/PROGR. VIAGGIO" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="1" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" expanded="1" annotation="TARGA MOTRICE
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="2" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" expanded="1" annotation="TARGA RIMORHIO
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="3" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" expanded="1" annotation="NOME e COGNOME AUTISTA
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="4" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" expanded="1" annotation="NUMERO PATENTE
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="5" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" expanded="1" annotation="CELLULARE AUTISTA
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="6" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+											</entry>
+										</entry>
+										<entry name="Worksheet" expanded="1">
+											<condition>
+												<expression>
+													<function name="equal-ignorecase" library="xlsx">
+														<expression>
+															<attribute name="Name"/>
+														</expression>
+														<expression>
+															<constant value="Dati_Viaggio"/>
+														</expression>
+													</function>
+												</expression>
+											</condition>
+											<ranges>
+												<range id="2" start="1"/>
+											</ranges>
+											<entry name="Row" expanded="1" displayselectionmode="selection">
+												<entry name="Cell" datatype="string"/>
+											</entry>
+											<entry name="Row" inpkey="35" expanded="1" enabletitlerow="1">
+												<condition>
+													<expression>
+														<function name="is-range-id">
+															<expression>
+																<constant value="2" datatype="long"/>
+															</expression>
+														</function>
+													</expression>
+												</condition>
+												<entry name="Cell" expanded="1" displayselectionmode="selection" datatype="string"/>
+												<entry name="Cell" inpkey="36" expanded="1" annotation="N. ORDINE/PROGR. VIAGGIO
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="1" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" inpkey="37" expanded="1" annotation="TARGA MOTRICE
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="2" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" inpkey="38" expanded="1" annotation="TARGA RIMORHIO
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="3" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" inpkey="39" expanded="1" annotation="NOME e COGNOME AUTISTA
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="4" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" inpkey="40" expanded="1" annotation="NUMERO PATENTE
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="5" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+												<entry name="Cell" inpkey="41" expanded="1" annotation="CELLULARE AUTISTA
+" datatype="string">
+													<condition>
+														<expression>
+															<function name="logical-and" library="core">
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="n"/>
+																		</expression>
+																		<expression>
+																			<constant value="6" datatype="long"/>
+																		</expression>
+																	</function>
+																</expression>
+																<expression>
+																	<function name="equal" library="core">
+																		<expression>
+																			<attribute name="t"/>
+																		</expression>
+																		<expression>
+																			<constant value="s"/>
+																		</expression>
+																	</function>
+																</expression>
+															</function>
+														</expression>
+													</condition>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<excel/>
+					</data>
+				</component>
+				<component name="dbo.RPTS_SGA_Estrazioni" library="db" uid="3" kind="28">
+					<view ltx="1078" lty="375" rbx="1562" rby="703"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="42"/>
+							<entry name="dbo.RPTS_SGA_Estrazioni" displayselectionmode="selection"/>
+							<entry name="dbo.RPTS_SGA_Estrazioni" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="@soc" type="attribute" inpkey="43"/>
+								<entry name="@cli" type="attribute" inpkey="44"/>
+								<entry name="@dti" type="attribute" inpkey="45"/>
+								<entry name="@dtf" type="attribute" inpkey="46"/>
+								<entry name="@out" type="attribute" inpkey="47"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.RPTS_SGA_Estrazioni" displayselectionmode="selection"/>
+							<entry name="dbo.RPTS_SGA_Estrazioni" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="RS1" outkey="48" expanded="1">
+									<entry name="ORDINE_RIFERIMENTO" type="attribute" outkey="49"/>
+									<entry name="MOTRICE_TARGA" type="attribute" outkey="50"/>
+									<entry name="RIMORCHIO_TARGA" type="attribute" outkey="51"/>
+									<entry name="COGNOME_NOME_AUTISTA" type="attribute" outkey="52"/>
+									<entry name="CELLULARE_AUTISTA" type="attribute" outkey="53"/>
+									<entry name="NUMERO_PATENTE_AUTISTA" type="attribute" outkey="54"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="4" to="1"/>
+			<edge from="8" to="2"/>
+			<edge from="8" to="15"/>
+			<edge from="9" to="16"/>
+			<edge from="25" to="18"/>
+			<edge from="8" to="20"/>
+			<edge from="21" to="29"/>
+			<edge from="22" to="30"/>
+			<edge from="3" to="31"/>
+			<edge from="28" to="32"/>
+			<edge from="33" to="34"/>
+			<edge from="48" to="35"/>
+			<edge from="49" to="36"/>
+			<edge from="50" to="37"/>
+			<edge from="51" to="38"/>
+			<edge from="52" to="39"/>
+			<edge from="54" to="40"/>
+			<edge from="53" to="41"/>
+			<edge from="26" to="42"/>
+			<edge from="27" to="43"/>
+			<edge from="23" to="44"/>
+			<edge from="17" to="45"/>
+			<edge from="19" to="46"/>
+			<edge from="24" to="47"/>
+		</connections>
+	</component>
+</mapping>

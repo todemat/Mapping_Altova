@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ElencoViaggi" type="ViaggiType"/>
+	<xs:complexType name="ViaggiType">
+		<xs:sequence>
+			<xs:element name="Viaggi" type="ViaggioType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ViaggioType">
+		<xs:sequence>			
+			<xs:element name="CLIENTE" type="xs:string" minOccurs="0" maxOccurs="1"/>						
+			<xs:element name="Ordini" type="OrdineType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="OrdineType">
+		<xs:sequence>
+			<xs:element name="CARICO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DESTINATARIO" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="PALLET" type="xs:int" minOccurs="0" maxOccurs="1"/>
+			<xs:element name="DDT" type="xs:string" minOccurs="0" maxOccurs="1"/> 	
+			<xs:element name="EPAL" type="xs:int" minOccurs="0" maxOccurs="1"/>			
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

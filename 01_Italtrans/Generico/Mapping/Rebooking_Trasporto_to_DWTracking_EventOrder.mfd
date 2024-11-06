@@ -1,0 +1,668 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Edited with Altova MapForce 2022 -->
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="34">
+	<settings>
+		<deployment path="/Progetti/Italtrans/Mappings/Rebooking_Trasporto_to_DWTracking_EventOrder.mapping" server="itaas42" port="8082" user="NT/matteo.todeschini@italtransspa.local" toolversion="2022" resourcespath="/Progetti/_Object/GlobalResources.resources"/>
+	</settings>
+	<resources>
+		<datasources>
+			<datasource name="ItaSql02_DWTracking">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWTracking" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWTracking" path="ItaSql02_DWTracking">
+					<LocalViewStorage>
+						<LocalViewElement SQL="select RC_Import,TRAS_Import,CRM_Import,CLI_Import from TRCKConfigLoadEvent where sorgente=:Sorgente and attivo=1 and TMS_CodiceCliente=:TmsCodCli">
+							<PathElement Name="DWTracking" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_EventiConfigurazione" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Sorgente" type="varchar" size="50" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="TmsCodCli" type="varchar" size="10" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="select * from Dwtracking.dbo.TRCKEventOrder trck where trck.sorgente=:Sorgente and trck.TRAS_IdSgaOutBoxMessaggi =:Codice">
+							<PathElement Name="DWTracking" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_checkId" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Sorgente" type="varchar" size="50" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Codice" type="bigint" size="8" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="ItaSql02_DWTracking1">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaSql02_DWTracking" vendor="microsoftsqlserver" import_kind="ADO" name="ItaSql02_DWTracking1" path="ItaSql02_DWTracking1">
+					<LocalViewStorage/>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+			<datasource name="ItaltransTrasporto">
+				<properties/>
+				<database_connection is_global_resource="Yes" global_resource_alias="ItaltransTrasporto" vendor="microsoftsqlserver" import_kind="ADO" name="ItaltransTrasporto" path="ItaltransTrasporto">
+					<LocalViewStorage>
+						<LocalViewElement SQL="SELECT a.societa, a. codice, a.data_ora_inserimento, a.testo_email, ndd.DESTINATARIO 
+from NotificheDeterminate a with(nolock)
+left join NotificheDeterminateDestinatari ndd with(nolock) on a.SOCIETA =ndd.SOCIETA and a.CODICE =ndd.CODICE 
+where a.data_ora_inserimento&gt;=cast(getdate()-1 as date) and a.societa=1 and a.categoria=:Categoria and a.descrizione like &apos;%Rebooking - CLIENTI RITIRI/CONSEGNE%&apos; and ndd.destinatario=:destinatario
+">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_NotificheRebooking" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Categoria" type="varchar" size="3" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="destinatario" type="varchar" size="100" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+						<LocalViewElement SQL="select cliente from t2viaggiclienti where societa=1 and anno=:Anno and filiale=:Filiale and numero=:Numero">
+							<PathElement Name="Italtrans" Kind="Database"/>
+							<PathElement Name="dbo" Kind="Schema"/>
+							<PathElement Name="SELECT_ClienteViaggio" Kind="Select Statement"/>
+							<Parameters>
+								<Parameter name="Anno" type="smallint" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Filiale" type="varchar" size="2" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+								<Parameter name="Numero" type="int" size="4" prec="-1" scale="-1">
+									<Properties Detected="true"/>
+								</Parameter>
+							</Parameters>
+						</LocalViewElement>
+					</LocalViewStorage>
+					<LocalRelationsStorage/>
+					<RecordSetStructureStorage/>
+				</database_connection>
+			</datasource>
+		</datasources>
+	</resources>
+	<component name="defaultmap" uid="1">
+		<properties SelectedLanguage="builtin"/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="6" kind="2">
+					<targets>
+						<datapoint pos="0" key="17"/>
+					</targets>
+					<view lty="243" rbx="60" rby="260"/>
+					<data>
+						<constant value="003" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="10" kind="2">
+					<targets>
+						<datapoint pos="0" key="5"/>
+					</targets>
+					<view lty="375" rbx="53" rby="392"/>
+					<data>
+						<constant value="@" datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="9" kind="5">
+					<sources>
+						<datapoint pos="0" key="1"/>
+						<datapoint pos="1" key="2"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="3"/>
+					</targets>
+					<view ltx="982" lty="181" rbx="1076" rby="235"/>
+				</component>
+				<component name="first-items" library="core" uid="11" kind="5">
+					<sources>
+						<datapoint pos="0" key="6"/>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="18"/>
+					</targets>
+					<view ltx="1114" lty="181" rbx="1229" rby="235"/>
+				</component>
+				<component name="constant" library="core" uid="13" kind="2">
+					<targets>
+						<datapoint pos="0" key="19"/>
+					</targets>
+					<view ltx="9" lty="403" rbx="55" rby="420"/>
+					<data>
+						<constant value="/" datatype="string"/>
+					</data>
+				</component>
+				<component name="tokenize" library="core" uid="12" kind="5">
+					<sources>
+						<datapoint pos="0" key="7"/>
+						<datapoint pos="1" key="8"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="9"/>
+					</targets>
+					<view ltx="1279" lty="181" rbx="1373" rby="235"/>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<targets>
+						<datapoint pos="0" key="20"/>
+					</targets>
+					<view ltx="9" lty="419" rbx="57" rby="436"/>
+					<data>
+						<constant value="1" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<targets>
+						<datapoint pos="0" key="21"/>
+					</targets>
+					<view ltx="9" lty="435" rbx="57" rby="452"/>
+					<data>
+						<constant value="2" datatype="string"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<targets>
+						<datapoint pos="0" key="22"/>
+					</targets>
+					<view ltx="9" lty="451" rbx="57" rby="468"/>
+					<data>
+						<constant value="3" datatype="string"/>
+					</data>
+				</component>
+				<component name="item-at" library="core" uid="15" kind="5">
+					<sources>
+						<datapoint pos="0" key="13"/>
+						<datapoint pos="1" key="23"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="24"/>
+					</targets>
+					<view ltx="1458" lty="265" rbx="1568" rby="319"/>
+				</component>
+				<component name="item-at" library="core" uid="17" kind="5">
+					<sources>
+						<datapoint pos="0" key="14"/>
+						<datapoint pos="1" key="37"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="38"/>
+					</targets>
+					<view ltx="1488" lty="295" rbx="1598" rby="349"/>
+				</component>
+				<component name="item-at" library="core" uid="18" kind="5">
+					<sources>
+						<datapoint pos="0" key="15"/>
+						<datapoint pos="1" key="39"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="40"/>
+					</targets>
+					<view ltx="1518" lty="325" rbx="1628" rby="379"/>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<targets>
+						<datapoint pos="0" key="62"/>
+					</targets>
+					<view lty="494" rbx="172" rby="511"/>
+					<data>
+						<constant value="ALTOVA -&gt; Rebooking_Trasporto_to_DWTracking_EventOrder" datatype="string"/>
+					</data>
+				</component>
+				<component name="now" library="lang" uid="24" kind="5">
+					<targets>
+						<datapoint pos="0" key="63"/>
+					</targets>
+					<view ltx="49" lty="524" rbx="99" rby="562"/>
+				</component>
+				<component name="dbo.SELECT_ClienteViaggio" library="db" uid="14" kind="28">
+					<view ltx="1716" lty="215" rbx="2035" rby="306"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="48"/>
+							<entry name="dbo.SELECT_ClienteViaggio" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_ClienteViaggio" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Anno" type="attribute" inpkey="49"/>
+								<entry name="Filiale" type="attribute" inpkey="50"/>
+								<entry name="Numero" type="attribute" inpkey="51"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_ClienteViaggio" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_ClienteViaggio" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_ClienteViaggio" expanded="1">
+									<entry name="cliente" type="attribute" outkey="52"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="dbo.SELECT_EventiConfigurazione" library="db" uid="22" kind="28">
+					<view ltx="2236" lty="384" rbx="2574" rby="492"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="53"/>
+							<entry name="dbo.SELECT_EventiConfigurazione" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_EventiConfigurazione" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Sorgente" type="attribute" inpkey="54"/>
+								<entry name="TmsCodCli" type="attribute" inpkey="55"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_EventiConfigurazione" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_EventiConfigurazione" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_EventiConfigurazione" expanded="1">
+									<entry name="RC_Import" type="attribute" outkey="56"/>
+									<entry name="TRAS_Import" type="attribute" outkey="57"/>
+									<entry name="CRM_Import" type="attribute" outkey="59"/>
+									<entry name="CLI_Import" type="attribute" outkey="58"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="right-trim" library="lang" uid="25" kind="5">
+					<sources>
+						<datapoint pos="0" key="64"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="65"/>
+					</targets>
+					<view ltx="2104" lty="437" rbx="2183" rby="475"/>
+				</component>
+				<component name="constant" library="core" uid="5" kind="2">
+					<targets>
+						<datapoint pos="0" key="16"/>
+					</targets>
+					<view lty="259" rbx="122" rby="276"/>
+					<data>
+						<constant value="SGA.NOTIFICHE" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="3" kind="15">
+					<view lty="139" rbx="357" rby="175"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_EventiConfigurazione" type="routine" outkey="46" expanded="1"/>
+								<entry name="dbo.SELECT_checkId" type="routine" outkey="66"/>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWTracking">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_EventiConfigurazione" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_checkId" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<targets>
+						<datapoint pos="0" key="47"/>
+					</targets>
+					<view lty="321" rbx="186" rby="338"/>
+					<data>
+						<constant value="SGATRASPORTO_REBOOKING" datatype="string"/>
+					</data>
+				</component>
+				<component name="db" library="db" uid="7" kind="15">
+					<properties XSLTDefaultOutput="1"/>
+					<view ltx="2791" lty="93" rbx="3104" rby="834"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.TRCKEventOrder" type="table" inpkey="25" expanded="1">
+									<tableactions>
+										<action proceedchildren="1"/>
+									</tableactions>
+									<entry name="Sorgente" inpkey="26"/>
+									<entry name="TRAS_CodiceCliente" inpkey="27"/>
+									<entry name="RC_CodiceCliente" inpkey="28"/>
+									<entry name="TRAS_IdSgaOutBoxMessaggi" inpkey="29"/>
+									<entry name="TRAS_LinkNotifica" inpkey="30"/>
+									<entry name="FileInput" inpkey="60"/>
+									<entry name="DateInsertRecord" inpkey="61"/>
+									<entry name="RC_Import" inpkey="31"/>
+									<entry name="TRAS_Import" inpkey="32"/>
+									<entry name="CLI_Import" inpkey="33"/>
+									<entry name="CRM_Import" inpkey="34"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaSql02_DWTracking1">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="DWTracking" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="TRCKEventOrder" Kind="Table"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+				<component name="dbo.SELECT_NotificheRebooking" library="db" uid="4" kind="28">
+					<view ltx="516" lty="124" rbx="842" rby="369"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="41"/>
+							<entry name="dbo.SELECT_NotificheRebooking" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_NotificheRebooking" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Categoria" type="attribute" inpkey="42"/>
+								<entry name="destinatario" type="attribute" inpkey="43"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_NotificheRebooking" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_NotificheRebooking" outkey="44" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_NotificheRebooking" expanded="1">
+									<entry name="codice" type="attribute" outkey="45"/>
+									<entry name="testo_email" type="attribute" outkey="4"/>
+								</entry>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="dbo.SELECT_checkId" library="db" uid="26" kind="28">
+					<view ltx="1139" lty="423" rbx="1439" rby="623"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="procedure" inpkey="67"/>
+							<entry name="dbo.SELECT_checkId" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_checkId" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="true" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="Sorgente" type="attribute" inpkey="68"/>
+								<entry name="Codice" type="attribute" inpkey="69"/>
+							</entry>
+						</root>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="dbo.SELECT_checkId" displayselectionmode="selection"/>
+							<entry name="dbo.SELECT_checkId" outkey="70" expanded="1">
+								<condition>
+									<expression>
+										<function name="equal" library="core">
+											<expression>
+												<attribute name="input"/>
+											</expression>
+											<expression>
+												<constant value="false" datatype="boolean"/>
+											</expression>
+										</function>
+									</expression>
+								</condition>
+								<entry name="dbo.SELECT_checkId" expanded="1"/>
+							</entry>
+						</root>
+					</data>
+				</component>
+				<component name="exists" library="core" uid="28" kind="5">
+					<sources>
+						<datapoint pos="0" key="71"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="72"/>
+					</targets>
+					<view ltx="2015" lty="144" rbx="2091" rby="182"/>
+				</component>
+				<component name="result" library="core" uid="27" kind="3">
+					<sources>
+						<datapoint pos="0" key="73"/>
+						<datapoint pos="1" key="74"/>
+					</sources>
+					<targets>
+						<datapoint/>
+						<datapoint pos="1" key="75"/>
+					</targets>
+					<view ltx="2352" lty="68" rbx="2465" rby="122"/>
+				</component>
+				<component name="db" library="db" uid="2" kind="15">
+					<view rbx="357" rby="83"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="document" ns="1" expanded="1">
+								<entry name="dbo.SELECT_ClienteViaggio" type="routine" outkey="35"/>
+								<entry name="dbo.SELECT_NotificheRebooking" type="routine" displayselectionmode="selection"/>
+								<entry name="dbo.SELECT_NotificheRebooking" type="routine" outkey="36">
+									<condition>
+										<expression>
+											<function name="equal" library="core">
+												<expression>
+													<attribute name="input"/>
+												</expression>
+												<expression>
+													<constant value="false" datatype="boolean"/>
+												</expression>
+											</function>
+										</expression>
+									</condition>
+									<entry name="dbo.SELECT_NotificheRebooking" type="table" expanded="1"/>
+								</entry>
+							</entry>
+						</root>
+						<database ref="ItaltransTrasporto">
+							<data>
+								<selections>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_ClienteViaggio" Kind="Select Statement"/>
+									</selection>
+									<selection>
+										<PathElement Name="Italtrans" Kind="Database"/>
+										<PathElement Name="dbo" Kind="Schema"/>
+										<PathElement Name="SELECT_NotificheRebooking" Kind="Select Statement"/>
+									</selection>
+								</selections>
+							</data>
+						</database>
+					</data>
+				</component>
+			</children>
+		</structure>
+		<connections>
+			<edge from="4" to="1"/>
+			<edge from="5" to="2"/>
+			<edge from="3" to="6"/>
+			<edge from="18" to="7"/>
+			<edge from="19" to="8"/>
+			<edge from="9" to="13"/>
+			<edge from="9" to="14"/>
+			<edge from="9" to="15"/>
+			<edge from="20" to="23"/>
+			<edge from="75" to="25"/>
+			<edge from="47" to="26"/>
+			<edge from="52" to="27"/>
+			<edge from="52" to="28"/>
+			<edge from="45" to="29"/>
+			<edge from="4" to="30"/>
+			<edge from="56" to="31"/>
+			<edge from="57" to="32"/>
+			<edge from="58" to="33"/>
+			<edge from="59" to="34"/>
+			<edge from="21" to="37"/>
+			<edge from="22" to="39"/>
+			<edge from="36" to="41"/>
+			<edge from="17" to="42"/>
+			<edge from="16" to="43"/>
+			<edge from="35" to="48"/>
+			<edge from="38" to="49"/>
+			<edge from="40" to="50"/>
+			<edge from="24" to="51"/>
+			<edge from="46" to="53"/>
+			<edge from="47" to="54"/>
+			<edge from="65" to="55"/>
+			<edge from="62" to="60"/>
+			<edge from="63" to="61"/>
+			<edge from="52" to="64"/>
+			<edge from="66" to="67"/>
+			<edge from="47" to="68"/>
+			<edge from="45" to="69"/>
+			<edge from="70" to="71"/>
+			<edge from="44" to="73"/>
+			<edge from="72" to="74"/>
+		</connections>
+	</component>
+</mapping>
